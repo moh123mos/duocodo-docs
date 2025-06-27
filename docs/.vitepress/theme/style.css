@@ -1,0 +1,57 @@
+/* RTL support for Arabic locale
+html[lang="ar"] {
+    direction: rtl;
+}
+
+html[lang="ar"] .VPNav {
+    direction: rtl;
+}
+html[lang="ar"] .VPNavBar.has-sidebar .title {
+    direction: rtl;
+    left: auto;
+    right: 0;
+    z-index: 31;
+}
+
+html[lang="ar"] .VPNavBar .container {
+    flex-direction: row-reverse;
+}
+
+html[lang="ar"] .VPNavBarMenu {
+    direction: rtl;
+}
+
+html[lang="ar"] .VPNavBarMenuLink {
+    text-align: right;
+}
+
+html[lang="ar"] .VPSidebar {
+    direction: rtl;
+    inset-inline-start: 0;
+    z-index: 30;
+}
+html[lang="ar"] .VPNavBar:not(.home.top) .content-body {
+    z-index: 29;
+}
+html[lang="ar"] .VPSidebarItem {
+    text-align: right;
+}
+
+html[lang="ar"] .VPSidebarItem .text {
+    direction: rtl;
+}
+
+html[lang="ar"] .VPContent {
+    padding-inline-start: var(--vp-sidebar-width);
+    padding-inline-end: 0;
+    margin-inline-start: var(--vp-sidebar-width);
+}
+
+html[lang="ar"] .VPDoc {
+    direction: rtl;
+}
+
+html[lang="ar"] .VPSidebar.open {
+    right: 0;
+    left: auto;
+} */
