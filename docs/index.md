@@ -46,13 +46,12 @@ features:
 import { onMounted } from 'vue';
 onMounted(() => {
   // This script is used to handle the download of the DOCX file
-  const docxLink = document.querySelector('a[href="/duocode.docx.html"]');
-  docxLink.setAttribute('href', 'javascript:void(0)');
-  if (docxLink) {
-   docxLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      location.href = '/duocode.docx';
-    });
-  }
+  let docxLinks = document.querySelectorAll('a[href="/duocode.docx.html"]');
+  docxLinks.forEach((link) => {
+      link.setAttribute('href', 'javascript:void(0)');
+      link.addEventListener('click', (event) => {
+        location.href = '/duocode.docx';
+      });
+  })
 });
 </script>

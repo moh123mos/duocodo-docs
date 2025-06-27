@@ -18,7 +18,7 @@ export default {
                     { text: 'Download PDF', link: '/duocode.pdf' },
                     {
                         text: 'Download DOCX',
-                        link: '/docx'
+                        link: '/duocode.docx'
                     }
                 ]
             }
@@ -47,7 +47,18 @@ export default {
                 nav: [
                     { text: 'الرئيسية', link: '/' },
                     { text: 'الدليل', link: '/guide/' },
-                    { text: 'واجهة برمجة التطبيقات', link: '/api/' }
+                    { text: 'واجهة برمجة التطبيقات', link: '/api/' },
+                    {
+                        text: 'التحميلات',
+                        items: [
+                            { text: 'تحميل PDF', link: '/duocode.pdf' },
+                            {
+                                text: 'تحميل DOCX',
+                                link: '/duocode.docx'
+                            }
+                        ]
+                    }
+
                 ],
 
                 socialLinks: [

@@ -19,3 +19,16 @@ Our project aims to teach programming using an approach inspired by **Duolingo**
 * **Community engagement**: Users can share solutions and view others' approaches to promote peer learning.
 * **Competitive edge**: Optional coding challenges and competitions with leaderboards.
 * **Clear progression tracking**: Visual indicators of completed lessons, mastered topics, and pending modules.
+
+<script setup>
+import { onMounted } from 'vue';
+onMounted(() => {
+  let docxLinks = document.querySelectorAll('a[href="/duocode.docx.html"]');
+  docxLinks.forEach((link) => {
+      link.setAttribute('href', 'javascript:void(0)');
+      link.addEventListener('click', (event) => {
+        location.href = '/duocode.docx';
+      });
+  })
+});
+</script>
