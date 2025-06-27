@@ -15,11 +15,8 @@ hero:
 features:
   - title: Feature 1
     details: Description of key feature
-    img: /images/feature1.png
   - title: Feature 2
     details: Description of another feature
-    img: /images/feature2.png
   - title: Feature 3
     details: Description of third feature
-    img: /images/feature3.png
 ---
