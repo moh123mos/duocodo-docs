@@ -5,7 +5,7 @@ hero:
   text: "Graduation Project Documentation"
   tagline: "Brief description of what your project does"
   image:
-    src: http://vitepress.dev/vitepress-logo-large.svg
+    src: /hero.jpg
     alt: DuoCode Project
   actions:
     - theme: brand
@@ -22,18 +22,24 @@ hero:
       link: /duocode.docx
 
 features:
-  - icon: 📝
-    title: Focus on Your Content
-    details: Effortlessly create beautiful documentation sites with just markdown.
-  - icon: ⚡
-    title: Enjoy the Vite DX
-    details: Instant server start, lightning fast hot updates, and leverage Vite ecosystem plugins.
-  - icon: 🎨
-    title: Customize with Vue
-    details: Use Vue syntax and components directly in markdown, or build custom themes with Vue.
-  - icon: 🚀
-    title: Ship Fast Sites
-    details: Fast initial load with static HTML, fast post-load navigation with client-side routing.
+  - icon: 🎯
+    title: Progressive Learning Path
+    details: Duolingo-style lessons structured in path format with levels, checkpoints, and clear progression tracking.
+  - icon: 🎮
+    title: Gamified Experience
+    details: Earn badges, maintain streaks, gain experience points, and compete on leaderboards to stay motivated.
+  - icon: 💻
+    title: Hands-on Coding Practice
+    details: Integrated problem-solving with instant feedback, model answers, and full solution breakdowns.
+  - icon: 📊
+    title: Code Complexity Analysis
+    details: Each solution includes performance discussions and complexity analysis to deepen understanding.
+  - icon: 🏗️
+    title: Modular Curriculum
+    details: Covers programming fundamentals and specialized modules like OOP, algorithms, and web development.
+  - icon: 👥
+    title: Community Engagement
+    details: Share solutions, view others' approaches, and participate in coding challenges to promote peer learning.
 ---
 
 <script setup>

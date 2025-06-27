@@ -18,32 +18,6 @@ export default {
                 ]
             }
         ],
-
-        sidebar: [
-            {
-                text: 'Introduction',
-                items: [
-                    { text: 'Overview', link: '/introduction/overview' },
-                    { text: 'Getting Started', link: '/introduction/getting-started' }
-                ]
-            },
-            {
-                text: 'Architecture',
-                items: [
-                    { text: 'System Design', link: '/architecture/system-design' },
-                    { text: 'Database Schema', link: '/architecture/database' }
-                ]
-            },
-            {
-                text: 'Implementation',
-                items: [
-                    { text: 'Frontend', link: '/implementation/frontend' },
-                    { text: 'Backend', link: '/implementation/backend' },
-                    { text: 'Testing', link: '/implementation/testing' }
-                ]
-            }
-        ],
-
         socialLinks: [
             { icon: 'github', link: 'https://github.com/moh123mos/duocode-docs' }
         ]
@@ -69,31 +43,6 @@ export default {
                     { text: 'الرئيسية', link: '/' },
                     { text: 'الدليل', link: '/guide/' },
                     { text: 'واجهة برمجة التطبيقات', link: '/api/' }
-                ],
-
-                sidebar: [
-                    {
-                        text: 'المقدمة',
-                        items: [
-                            { text: 'نظرة عامة', link: '/introduction/overview' },
-                            { text: 'البدء', link: '/introduction/getting-started' }
-                        ]
-                    },
-                    {
-                        text: 'البنية',
-                        items: [
-                            { text: 'تصميم النظام', link: '/architecture/system-design' },
-                            { text: 'مخطط قاعدة البيانات', link: '/architecture/database' }
-                        ]
-                    },
-                    {
-                        text: 'التنفيذ',
-                        items: [
-                            { text: 'الواجهة الأمامية', link: '/implementation/frontend' },
-                            { text: 'الواجهة الخلفية', link: '/implementation/backend' },
-                            { text: 'الاختبار', link: '/implementation/testing' }
-                        ]
-                    }
                 ],
 
                 socialLinks: [

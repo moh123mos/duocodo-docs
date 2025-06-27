@@ -55,3 +55,197 @@ html[lang="ar"] .VPSidebar.open {
     right: 0;
     left: auto;
 } */
+
+/* Animated gradient background for hero image */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+.image-src {
+  border-radius: 15px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: floatAndGlow 4s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(189, 52, 254, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.image-src::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  animation: shimmer 3s linear infinite;
+  z-index: 1;
+}
+
+.image-src:hover {
+  transform: scale(1.1) rotateY(10deg) rotateX(5deg);
+  box-shadow: 0 20px 50px rgba(189, 52, 254, 0.5);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.image-bg {
+  background: linear-gradient(-45deg, #bd34fe, #47caff, #ff6b6b, #4ecdc4);
+  background-size: 400% 400%;
+  width: 192px;
+  height: 192px;
+  filter: var(--vp-home-hero-image-filter);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: gradientShift 3s ease infinite, pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatAndGlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    box-shadow: 0 10px 30px rgba(189, 52, 254, 0.3);
+  }
+  33% {
+    transform: translateY(-20px) rotate(1deg);
+    box-shadow: 0 15px 35px rgba(71, 202, 255, 0.4);
+  }
+  66% {
+    transform: translateY(-15px) rotate(-1deg);
+    box-shadow: 0 12px 32px rgba(255, 107, 107, 0.35);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Feature cards hover animations */
+.VPFeatures .VPFeature {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.VPFeatures .VPFeature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  transition: left 0.6s;
+  z-index: 1;
+}
+
+.VPFeatures .VPFeature:hover::before {
+  left: 100%;
+}
+
+.VPFeatures .VPFeature:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--vp-c-brand-1);
+}
+
+.VPFeatures .VPFeature .icon {
+  transition: transform .8s ease;
+  font-size: 2.5rem;
+}
+
+.VPFeatures .VPFeature:hover .icon {
+  transform: rotateY(360deg) scale(1.1);
+}
+
+.VPFeatures .VPFeature .title {
+  transition: color 1s ease;
+}
+
+.VPFeatures .VPFeature:hover .title {
+  color: var(--vp-c-brand-1);
+}
+
+/* Staggered animation for feature cards */
+.VPFeatures .VPFeature:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.VPFeatures .VPFeature:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.VPFeatures .VPFeature:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.VPFeatures .VPFeature:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.VPFeatures .VPFeature:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.VPFeatures .VPFeature:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Initial animation when page loads */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.VPFeatures .VPFeature {
+  animation: fadeInUp 0.6s ease forwards;
+}
