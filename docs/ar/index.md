@@ -1,22 +1,58 @@
 ---
 layout: home
 hero:
-    name: "ديوكود"
-    text: "توثيق مشروع التخرج"
-    tagline: "وصف موجز لما يقدمه مشروعك"
-    actions:
-        - theme: brand
-          text: ابدأ الآن
-          link: /ar/introduction/overview
-        - theme: alt
-          text: عرض على GitHub
-          link: https://github.com/moh123mos/duocode-docs
+  name: "دُوكود"
+  text: "توثيق مشروع التخرج"
+  tagline: "منصة تعليم البرمجة مستوحاة من دولينجو مع التعلم التفاعلي"
+  image:
+    src: /hero.jpg
+    alt: مشروع دُوكود
+  actions:
+    - theme: brand
+      text: ابدأ الآن
+      link: /ar/introduction/overview
+    - theme: alt
+      text: عرض على GitHub
+      link: https://github.com/moh123mos/duocode-docs
+    - theme: alt
+      text: 📄 تحميل PDF
+      link: /duocode.pdf
+    - theme: alt
+      text: 📝 تحميل DOCX
+      link: /duocode.docx
 
 features:
-    - title: الميزة الأولى
-      details: وصف للميزة الرئيسية
-    - title: الميزة الثانية
-      details: وصف لميزة أخرى
-    - title: الميزة الثالثة
-      details: وصف للميزة الثالثة
+  - icon: 🎯
+    title: مسار التعلم التدريجي
+    details: دروس بأسلوب دولينجو منظمة في شكل مسار مع مستويات ونقاط تحقق وتتبع واضح للتقدم.
+  - icon: 🎮
+    title: تجربة تفاعلية ممتعة
+    details: احصل على شارات، حافظ على سلاسل التتابع، اكسب نقاط خبرة، وتنافس في لوحات المتصدرين للبقاء متحفزاً.
+  - icon: 💻
+    title: ممارسة البرمجة العملية
+    details: حل المشاكل المدمج مع ردود فعل فورية، إجابات نموذجية، وشرح مفصل للحلول.
+  - icon: 📊
+    title: تحليل تعقيد الكود
+    details: كل حل مصحوب بمناقشات الأداء وتحليل التعقيد لتعميق الفهم.
+  - icon: 🏗️
+    title: منهج معياري
+    details: يغطي أساسيات البرمجة ووحدات متخصصة مثل البرمجة كائنية التوجه، الخوارزميات، وتطوير الويب.
+  - icon: 👥
+    title: مشاركة المجتمع
+    details: شارك الحلول، اطلع على مناهج الآخرين، وشارك في تحديات البرمجة لتعزيز التعلم التشاركي.
 ---
+
+<script setup>
+import { onMounted } from 'vue';
+onMounted(() => {
+  // This script is used to handle the download of the DOCX file
+  const docxLink = document.querySelector('a[href="/duocode.docx.html"]');
+  docxLink.setAttribute('href', 'javascript:void(0)');
+  if (docxLink) {
+   docxLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      location.href = '/duocode.docx';
+    });
+  }
+});
+</script>

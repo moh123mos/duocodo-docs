@@ -1,14 +1,14 @@
-# Project Overview
+## Project Overview
 
-## Problem Statement
+### Problem Statement
 
 Learning programming can be overwhelming for beginners due to the fragmented nature of resources, lack of guided practice, and insufficient motivation or feedback loops. Many learners struggle to maintain consistency and confidence, especially when switching between theoretical concepts and practical application. Traditional educational platforms often fail to make the learning process engaging and personalized.
 
-## Solution Approach
+### Solution Approach
 
 Our project aims to teach programming using an approach inspired by **Duolingo**—breaking down programming concepts into small, interactive lessons and combining them with gamified learning elements. The platform will support various programming domains, covering **fundamentals to modular concepts**. The learning process integrates **explanations (via articles or videos)** with **hands-on coding exercises**, **problem-solving**, **code walkthroughs**, and **complexity analysis**. Additionally, users can **share their solutions**, earn **badges**, and compete on leaderboards, fostering a vibrant and motivating learning environment.
 
-## Key Features
+### Key Features
 
 * **Duolingo-style progressive learning**: Lessons are structured in a path-like format with levels and checkpoints.
 * **Multi-format content**: Each concept includes an explanation in either video or article form.
