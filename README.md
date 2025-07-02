@@ -12,13 +12,13 @@ pandoc ./docs/introduction/overview.md -o ./docs/public/duocode.docx
 ---
 
 ## install packages:
-- Open cmd
+- Open cmd/pwsh
 - Navigate to the project folder
 - Run `npm install`
 ---
 
-## Run project to test:
-- Open cmd
+## Run project:
+- Open cmd/pwsh
 - Navigate to project folder
 - Run `npm run docs:dev`
 - Search for [http://localhost:3000](http://localhost:3000) on your browser.
