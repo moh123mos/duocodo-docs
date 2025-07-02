@@ -1,24 +1,83 @@
 ## Project Overview
 
+### Main Idea
+
+Create a **Duolingo-inspired programming education platform** that reduces beginner overwhelm through **bite-sized**, **gamified lessons**. The platform integrates **clear explanations**, **interactive code practice**, **community features**, and **progress tracking** to deliver a **motivating and structured learning experience**.
+
+---
+
+### Project Scope
+
+* **Curriculum & Content**
+
+  * Structured lessons from **fundamentals** to **advanced topics** (e.g., OOP, algorithms, web dev).
+  * **Multi-format content**: articles, videos, and walkthroughs.
+
+* **Integrated Code Editor**
+
+  * Runs **Python** and **JavaScript** in-browser.
+  * Real-time execution, **syntax highlighting**, **line numbering**, and **error feedback**.
+
+* **Interactive Exercises**
+
+  * Hands-on problems with **instant validation** and **model solutions**.
+  * Optional **complexity analysis** for deeper understanding.
+
+* **Gamification Features**
+
+  * **XP**, badges, levels, streaks, and unlockable lessons.
+  * **Leaderboards** for activity and progress.
+
+* **User Progress Tracking**
+
+  * Personalized roadmap: track **completed**, **ongoing**, and **locked** modules.
+  * Skill mastery levels and lesson history.
+
+* **Community & Collaboration**
+
+  * Share solutions, **review peer code**, and engage in discussions.
+  * Optional **challenges** and **friendly competitions**.
+
+---
+
 ### Problem Statement
 
-Learning programming can be overwhelming for beginners due to the fragmented nature of resources, lack of guided practice, and insufficient motivation or feedback loops. Many learners struggle to maintain consistency and confidence, especially when switching between theoretical concepts and practical application. Traditional educational platforms often fail to make the learning process engaging and personalized.
+Many beginners find learning programming **overwhelming** due to:
+
+* **Fragmented resources** with no clear path.
+* Lack of **guided practice** and personalized feedback.
+* Weak motivation loops, leading to **inconsistency** and **self-doubt**.
+
+Traditional platforms often lack the **engagement**, **structure**, and **community support** needed for effective self-paced learning.
+
+---
 
 ### Solution Approach
 
-Our project aims to teach programming using an approach inspired by **Duolingo**—breaking down programming concepts into small, interactive lessons and combining them with gamified learning elements. The platform will support various programming domains, covering **fundamentals to modular concepts**. The learning process integrates **explanations (via articles or videos)** with **hands-on coding exercises**, **problem-solving**, **code walkthroughs**, and **complexity analysis**. Additionally, users can **share their solutions**, earn **badges**, and compete on leaderboards, fostering a vibrant and motivating learning environment.
+Inspired by **Duolingo**, the platform offers:
 
-### Key Features
+* **Interactive micro-lessons** for each concept
+* Integrated **explanations + code exercises**
+* **Gamification elements** like XP, streaks, and badges
+* **Code complexity analysis** to understand efficiency
+* Peer-to-peer learning through **solution sharing** and **leaderboards**
 
-* **Duolingo-style progressive learning**: Lessons are structured in a path-like format with levels and checkpoints.
-* **Multi-format content**: Each concept includes an explanation in either video or article form.
-* **Integrated problem-solving**: Practice problems with instant feedback, model answers, and full solution breakdowns.
-* **Code complexity analysis**: Each solution is accompanied by performance and complexity discussions.
-* **Modular curriculum**: Covers programming fundamentals as well as specialized modules (e.g., OOP, algorithms, web development).
-* **Gamification**: Badges, streaks, and experience points to keep users engaged.
-* **Community engagement**: Users can share solutions and view others' approaches to promote peer learning.
-* **Competitive edge**: Optional coding challenges and competitions with leaderboards.
-* **Clear progression tracking**: Visual indicators of completed lessons, mastered topics, and pending modules.
+This approach ensures **personalized**, **motivating**, and **practical** learning at every step.
+
+---
+
+### Project Objectives
+
+* **Progressive, path-based curriculum** with levels and checkpoints
+* **Multi-format delivery**: video and article explanations
+* **Instant-feedback coding problems** with solution walkthroughs
+* **Complexity & performance analysis** for deeper learning
+* **Modular design**: includes OOP, algorithms, and web dev
+* **Gamified progress system** (XP, streaks, achievements)
+* **Community engagement** via shared solutions and peer reviews
+* **Optional competitions** and global leaderboards
+* **Visual progress tracking** with clear skill indicator
+---
 
 <script setup>
 import { onMounted } from 'vue';
