@@ -10,6 +10,7 @@ pandoc ./docs/introduction/overview.md -o ./docs/public/duocode.docx
 
 ## OR double click on __convert.cmd__ to automatically convert md to pdf and docx.
 ---
+---
 
 ## install packages:
 - Open cmd/pwsh
