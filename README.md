@@ -21,4 +21,4 @@ pandoc ./docs/introduction/overview.md -o ./docs/public/duocode.docx
 - Open cmd/pwsh
 - Navigate to project folder
 - Run `npm run docs:dev`
-- Search for [http://localhost:3000](http://localhost:3000) on your browser.
+- goto localhost:3000 on your browser.
