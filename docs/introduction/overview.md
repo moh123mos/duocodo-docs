@@ -1,4 +1,4 @@
-## Project Overview
+## Chapter 1: Project Overview
 
 ### Main Idea
 
@@ -206,6 +206,50 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
   - Host quarterly themed competitions (e.g., "Sustainable Code Challenge") with expert judging.  
 
 ---
+
+## Chapter 2: Project Background
+
+### Project Background
+
+**Figma** is a versatile, cloud‑based design platform widely used for crafting user interfaces, wireframes, and interactive prototypes. It enables designers and stakeholders to collaborate in real time, streamlining the design process from ideation to final output. Figma’s rich feature set — including vector editing, component‑based design, version history, and a robust plugin ecosystem — makes it central to modern UI/UX workflows. As a browser‑based tool, it removes installation barriers and ensures cross‑device accessibility.
+
+For more detailed imformation. you can refer to ([Figma](https://www.figma.com/)).
+
+
+**Nuxt.js** is a high-level framework built on Vue.js, optimized for developing server-rendered applications and static websites. It offers features like automatic routing, server-side rendering (SSR), static site generation, and a modular architecture. With built-in support for SEO, performance optimizations, and a rich community-driven ecosystem, Nuxt simplifies the development of scalable, high‑performance web apps.
+
+For more detailed imformation. you can refer to ([Nuxt.js](https://nuxt.com/)).
+
+
+**Node.js** is a high-performance JavaScript runtime built on Chrome’s V8 engine, enabling developers to run JavaScript on the server side. Renowned for its event-driven, non-blocking I/O model, it excels at building scalable network applications and APIs. Supported by npm’s extensive package ecosystem, Node.js facilitates rapid development of web servers and real-time services.
+
+For more detailed imformation. you can refer to ([Node.js](https://nodejs.org/)).
+
+
+**OpenRouter** is an open‑source API platform that offers a unified interface to multiple large language models (LLMs). It enables developers to seamlessly integrate AI features—such as natural language processing, chat interfaces, and content generation—while managing authentication, fallback strategies, and cost efficiency. OpenRouter simplifies switching between or combining models from different providers.
+
+For more detailed imformation. you can refer to ([OpenRouter](https://openrouter.ai/)).
+
+
+**Gemini API** is a developer-friendly interface provided by Google to access the capabilities of its Gemini family of large language models (LLMs). It allows developers to integrate advanced AI features into their applications, including natural language understanding, code generation, content summarization, and multi-modal reasoning (text, image, and more). The Gemini API is accessible through Google AI Studio and is designed to support rapid prototyping and scalable deployment of generative AI solutions. With robust security, comprehensive documentation, and seamless integration with Google Cloud, the Gemini API enables powerful, flexible AI experiences across a wide range of use cases.
+
+For more detailed imformation. you can refer to [Gemini API documentation](https://ai.google.dev/gemini-api/docs)
+
+
+**Monaco Editor** is the highly customizable, in‑browser code editor that powers Visual Studio Code. It supports syntax highlighting, IntelliSense, code folding, and more. Lightweight yet powerful, Monaco is perfect for embedding code editing experiences within web applications such as educational platforms, developer tools, or live coding playgrounds.
+
+For more detailed imformation. you can refer to ([Monaco Editor](https://microsoft.github.io/monaco-editor/)).
+
+---
+
+### Related Work
+
+---
+
+### Summary
+
+---
+
 
 <script setup>
 import { onMounted } from 'vue';
