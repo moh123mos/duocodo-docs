@@ -10,16 +10,13 @@ hero:
   actions:
     - theme: brand
       text: ابدأ الآن
-      link: /ar/introduction/overview
+      link: /ar/guide/overview
     - theme: alt
       text: عرض على GitHub
       link: https://github.com/moh123mos/duocode-docs
     - theme: alt
       text: 📄 تحميل PDF
       link: /duocode.pdf
-    - theme: alt
-      text: 📝 تحميل DOCX
-      link: /duocode.docx
 
 features:
   - icon: 🎯
@@ -41,18 +38,3 @@ features:
     title: مشاركة المجتمع
     details: شارك الحلول، اطلع على مناهج الآخرين، وشارك في تحديات البرمجة لتعزيز التعلم التشاركي.
 ---
-
-<script setup>
-import { onMounted } from 'vue';
-onMounted(() => {
-  // This script is used to handle the download of the DOCX file
-  const docxLink = document.querySelector('a[href="/duocode.docx.html"]');
-  docxLink.setAttribute('href', 'javascript:void(0)');
-  if (docxLink) {
-   docxLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      location.href = '/duocode.docx';
-    });
-  }
-});
-</script>

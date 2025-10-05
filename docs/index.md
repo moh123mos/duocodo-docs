@@ -1,25 +1,22 @@
 ---
 layout: home
 hero:
-  name: "DuoCode"
+  name: "DuoCodo"
   text: "Graduation Project Documentation"
   tagline: "Brief description of what your project does"
   image:
     src: /hero.jpg
-    alt: DuoCode Project
+    alt: DuoCodo Project
   actions:
     - theme: brand
       text: Get Started
-      link: /introduction/overview
+      link: /guide/overview
     - theme: alt
       text: View on GitHub
       link: https://github.com/moh123mos/duocode-docs
     - theme: alt
       text: 📄 Download PDF
       link: /duocode.pdf
-    - theme: alt
-      text: 📝 Download DOCX
-      link: /duocode.docx
 
 features:
   - icon: 🎯
@@ -41,17 +38,3 @@ features:
     title: Community Engagement
     details: Share solutions, view others' approaches, and participate in coding challenges to promote peer learning.
 ---
-
-<script setup>
-import { onMounted } from 'vue';
-onMounted(() => {
-  // This script is used to handle the download of the DOCX file
-  let docxLinks = document.querySelectorAll('a[href="/duocode.docx.html"]');
-  docxLinks.forEach((link) => {
-      link.setAttribute('href', 'javascript:void(0)');
-      link.addEventListener('click', (event) => {
-        location.href = '/duocode.docx';
-      });
-  })
-});
-</script>

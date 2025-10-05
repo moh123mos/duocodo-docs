@@ -1,5 +1,5 @@
 export default {
-    title: 'DuoCode',
+    title: 'DuoCodo',
     description: 'Documentation for my awesome graduation project',
     head: [
         ['link', { rel: 'icon', href: '/favicon.svg' }],
@@ -8,24 +8,47 @@ export default {
         ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }],
     ],
     themeConfig: {
+        search: {
+            provider: 'local',
+        },
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Guide', link: '/guide/' },
-            { text: 'API', link: '/api/' },
+            { text: 'Guide', link: '/guide/overview' },
+            { text: 'Team', link: '/team' },
+            // { text: 'API', link: '/api/' },
             {
-                text: 'Downloads',
-                items: [
-                    { text: 'Download PDF', link: '/duocode.pdf' },
-                    {
-                        text: 'Download DOCX',
-                        link: '/duocode.docx'
-                    }
-                ]
+                text: 'Download PDF',
+                link: '/duocode.pdf'
             }
         ],
+        sidebar: {
+            // This sidebar gets displayed when a user
+            // is on `guide` directory.
+            '/guide/': [
+                {
+                    text: 'Introduction',
+                    collapsed: false,
+                    items: [
+                        { text: 'CH1: Overview', link: '/guide/overview' }
+                    ]
+                },
+                {
+                    text: 'Analysis',
+                    collapsed: true,
+                    items: [
+                        { text: 'CH2: Background', link: '/guide/background' },
+                        { text: 'CH3: Requirements', link: '/guide/requirements' },
+                    ]
+                },
+                {
+                    text: 'All Chapters',
+                    link: '/guide/one-for-all'
+                }
+            ]
+        },
         socialLinks: [
             { icon: 'github', link: 'https://github.com/moh123mos/duocode-docs' }
-        ]
+        ],
     },
     locales: {
         root: {
@@ -33,7 +56,7 @@ export default {
             lang: 'en',
             link: '/',
             dir: 'ltr',
-            title: 'DuoCode',
+            title: 'DuoCodo',
             description: 'Documentation for my awesome graduation project'
         },
         ar: {
@@ -45,22 +68,36 @@ export default {
             description: 'توثيق لمشروع التخرج الرائع',
             themeConfig: {
                 nav: [
-                    { text: 'الرئيسية', link: '/' },
-                    { text: 'الدليل', link: '/guide/' },
-                    { text: 'واجهة برمجة التطبيقات', link: '/api/' },
-                    {
-                        text: 'التحميلات',
-                        items: [
-                            { text: 'تحميل PDF', link: '/duocode.pdf' },
-                            {
-                                text: 'تحميل DOCX',
-                                link: '/duocode.docx'
-                            }
-                        ]
-                    }
-
+                    { text: 'الرئيسية', link: '/ar' },
+                    { text: 'الدليل', link: '/ar/guide/overview' },
+                    // { text: 'واجهة برمجة التطبيقات', link: '/api/' },
+                    { text: 'تحميل PDF', link: '/duocode.pdf' },
                 ],
-
+                sidebar: {
+                    // This sidebar gets displayed when a user
+                    // is on `guide` directory.
+                    '/guide/': [
+                        {
+                            text: 'المقدمة',
+                            collapsed: false,
+                            items: [
+                                { text: 'CH1: نظرة عامة', link: '/guide/overview' }
+                            ]
+                        },
+                        {
+                            text: 'التحليل',
+                            collapsed: true,
+                            items: [
+                                { text: 'CH2: الخلفية', link: '/guide/background' },
+                                { text: 'CH3: المتطلبات', link: '/guide/requirements' },
+                            ]
+                        },
+                        {
+                            text: 'جميع الفصول',
+                            link: '/guide/one-for-all'
+                        }
+                    ]
+                },
                 socialLinks: [
                     { icon: 'github', link: ' https://github.com/moh123mos/duocode-docs' }
                 ],
