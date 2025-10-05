@@ -561,7 +561,7 @@ Then the related work was described, (Which is listed in the previous table), an
 
   - **Content & Instructional Design (shared responsibility):**  
     Instead of dedicated content creators, **all team members will collaborate** on producing and localizing course material in Arabic. This includes designing structured lessons, writing exercises, and embedding gamification mechanics. Team members’ technical expertise ensures content is accurate, while shared responsibility distributes workload evenly.  
-    ![Figure 3.1: Development Team Roles](../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg)
+    ![Figure 3.1: Development Team Roles](../public/assets/CH03/Figure_3.1_Development_Team_Roles.png)
 ---
 
 ### 3.1.3 Economic Feasibility
@@ -581,29 +581,27 @@ Then the related work was described, (Which is listed in the previous table), an
 
 **Development and Operational Costs (Years 0–3):**
 
-| Item | Year 0 | Year 1 | Year 2 | Year 3 | Total |
-|------|-------:|-------:|-------:|-------:|------:|
-| **Development (one-time)** | $280,000 | $0 | $0 | $0 | $280,000 |
-|  Dev team salaries | $180,000 | – | – | – | $180,000 |
-|  Content creation | $100,000 | – | – | – | $100,000 |
-| **Hosting/AI/maint.** | $0 | $20,000 | $20,000 | $20,000 | $60,000 |
-| **Marketing** | $0 | $50,000 | $50,000 | $50,000 | $150,000 |
-| **Total Cost** | **$280,000** | **$70,000** | **$70,000** | **$70,000** | **$490,000** |
+| Item                       |       Year 0 |      Year 1 |      Year 2 |      Year 3 |        Total |
+| -------------------------- | ----------- | ---------- | ---------- | ---------- | ----------- |
+| **Development (one-time)** |     $280,000 |          $0 |          $0 |          $0 |     $280,000 |
+| Dev team salaries          |     $180,000 |           – |           – |           – |     $180,000 |
+| Content creation           |     $100,000 |           – |           – |           – |     $100,000 |
+| **Hosting/AI/maint.**      |           $0 |     $20,000 |     $20,000 |     $20,000 |      $60,000 |
+| **Marketing**              |           $0 |     $50,000 |     $50,000 |     $50,000 |     $150,000 |
+| **Total Cost**             | **$280,000** | **$70,000** | **$70,000** | **$70,000** | **$490,000** |
 
 **ROI and Cumulative Net:**
 
-| Metric | Year 0 | Year 1 | Year 2 | Year 3 | Total |
-|--------|-------:|-------:|-------:|-------:|------:|
-| **Revenue** | $0 | $150,000 | $225,000 | $300,000 | $675,000 |
-| **Total Cost** | $280,000 | $70,000 | $70,000 | $70,000 | $490,000 |
-| **Net Profit** | -$280,000 | $80,000 | $155,000 | $230,000 | $185,000 |
-| **Cumulative Net** | -$280,000 | -$200,000 | -$45,000 | $185,000 | — |
+| Metric             |    Year 0 |    Year 1 |   Year 2 |   Year 3 |    Total |
+| ------------------ | -------- | -------- | ------- | ------- | ------- |
+| **Revenue**        |        $0 |  $150,000 | $225,000 | $300,000 | $675,000 |
+| **Total Cost**     |  $280,000 |   $70,000 |  $70,000 |  $70,000 | $490,000 |
+| **Net Profit**     | -$280,000 |   $80,000 | $155,000 | $230,000 | $185,000 |
+| **Cumulative Net** | -$280,000 | -$200,000 | -$45,000 | $185,000 |        — |
 
 > **3-Year ROI:** $185,000 ÷ $490,000 ≈ **37.8%**
 
----
-
-![Figure 3.2: Net Profit per Year](../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.svg)
+![Figure 3.2: Net Profit per Year](../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.png)
 
 ---
 
@@ -623,10 +621,7 @@ To illustrate:
 - Achieved at ~**16,333 paid enrollments** (490,000 ÷ $30).  
 - Based on projected growth, this milestone will be reached in the **third year of operation**.  
 
-
----
-
-![Figure 3.3: Cumulative Revenue vs Cumulative Cost](../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg)
+![Figure 3.3: Cumulative Revenue vs Cumulative Cost](../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.png)
 
 ---
 
@@ -636,8 +631,8 @@ This section identifies key risks for the coding education platform across techn
 
 #### 3.2.1 Technical Risks
 
-| Risk | Description | Likelihood | Impact | Mitigation |
-|------|-------------|------------|--------|------------|
+| **Risk** | **Description** | **Likelihood** | **Impact** | **Mitigation** |
+|----------|-----------------|----------------|------------|----------------|
 | **Scalability & Uptime** | High traffic or data growth could overwhelm the platform. Without modular architecture and robust testing, performance bottlenecks and downtime can occur. | High | High | Design a scalable, microservices-based architecture; use horizontal scaling (load balancing, CDN, caching); implement automated testing and monitoring to detect and prevent bottlenecks. |
 | **External API Integration** | Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes. | Medium | High | Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails. |
 | **Real-time Code Execution** | Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability. | Medium | High | Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover. |
