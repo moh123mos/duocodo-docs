@@ -99,7 +99,7 @@ export default {
                     ]
                 },
                 socialLinks: [
-                    { icon: 'github', link: ' https://github.com/moh123mos/duocode-docs' }
+                    { icon: 'github', link: ' https://github.com/moh123mos/duocodo-docs' }
                 ],
                 outline: {
                     label: 'في هذه الصفحة'

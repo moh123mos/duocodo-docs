@@ -13,7 +13,7 @@ hero:
       link: /guide/overview
     - theme: alt
       text: View on GitHub
-      link: https://github.com/moh123mos/duocode-docs
+      link: https://github.com/moh123mos/duocodo-docs
     - theme: alt
       text: 📄 Download PDF
       link: /duocode.pdf
