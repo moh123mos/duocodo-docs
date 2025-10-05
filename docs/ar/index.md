@@ -13,13 +13,13 @@ hero:
       link: /ar/introduction/overview
     - theme: alt
       text: عرض على GitHub
-      link: https://github.com/moh123mos/duocode-docs
+      link: https://github.com/moh123mos/duocodo-docs
     - theme: alt
       text: 📄 تحميل PDF
-      link: /duocode.pdf
+      link: /duocodo.pdf
     - theme: alt
       text: 📝 تحميل DOCX
-      link: /duocode.docx
+      link: /duocodo.docx
 
 features:
   - icon: 🎯
@@ -46,12 +46,12 @@ features:
 import { onMounted } from 'vue';
 onMounted(() => {
   // This script is used to handle the download of the DOCX file
-  const docxLink = document.querySelector('a[href="/duocode.docx.html"]');
+  const docxLink = document.querySelector('a[href="/duocodo.docx.html"]');
   docxLink.setAttribute('href', 'javascript:void(0)');
   if (docxLink) {
    docxLink.addEventListener('click', (event) => {
       event.preventDefault();
-      location.href = '/duocode.docx';
+      location.href = '/duocodo.docx';
     });
   }
 });

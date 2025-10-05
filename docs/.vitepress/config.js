@@ -1,5 +1,5 @@
 export default {
-    title: 'DuoCode',
+    title: 'duocodo',
     description: 'Documentation for my awesome graduation project',
     head: [
         ['link', { rel: 'icon', href: '/favicon.svg' }],
@@ -15,16 +15,16 @@ export default {
             {
                 text: 'Downloads',
                 items: [
-                    { text: 'Download PDF', link: '/duocode.pdf' },
+                    { text: 'Download PDF', link: '/duocodo.pdf' },
                     {
                         text: 'Download DOCX',
-                        link: '/duocode.docx'
+                        link: '/duocodo.docx'
                     }
                 ]
             }
         ],
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/moh123mos/duocode-docs' }
+            { icon: 'github', link: 'https://github.com/moh123mos/duocodo-docs' }
         ]
     },
     locales: {
@@ -33,7 +33,7 @@ export default {
             lang: 'en',
             link: '/',
             dir: 'ltr',
-            title: 'DuoCode',
+            title: 'duocodo',
             description: 'Documentation for my awesome graduation project'
         },
         ar: {
@@ -51,10 +51,10 @@ export default {
                     {
                         text: 'التحميلات',
                         items: [
-                            { text: 'تحميل PDF', link: '/duocode.pdf' },
+                            { text: 'تحميل PDF', link: '/duocodo.pdf' },
                             {
                                 text: 'تحميل DOCX',
-                                link: '/duocode.docx'
+                                link: '/duocodo.docx'
                             }
                         ]
                     }
@@ -62,7 +62,7 @@ export default {
                 ],
 
                 socialLinks: [
-                    { icon: 'github', link: ' https://github.com/moh123mos/duocode-docs' }
+                    { icon: 'github', link: ' https://github.com/moh123mos/duocodo-docs' }
                 ],
                 outline: {
                     label: 'في هذه الصفحة'

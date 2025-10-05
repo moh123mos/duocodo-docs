@@ -1,11 +1,11 @@
 ## Convert Markdown to PDF
 ``` cmd
-npx md-to-pdf ./docs/introduction/overview.md && mv ./docs/introduction/overview.pdf ./docs/public/duocode.pdf -Force
+npx md-to-pdf ./docs/introduction/overview.md && mv ./docs/introduction/overview.pdf ./docs/public/duocodo.pdf -Force
 ```
 
 ## Convert Markdown to DOCX (Word)
 ``` cmd
-pandoc ./docs/introduction/overview.md -o ./docs/public/duocode.docx
+pandoc ./docs/introduction/overview.md -o ./docs/public/duocodo.docx
 ```
 
 ## OR double click on __convert.cmd__ to automatically convert md to pdf and docx.
