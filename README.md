@@ -10,6 +10,7 @@ pandoc ./docs/introduction/overview.md -o ./docs/public/duocode.docx
 
 ## OR double click on __convert.cmd__ to automatically convert md to pdf and docx.
 ---
+---
 
 ## install packages:
 - Open cmd/pwsh
@@ -21,4 +22,4 @@ pandoc ./docs/introduction/overview.md -o ./docs/public/duocode.docx
 - Open cmd/pwsh
 - Navigate to project folder
 - Run `npm run docs:dev`
-- Search for [http://localhost:3000](http://localhost:3000) on your browser.
+- goto localhost:3000 on your browser.
