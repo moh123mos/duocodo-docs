@@ -74,27 +74,25 @@ export default {
                     { text: 'تحميل PDF', link: '/duocode.pdf' },
                 ],
                 sidebar: {
-                    // This sidebar gets displayed when a user
-                    // is on `guide` directory.
-                    '/guide/': [
+                    '/ar/guide/': [
                         {
                             text: 'المقدمة',
                             collapsed: false,
                             items: [
-                                { text: 'CH1: نظرة عامة', link: '/guide/overview' }
+                                { text: 'CH1: نظرة عامة', link: '/ar/guide/overview' }
                             ]
                         },
                         {
                             text: 'التحليل',
                             collapsed: true,
                             items: [
-                                { text: 'CH2: الخلفية', link: '/guide/background' },
-                                { text: 'CH3: المتطلبات', link: '/guide/requirements' },
+                                { text: 'CH2: الخلفية', link: '/ar/guide/background' },
+                                { text: 'CH3: المتطلبات', link: '/ar/guide/requirements' },
                             ]
                         },
                         {
                             text: 'جميع الفصول',
-                            link: '/guide/one-for-all'
+                            link: '/ar/guide/one-for-all'
                         }
                     ]
                 },
