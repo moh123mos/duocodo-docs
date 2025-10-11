@@ -1,32 +1,263 @@
+<style>
+  :root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --success: #28a745;
+    --warning: #ffc107;
+    --info: #17a2b8;
+  }
+    
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 210mm;
+    margin: 20px auto;
+    padding: 25px;
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    position: relative;
+  }
+    
+  .highlight-box {
+    background: #e8f4fc;
+    border-left: 4px solid var(--secondary);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+  }
+    
+  .chapter {
+    background: var(--primary);
+    color: white;
+    padding: 12px 20px;
+    margin: 40px 0 20px 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+    
+  .chapter::before {
+    content: "Chapter";
+    background: var(--secondary);
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+    
+  .section {
+    color: var(--primary);
+    border-left: 4px solid var(--secondary);
+    padding: 8px 15px;
+    margin: 25px 0 15px 0;
+    background: var(--light);
+    font-size: 18px;
+    font-weight: 600;
+  }
+    
+  .subsection {
+    color: var(--dark);
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 8px;
+    margin: 20px 0 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
 
-## Chapter 1: Project Overview
-### Main Idea
+  ul, ul ul, ul ul ul {
+    list-style-type: none;
+  }
+    
+  ul, ol {
+    margin: 15px 0;
+    padding-left: 30px;
+  }
+    
+  ul li {
+    margin: 8px 0;
+    position: relative;
+  }
+    
+  ul li::before {
+    content: "▸";
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+  }
+
+  ul ul li::before {
+    content: "\25Aa";
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+  }
+
+  ul ul ul li::before {
+    content: "\25AB";
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+  }
+    
+    
+  ol li::before {
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: -25px;
+  }
+    
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+    
+  th {
+    background: var(--primary);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+  }
+    
+  td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #dee2e6;
+  }
+    
+  tr:nth-child(even) {
+      background: var(--light);
+  }
+    
+  code {
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    border: 1px solid #e9ecef;
+  }
+    
+  strong {
+    color: var(--primary);
+  }
+    
+
+  .figure {
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .figure figcaption {
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-style: italic;
+    color: #555;
+  }
+
+  .chapter {
+    break-before: page;
+  }
+
+  .section, .subsection, .figure, .highlight-box, table, ul {
+    break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  @page {
+    border: 4px double #17a2b8;
+    margin: 2.5cm 2cm;
+
+    @top-center {
+      content: element(header);
+    }
+      
+    @bottom-center {
+      content: counter(page);
+      font-size: 10pt;
+      color: #666;
+    }
+  }
+</style>
+
+## <div class="chapter">Chapter 1: Project Overview</div>
+
+### <div class="section">Main Idea</div>
 
 We aim to create a Duolingo-inspired programming education platform that transforms how beginners learn to code by eliminating overwhelm through structured, gamified micro-lessons. Unlike fragmented resources, this platform provides a clear, progressive learning path—from core programming fundamentals to advanced topics like OOP, algorithms, and web development—all delivered via multi-format explanations (articles, videos, and guided walkthroughs).  
 
 At its core, the platform seamlessly integrates:  
-1. Interactive Practice & Feedback:  
-   - An in-browser code editor (supporting Python and JavaScript) with real-time execution, syntax highlighting, and instant error diagnostics.  
-   - Hands-on exercises featuring model solutions and optional complexity analysis to deepen understanding of code efficiency.  
-2. Motivational Gamification:  
-   - XP systems, unlockable levels, daily streaks, and skill badges to reward consistency.  
-   - Global leaderboards and friendly competitions to fuel engagement.  
-3. Personalized Progress Tracking:  
-   - Visual roadmaps highlighting completed, active, and upcoming modules.  
-   - Mastery dashboards quantifying skill growth and retention.  
-4. Collaborative Community:  
-   - Peer code reviews, solution sharing, and discussion forums for collective problem-solving.  
-   - Optional challenges to apply skills in real-world scenarios.  
+<ol>
+  <div class="highlight-box">
+    <li>
+      <bold>Interactive Practice & Feedback:</bold>
+      <ul>
+        <li>An in-browser code editor (supporting Python and JavaScript) with real-time execution, syntax highlighting, and instant error diagnostics.</li>
+        <li>Hands-on exercises featuring model solutions and optional complexity analysis to deepen understanding of code efficiency.</li>
+      </ul>
+    </li>
+  </div>
+  <div class="highlight-box">
+    <li>
+      <bold>Motivational Gamification:</bold>
+      <ul>
+        <li>XP systems, unlockable levels, daily streaks, and skill badges to reward consistency.</li>
+        <li>Global leaderboards and friendly competitions to fuel engagement.</li>
+      </ul>
+    </li>
+  </div>
+  <div class="highlight-box">
+    <li>
+      <bold>Personalized Progress Tracking:</bold>
+      <ul>
+        <li>Visual roadmaps highlighting completed, active, and upcoming modules.</li>
+        <li>Mastery dashboards quantifying skill growth and retention.</li>
+      </ul>
+    </li>
+  </div>
+  <div class="highlight-box">
+    <li>
+      <bold>Collaborative Community:</bold>
+      <ul>
+        <li>Peer code reviews, solution sharing, and discussion forums for collective problem-solving.</li> 
+        <li>Optional challenges to apply skills in real-world scenarios.</li>
+      </ul>
+    </li>
+  </div>
+</ol>
 
 By combining structured curriculum, instant feedback, and social accountability, the platform turns programming education into an addictive, confidence-building journey—making learning feel like play while ensuring tangible skill development.
 
 ---
 
-### Project Scope
+### <div class="section">Project Scope</div>
 
-### Extended Project Scope  
-
-#### 1. Comprehensive Curriculum & Content  
+#### <div class="subsection">1. Comprehensive Curriculum & Content  </div>
    - Structured Learning Path:  
      - Tiered modules from absolute fundamentals (variables, loops) to advanced domains (OOP, algorithms, web frameworks, databases).  
      - Specialized tracks for Python, JavaScript, and full-stack development.  
@@ -35,7 +266,7 @@ By combining structured curriculum, instant feedback, and social accountability,
      - Interactive walkthroughs: Step-by-step coding simulations.  
      - Real-world projects: Mini-applications (e.g., weather API integration, todo-list).  
 
-#### 2. Intelligent Code Editor  
+#### <div class="subsection">2. Intelligent Code Editor  </div>
    - Multi-Language Support:  
      - Browser-based execution for Python, JavaScript, HTML/CSS, with plans for Java/C++.  
    - Enhanced Developer Experience:  
@@ -44,7 +275,7 @@ By combining structured curriculum, instant feedback, and social accountability,
    - Accessibility:  
      - Dark/light mode, keyboard shortcuts, screen-reader compatibility.  
 
-#### 3. Dynamic Interactive Exercises  
+#### <div class="subsection">3. Dynamic Interactive Exercises  </div>
    - Adaptive Challenges:  
      - Exercises auto-adjust difficulty based on user performance.  
      - "Fix-the-Bug" tasks: Debug pre-written flawed code.  
@@ -54,7 +285,7 @@ By combining structured curriculum, instant feedback, and social accountability,
    - Solution Libraries:  
      - Model answers + multiple approach comparisons (e.g., iterative vs. recursive).  
 
-#### 4. Advanced Gamification System  
+#### <div class="subsection">4. Advanced Gamification System  </div>
    - Engagement Mechanics:  
      - Daily streaks, skill-specific badges (e.g., "Algorithm Ace"), and XP bonuses for consistency.  
      - Unlockable content: Secret lessons or tools for high achievers.  
@@ -62,7 +293,7 @@ By combining structured curriculum, instant feedback, and social accountability,
      - Global/weekly leaderboards (XP-based).  
      - Speed challenges and efficiency contests with peer rankings.  
 
-#### 5. Personalized Progress Ecosystem  
+#### <div class="subsection">5. Personalized Progress Ecosystem  </div>
    - Learning Analytics:  
      - Mastery dashboards showing skill proficiency (e.g., "Data Structures: 85%").  
      - Time-tracking: Session duration, concepts revisited.  
@@ -70,7 +301,7 @@ By combining structured curriculum, instant feedback, and social accountability,
      - Adaptive recommendations for weak areas.  
      - Bookmarkable "Playlists" for user-defined goals.  
 
-#### 6. Collaborative Community Hub  
+#### <div class="subsection">6. Collaborative Community Hub  </div>
    - Knowledge Sharing:  
      - Solution galleries with upvoting/commenting.  
      - Peer review workflows (rubric-guided code critiques).  
@@ -79,14 +310,14 @@ By combining structured curriculum, instant feedback, and social accountability,
      - Q&A forums with mentor verification.  
      - Live events: Coding sprints or AMAs with experts.  
 
-#### 7. Accessibility & Scalability  
+#### <div class="subsection">7. Accessibility & Scalability  </div>
    - Mobile-responsive design: Seamless tablet/phone access.  
    - Offline mode: Download lessons/exercises for practice without internet.  
    - API integration: Future compatibility with LMS/CMS platforms.  
 
 ---  
 
-### Problem Statement
+### <div class="section">Problem Statement</div>
 
 Learning programming remains a daunting barrier for beginners, exacerbated by *four core gaps* in existing solutions:  
 
@@ -108,69 +339,111 @@ Learning programming remains a daunting barrier for beginners, exacerbated by *f
 
 ---
 
-### Solution Approach
+### <div class="section">Solution Approach</div>
 
 To bridge these gaps, the platform leverages Duolingo’s engagement model fused with developer-centric depth:  
 
-#### A. Structured Yet Adaptive Onboarding  
-- Skill Tree Curriculum:  
-  - *Tiered modules* map concepts from syntax basics → real-world stacks (e.g., Flask/React).  
-  - Diagnostic quizzes auto-route learners to optimal starting points.  
-- Bite-Sized, Multi-Modal Lessons:  
-  - Concepts taught via <5-min videos, annotated snippets, and interactive sandboxes—all in one flow.  
+#### <div class="subsection">A. Structured Yet Adaptive Onboarding  </div>
+<div class="highlight-box">
+  <ul>
+    <li>Skill Tree Curriculum:</li>  
+    <ul>
+      <li><i>Tiered modules</i> map concepts from syntax basics → real-world stacks (e.g., Flask/React).</li>
+      <li>Diagnostic quizzes auto-route learners to optimal starting points.</li>
+    </ul>
+    <li>Bite-Sized, Multi-Modal Lessons:</li> 
+    <ul>
+      <li>Concepts taught via &lt 5-min videos, annotated snippets, and interactive sandboxes—all in one flow.</li>
+    </ul>
+  </ul>
+</div>
 
-#### B. Contextual Practice Engine  
-- AI-Assisted Feedback:  
-  - Real-time error explanations + debugging hints (e.g., “Your loop exits early: check conditionals!”).  
-- Exercise Evolution:  
-  - Adaptive difficulty: Problems scale complexity based on user mastery.  
-  - Project Sprints: Build *portfolio-ready micro-apps* (e.g., API-driven weather dashboard).  
+#### <div class="subsection">B. Contextual Practice Engine  </div>
+<div class="highlight-box">
+  <ul>
+    <li>AI-Assisted Feedback:</li>
+    <ul>
+      <li>Real-time error explanations + debugging hints (e.g., “Your loop exits early: check conditionals!”).</li>
+    </ul>
+    <li>Exercise Evolution:</li>
+    <ul>
+      <li>Adaptive difficulty: Problems scale complexity based on user mastery.</li>
+      <li>Project Sprints: Build <i>portfolio-ready micro-apps</i> (e.g., API-driven weather dashboard).</li>
+    </ul>
+  </ul>
+</div>
 
-#### C. Gamification × Depth  
-- Progressive Unlock System:  
-  - Earn XP/badges for *accuracy*, *efficiency* (e.g., “O(1) Solver”), and *streaks*.  
-  - Competitive Depth:  
-    - Leaderboards rank speed (solved in 30s) vs. elegance (least code lines).  
-- Complexity Playgrounds:  
-  - Visualize Big O trade-offs via interactive graph comparisons (e.g., O(n²) vs. O(n log n)).  
+#### <div class="subsection">C. Gamification × Depth  </div>
+<div class="highlight-box">
+  <ul>
+    <li>Progressive Unlock System:</li>
+    <ul>
+      <li>Earn XP/badges for <i>accuracy</i>, <i>efficiency</i> (e.g., “O(1) Solver”), and <i>streaks</i>.</li>
+    </ul>
+    <li>Competitive Depth:</li>
+    <ul>
+      <li>Leaderboards rank speed (solved in 30s) vs. elegance (least code lines).</li>
+    </ul>
+    <li>Complexity Playgrounds:</li>
+    <ul>
+      <li>Visualize Big O trade-offs via interactive graph comparisons (e.g., O(n²) vs. O(n log n)).</li>
+    </ul>
+  </ul>
+</div>
 
-#### D. Community-Powered Growth  
-- Collaborative Accountability:  
-  - Peer review pools: Anonymously critique solutions using *rubric-guided feedback*.  
-  - Solution Showcases: Compare/upvote multiple approaches (e.g., “Recursive vs. Iterative”).  
-- Mentor-Verified Support:  
-  - Expert-vetted discussions in Q&A forums + live coding AMAs.  
+#### <div class="subsection">D. Community-Powered Growth  </div>
+<div class="highlight-box">
+  <ul>
+    <li>Collaborative Accountability:</li>
+    <ul>
+      <li>Peer review pools: Anonymously critique solutions using <i>rubric-guided feedback</i>.</li>
+      <li>Solution Showcases: Compare/upvote multiple approaches (e.g., “Recursive vs. Iterative”).</li>
+    </ul>
+    <li>Mentor-Verified Support:</li>
+    <ul>
+      <li>Expert-vetted discussions in Q&A forums + live coding AMAs.</li>
+    </ul>
+  </ul>
+</div>
 
-#### E. Personalized Reinforcement  
-- Predictive Roadmaps:  
-  - Weakness-targeted challenges (e.g., “Struggling with callbacks? Try these 3 exercises!”).  
-- Mastery Analytics:  
-  - Heatmaps track concept retention + time-to-proficiency across skills.  
+#### <div class="subsection">E. Personalized Reinforcement  </div>
+<div class="highlight-box">
+  <ul>
+    <li>Predictive Roadmaps:</li>
+    <ul>
+      <li>Weakness-targeted challenges (e.g., “Struggling with callbacks? Try these 3 exercises!”).</li>
+    </ul>
+    <li>Mastery Analytics:</li>
+    <ul>
+      <li>Heatmaps track concept retention + time-to-proficiency across skills.</li>
+    </ul>
+  </ul>
+</div>  
 
 ---  
 
-### Project Objectives
+### <div class="section">Project Objectives</div>
 
-#### 1. Deliver a Progressive, Mastery-Based Curriculum  
+#### <div class="subsection">1. Deliver a Progressive, Mastery-Based Curriculum  </div>
 - Modular Skill Tiers: Implement 10+ competency levels (Novice → Architect) with checkpoint assessments for each tier.  
 - Cross-Language Tracks: Offer specialized paths for Python (Data Science/Backend), JavaScript (Frontend/Full-Stack), and Algorithms.  
 - Real-World Alignment: Integrate industry frameworks (e.g., React, Flask) and tools (Git, APIs) into advanced modules.  
 
-#### 2. Build an Intelligent, Adaptive Practice Ecosystem  
+#### <div class="subsection">2. Build an Intelligent, Adaptive Practice Ecosystem  </div>
 - AI-Driven Exercise Engine:  
   - Generate personalized problem sets targeting weak areas (e.g., "80% accuracy on recursion? Try these 5 challenges!").  
   - Auto-graded projects with rubrics for code quality, efficiency, and creativity.  
 - Multi-Layer Feedback:  
   - Provide instant syntax corrections, runtime error diagnostics, and performance benchmarks (CPU/memory usage).  
 
-#### 3. Gamify Learning with Depth & Nuance  
+#### <div class="subsection">3. Gamify Learning with Depth & Nuance  </div>
 - Tiered Reward System:  
   - Award skill-specific badges (e.g., "Memory Optimizer") + rarity tiers (Bronze → Platinum).  
   - "Double-or-Quit" streaks: Bonus XP for consecutive days, reset on skip.  
 - Competitive Arenas:  
   - Host weekly efficiency leagues (lowest Big O wins) and speed sprints (fastest debugger).  
 
-#### 4. Foster Collaborative Expertise  
+#### <div class="subsection">4. Foster Collaborative Expertise  </div>
 - Structured Peer Review:  
   - Implement rubric-based code critiques (readability, efficiency, edge cases) with upvoted "Top Reviewer" rankings.  
 - Mentor-Guided Growth:  
@@ -178,14 +451,14 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 - Solution Explorer:  
   - Curate multiple approaches per problem (e.g., "3 Pythonic Solutions") with complexity comparisons.  
 
-#### 5. Enable Hyper-Personalized Tracking  
+#### <div class="subsection">5. Enable Hyper-Personalized Tracking  </div>
 - Predictive Analytics Dashboard:  
   - Visualize skill decay (e.g., "Arrays mastery ↓15% in 2 weeks") and recommend refreshers.  
   - Track efficiency gains (e.g., "Reduced solution time by 40% this month").  
 - Custom Roadmapping:  
   - Let users build goal-oriented playlists ("Prep for FAANG Interviews" → auto-adds relevant exercises).  
 
-#### 6. Ensure Accessibility & Scalability  
+#### <div class="subsection">6. Ensure Accessibility & Scalability  </div>
 - Inclusive Design:  
   - Support screen readers, keyboard navigation, and color-blind modes.  
   - Offer text-to-speech explanations for complex concepts.  
@@ -193,13 +466,13 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
   - Offline-first capability: Download modules + editor for remote learning.  
   - API extensibility: Integrate with GitHub/LMS platforms for portfolio syncing.  
 
-#### 7. Bridge Theory to Real-World Impact  
+#### <div class="subsection">7. Bridge Theory to Real-World Impact  </div>
 - Portfolio Projects:  
-  - Guide users to build deployable micro-apps (e.g., REST API service, interactive dashboard).  
+  - Guide users to build deployable micro-apps (e.g., REST API service, ainteractiveractive dashboard).  
 - Industry Challenges:  
   - Partner with tech firms for sponsored "real-world" tasks (e.g., "Optimize Shopify’s cart algorithm").  
 
-#### 8. Drive Community-Led Innovation  
+#### <div class="subsection">8. Drive Community-Led Innovation  </div>
 - User-Generated Content:  
   - Allow advanced learners to design peer-reviewed exercises (vetted by mentors).  
 - Global Hackathons:  
@@ -207,54 +480,70 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 
 ---
 
-## Chapter 2: Project Background
+## <div class="chapter">Chapter 2: Project Background</div>
 
-### Project Background
+### <div class="section">Project Background</div>
 
-**Figma** is a versatile, cloud‑based design platform widely used for crafting user interfaces, wireframes, and interactive prototypes. It enables designers and stakeholders to collaborate in real time, streamlining the design process from ideation to final output. Figma’s rich feature set — including vector editing, component‑based design, version history, and a robust plugin ecosystem — makes it central to modern UI/UX workflows. As a browser‑based tool, it removes installation barriers and ensures cross‑device accessibility.
-
-For more detailed imformation. you can refer to ([Figma](https://www.figma.com/)).
-
-
-**Nuxt.js** is a high-level framework built on Vue.js, optimized for developing server-rendered applications and static websites. It offers features like automatic routing, server-side rendering (SSR), static site generation, and a modular architecture. With built-in support for SEO, performance optimizations, and a rich community-driven ecosystem, Nuxt simplifies the development of scalable, high‑performance web apps.
-
-For more detailed imformation. you can refer to ([Nuxt.js](https://nuxt.com/)).
+<div class="highlight-box">
+  <p>
+    <strong>Figma</strong> is a versatile, cloud‑based design platform widely used for crafting user interfaces, wireframes, and interactive prototypes. It enables designers and stakeholders to collaborate in real time, streamlining the design process from ideation to final output. Figma’s rich feature set — including vector editing, component‑based design, version history, and a robust plugin ecosystem — makes it central to modern UI/UX workflows. As a browser‑based tool, it removes installation barriers and ensures cross‑device accessibility.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://www.figma.com/">Figma</a>.</p>
+</div>
 
 
-**Node.js** is a high-performance JavaScript runtime built on Chrome’s V8 engine, enabling developers to run JavaScript on the server side. Renowned for its event-driven, non-blocking I/O model, it excels at building scalable network applications and APIs. Supported by npm’s extensive package ecosystem, Node.js facilitates rapid development of web servers and real-time services.
-
-For more detailed imformation. you can refer to ([Node.js](https://nodejs.org/)).
-
-
-**PostgreSQL** is a powerful, open-source relational database management system (RDBMS) known for its reliability, scalability, and advanced feature set. It supports SQL for relational queries and JSON for non-relational data, making it highly versatile for modern application development. PostgreSQL offers robust features such as ACID compliance, foreign keys, triggers, views, stored procedures, and full-text search. It also provides strong support for data integrity, concurrency, and extensibility, allowing developers to define custom data types, operators, and functions. Trusted by enterprises and developers worldwide, PostgreSQL is widely used for web applications, analytics, and large-scale data systems.
-
-For more detailed imformation. you can refer to ([PostgreSQL](https://www.postgresql.org/)).
+<div class="highlight-box">
+  <p>
+    <strong>Nuxt.js</strong> is a high-level framework built on Vue.js, optimized for developing server-rendered applications and static websites. It offers features like automatic routing, server-side rendering (SSR), static site generation, and a modular architecture. With built-in support for SEO, performance optimizations, and a rich community-driven ecosystem, Nuxt simplifies the development of scalable, high‑performance web apps.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://nuxt.com/">Nuxt.js</a>.</p>
+</div>
 
 
-**OpenRouter** is an open‑source API platform that offers a unified interface to multiple large language models (LLMs). It enables developers to seamlessly integrate AI features—such as natural language processing, chat interfaces, and content generation—while managing authentication, fallback strategies, and cost efficiency. OpenRouter simplifies switching between or combining models from different providers.
-
-For more detailed imformation. you can refer to ([OpenRouter](https://openrouter.ai/)).
-
-
-**Gemini API** is a developer-friendly interface provided by Google to access the capabilities of its Gemini family of large language models (LLMs). It allows developers to integrate advanced AI features into their applications, including natural language understanding, code generation, content summarization, and multi-modal reasoning (text, image, and more). The Gemini API is accessible through Google AI Studio and is designed to support rapid prototyping and scalable deployment of generative AI solutions. With robust security, comprehensive documentation, and seamless integration with Google Cloud, the Gemini API enables powerful, flexible AI experiences across a wide range of use cases.
-
-For more detailed imformation. you can refer to [Gemini API documentation](https://ai.google.dev/gemini-api/docs)
+<div class="highlight-box">
+  <p>
+    <strong>Node.js</strong> is a high-performance JavaScript runtime built on Chrome’s V8 engine, enabling developers to run JavaScript on the server side. Renowned for its event-driven, non-blocking I/O model, it excels at building scalable network applications and APIs. Supported by npm’s extensive package ecosystem, Node.js facilitates rapid development of web servers and real-time services.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://nodejs.org/">Node.js</a>.</p>
+</div>
 
 
-**Monaco Editor** is the highly customizable, in‑browser code editor that powers Visual Studio Code. It supports syntax highlighting, IntelliSense, code folding, and more. Lightweight yet powerful, Monaco is perfect for embedding code editing experiences within web applications such as educational platforms, developer tools, or live coding playgrounds.
+<div class="highlight-box">
+  <p>
+    <strong>PostgreSQL</strong> is a powerful, open-source relational database management system (RDBMS) known for its reliability, scalability, and advanced feature set. It supports SQL for relational queries and JSON for non-relational data, making it highly versatile for modern application development. PostgreSQL offers robust features such as ACID compliance, foreign keys, triggers, views, stored procedures, and full-text search. It also provides strong support for data integrity, concurrency, and extensibility, allowing developers to define custom data types, operators, and functions. Trusted by enterprises and developers worldwide, PostgreSQL is widely used for web applications, analytics, and large-scale data systems.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+</div>
 
-For more detailed imformation. you can refer to ([Monaco Editor](https://microsoft.github.io/monaco-editor/)).
+
+<div class="highlight-box">
+  <p>
+    <strong>OpenRouter</strong> is an open‑source API platform that offers a unified interface to multiple large language models (LLMs). It enables developers to seamlessly integrate AI features—such as natural language processing, chat interfaces, and content generation—while managing authentication, fallback strategies, and cost efficiency. OpenRouter simplifies switching between or combining models from different providers.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://openrouter.ai/">OpenRouter</a>.</p>
+</div>
 
 
-**Cloudflare** is a leading web performance and security platform that provides a wide range of services to protect and accelerate websites, APIs, and applications. It acts as a reverse proxy between users and web servers, offering features such as DDoS protection, content delivery network (CDN), SSL/TLS encryption, firewall rules, and performance optimization. By caching content at global edge locations and filtering malicious traffic, Cloudflare helps improve loading speeds, reduce server load, and enhance overall security. It also offers developer tools like Cloudflare Pages and Workers for deploying scalable, serverless applications.
+<div class="highlight-box">
+  <p>
+    <strong>Gemini API</strong> is a developer-friendly interface provided by Google to access the capabilities of its Gemini family of large language models (LLMs). It allows developers to integrate advanced AI features into their applications, including natural language understanding, code generation, content summarization, and multi-modal reasoning (text, image, and more). The Gemini API is accessible through Google AI Studio and is designed to support rapid prototyping and scalable deployment of generative AI solutions. With robust security, comprehensive documentation, and seamless integration with Google Cloud, the Gemini API enables powerful, flexible AI experiences across a wide range of use cases.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://ai.google.dev/gemini-api/docs">Gemini API documentation</a>.</p>
+</div>
 
-For more detailed imformation. you can refer to: ([CloudFlare](https://www.cloudflare.com/)).
+
+<div class="highlight-box">
+  <p>
+    <strong>Monaco Editor</strong> is the highly customizable, in‑browser code editor that powers Visual Studio Code. It supports syntax highlighting, IntelliSense, code folding, and more. Lightweight yet powerful, Monaco is perfect for embedding code editing experiences within web applications such as educational platforms, developer tools, or live coding playgrounds.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://microsoft.github.io/monaco-editor/">Monaco Editor</a>.</p>
+</div>
+
+
+<div class="highlight-box">
+  <p>
+    <strong>Cloudflare</strong> is a leading web performance and security platform that provides a wide range of services to protect and accelerate websites, APIs, and applications. It acts as a reverse proxy between users and web servers, offering features such as DDoS protection, content delivery network (CDN), SSL/TLS encryption, firewall rules, and performance optimization. By caching content at global edge locations and filtering malicious traffic, Cloudflare helps improve loading speeds, reduce server load, and enhance overall security. It also offers developer tools like Cloudflare Pages and Workers for deploying scalable, serverless applications.</p>
+    <p>For more detailed imformation. you can refer to: <a href="https://www.cloudflare.com/">CloudFlare</a>.</p>
+</div>
 
 ---
 
-### Related Work
+### <div class="section">Related Work</div>
 
-#### Elzero Web School
+#### <div class="subsection">Elzero Web School</div>
 
 Description:  
 Elzero Web School is an excellent free resource for Arabic-speaking beginners and intermediate learners who want to build strong web development skills through structured, practical learning.
@@ -274,7 +563,7 @@ Disadvantages:
 Reference: [https://elzero.org](https://elzero.org)
 
 
-#### Codeforces
+#### <div class="subsection">Codeforces</div>
 
 Description:  
 A well-known platform that hosts regular contests like Div 1 and Div 2. It includes a robust rating system and editorial support to develop algorithmic thinking.
@@ -296,7 +585,7 @@ Disadvantages:
 Reference: [https://codeforces.com](https://codeforces.com)
 
 
-#### CodeChef
+#### <div class="subsection">CodeChef</div>
 
 Description:  
 An Indian educational platform hosting contests like Long Challenge and Lunchtime, with a vast problem archive and community engagement.
@@ -317,7 +606,7 @@ Disadvantages:
 Reference: [https://www.codechef.com](https://www.codechef.com)
 
 
-#### HackerRank
+#### <div class="subsection">HackerRank</div>
 
 Description:  
 Focuses on algorithms, SQL, and data structures with a live coding environment, widely used for tech interviews.
@@ -340,7 +629,7 @@ Disadvantages:
 Reference: [https://www.hackerrank.com](https://www.hackerrank.com)
 
 
-#### LeetCode
+#### <div class="subsection">LeetCode</div>
 
 Description:  
 A premier platform for coding interview prep with 2,500+ problems and company-specific questions.
@@ -363,7 +652,7 @@ Disadvantages:
 Reference: [https://leetcode.com](https://leetcode.com)
 
 
-#### TopCoder
+#### <div class="subsection">TopCoder</div>
 
 Description:  
 One of the oldest platforms, known for SRM (Single Round Matches) and Marathon Matches focusing on complex, long-term problems.
@@ -386,7 +675,7 @@ Disadvantages:
 Reference: [https://www.topcoder.com](https://www.topcoder.com)
 
 
-#### AtCoder
+#### <div class="subsection">AtCoder</div>
 
 Description:  
 A Japanese platform offering well-structured contests (ABC, ARC, AGC) with a focus on clean problem statements and difficulty progression.
@@ -409,7 +698,7 @@ Disadvantages:
 Reference: [https://atcoder.jp](https://atcoder.jp)
 
 
-#### CodinGame
+#### <div class="subsection">CodinGame</div>
 
 Description:  
 Gamifies coding challenges with multiplayer and story-based games like Clash of Code and Code vs Zombies.
@@ -432,7 +721,7 @@ Disadvantages:
 Reference: [https://www.codingame.com](https://www.codingame.com)
 
 
-#### CodeCombat
+#### <div class="subsection">CodeCombat</div>
 
 Description:  
 An RPG-style platform that teaches Python, JavaScript, and HTML through story-driven games and challenges.
@@ -455,7 +744,7 @@ Disadvantages:
 Reference: [https://codecombat.com](https://codecombat.com)
 
 
-#### Codewars
+#### <div class="subsection">Codewars</div>
 
 Description:  
 Uses "Kata" - short coding exercises - to improve coding progressively with ranking and community feedback.
@@ -477,7 +766,7 @@ Disadvantages:
 Reference: [https://www.codewars.com](https://www.codewars.com)
 
 
-#### CheckiO
+#### <div class="subsection">CheckiO</div>
 
 Description:  
 Offers gamified learning of Python and JavaScript through short, interactive problem-solving challenges.
@@ -501,18 +790,18 @@ Reference: [https://checkio.org](https://checkio.org)
 
 ---
 
-### Summary
+### <div class="section">Summary</div>
 In this chapter, the tools that will be used in implementation like (Node.js, Nuxt.js, Figma, Gemini API, OpenRouter, Monaco Editor, and CloudFlare). were described.
 Then the related work was described, (Which is listed in the previous table), and the advantages, disadvantages, and benefits of each one, then compared with the project.
 
 ---
 
 
-## Chapter 3: Requirement Analysis
+## <div class="chapter">Chapter 3: Requirement Analysis</div>
 
-### 3.1 Feasibility Study
+### <div class="section">3.1 Feasibility Study</div>
 
-#### 3.1.1 Technical Feasibility
+#### <div class="subsection">3.1.1 Technical Feasibility</div>
 
 - **Familiarity with Applications:** 
   - The target learners and educators in our region are already familiar with mobile educational apps and interactive tutorials (e.g. Duolingo, Code.org) in Arabic. Using a gamified, Arabic-language interface makes the platform intuitive; users require no extra training to log in, practice coding, or track progress.  
@@ -531,7 +820,7 @@ Then the related work was described, (Which is listed in the previous table), an
 
 ---
 
-### 3.1.2 Organizational Feasibility
+### <div class="section">3.1.2 Organizational Feasibility</div>
 
 - **Champion:** The development team and supervisors provide time and effort for the system.
 
@@ -561,10 +850,13 @@ Then the related work was described, (Which is listed in the previous table), an
 
   - **Content & Instructional Design (shared responsibility):**  
     Instead of dedicated content creators, **all team members will collaborate** on producing and localizing course material in Arabic. This includes designing structured lessons, writing exercises, and embedding gamification mechanics. Team members’ technical expertise ensures content is accurate, while shared responsibility distributes workload evenly.  
-    ![Figure 3.1: Development Team Roles](../public/assets/CH03/Figure_3.1_Development_Team_Roles.png)
+    <figure class="figure">
+      <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
+      <figcaption>Figure 3.1: Development Team Roles</figcaption>
+    </figure>
 ---
 
-### 3.1.3 Economic Feasibility
+### <div class="section">3.1.3 Economic Feasibility</div>
 
 - **Tangible Benefits:**  
   - **Course Revenue:** With a pay-per-course model at an average price of $30 per course, enrolling 5,000 users in Year 1 (our target) would generate roughly $150,000 in Year-1 sales. As user growth continues, Year 2 and 3 revenues could be, for example, $225,000 and $300,000 (assuming 50% year-over-year user growth).  
@@ -581,27 +873,30 @@ Then the related work was described, (Which is listed in the previous table), an
 
 **Development and Operational Costs (Years 0–3):**
 
-| Item                       | Year 0       | Year 1      | Year 2      | Year 3      | Total        |
-| -------------------------- | ------------ | ----------- | ----------- | ----------- | ------------ |
-| **Development (one-time)** | $280,000     | $0          | $0          | $0          | $280,000     |
-| Dev team salaries          | $180,000     | –           | –           | –           | $180,000     |
-| Content creation           | $100,000     | –           | –           | –           | $100,000     |
-| **Hosting/AI/maint.**      | $0           | $20,000     | $20,000     | $20,000     | $60,000      |
-| **Marketing**              | $0           | $50,000     | $50,000     | $50,000     | $150,000     |
+| Item                       |       Year 0 |      Year 1 |      Year 2 |      Year 3 |        Total |
+| -------------------------- | ----------- | ---------- | ---------- | ---------- | ----------- |
+| **Development (one-time)** |     $280,000 |          $0 |          $0 |          $0 |     $280,000 |
+| Dev team salaries          |     $180,000 |           – |           – |           – |     $180,000 |
+| Content creation           |     $100,000 |           – |           – |           – |     $100,000 |
+| **Hosting/AI/maint.**      |           $0 |     $20,000 |     $20,000 |     $20,000 |      $60,000 |
+| **Marketing**              |           $0 |     $50,000 |     $50,000 |     $50,000 |     $150,000 |
 | **Total Cost**             | **$280,000** | **$70,000** | **$70,000** | **$70,000** | **$490,000** |
 
 **ROI and Cumulative Net:**
 
-| Metric             | Year 0    | Year 1    | Year 2   | Year 3   | Total    |
-| ------------------ | --------- | --------- | -------- | -------- | -------- |
-| **Revenue**        | $0        | $150,000  | $225,000 | $300,000 | $675,000 |
-| **Total Cost**     | $280,000  | $70,000   | $70,000  | $70,000  | $490,000 |
-| **Net Profit**     | -$280,000 | $80,000   | $155,000 | $230,000 | $185,000 |
-| **Cumulative Net** | -$280,000 | -$200,000 | -$45,000 | $185,000 | —        |
+| Metric             |    Year 0 |    Year 1 |   Year 2 |   Year 3 |    Total |
+| ------------------ | -------- | -------- | ------- | ------- | ------- |
+| **Revenue**        |        $0 |  $150,000 | $225,000 | $300,000 | $675,000 |
+| **Total Cost**     |  $280,000 |   $70,000 |  $70,000 |  $70,000 | $490,000 |
+| **Net Profit**     | -$280,000 |   $80,000 | $155,000 | $230,000 | $185,000 |
+| **Cumulative Net** | -$280,000 | -$200,000 | -$45,000 | $185,000 |        — |
 
 > **3-Year ROI:** $185,000 ÷ $490,000 ≈ **37.8%**
 
-![Figure 3.2: Net Profit per Year](../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.png)
+<figure>
+  <img src="../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.svg" alt="Figure 3.2: Net Profit per Year">
+  <figcaption>Figure 3.2: Net Profit per Year</figcaption>
+</figure>
 
 ---
 
@@ -621,45 +916,70 @@ To illustrate:
 - Achieved at ~**16,333 paid enrollments** (490,000 ÷ $30).  
 - Based on projected growth, this milestone will be reached in the **third year of operation**.  
 
-![Figure 3.3: Cumulative Revenue vs Cumulative Cost](../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.png)
+<figure>
+  <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="">
+  <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
+</figure>
 
 ---
 
-### 3.2 Risk Management
+### <div class="section">3.2 Risk Management</div>
 
 This section identifies key risks for the coding education platform across technical, operational, and legal domains. Each risk is assessed with a likelihood (Low/Medium/High), impact (Low/Medium/High), and mitigation strategies. Where appropriate, a qualitative risk matrix is used to emphasize prioritization.  
 
-#### 3.2.1 Technical Risks
+#### <div class="subsection">3.2.1 Technical Risks</div>
 
-| **Risk**                     | **Description**                                                                                                                                                     | **Likelihood** | **Impact** | **Mitigation**                                                                                                                                                                                         |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Scalability & Uptime**     | High traffic or data growth could overwhelm the platform. Without modular architecture and robust testing, performance bottlenecks and downtime can occur.          | High           | High       | Design a scalable, microservices-based architecture; use horizontal scaling (load balancing, CDN, caching); implement automated testing and monitoring to detect and prevent bottlenecks.              |
-| **External API Integration** | Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes. | Medium         | High       | Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails.         |
-| **Real-time Code Execution** | Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability.   | Medium         | High       | Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover. |
+| **Risk** | **Description** | **Likelihood** | **Impact** | **Mitigation** |
+|----------|-----------------|----------------|------------|----------------|
+| **Scalability & Uptime** | High traffic or data growth could overwhelm the platform. Without modular architecture and robust testing, performance bottlenecks and downtime can occur. | High | High | Design a scalable, microservices-based architecture; use horizontal scaling (load balancing, CDN, caching); implement automated testing and monitoring to detect and prevent bottlenecks. |
+| **External API Integration** | Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes. | Medium | High | Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails. |
+| **Real-time Code Execution** | Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability. | Medium | High | Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover. |
 
-#### 3.2.2 Operational Risks
+#### <div class="subsection">3.2.2 Operational Risks</div>
 
-| Risk                                | Description                                                                                                                          | Likelihood | Impact | Mitigation                                                                                                                                                     |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Timeline Delays**                 | Requirement changes, scope creep, or underestimation can derail schedules. Over-optimistic estimates may lead to extended deadlines. | High       | High   | Use thorough upfront planning and clear requirements; apply realistic time estimates with contingency; use agile sprints for incremental delivery and reviews. |
-| **Resource Constraints**            | Limited team size or skill shortages create bottlenecks.                                                                             | Medium     | High   | Cross-train staff and onboard talent early; use contingent resources; maintain a pipeline of developers; forecast and reallocate workloads proactively.        |
-| **Content Development Bottlenecks** | Creating high-quality, engaging coding lessons and exercises is time-consuming, which can delay releases or reduce quality.          | Medium     | Medium | Develop content iteratively with SMEs; reuse or adapt existing materials; employ instructional designers; prioritize high-impact modules first.                |
+| Risk | Description | Likelihood | Impact | Mitigation |
+|------|-------------|------------|--------|------------|
+| **Timeline Delays** | Requirement changes, scope creep, or underestimation can derail schedules. Over-optimistic estimates may lead to extended deadlines. | High | High | Use thorough upfront planning and clear requirements; apply realistic time estimates with contingency; use agile sprints for incremental delivery and reviews. |
+| **Resource Constraints** | Limited team size or skill shortages create bottlenecks. | Medium | High | Cross-train staff and onboard talent early; use contingent resources; maintain a pipeline of developers; forecast and reallocate workloads proactively. |
+| **Content Development Bottlenecks** | Creating high-quality, engaging coding lessons and exercises is time-consuming, which can delay releases or reduce quality. | Medium | Medium | Develop content iteratively with SMEs; reuse or adapt existing materials; employ instructional designers; prioritize high-impact modules first. |
 
-#### 3.2.3 Legal & Compliance Risks
+#### <div class="subsection">3.2.3 Legal & Compliance Risks</div>
 
-| Risk                            | Description                                                                                                                                        | Likelihood | Impact | Mitigation                                                                                                                                                          |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Data Privacy (Minors)**       | Collecting data on children raises strict legal requirements (e.g., COPPA, GDPR). Failure to comply can cause severe penalties.                    | Medium     | High   | Apply "privacy by design": minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits.  |
-| **Copyright & Licensing**       | Using third-party or community code/assets risks license infringement. Even one noncompliant license could result in legal or financial penalties. | Low        | Medium | Enforce strict review of all content/code; use license scanners; prefer permissive or original content; educate users on plagiarism; remediate infringing material. |
-| **Terms-of-Service Violations** | Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform's ToS.                   | Medium     | Medium | Publish comprehensive ToS; implement moderation and reporting tools; enforce rules via filters and manual review; respond promptly and revise policies regularly.   |
+| Risk | Description | Likelihood | Impact | Mitigation |
+|------|-------------|------------|--------|------------|
+| **Data Privacy (Minors)** | Collecting data on children raises strict legal requirements (e.g., COPPA, GDPR). Failure to comply can cause severe penalties. | Medium | High | Apply "privacy by design": minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits. |
+| **Copyright & Licensing** | Using third-party or community code/assets risks license infringement. Even one noncompliant license could result in legal or financial penalties. | Low | Medium | Enforce strict review of all content/code; use license scanners; prefer permissive or original content; educate users on plagiarism; remediate infringing material. |
+| **Terms-of-Service Violations** | Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform's ToS. | Medium | Medium | Publish comprehensive ToS; implement moderation and reporting tools; enforce rules via filters and manual review; respond promptly and revise policies regularly. |
 
 ---
 
 
-### 3.3 Project plan
+### <div class="section">3.3 Project plan</div>
 
   **TO DO**
 
-### 3.4 Gantt Chart
+### <div class="section">3.4 Gantt Chart</div>
 
   **TO DO**
+
+<!-- ### Risk Matrix (Qualitative) -->
+<!--  -->
+<!-- - **High Likelihood + High Impact** → *Priority*: Scalability & Uptime, Timeline Delays, Data Privacy   -->
+<!-- - **Medium Likelihood + High Impact** → API Integration, Real-time Code Execution, Resource Constraints   -->
+<!-- - **Medium Likelihood + Medium Impact** → Content Bottlenecks, ToS Violations   -->
+<!-- - **Low Likelihood + Medium Impact** → Copyright & Licensing   -->
+<!--  -->
+<!-- Proactive design, rigorous testing, clear policies, and continuous monitoring are essential for managing these risks effectively. -->
+
+<script setup>
+import { onMounted } from 'vue';
+onMounted(() => {
+  let docxLinks = document.querySelectorAll('a[href="/duocodo.docx.html"]');
+  docxLinks.forEach((link) => {
+      link.setAttribute('href', 'javascript:void(0)');
+      link.addEventListener('click', (event) => {
+        location.href = '/duocodo.docx';
+      });
+  })
+});
+</script>
