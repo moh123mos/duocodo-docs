@@ -1,3 +1,4 @@
+
 <style>
   :root {
     --primary: #2c3e50;
@@ -10,24 +11,27 @@
     --info: #17a2b8;
   }
     
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    max-width: 210mm;
-    margin: 20px auto;
-    padding: 25px;
-    background: white;
-    box-sizing: border-box;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  /* body {
+  } */
+
+  .one-for-all {
     position: relative;
-  }
-    
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 0 25px;
+    box-sizing: border-box; */
+    /* color: var(--vp-c-text-1); */
+    /* max-width: 210mm; */
+    /* margin: 20px auto; */
+    /* background: var(--vp-c-bg); */
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); */
+
   .highlight-box {
     background: #e8f4fc;
     border-left: 4px solid var(--secondary);
     padding: 15px 20px;
     margin: 20px 0;
+    color: #333;
     border-radius: 0 5px 5px 0;
   }
     
@@ -58,10 +62,12 @@
     background: var(--light);
     font-size: 18px;
     font-weight: 600;
+    border-start-end-radius: 5px;
+    border-end-end-radius: 5px;
   }
     
   .subsection {
-    color: var(--dark);
+    /* color: var(--dark); */
     border-bottom: 2px solid var(--secondary);
     padding-bottom: 8px;
     margin: 20px 0 12px 0;
@@ -139,6 +145,7 @@
     
   tr:nth-child(even) {
       background: var(--light);
+      color: var(--dark);
   }
     
   code {
@@ -151,7 +158,10 @@
   }
     
   strong {
-    color: var(--primary);
+    /* color: var(--primary);
+    background: white; */
+    font-weight: 700;
+    padding: 2px 4px;
   }
     
 
@@ -174,7 +184,7 @@
     margin-top: 10px;
     font-size: 0.9em;
     font-style: italic;
-    color: #555;
+    /* color: #555; */
   }
 
   .chapter {
@@ -187,6 +197,9 @@
 
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
+  }
+  h2 {
+    border-top: none;
   }
 
   @page {
@@ -203,7 +216,9 @@
       color: #666;
     }
   }
+  }
 </style>
+<div class="one-for-all">
 
 ## <div class="chapter">Chapter 1: Project Overview</div>
 
@@ -873,23 +888,23 @@ Then the related work was described, (Which is listed in the previous table), an
 
 **Development and Operational Costs (Years 0–3):**
 
-| Item                       |       Year 0 |      Year 1 |      Year 2 |      Year 3 |        Total |
-| -------------------------- | ----------- | ---------- | ---------- | ---------- | ----------- |
-| **Development (one-time)** |     $280,000 |          $0 |          $0 |          $0 |     $280,000 |
-| Dev team salaries          |     $180,000 |           – |           – |           – |     $180,000 |
-| Content creation           |     $100,000 |           – |           – |           – |     $100,000 |
-| **Hosting/AI/maint.**      |           $0 |     $20,000 |     $20,000 |     $20,000 |      $60,000 |
-| **Marketing**              |           $0 |     $50,000 |     $50,000 |     $50,000 |     $150,000 |
+| Item                       | Year 0       | Year 1      | Year 2      | Year 3      | Total        |
+| -------------------------- | ------------ | ----------- | ----------- | ----------- | ------------ |
+| **Development (one-time)** | $280,000     | $0          | $0          | $0          | $280,000     |
+| Dev team salaries          | $180,000     | –           | –           | –           | $180,000     |
+| Content creation           | $100,000     | –           | –           | –           | $100,000     |
+| **Hosting/AI/maint.**      | $0           | $20,000     | $20,000     | $20,000     | $60,000      |
+| **Marketing**              | $0           | $50,000     | $50,000     | $50,000     | $150,000     |
 | **Total Cost**             | **$280,000** | **$70,000** | **$70,000** | **$70,000** | **$490,000** |
 
 **ROI and Cumulative Net:**
 
-| Metric             |    Year 0 |    Year 1 |   Year 2 |   Year 3 |    Total |
-| ------------------ | -------- | -------- | ------- | ------- | ------- |
-| **Revenue**        |        $0 |  $150,000 | $225,000 | $300,000 | $675,000 |
-| **Total Cost**     |  $280,000 |   $70,000 |  $70,000 |  $70,000 | $490,000 |
-| **Net Profit**     | -$280,000 |   $80,000 | $155,000 | $230,000 | $185,000 |
-| **Cumulative Net** | -$280,000 | -$200,000 | -$45,000 | $185,000 |        — |
+| Metric             | Year 0    | Year 1    | Year 2   | Year 3   | Total    |
+| ------------------ | --------- | --------- | -------- | -------- | -------- |
+| **Revenue**        | $0        | $150,000  | $225,000 | $300,000 | $675,000 |
+| **Total Cost**     | $280,000  | $70,000   | $70,000  | $70,000  | $490,000 |
+| **Net Profit**     | -$280,000 | $80,000   | $155,000 | $230,000 | $185,000 |
+| **Cumulative Net** | -$280,000 | -$200,000 | -$45,000 | $185,000 | —        |
 
 > **3-Year ROI:** $185,000 ÷ $490,000 ≈ **37.8%**
 
@@ -929,27 +944,27 @@ This section identifies key risks for the coding education platform across techn
 
 #### <div class="subsection">3.2.1 Technical Risks</div>
 
-| **Risk** | **Description** | **Likelihood** | **Impact** | **Mitigation** |
-|----------|-----------------|----------------|------------|----------------|
-| **Scalability & Uptime** | High traffic or data growth could overwhelm the platform. Without modular architecture and robust testing, performance bottlenecks and downtime can occur. | High | High | Design a scalable, microservices-based architecture; use horizontal scaling (load balancing, CDN, caching); implement automated testing and monitoring to detect and prevent bottlenecks. |
-| **External API Integration** | Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes. | Medium | High | Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails. |
-| **Real-time Code Execution** | Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability. | Medium | High | Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover. |
+| **Risk**                     | **Description**                                                                                                                                                     | **Likelihood** | **Impact** | **Mitigation**                                                                                                                                                                                         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Scalability & Uptime**     | High traffic or data growth could overwhelm the platform. Without modular architecture and robust testing, performance bottlenecks and downtime can occur.          | High           | High       | Design a scalable, microservices-based architecture; use horizontal scaling (load balancing, CDN, caching); implement automated testing and monitoring to detect and prevent bottlenecks.              |
+| **External API Integration** | Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes. | Medium         | High       | Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails.         |
+| **Real-time Code Execution** | Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability.   | Medium         | High       | Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover. |
 
 #### <div class="subsection">3.2.2 Operational Risks</div>
 
-| Risk | Description | Likelihood | Impact | Mitigation |
-|------|-------------|------------|--------|------------|
-| **Timeline Delays** | Requirement changes, scope creep, or underestimation can derail schedules. Over-optimistic estimates may lead to extended deadlines. | High | High | Use thorough upfront planning and clear requirements; apply realistic time estimates with contingency; use agile sprints for incremental delivery and reviews. |
-| **Resource Constraints** | Limited team size or skill shortages create bottlenecks. | Medium | High | Cross-train staff and onboard talent early; use contingent resources; maintain a pipeline of developers; forecast and reallocate workloads proactively. |
-| **Content Development Bottlenecks** | Creating high-quality, engaging coding lessons and exercises is time-consuming, which can delay releases or reduce quality. | Medium | Medium | Develop content iteratively with SMEs; reuse or adapt existing materials; employ instructional designers; prioritize high-impact modules first. |
+| Risk                                | Description                                                                                                                          | Likelihood | Impact | Mitigation                                                                                                                                                     |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Timeline Delays**                 | Requirement changes, scope creep, or underestimation can derail schedules. Over-optimistic estimates may lead to extended deadlines. | High       | High   | Use thorough upfront planning and clear requirements; apply realistic time estimates with contingency; use agile sprints for incremental delivery and reviews. |
+| **Resource Constraints**            | Limited team size or skill shortages create bottlenecks.                                                                             | Medium     | High   | Cross-train staff and onboard talent early; use contingent resources; maintain a pipeline of developers; forecast and reallocate workloads proactively.        |
+| **Content Development Bottlenecks** | Creating high-quality, engaging coding lessons and exercises is time-consuming, which can delay releases or reduce quality.          | Medium     | Medium | Develop content iteratively with SMEs; reuse or adapt existing materials; employ instructional designers; prioritize high-impact modules first.                |
 
 #### <div class="subsection">3.2.3 Legal & Compliance Risks</div>
 
-| Risk | Description | Likelihood | Impact | Mitigation |
-|------|-------------|------------|--------|------------|
-| **Data Privacy (Minors)** | Collecting data on children raises strict legal requirements (e.g., COPPA, GDPR). Failure to comply can cause severe penalties. | Medium | High | Apply "privacy by design": minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits. |
-| **Copyright & Licensing** | Using third-party or community code/assets risks license infringement. Even one noncompliant license could result in legal or financial penalties. | Low | Medium | Enforce strict review of all content/code; use license scanners; prefer permissive or original content; educate users on plagiarism; remediate infringing material. |
-| **Terms-of-Service Violations** | Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform's ToS. | Medium | Medium | Publish comprehensive ToS; implement moderation and reporting tools; enforce rules via filters and manual review; respond promptly and revise policies regularly. |
+| Risk                            | Description                                                                                                                                        | Likelihood | Impact | Mitigation                                                                                                                                                          |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Data Privacy (Minors)**       | Collecting data on children raises strict legal requirements (e.g., COPPA, GDPR). Failure to comply can cause severe penalties.                    | Medium     | High   | Apply "privacy by design": minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits.  |
+| **Copyright & Licensing**       | Using third-party or community code/assets risks license infringement. Even one noncompliant license could result in legal or financial penalties. | Low        | Medium | Enforce strict review of all content/code; use license scanners; prefer permissive or original content; educate users on plagiarism; remediate infringing material. |
+| **Terms-of-Service Violations** | Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform's ToS.                   | Medium     | Medium | Publish comprehensive ToS; implement moderation and reporting tools; enforce rules via filters and manual review; respond promptly and revise policies regularly.   |
 
 ---
 
@@ -962,24 +977,4 @@ This section identifies key risks for the coding education platform across techn
 
   **TO DO**
 
-<!-- ### Risk Matrix (Qualitative) -->
-<!--  -->
-<!-- - **High Likelihood + High Impact** → *Priority*: Scalability & Uptime, Timeline Delays, Data Privacy   -->
-<!-- - **Medium Likelihood + High Impact** → API Integration, Real-time Code Execution, Resource Constraints   -->
-<!-- - **Medium Likelihood + Medium Impact** → Content Bottlenecks, ToS Violations   -->
-<!-- - **Low Likelihood + Medium Impact** → Copyright & Licensing   -->
-<!--  -->
-<!-- Proactive design, rigorous testing, clear policies, and continuous monitoring are essential for managing these risks effectively. -->
-
-<script setup>
-import { onMounted } from 'vue';
-onMounted(() => {
-  let docxLinks = document.querySelectorAll('a[href="/duocodo.docx.html"]');
-  docxLinks.forEach((link) => {
-      link.setAttribute('href', 'javascript:void(0)');
-      link.addEventListener('click', (event) => {
-        location.href = '/duocodo.docx';
-      });
-  })
-});
-</script>
+</div>

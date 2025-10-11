@@ -207,6 +207,7 @@
   animation: fadeInUp 0.6s ease forwards;
 }
 
+/* RTL Support */
 /* VPNav */
 .VPNav {
   .VPNavBar.has-sidebar {
@@ -266,8 +267,8 @@
     border-inline-start: 1px solid var(--vp-c-divider);
     padding-inline-start: 1rem;
     .outline-marker {
-      inset-inline-start: -1px;
       left: unset;
+      inset-inline-start: -1px;
     }
   }
 }
