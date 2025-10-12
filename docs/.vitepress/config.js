@@ -41,6 +41,14 @@ export default {
                     ]
                 },
                 {
+                    text: 'Requirements Gathering',
+                    collapsed: true,
+                    items: [
+                        { text: 'Ch4: Functional Requirements', link: '/guide/functional-requirements' },
+                        // { text: 'Ch4: Non-Functional Requirements', link: '/guide/non-functional-requirements' },
+                    ]
+                },
+                {
                     text: 'All Chapters',
                     link: '/guide/one-for-all'
                 }
@@ -71,6 +79,7 @@ export default {
                     { text: 'الرئيسية', link: '/ar' },
                     { text: 'الدليل', link: '/ar/guide/overview' },
                     // { text: 'واجهة برمجة التطبيقات', link: '/api/' },
+                    { text: 'الفريق', link: '/ar/team' },
                     { text: 'تحميل PDF', link: '/duocode.pdf' },
                 ],
                 sidebar: {
@@ -88,6 +97,14 @@ export default {
                             items: [
                                 { text: 'CH2: الخلفية', link: '/ar/guide/background' },
                                 { text: 'CH3: المتطلبات', link: '/ar/guide/requirements' },
+                            ]
+                        },
+                        {
+                            text: 'جمع المتطلبات',
+                            collapsed: true,
+                            items: [
+                                { text: 'CH4: المتطلبات الوظيفية', link: '/ar/guide/functional-requirements' },
+                                // { text: 'CH4: المتطلبات غير الوظيفية', link: '/ar/guide/non-functional-requirements' },
                             ]
                         },
                         {
