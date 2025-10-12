@@ -43,6 +43,7 @@
     }
     
     .section {
+      color: var(--primary);
       border-left: 4px solid var(--secondary);
       padding: 8px 15px;
       margin: 25px 0 15px 0;
@@ -187,7 +188,7 @@
   }
 
   @page {
-    border: 4px double #17a2b8;
+    border: 4px double #3398da;
     margin: 2cm 1.5cm;
     padding: 25px 25px;
     color: var(--vp-c-text-1);
