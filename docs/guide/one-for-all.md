@@ -872,7 +872,7 @@ Then the related work was described, (Which is listed in the previous table), an
   - **Content & Instructional Design (shared responsibility):**  
     Instead of dedicated content creators, **all team members will collaborate** on producing and localizing course material in Arabic. This includes designing structured lessons, writing exercises, and embedding gamification mechanics. Team members’ technical expertise ensures content is accurate, while shared responsibility distributes workload evenly.  
     <figure class="figure">
-      <img src="../assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
+      <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
       <figcaption>Figure 3.1: Development Team Roles</figcaption>
     </figure>
 ---
@@ -915,7 +915,7 @@ Then the related work was described, (Which is listed in the previous table), an
 > **3-Year ROI:** $185,000 ÷ $490,000 ≈ **37.8%**
 
 <figure>
-  <img src="../assets/CH03/Figure_3.2_Net_Profit_per_Year.svg" alt="Figure 3.2: Net Profit per Year">
+  <img src="../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.svg" alt="Figure 3.2: Net Profit per Year">
   <figcaption>Figure 3.2: Net Profit per Year</figcaption>
 </figure>
 
@@ -938,7 +938,7 @@ To illustrate:
 - Based on projected growth, this milestone will be reached in the **third year of operation**.  
 
 <figure>
-  <img src="../assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="">
+  <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="">
   <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
 </figure>
 
