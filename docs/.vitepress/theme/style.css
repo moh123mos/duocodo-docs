@@ -208,12 +208,24 @@
 }
 
 /* RTL Support */
+.VPNav {
+  .container {
+    gap: 12px;
+  }
+}
+nav#VPSidebarNav {
+  border-top: 1px solid var(--vp-c-divider);
+}
 /* VPNav */
 @media (min-width: 960px) {
   .VPNav {
     .VPNavBar.has-sidebar {
       .title {
+        left: unset;
         inset-inline-start: 0;
+        a.title {
+          border: none;
+        }
       }
       .content {
         padding-inline-end: 32px;
@@ -280,10 +292,23 @@
 }
 
 @media (min-width: 1440px) {
-  .VPContent.has-sidebar[data-v-98ddab3d] {
-    padding-inline-end: calc((100vw - var(--vp-layout-max-width)) / 2);
+  .VPContent.has-sidebar {
+    padding-inline-end: calc(
+      (100vw - var(--vp-layout-max-width)) / 2
+    ) !important;
     padding-inline-start: calc(
       (100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width)
+    ) !important;
+  }
+  .VPSidebar {
+    padding-inline-start: calc((100% - var(--vp-layout-max-width)) / 2) !important;
+    padding-inline-end: 32px !important;
+    width: calc(
+      (100% - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width-small)
     );
   }
+  .VPNavBar.has-sidebar .title {
+        padding-inline-start: max(32px, calc((100% - (var(--vp-layout-max-width) + 64px)) / 2)) !important;
+        width: calc((100% - (var(--vp-layout-max-width) - 64px)) / 2 + var(--vp-sidebar-width) - 32px);
+    }
 }

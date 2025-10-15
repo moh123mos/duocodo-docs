@@ -244,17 +244,17 @@ Charts and graphs for analytics.
 
 ### 7.1 Intelligent Hints and Assistance
 
-- **FR-8.1:** System shall integrate AI APIs (Gemini via OpenRouter) for contextual hints.
-- **FR-8.2:** System shall provide progressive hint levels.
-- **FR-8.3:** System shall analyze user code and suggest improvements.
-- **FR-8.4:** System shall generate explanations for complex programming concepts.
-- **FR-8.5:** System shall adapt hint complexity based on user skill.
+- **FR-7.1:** System shall integrate AI APIs (Gemini via OpenRouter) for contextual hints.
+- **FR-7.2:** System shall provide progressive hint levels.
+- **FR-7.3:** System shall analyze user code and suggest improvements.
+- **FR-7.4:** System shall generate explanations for complex programming concepts.
+- **FR-7.5:** System shall adapt hint complexity based on user skill.
 
 ---
 
 ### 7.2 Personalized Learning Recommendations
 
-- **FR-8.6:** System shall suggest relevant exercises when users struggle.
+- **FR-7.6:** System shall suggest relevant exercises when users struggle.
 
 ::: tip Optional Feature
 Learning schedules, AI practice problems.
@@ -264,8 +264,8 @@ Learning schedules, AI practice problems.
 
 ### 7.3 Automated Content Generation
 
-- **FR-8.7:** System shall generate variations of exercises for extra practice.
-- **FR-8.8:** System shall generate code examples for abstract concepts.
+- **FR-7.7:** System shall generate variations of exercises for extra practice.
+- **FR-7.8:** System shall generate code examples for abstract concepts.
 
 ---
 
@@ -273,7 +273,7 @@ Learning schedules, AI practice problems.
 
 ### 8.1 Course and Lesson Administration
 
-- **FR-9.1:** System shall provide a content creation interface for authorized users.
+- **FR-8.1:** System shall provide a content creation interface for authorized users.
 
 ::: tip Optional Feature
 Content scheduling, review workflows.
@@ -283,9 +283,9 @@ Content scheduling, review workflows.
 
 ### 8.2 Exercise and Assessment Management
 
-- **FR-9.2:** System shall allow creation of coding exercises with test cases.
-- **FR-9.3:** System shall support exercise difficulty categorization.
-- **FR-9.4:** System shall validate exercises before publication.
+- **FR-8.2:** System shall allow creation of coding exercises with test cases.
+- **FR-8.3:** System shall support exercise difficulty categorization.
+- **FR-8.4:** System shall validate exercises before publication.
 
 ::: tip Optional Feature
 Exercise cloning and templates.
@@ -295,8 +295,8 @@ Exercise cloning and templates.
 
 ### 8.3 Multimedia Content Support
 
-- **FR-9.5:** System shall support video upload or embedding.
-- **FR-9.6:** System shall support content localization for multiple languages.
+- **FR-8.5:** System shall support video upload or embedding.
+- **FR-8.6:** System shall support content localization for multiple languages.
 
 ::: tip Optional Feature
 Image embedding and interactive content creation.
@@ -308,22 +308,22 @@ Image embedding and interactive content creation.
 
 ### 9.1 User Management
 
-- **FR-10.1:** System shall provide an administrative dashboard for managing user accounts.
-- **FR-10.2:** System shall support user role assignment and permission management.
+- **FR-9.1:** System shall provide an administrative dashboard for managing user accounts.
+- **FR-9.2:** System shall support user role assignment and permission management.
 
 ---
 
 ### 9.2 Platform Monitoring and Analytics
 
-- **FR-10.3:** System shall maintain system logs and audit trails.
-- **FR-10.4:** System shall provide usage statistics and dashboards.
+- **FR-9.3:** System shall maintain system logs and audit trails.
+- **FR-9.4:** System shall provide usage statistics and dashboards.
 
 ---
 
 ### 9.3 Content Moderation
 
-- **FR-10.5:** System shall support manual content review and moderation workflows.
-- **FR-10.6:** System shall maintain content removal and user warning systems.
+- **FR-9.5:** System shall support manual content review and moderation workflows.
+- **FR-9.6:** System shall maintain content removal and user warning systems.
 
 ---
 
@@ -331,23 +331,23 @@ Image embedding and interactive content creation.
 
 ### 10.1 Third-Party Integrations
 
-- **FR-11.1:** System shall integrate with external authentication providers (OAuth or BetterAuth).
-- **FR-11.2:** System shall connect with AI services (OpenRouter, Gemini API).
+- **FR-10.1:** System shall integrate with external authentication providers (OAuth or BetterAuth).
+- **FR-10.2:** System shall connect with AI services (OpenRouter, Gemini API).
 
 ---
 
 ### 10.2 Platform APIs
 
-- **FR-11.3:** System shall provide RESTful APIs for web and mobile apps.
-- **FR-11.4:** System shall support webhook integrations.
+- **FR-10.3:** System shall provide RESTful APIs for web and mobile apps.
+- **FR-10.4:** System shall support webhook integrations.
 
 ---
 
 ### 10.3 Mobile and Cross-Platform Support
 
-- **FR-11.5:** System shall deliver a responsive web interface optimized for mobile.
-- **FR-11.6:** System shall provide mobile-specific features (push notifications).
-- **FR-11.7:** System shall ensure cross-browser compatibility.
+- **FR-10.5:** System shall deliver a responsive web interface optimized for mobile.
+- **FR-10.6:** System shall provide mobile-specific features (push notifications).
+- **FR-10.7:** System shall ensure cross-browser compatibility.
 
 ::: tip Optional Feature
 Offline content caching.
@@ -359,18 +359,18 @@ Offline content caching.
 
 ### 11.1 Data Protection
 
-- **FR-12.1:** System shall encrypt sensitive user data at rest and in transit.
-- **FR-12.2:** System shall implement secure session management and timeouts.
-- **FR-12.3:** System shall provide privacy controls and data deletion options.
-- **FR-12.4:** System shall comply with GDPR and COPPA standards.
+- **FR-11.1:** System shall encrypt sensitive user data at rest and in transit.
+- **FR-11.2:** System shall implement secure session management and timeouts.
+- **FR-11.3:** System shall provide privacy controls and data deletion options.
+- **FR-11.4:** System shall comply with GDPR and COPPA standards.
 
 ---
 
 ### 11.2 Platform Security
 
-- **FR-12.5:** System shall implement input validation and sanitization.
-- **FR-12.6:** System shall protect against XSS, CSRF, and SQL injection.
-- **FR-12.7:** System shall secure API endpoints with authentication and authorization.
-- **FR-12.8:** System shall implement rate limiting and DDoS protection.
+- **FR-11.5:** System shall implement input validation and sanitization.
+- **FR-11.6:** System shall protect against XSS, CSRF, and SQL injection.
+- **FR-11.7:** System shall secure API endpoints with authentication and authorization.
+- **FR-11.8:** System shall implement rate limiting and DDoS protection.
 
 ---
