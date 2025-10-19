@@ -1,8 +1,3 @@
----
-# sidebar: false
-# aside: false
-# outline: false
----
 # الفصل الأول: نظرة عامة على المشروع
 [[toc]]
 

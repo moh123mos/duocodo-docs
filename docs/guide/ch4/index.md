@@ -1,4 +1,4 @@
-# Chapter 4: Functional Requirements
+# 4.1 Functional Requirements
 [[toc]]
 
 ## 1. User Management System
@@ -31,8 +31,6 @@ Two-factor authentication (2FA).
 
 - **FR-1.10:** System shall support multiple user roles: Learner, Administrator, Content Creator.
 - **FR-1.11:** System shall implement role-based access control for different platform features.
-
----
 
 ## 2. Learning Management System
 
@@ -67,8 +65,6 @@ Estimated completion time per lesson.
 - **FR-2.9:** System shall track user performance and recommend personalized learning paths.
 - **FR-2.10:** System shall adjust exercise difficulty based on user success rates.
 - **FR-2.11:** System shall provide spaced repetition reminders for previously learned concepts.
-
----
 
 ## 3. Code Editor and Execution Environment
 
@@ -118,8 +114,6 @@ Code complexity analysis with Big O insights.
 Custom block expansion.
 :::
 
----
-
 ## 4. Interactive Exercise System
 
 ### 4.1 Exercise Types and Structure
@@ -151,8 +145,6 @@ Immediate feedback, partial credit.
 ::: tip Optional Feature
 Save and version solutions.
 :::
-
----
 
 ## 5. Gamification System
 
@@ -205,8 +197,6 @@ Personalized daily goals.
 - **FR-5.17:** System shall allow eligible users to enroll in certification tracks.
 - **FR-5.18:** System shall create a certification dashboard showing progress and deadlines.
 
----
-
 ## 6. Progress Tracking and Analytics
 
 ### 6.1 Individual Progress Monitoring
@@ -235,8 +225,6 @@ Personalized daily goals.
 Charts and graphs for analytics.
 :::
 
----
-
 ## 7. AI-Powered Features
 
 ### 7.1 Intelligent Hints and Assistance
@@ -263,8 +251,6 @@ Learning schedules, AI practice problems.
 
 - **FR-7.7:** System shall generate variations of exercises for extra practice.
 - **FR-7.8:** System shall generate code examples for abstract concepts.
-
----
 
 ## 8. Content Management System
 
@@ -299,8 +285,6 @@ Exercise cloning and templates.
 Image embedding and interactive content creation.
 :::
 
----
-
 ## 9. System Administration
 
 ### 9.1 User Management
@@ -321,8 +305,6 @@ Image embedding and interactive content creation.
 
 - **FR-9.5:** System shall support manual content review and moderation workflows.
 - **FR-9.6:** System shall maintain content removal and user warning systems.
-
----
 
 ## 10. Integration and API Features
 
@@ -349,8 +331,6 @@ Image embedding and interactive content creation.
 ::: tip Optional Feature
 Offline content caching.
 :::
-
----
 
 ## 11. Security and Privacy
 
