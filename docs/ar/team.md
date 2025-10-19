@@ -77,28 +77,44 @@ const members = [
   },
 ]
 
-const partners = [
-  
-  
+const managers = [
+  {
+    avatar: '/public/assets/imgs/dr.rehab profile.jpeg',
+    name: 'د. رحاب عماد الدين',
+    title: 'مستشارة المشروع | أستاذة علوم الحاسوب',
+    links: [
+      { icon: 'gmail', link: 'mailto:engrehab992@gmail.com' }
+    ]
+  },
+  {
+    avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQE9cI03uN_7Yw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1639762684546?e=1762387200&v=beta&t=aouT9RHFIQWbN7SChDw5uX51qzGiQZDNhS2X5K9UcRU',
+    name: 'م. محمد فرج',
+    title: 'مدير المشروع | مؤسس CIBS Soft',
+    links: [
+      { icon: 'linkedin', link: 'https://www.linkedin.com/in/mohamed-faraj-1b5091123/' },
+      { icon: 'gmail', link: 'mailto:CIBSSoft@gmail.com' },
+    ]
+  },
 ]
 </script>
 
 <VPTeamPage>
-  <VPTeamPageTitle>
+<VPTeamPageTitle>
     <template #title>
+      مسئولو المشروع
+        </template>
+        <template #lead>
+        خبراؤنا الموجهون وقادة التطوير الذين يوجهون ويدعمون الفريق طوال تطوير المشروع.
+        </template>
+      </VPTeamPageTitle>
+      <VPTeamMembers size="medium" :members="managers" />
+      <VPTeamPageTitle>
+        <template #title>
       فريقنا
-    </template>
-    <template #lead>
+        </template>
+        <template #lead>
       تعرف على الأشخاص الذين يقفون وراء هذا المشروع، المكرسين لجعل تعليم البرمجة سهل الوصول وجذاباً للجميع.
-    </template>
-  </VPTeamPageTitle>
-  <VPTeamMembers size="medium" :members />
-
-   <VPTeamPageSection>
-    <template #title>الشركاء</template>
-    <template #lead>الشركاء الذين يدعمون مهمتنا.</template>
-    <template #members>
-      <VPTeamMembers :members="partners" />
-    </template>
-  </VPTeamPageSection>
+        </template>
+      </VPTeamPageTitle>
+      <VPTeamMembers size="medium" :members="members" />
 </VPTeamPage>

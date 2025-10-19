@@ -21,19 +21,18 @@
 
 ---
 
-## 3.1.2 Organizational Feasibility
+### 3.1.2 Organizational Feasibility
+
+- **Project Advisor:** Dr. Rehab Emad El-Dein
+
+- **Project Manager:** Eng. Mohamed Farag
 
 - **Champion:** The development team and supervisors provide time and effort for the system.
-
-- **Project Sponsor:** Dr. Rehab Emad El-Dein
 
 - **System Users:**  
   1. **Learners:** Arabic-speaking students and self-learners who use the platform to learn programming through structured courses, interactive exercises, and real-time code challenges. They earn XP, badges, and streaks as they progress.  
   2. **Mentors/Instructors:** More experienced developers or educators who contribute by answering questions, reviewing user code, curating content, and moderating the community. Mentors help ensure quality and provide additional support (similar to Duolingo "language mentors").  
   3. **Administrators/Content Creators:** A small team of admins who upload new course material, monitor the system, and handle technical support.
-
-- **Project Manager:** Dr. Rehab Emad El-Dein
-
 
 - **Development Team Breakdown:** The team is organized into specialized roles with overlapping collaboration to ensure flexibility:  
 
@@ -54,7 +53,7 @@
     ![Figure 3.1: Development Team Roles](../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg)
 ---
 
-## 3.1.3 Economic Feasibility
+### 3.1.3 Economic Feasibility
 
 - **Tangible Benefits:**  
   - **Course Revenue:** With a pay-per-course model at an average price of $30 per course, enrolling 5,000 users in Year 1 (our target) would generate roughly $150,000 in Year-1 sales. As user growth continues, Year 2 and 3 revenues could be, for example, $225,000 and $300,000 (assuming 50% year-over-year user growth).  

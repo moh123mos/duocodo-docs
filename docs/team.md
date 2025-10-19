@@ -77,13 +77,37 @@ const members = [
   },
 ]
 
-const partners = [
-  
-  
+const managers = [
+  {
+    avatar: '/public/assets/imgs/dr.rehab profile.jpeg',
+    name: 'Dr. Rehab Emad El-Dein',
+    title: 'Project Advisor | Computer Science Professor',
+    links: [
+      { icon: 'gmail', link: 'mailto:engrehab992@gmail.com' }
+    ]
+  },
+  {
+    avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQE9cI03uN_7Yw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1639762684546?e=1762387200&v=beta&t=aouT9RHFIQWbN7SChDw5uX51qzGiQZDNhS2X5K9UcRU',
+    name: 'Eng. Mohamed Farag',
+    title: 'Project Manager | Founder CIBS Soft',
+    links: [
+      { icon: 'linkedin', link: 'https://www.linkedin.com/in/mohamed-faraj-1b5091123/' },
+      { icon: 'gmail', link: 'mailto:CIBSSoft@gmail.com' },
+    ]
+  },
 ]
 </script>
 
 <VPTeamPage>
+  <VPTeamPageTitle>
+    <template #title>
+      Project Managers
+    </template>
+    <template #lead>
+        Our experienced mentors and industry leaders who guide and support the team throughout the project development.
+    </template>
+  </VPTeamPageTitle>
+  <VPTeamMembers size="medium" :members="managers" />
   <VPTeamPageTitle>
     <template #title>
       Our Team
@@ -93,12 +117,4 @@ const partners = [
     </template>
   </VPTeamPageTitle>
   <VPTeamMembers size="medium" :members />
-
-   <VPTeamPageSection>
-    <template #title>Partners</template>
-    <template #lead>Partners who support our mission.</template>
-    <template #members>
-      <VPTeamMembers :members="partners" />
-    </template>
-  </VPTeamPageSection>
 </VPTeamPage>
