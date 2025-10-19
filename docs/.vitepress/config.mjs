@@ -129,10 +129,10 @@ export default withMermaid({
                                 { text: 'المتطلبات غير الوظيفية', link: '/ar/guide/ch4/non-functional' },
                             ]
                         },
-                        {
-                            text: 'جميع الفصول',
-                            link: '/ar/guide/one-for-all'
-                        }
+                        // {
+                        //     text: 'جميع الفصول',
+                        //     link: '/ar/guide/one-for-all'
+                        // }
                     ]
                 },
                 socialLinks: [
