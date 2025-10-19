@@ -79,7 +79,7 @@ const members = [
 
 const managers = [
   {
-    avatar: '/public/assets/imgs/dr.rehab profile.jpeg',
+    avatar: '/assets/imgs/dr.rehab profile.jpeg',
     name: 'د. رحاب عماد الدين',
     title: 'مستشارة المشروع | أستاذة علوم الحاسوب',
     links: [

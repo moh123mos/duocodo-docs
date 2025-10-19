@@ -79,7 +79,7 @@ const members = [
 
 const managers = [
   {
-    avatar: '/public/assets/imgs/dr.rehab profile.jpeg',
+    avatar: '/assets/imgs/dr.rehab profile.jpeg',
     name: 'Dr. Rehab Emad El-Dein',
     title: 'Project Advisor | Computer Science Professor',
     links: [
