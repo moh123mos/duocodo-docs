@@ -216,8 +216,19 @@
 nav#VPSidebarNav {
   border-top: 1px solid var(--vp-c-divider);
 }
-/* VPNav */
+
+/* sidebar caret icon  */
+:root[dir="rtl"] .VPSidebarItem.collapsed .caret-icon {
+  transform: rotate(180deg);
+}
+
+.VPFlyout.VPNavBarExtra.extra .menu {
+  right: unset;
+  inset-inline-end: 0;
+}
+
 @media (min-width: 960px) {
+  /* VPNav */
   .VPNav {
     .VPNavBar.has-sidebar {
       .title {

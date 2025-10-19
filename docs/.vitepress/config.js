@@ -13,7 +13,7 @@ export default {
         },
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Guide', link: '/guide/overview' },
+            { text: 'Guide', link: '/guide/ch1' },
             { text: 'Team', link: '/team' },
             // { text: 'API', link: '/api/' },
             {
@@ -26,25 +26,33 @@ export default {
             // is on `guide` directory.
             '/guide/': [
                 {
-                    text: 'Introduction',
+                    text: 'CH1: Introduction',
                     collapsed: false,
                     items: [
-                        { text: 'CH1: Overview', link: '/guide/overview' }
+                        { text: 'Overview', link: '/guide/ch1' }
                     ]
                 },
                 {
-                    text: 'Analysis',
+                    text: 'CH2: Background',
                     collapsed: true,
                     items: [
-                        { text: 'CH2: Background', link: '/guide/background' },
-                        { text: 'CH3: Requirements', link: '/guide/requirements' },
+                        { text: 'Background', link: '/guide/ch2' },
+                        // { text: 'CH3: Requirements', link: '/guide/ch3' },
                     ]
                 },
                 {
-                    text: 'Requirements Gathering',
+                    text: 'CH3: Requirements',
                     collapsed: true,
                     items: [
-                        { text: 'Ch4: Functional Requirements', link: '/guide/functional-requirements' },
+                        // { text: 'CH2: Background', link: '/guide/ch2' },
+                        { text: 'Requirement Analysis', link: '/guide/ch3' },
+                    ]
+                },
+                {
+                    text: 'CH4: Reqs Gathering',
+                    collapsed: true,
+                    items: [
+                        { text: 'Functional Requirements', link: '/guide/ch4' },
                         // { text: 'Ch4: Non-Functional Requirements', link: '/guide/non-functional-requirements' },
                     ]
                 },
@@ -77,34 +85,41 @@ export default {
             themeConfig: {
                 nav: [
                     { text: 'الرئيسية', link: '/ar' },
-                    { text: 'الدليل', link: '/ar/guide/overview' },
+                    { text: 'الدليل', link: '/ar/guide/ch1' },
                     // { text: 'واجهة برمجة التطبيقات', link: '/api/' },
                     { text: 'الفريق', link: '/ar/team' },
                     { text: 'تحميل PDF', link: '/duocode.pdf' },
                 ],
                 sidebar: {
+                    // This sidebar gets displayed when a user
+                    // is on `ar/guide` directory.
                     '/ar/guide/': [
                         {
-                            text: 'المقدمة',
+                            text: 'الفصل الأول: المقدمة',
                             collapsed: false,
                             items: [
-                                { text: 'CH1: نظرة عامة', link: '/ar/guide/overview' }
+                                { text: 'نظرة عامة', link: '/ar/guide/ch1' }
                             ]
                         },
                         {
-                            text: 'التحليل',
+                            text: 'الفصل الثاني: الخلفية',
                             collapsed: true,
                             items: [
-                                { text: 'CH2: الخلفية', link: '/ar/guide/background' },
-                                { text: 'CH3: المتطلبات', link: '/ar/guide/requirements' },
+                                { text: 'الخلفية', link: '/ar/guide/ch2' },
                             ]
                         },
                         {
-                            text: 'جمع المتطلبات',
+                            text: 'الفصل الثالث: المتطلبات',
                             collapsed: true,
                             items: [
-                                { text: 'CH4: المتطلبات الوظيفية', link: '/ar/guide/functional-requirements' },
-                                // { text: 'CH4: المتطلبات غير الوظيفية', link: '/ar/guide/non-functional-requirements' },
+                                { text: 'تحليل المتطلبات', link: '/ar/guide/ch3' },
+                            ]
+                        },
+                        {
+                            text: 'الفصل الرابع: جمع المتطلبات',
+                            collapsed: true,
+                            items: [
+                                { text: 'المتطلبات الوظيفية', link: '/ar/guide/ch4' },
                             ]
                         },
                         {
@@ -113,6 +128,38 @@ export default {
                         }
                     ]
                 },
+                // sidebar: {
+                    
+                //     '/ar/guide/': [
+                //         {
+                //             text: 'المقدمة',
+                //             collapsed: false,
+                //             items: [
+                //                 { text: 'CH1: نظرة عامة', link: '/ar/guide/overview' }
+                //             ]
+                //         },
+                //         {
+                //             text: 'التحليل',
+                //             collapsed: true,
+                //             items: [
+                //                 { text: 'CH2: الخلفية', link: '/ar/guide/background' },
+                //                 { text: 'CH3: المتطلبات', link: '/ar/guide/requirements' },
+                //             ]
+                //         },
+                //         {
+                //             text: 'جمع المتطلبات',
+                //             collapsed: true,
+                //             items: [
+                //                 { text: 'CH4: المتطلبات الوظيفية', link: '/ar/guide/functional-requirements' },
+                //                 // { text: 'CH4: المتطلبات غير الوظيفية', link: '/ar/guide/non-functional-requirements' },
+                //             ]
+                //         },
+                //         {
+                //             text: 'جميع الفصول',
+                //             link: '/ar/guide/one-for-all'
+                //         }
+                //     ]
+                // },
                 socialLinks: [
                     { icon: 'github', link: ' https://github.com/moh123mos/duocodo-docs' }
                 ],

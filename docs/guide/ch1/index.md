@@ -20,7 +20,6 @@ At its core, the platform seamlessly integrates:
 
 By combining structured curriculum, instant feedback, and social accountability, the platform turns programming education into an addictive, confidence-building journey—making learning feel like play while ensuring tangible skill development.
 
----
 
 ## Project Scope
 
@@ -84,8 +83,6 @@ By combining structured curriculum, instant feedback, and social accountability,
    - Offline mode: Download lessons/exercises for practice without internet.  
    - API integration: Future compatibility with LMS/CMS platforms.  
 
----  
-
 ## Problem Statement
 
 Learning programming remains a daunting barrier for beginners, exacerbated by *four core gaps* in existing solutions:  
@@ -106,7 +103,6 @@ Learning programming remains a daunting barrier for beginners, exacerbated by *f
    - No safe space to share imperfect code, receive peer reviews, or collaborate.  
    - Exercises feel academic, detached from tangible projects or industry practices.  
 
----
 
 ## Solution Approach
 
@@ -145,9 +141,7 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 - Predictive Roadmaps:  
   - Weakness-targeted challenges (e.g., “Struggling with callbacks? Try these 3 exercises!”).  
 - Mastery Analytics:  
-  - Heatmaps track concept retention + time-to-proficiency across skills.  
-
----  
+  - Heatmaps track concept retention + time-to-proficiency across skills.
 
 ## Project Objectives
 
@@ -204,5 +198,3 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
   - Allow advanced learners to design peer-reviewed exercises (vetted by mentors).  
 - Global Hackathons:  
   - Host quarterly themed competitions (e.g., "Sustainable Code Challenge") with expert judging.  
-
----

@@ -11,15 +11,12 @@ For more detailed imformation. you can refer to ([Figma](https://www.figma.com/)
 
 For more detailed imformation. you can refer to ([Nuxt.js](https://nuxt.com/)).
 
-
-**Node.js** is a high-performance JavaScript runtime built on Chrome's V8 engine, enabling developers to run JavaScript on the server side. Renowned for its event-driven, non-blocking I/O model, it excels at building scalable network applications and APIs. Supported by npm's extensive package ecosystem, Node.js facilitates rapid development of web servers and real-time services.
-
-For more detailed imformation. you can refer to ([Node.js](https://nodejs.org/)).
+**.NET** is a powerful, open-source development platform created by Microsoft for building modern, scalable, and high-performance applications. It supports multiple languages such as C#, F#, and VB.NET, and enables developers to create applications across web, desktop, mobile, cloud, and IoT environments. Known for its strong type system, robust security features, and extensive class libraries, .NET streamlines development while ensuring reliability and maintainability. With the introduction of .NET Core and now .NET 8, it offers cross-platform support and exceptional performance.
+For more detailed information, you can refer to ([.NET](https://dotnet.microsoft.com/)).
 
 
-**PostgreSQL** is a powerful, open-source relational database management system (RDBMS) known for its reliability, scalability, and advanced feature set. It supports SQL for relational queries and JSON for non-relational data, making it highly versatile for modern application development. PostgreSQL offers robust features such as ACID compliance, foreign keys, triggers, views, stored procedures, and full-text search. It also provides strong support for data integrity, concurrency, and extensibility, allowing developers to define custom data types, operators, and functions. Trusted by enterprises and developers worldwide, PostgreSQL is widely used for web applications, analytics, and large-scale data systems.
-
-For more detailed imformation. you can refer to ([PostgreSQL](https://www.postgresql.org/)).
+**Microsoft SQL Server** is a robust, enterprise-grade relational database management system (RDBMS) developed by Microsoft. It is designed to store, manage, and retrieve data efficiently while ensuring high performance, security, and reliability. SQL Server supports both structured query language (SQL) for relational data and JSON for semi-structured data, making it suitable for diverse modern applications. It offers advanced features such as ACID compliance, indexing, views, triggers, stored procedures, and built-in analytics through SQL Server Analysis Services (SSAS). With strong support for scalability, data integrity, and transaction management, SQL Server is widely used in enterprise environments for web applications, business intelligence, and large-scale data solutions.
+For more detailed information, you can refer to ([Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server)).
 
 
 **OpenRouter** is an open‑source API platform that offers a unified interface to multiple large language models (LLMs). It enables developers to seamlessly integrate AI features—such as natural language processing, chat interfaces, and content generation—while managing authentication, fallback strategies, and cost efficiency. OpenRouter simplifies switching between or combining models from different providers.

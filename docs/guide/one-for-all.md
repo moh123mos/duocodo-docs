@@ -517,19 +517,20 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
     <strong>Nuxt.js</strong> is a high-level framework built on Vue.js, optimized for developing server-rendered applications and static websites. It offers features like automatic routing, server-side rendering (SSR), static site generation, and a modular architecture. With built-in support for SEO, performance optimizations, and a rich community-driven ecosystem, Nuxt simplifies the development of scalable, high‑performance web apps.</p>
     <p>For more detailed imformation. you can refer to <a href="https://nuxt.com/">Nuxt.js</a>.</p>
 </div>
-
-
 <div class="highlight-box">
   <p>
-    <strong>Node.js</strong> is a high-performance JavaScript runtime built on Chrome’s V8 engine, enabling developers to run JavaScript on the server side. Renowned for its event-driven, non-blocking I/O model, it excels at building scalable network applications and APIs. Supported by npm’s extensive package ecosystem, Node.js facilitates rapid development of web servers and real-time services.</p>
-    <p>For more detailed imformation. you can refer to <a href="https://nodejs.org/">Node.js</a>.</p>
+    <strong>.NET</strong> is a powerful, open-source development platform created by Microsoft for building modern, scalable, and high-performance applications. It supports multiple languages such as C#, F#, and VB.NET, and enables developers to create applications across web, desktop, mobile, cloud, and IoT environments. Known for its strong type system, robust security features, and extensive class libraries, .NET streamlines development while ensuring reliability and maintainability. With the introduction of .NET Core and now .NET 8, it offers cross-platform support and exceptional performance.
+  <p>For more detailed information, you can refer to <a href="https://dotnet.microsoft.com/">.NET</a>.</p>
+  </p>
 </div>
 
 
 <div class="highlight-box">
   <p>
-    <strong>PostgreSQL</strong> is a powerful, open-source relational database management system (RDBMS) known for its reliability, scalability, and advanced feature set. It supports SQL for relational queries and JSON for non-relational data, making it highly versatile for modern application development. PostgreSQL offers robust features such as ACID compliance, foreign keys, triggers, views, stored procedures, and full-text search. It also provides strong support for data integrity, concurrency, and extensibility, allowing developers to define custom data types, operators, and functions. Trusted by enterprises and developers worldwide, PostgreSQL is widely used for web applications, analytics, and large-scale data systems.</p>
-    <p>For more detailed imformation. you can refer to <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+    <strong>Microsoft SQL Server</strong> is a robust, enterprise-grade relational database management system (RDBMS) developed by Microsoft. It is designed to store, manage, and retrieve data efficiently while ensuring high performance, security, and reliability. SQL Server supports both structured query language (SQL) for relational data and JSON for semi-structured data, making it suitable for diverse modern applications. It offers advanced features such as ACID compliance, indexing, views, triggers, stored procedures, and built-in analytics through SQL Server Analysis Services (SSAS). With strong support for scalability, data integrity, and transaction management, SQL Server is widely used in enterprise environments for web applications, business intelligence, and large-scale data solutions.
+  </p>
+  <p>For more detailed information, you can refer to <a href="https://www.microsoft.com/en-us/sql-server">Microsoft SQL Server</a>.</p>
+  </p>
 </div>
 
 
@@ -830,7 +831,7 @@ Then the related work was described, (Which is listed in the previous table), an
   - Because the UI and content are in Arabic, language barriers are eliminated, further smoothing the learning curve for beginners.
 
 - **Familiarity with Technology:**  
-  - Our team has strong expertise in the chosen tech stack: we have built Vue/Nuxt.js and Node.js applications before and are proficient with PostgreSQL databases. This means we can efficiently develop the front-end UI and the back-end server.  
+  - Our team has strong expertise in the chosen tech stack: we have built Vue/Nuxt.js and .NET applications before and are proficient with SQL Server databases. This means we can efficiently develop the front-end UI and the back-end server.  
   - We have experience with embedding real-time code editors (the platform will use Microsoft’s Monaco Editor, the same engine as VS Code) and handling Python and JavaScript code execution on the server.  
   - We are comfortable working with AI APIs; in past projects we have integrated services (e.g. OpenAI APIs) and we can similarly use OpenRouter to connect to the Gemini API for intelligent hints. Overall, **our familiarity is high** and we have confidence that we have the coding, design, and integration skills needed to implement all planned features.
 
@@ -857,8 +858,8 @@ Then the related work was described, (Which is listed in the previous table), an
 
 - **Development Team Breakdown:** The team is organized into specialized roles with overlapping collaboration to ensure flexibility:  
 
-  - **Back-end Developers (3):**  
-    Build and maintain the server-side logic in Node.js, manage the PostgreSQL database, and implement APIs. One of the back-end developers will also take on **DevOps responsibilities**, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs.  
+  - **Back-end Developers (2):**  
+    Build and maintain the server-side logic in .NET, manage the SQL Server database, and implement APIs. One of the back-end developers will also take on DevOps responsibilities, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs.
 
   - **Front-end Developers (2):**  
     Develop the user interface using Nuxt.js, ensuring a responsive and intuitive design across desktop and mobile browsers. They will integrate the Monaco editor, implement gamification features (XP, badges, leaderboards), and collaborate closely with the mobile developer to keep design consistent.  

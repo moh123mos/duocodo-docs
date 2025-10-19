@@ -1,4 +1,4 @@
-# Chapter 2: Functional Requirements
+# Chapter 4: 1. Functional Requirements
 [[toc]]
 
 ## 1. User Management System
@@ -24,9 +24,6 @@ Two-factor authentication (2FA).
 - **FR-1.8:** System shall allow users to select preferred programming languages (Python, JavaScript, etc.).
 - **FR-1.9:** System shall support multiple language interface options (Arabic, English).
 
-::: tip Optional Feature
-Language interface options.
-:::
 
 ---
 
