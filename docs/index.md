@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/overview
+      link: /guide/ch1/
     - theme: alt
       text: View on GitHub
       link: https://github.com/moh123mos/duocodo-docs

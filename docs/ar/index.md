@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: ابدأ الآن
-      link: /ar/guide/overview
+      link: /ar/guide/ch1/
     - theme: alt
       text: عرض على GitHub
       link: https://github.com/moh123mos/duocodo-docs
