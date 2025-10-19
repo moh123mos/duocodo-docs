@@ -1,4 +1,4 @@
-# Chapter 4: 1. Functional Requirements
+# Chapter 4: Functional Requirements
 [[toc]]
 
 ## 1. User Management System

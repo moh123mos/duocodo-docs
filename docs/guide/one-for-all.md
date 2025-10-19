@@ -274,7 +274,6 @@ At its core, the platform seamlessly integrates:
 
 By combining structured curriculum, instant feedback, and social accountability, the platform turns programming education into an addictive, confidence-building journey—making learning feel like play while ensuring tangible skill development.
 
----
 
 ### <div class="section">Project Scope</div>
 
@@ -358,7 +357,6 @@ Learning programming remains a daunting barrier for beginners, exacerbated by *f
    - No safe space to share imperfect code, receive peer reviews, or collaborate.  
    - Exercises feel academic, detached from tangible projects or industry practices.  
 
----
 
 ### <div class="section">Solution Approach</div>
 
@@ -561,7 +559,6 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
     <p>For more detailed imformation. you can refer to: <a href="https://www.cloudflare.com/">CloudFlare</a>.</p>
 </div>
 
----
 
 ### <div class="section">Related Work</div>
 
@@ -810,7 +807,6 @@ Disadvantages:
 
 Reference: [https://checkio.org](https://checkio.org)
 
----
 
 ### <div class="section">Summary</div>
 In this chapter, the tools that will be used in implementation like (Node.js, Nuxt.js, Figma, Gemini API, OpenRouter, Monaco Editor, and CloudFlare). were described.
@@ -840,7 +836,6 @@ Then the related work was described, (Which is listed in the previous table), an
   - The platform’s scope involves a moderate variety of features: a real-time code editor (supporting Python and JS), gamification mechanics (XP, badges, streaks, daily goals), AI-driven hints, and a community sharing module. This is a mid-level complexity for an experienced team.  
   - The development timeline is relatively tight: with a target launch by May 2026 (about 6 months from planning start), the schedule is ambitious. However, by assigning parallel sprints for front-end, back-end, and content creation, and by leveraging reusable components (Nuxt/Vue libraries, Monaco Editor, etc.), we believe the team can meet this deadline.
 
----
 
 ### <div class="section">3.1.2 Organizational Feasibility</div>
 
@@ -876,7 +871,6 @@ Then the related work was described, (Which is listed in the previous table), an
       <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
       <figcaption>Figure 3.1: Development Team Roles</figcaption>
     </figure>
----
 
 ### <div class="section">3.1.3 Economic Feasibility</div>
 
@@ -943,7 +937,6 @@ To illustrate:
   <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
 </figure>
 
----
 
 ### <div class="section">3.2 Risk Management</div>
 
@@ -1313,7 +1306,6 @@ This section identifies key risks for the coding education platform across techn
 - **FR-11.7:** System shall secure API endpoints with authentication and authorization.
 - **FR-11.8:** System shall implement rate limiting and DDoS protection.
 
----
 
 ### <div class="section">4.2 Non-Function Requirements</div>
 
