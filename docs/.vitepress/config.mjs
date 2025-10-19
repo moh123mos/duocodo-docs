@@ -1,4 +1,10 @@
-export default {
+import { withMermaid } from "vitepress-plugin-mermaid";
+
+export default withMermaid({
+    mermaid: {
+      theme: 'neutral', // أو 'dark' أو 'default'
+      securityLevel: 'loose', // للسماح بروابط داخل الرسومات
+    },
     title: 'DuoCodo',
     description: 'Documentation for my awesome graduation project',
     lastUpdated: true,
@@ -86,10 +92,13 @@ export default {
                 nav: [
                     { text: 'الرئيسية', link: '/ar' },
                     { text: 'الدليل', link: '/ar/guide/ch1' },
+                    // { text: 'واجهة برمجة التطبيقات', link: '/api/' },
                     { text: 'الفريق', link: '/ar/team' },
                     { text: 'تحميل PDF', link: '/duocode.pdf' },
                 ],
                 sidebar: {
+                    // This sidebar gets displayed when a user
+                    // is on `ar/guide` directory.
                     '/ar/guide/': [
                         {
                             text: 'الفصل الأول: المقدمة',
@@ -118,7 +127,6 @@ export default {
                             items: [
                                 { text: 'المتطلبات الوظيفية', link: '/ar/guide/ch4' },
                                 { text: 'المتطلبات غير الوظيفية', link: '/ar/guide/ch4/non-functional' },
-                                { text: 'مخطط تحليل الوظائف', link: '/ar/guide/ch4/functional-decomposition' },
                             ]
                         },
                         {
@@ -148,4 +156,4 @@ export default {
         }
     }
 
-}
+});
