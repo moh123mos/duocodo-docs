@@ -988,7 +988,7 @@ This section identifies key risks for the coding education platform across techn
 
 ## <div class="chapter">Chapter 4: Requirement Gatnering</div>
 
-## <div class="section">4.1 Function Requirements</div>
+### <div class="section">4.1 Function Requirements</div>
 #### <div class="subsection">4.1.1 User Management System</div>
 
 **User Registration and Authentication**
@@ -1314,7 +1314,7 @@ This section identifies key risks for the coding education platform across techn
 - **FR-11.8:** System shall implement rate limiting and DDoS protection.
 
 
-## <div class="section">4.2 Non-Function Requirements</div>
+### <div class="section">4.2 Non-Function Requirements</div>
 
 #### 4.2.1 Performance
 
@@ -1579,7 +1579,7 @@ This section identifies key risks for the coding education platform across techn
 
 ---
 
-## <div class="section">4.3 Functional Decomposition</div>
+### <div class="section">4.3 Functional Decomposition</div>
 
 ### Decomposition Diagram - Part 1
 
@@ -1589,5 +1589,40 @@ This section identifies key risks for the coding education platform across techn
 ### Decomposition Diagram - Part 2
 
 ![Figure 4.2: Decomposition Diagram Part 2](../public/assets/CH04/Figure_4.2_decomposition_diagram.svg.svg)
+
+---
+
+## <div class="chapter">Chapter 5: System Architecture</div>
+
+### <div class="section">5.1 Use Cases Model</div>
+
+| Actor | Goals |
+|-------|-------|
+| **Learner** | 1. Register, log in, and manage their own profiles.<br>2. Choose preferred programming languages and interface languages.<br>3. Follow structured learning paths and unlock lessons progressively.<br>4. Learn via text, videos, and interactive demos.<br>5. Practice coding using Monaco Editor with syntax highlighting, auto-completion, and real-time feedback.<br>6. Receive AI-powered hints, explanations, and recommendations.<br>7. Complete exercises, earn XP, badges, and certifications.<br>8. Track progress, mastery, and performance analytics.<br>9. Participate in leaderboards, streaks, and challenges. |
+| **Content Creator / Instructor** | 1. Create and manage courses, lessons, and coding exercises.<br>2. Categorize exercises by difficulty and validate before publishing.<br>3. Add multimedia (videos, images) and localized content.<br>4. Review and update educational materials.<br>5. Generate content in different formats (text, code, interactive demos). |
+| **Administrator** | 1. Manage user accounts and assign roles/permissions.<br>2. Monitor platform analytics and logs.<br>3. Moderate content and enforce warnings or removals.<br>4. Oversee data security, backups, and system performance. **"*-*"**<br>5. Configure integrations and APIs for external services. **"*-*"** |
+| **AI System<br>(Gemini / OpenRouter)** | 1. Provide contextual hints and adaptive learning recommendations.<br>2. Analyze learner code to detect errors and suggest improvements.<br>3. Generate additional exercises and code examples. **"*-*"**<br>4. Adjust hint complexity based on user skill level. **"*-*"** |
+| **System<br>(Platform / App)** | 1. Securely store and manage user data.<br>2. Execute and validate user code safely.<br>3. Deliver responsive and cross-platform experiences.<br>4. Integrate with external authentication and AI APIs.<br>5. Enforce data protection, input validation, and DDoS prevention. |
+
+### <div class="section">5.1 Use Cases Diagram</div>
+<!-- #TODO: edit svg and replace it here -->
+![Use Cases Diagram](../public/assets/CH05/use-case-diagram.svg)
+---
+
+## <div class="chapter">Chapter 6: Database Design</div>
+
+### <div class="section">6.1 Entity Relationship Diagram</div>
+
+#### <div class="subsection">ER Diagram Part 1</div>
+![ER Diagram part 1](../public/assets/CH06/ERD-Part1.svg)
+
+#### <div class="subsection">ER Diagram Part 2</div>
+![ER Diagram part 2](../public/assets/CH06/ERD-Part2.svg)
+
+#### <div class="subsection">ER Diagram Part 3</div>
+![ER Diagram part 3](../public/assets/CH06/ERD-Part3.svg)
+
+#### <div class="subsection">ER Diagram Part 4</div>
+![ER Diagram part 4](../public/assets/CH06/ERD-Part4.svg)
 
 </div>

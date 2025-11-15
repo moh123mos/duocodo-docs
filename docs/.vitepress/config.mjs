@@ -63,6 +63,21 @@ export default withMermaid({
                     ]
                 },
                 {
+                    text: 'CH5: System Architecture',
+                    collapsed: true,
+                    items: [
+                        { text: 'Use Cases Model', link: '/guide/ch5/use-case-model' },
+                        { text: 'Use Cases Diagram', link: '/guide/ch5/use-case-diagram' },
+                    ]
+                },
+                {
+                    text: 'CH6: Database Design',
+                    collapsed: true,
+                    items: [
+                        { text: 'Entity Relationship Diagram', link: '/guide/ch6' },
+                    ]
+                },
+                {
                     text: 'All Chapters',
                     link: '/guide/one-for-all'
                 }
