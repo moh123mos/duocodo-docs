@@ -571,248 +571,101 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 
 #### <div class="subsection">Elzero Web School</div>
 
-Description:  
-Elzero Web School is an excellent free resource for Arabic-speaking beginners and intermediate learners who want to build strong web development skills through structured, practical learning.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| Elzero Web School is an excellent free resource for Arabic-speaking beginners and intermediate learners who want to build strong web development skills through structured, practical learning. | - External resources and useful tool recommendations included<br>- A Q&A section to ask questions and receive community support | - Step-by-step structured study plans for better learning flow<br>- Dedicated learning paths for Frontend, Backend, and Full Stack | - No built-in progress tracking to monitor course completion<br>- Users cannot rate or review courses or lessons |
 
-Techniques Used:  
-- External resources and useful tool recommendations included  
-- A Q&A section to ask questions and receive community support  
-
-Advantages:  
-- Step-by-step structured study plans for better learning flow  
-- Dedicated learning paths for Frontend, Backend, and Full Stack  
-
-Disadvantages:  
-- No built-in progress tracking to monitor course completion  
-- Users cannot rate or review courses or lessons  
-
-Reference: [https://elzero.org](https://elzero.org)
+**Reference:** https://elzero.org
 
 
 #### <div class="subsection">Codeforces</div>
 
-Description:  
-A well-known platform that hosts regular contests like Div 1 and Div 2. It includes a robust rating system and editorial support to develop algorithmic thinking.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| A well-known platform that hosts regular contests like Div 1 and Div 2. It includes a robust rating system and editorial support to develop algorithmic thinking. | - Mathematical algorithms<br>- Rating system<br>- Editorial learning | - Regular contests with large community participation<br>- Detailed editorial explanations<br>- Transparent and active rating system | - Interface can be intimidating for beginners<br>- Problems often require deep mathematical insight |
 
-Techniques Used:  
-- Mathematical algorithms  
-- Rating system  
-- Editorial learning  
-
-Advantages:  
-- Regular contests with large community participation  
-- Detailed editorial explanations  
-- Transparent and active rating system  
-
-Disadvantages:  
-- Interface can be intimidating for beginners  
-- Problems often require deep mathematical insight  
-
-Reference: [https://codeforces.com](https://codeforces.com)
+**Reference:** https://codeforces.com
 
 
 #### <div class="subsection">CodeChef</div>
 
-Description:  
-An Indian educational platform hosting contests like Long Challenge and Lunchtime, with a vast problem archive and community engagement.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| An Indian educational platform hosting contests like Long Challenge and Lunchtime, with a vast problem archive and community engagement. | - Long format contests (Long Challenge)<br>- Short contests (Lunchtime)<br>- Tutorial-based learning | - Great for long-term learning with multiple contest formats<br>- Offers tutorials and mentorship programs | - Sometimes suffers from server lags during contests<br>- Problems can be less curated compared to Codeforces or LeetCode |
 
-Techniques Used:  
-- Long format contests (Long Challenge)  
-- Short contests (Lunchtime)  
-- Tutorial-based learning  
-
-Advantages:  
-- Great for long-term learning with multiple contest formats  
-- Offers tutorials and mentorship programs  
-
-Disadvantages:  
-- Sometimes suffers from server lags during contests  
-- Problems can be less curated compared to Codeforces or LeetCode  
-
-Reference: [https://www.codechef.com](https://www.codechef.com)
+**Reference:** https://www.codechef.com
 
 
 #### <div class="subsection">HackerRank</div>
 
-Description:  
-Focuses on algorithms, SQL, and data structures with a live coding environment, widely used for tech interviews.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| Focuses on algorithms, SQL, and data structures with a live coding environment, widely used for tech interviews. | - Structured learning paths<br>- Auto-grading system<br>- Skill-specific tracks (SQL, AI, etc.)<br>- Live coding interface | - Beginner-friendly interface and structured learning paths<br>- Great for practicing specific skills (e.g. SQL, AI)<br>- Instant feedback and auto-grading | - Contest competitiveness is relatively low<br>- Less challenging for advanced users |
 
-Techniques Used:  
-- Structured learning paths  
-- Auto-grading system  
-- Skill-specific tracks (SQL, AI, etc.)  
-- Live coding interface  
-
-Advantages:  
-- Beginner-friendly interface and structured learning paths  
-- Great for practicing specific skills (e.g. SQL, AI)  
-- Instant feedback and auto-grading  
-
-Disadvantages:  
-- Contest competitiveness is relatively low  
-- Less challenging for advanced users  
-
-Reference: [https://www.hackerrank.com](https://www.hackerrank.com)
+**Reference:** https://www.hackerrank.com
 
 
 #### <div class="subsection">LeetCode</div>
 
-Description:  
-A premier platform for coding interview prep with 2,500+ problems and company-specific questions.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| A premier platform for coding interview prep with 2,500+ problems and company-specific questions. | - Interview prep questions<br>- Company-tagged problems<br>- Weekly contests<br>- Solution discussions | - Focused on technical interview preparation<br>- Community solutions and tutorials<br>- Weekly contests to benchmark skills | - Some premium features are behind a paywall<br>- Less emphasis on advanced algorithms |
 
-Techniques Used:  
-- Interview prep questions  
-- Company-tagged problems  
-- Weekly contests  
-- Solution discussions  
-
-Advantages:  
-- Focused on technical interview preparation  
-- Community solutions and tutorials  
-- Weekly contests to benchmark skills  
-
-Disadvantages:  
-- Some premium features are behind a paywall  
-- Less emphasis on advanced algorithms  
-
-Reference: [https://leetcode.com](https://leetcode.com)
+**Reference:** https://leetcode.com
 
 
 #### <div class="subsection">TopCoder</div>
 
-Description:  
-One of the oldest platforms, known for SRM (Single Round Matches) and Marathon Matches focusing on complex, long-term problems.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| One of the oldest platforms, known for SRM (Single Round Matches) and Marathon Matches focusing on complex, long-term problems. | - SRM (Single Round Match)<br>- Marathon Match<br>- High-difficulty algorithm challenges<br>- Real-world modeling problems | - Highly competitive and professional-grade problems<br>- Real-world challenges and big prizes<br>- Community of expert coders | - Interface feels outdated<br>- Steeper learning curve for newcomers |
 
-Techniques Used:  
-- SRM (Single Round Match)  
-- Marathon Match  
-- High-difficulty algorithm challenges  
-- Real-world modeling problems  
-
-Advantages:  
-- Highly competitive and professional-grade problems  
-- Real-world challenges and big prizes  
-- Community of expert coders  
-
-Disadvantages:  
-- Interface feels outdated  
-- Steeper learning curve for newcomers  
-
-Reference: [https://www.topcoder.com](https://www.topcoder.com)
+**Reference:** https://www.topcoder.com
 
 
 #### <div class="subsection">AtCoder</div>
 
-Description:  
-A Japanese platform offering well-structured contests (ABC, ARC, AGC) with a focus on clean problem statements and difficulty progression.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| A Japanese platform offering well-structured contests (ABC, ARC, AGC) with a focus on clean problem statements and difficulty progression. | - ABC, ARC, AGC contests<br>- Clean and structured problems<br>- Difficulty progression<br>- On-time weekly contests | - High-quality problems and fair difficulty curve<br>- Regular, punctual contests<br>- Structured for serious learners | - Japanese-first interface; some translations may be rough<br>- Smaller international community than others |
 
-Techniques Used:  
-- ABC, ARC, AGC contests  
-- Clean and structured problems  
-- Difficulty progression  
-- On-time weekly contests  
-
-Advantages:  
-- High-quality problems and fair difficulty curve  
-- Regular, punctual contests  
-- Structured for serious learners  
-
-Disadvantages:  
-- Japanese-first interface; some translations may be rough  
-- Smaller international community than others  
-
-Reference: [https://atcoder.jp](https://atcoder.jp)
+**Reference:** https://atcoder.jp
 
 
 #### <div class="subsection">CodinGame</div>
 
-Description:  
-Gamifies coding challenges with multiplayer and story-based games like Clash of Code and Code vs Zombies.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| Gamifies coding challenges with multiplayer and story-based games like Clash of Code and Code vs Zombies. | - Game-based problem solving<br>- Real-time multiplayer coding<br>- Visual programming challenges<br>- Language flexibility (25+) | - Fun and visual way to learn coding<br>- Supports 25+ programming languages<br>- Great for casual or team play | - Not focused on algorithm depth<br>- Less suitable for serious competitive programming |
 
-Techniques Used:  
-- Game-based problem solving  
-- Real-time multiplayer coding  
-- Visual programming challenges  
-- Language flexibility (25+)  
-
-Advantages:  
-- Fun and visual way to learn coding  
-- Supports 25+ programming languages  
-- Great for casual or team play  
-
-Disadvantages:  
-- Not focused on algorithm depth  
-- Less suitable for serious competitive programming  
-
-Reference: [https://www.codingame.com](https://www.codingame.com)
+**Reference:** https://www.codingame.com
 
 
 #### <div class="subsection">CodeCombat</div>
 
-Description:  
-An RPG-style platform that teaches Python, JavaScript, and HTML through story-driven games and challenges.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| An RPG-style platform that teaches Python, JavaScript, and HTML through story-driven games and challenges. | - RPG-style game interface<br>- Code-to-play mechanics<br>- Curriculum-based learning<br>- Beginner visual feedback | - Ideal for children and beginners<br>- Game-based engagement with rewards<br>- Offers structured curriculum | - Too basic for experienced developers<br>- Some content requires a subscription |
 
-Techniques Used:  
-- RPG-style game interface  
-- Code-to-play mechanics  
-- Curriculum-based learning  
-- Beginner visual feedback  
-
-Advantages:  
-- Ideal for children and beginners  
-- Game-based engagement with rewards  
-- Offers structured curriculum  
-
-Disadvantages:  
-- Too basic for experienced developers  
-- Some content requires a subscription  
-
-Reference: [https://codecombat.com](https://codecombat.com)
+**Reference:** https://codecombat.com
 
 
 #### <div class="subsection">Codewars</div>
 
-Description:  
-Uses "Kata" - short coding exercises - to improve coding progressively with ranking and community feedback.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| Uses "Kata" - short coding exercises - to improve coding progressively with ranking and community feedback. | - Community challenge creation<br>- Rank-based progression<br>- Peer-reviewed solutions | - Unique ranking and progression system<br>- Community-driven challenges and solutions<br>- Good for practicing idiomatic code | - Lacks formal contest system<br>- Quality of community challenges can vary |
 
-Techniques Used:  
-- Community challenge creation  
-- Rank-based progression  
-- Peer-reviewed solutions  
-
-Advantages:  
-- Unique ranking and progression system  
-- Community-driven challenges and solutions  
-- Good for practicing idiomatic code  
-
-Disadvantages:  
-- Lacks formal contest system  
-- Quality of community challenges can vary  
-
-Reference: [https://www.codewars.com](https://www.codewars.com)
+**Reference:** https://www.codewars.com
 
 
 #### <div class="subsection">CheckiO</div>
 
-Description:  
-Offers gamified learning of Python and JavaScript through short, interactive problem-solving challenges.
+| Description | Techniques Used | Advantages | Disadvantages |
+|------------|------------------|------------|----------------|
+| Offers gamified learning of Python and JavaScript through short, interactive problem-solving challenges. | - Gamified challenges<br>- Code review mechanism<br>- Puzzle solving<br>- Interactive feedback | - Fun and visual interface<br>- Encourages reviewing others' code<br>- Python-focused challenges are especially polished | - Less suitable for advanced algorithm training<br>- Limited language support |
 
-Techniques Used:  
-- Gamified challenges  
-- Code review mechanism  
-- Puzzle solving  
-- Interactive feedback  
-
-Advantages:  
-- Fun and visual interface  
-- Encourages reviewing others' code  
-- Python-focused challenges are especially polished  
-
-Disadvantages:  
-- Less suitable for advanced algorithm training  
-- Limited language support  
-
-Reference: [https://checkio.org](https://checkio.org)
+**Reference:** https://checkio.org
 
 
 ### <div class="section">Summary</div>
