@@ -1,0 +1,75 @@
+' Source: /mnt/data/4a81da6b-ae44-4ff1-85c0-36b7cb7733ad.pdf
+@startuml Integrate_External_API
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+
+actor "Administrator" as Admin #FFF2CC
+participant "Admin UI" as AUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Third-Party API" as Third #F0E6FF
+database "Config DB" as CDB #E6FFE6
+
+Admin -> AUI : Open Integrations -> Add new integration {name, endpoint, creds}
+activate AUI
+
+AUI -> Backend : POST /integrations {name, endpoint, authConfig}
+activate Backend
+
+Backend -> Third : Test connectivity (auth handshake, sample request)
+activate Third
+Third --> Backend : success / failure
+deactivate Third
+
+alt Connectivity Success
+  Backend -> CDB : Save integration config {id, name, endpoint, authMeta}
+  activate CDB
+  CDB --> Backend : {integrationId}
+  deactivate CDB
+
+  Backend --> AUI : 201 Created {integrationId, status:active}
+  AUI --> Admin : Show integration saved & status active
+else Connectivity Failure
+  Backend --> AUI : 400 Integration failed {error, details}
+  AUI --> Admin : Show error & retry option
+end
+
+deactivate Backend
+deactivate AUI
+
+opt Re-test / Update credentials
+  Admin -> AUI : Update credentials / re-test integration {integrationId}
+  activate AUI
+  AUI -> Backend : PUT /integrations/{id} {authConfig}
+  activate Backend
+  Backend -> Third : Re-test connectivity
+  activate Third
+  Third --> Backend : success / failure
+  deactivate Third
+
+  alt Re-test Success
+    Backend -> CDB : Update config status active
+    activate CDB
+    CDB --> Backend : OK
+    deactivate CDB
+    Backend --> AUI : 200 OK {status:active}
+    AUI --> Admin : Show success
+  else Re-test Failure
+    Backend --> AUI : 400 Re-test failed {error}
+    AUI --> Admin : Show failure & rollback option
+  end
+
+  deactivate Backend
+  deactivate AUI
+end
+
+@enduml

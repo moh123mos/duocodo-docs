@@ -1,0 +1,75 @@
+@startuml Validate_Exercise_Before_Publishing
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+
+actor "Content Creator" as Creator #FFF2CC
+participant "Creator UI" as CUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Automated Validator" as Validator #F0E6FF
+participant "Reviewer" as Reviewer #FFF2CC
+database "Content DB" as CDB #E6FFE6
+
+Creator -> CUI : Click Publish exercise {exerciseId}
+activate CUI
+
+CUI -> Backend : POST /exercises/{id}/publish
+activate Backend
+
+Backend -> Validator : Run full validation\n(testcases, constraints, security)
+activate Validator
+Validator --> Backend : validationResult {pass/warn/fail, details}
+deactivate Validator
+
+alt Validation Passed
+  Backend -> CDB : Mark exercise as pending-review
+  activate CDB
+  CDB --> Backend : OK
+  deactivate CDB
+
+  alt Manual Review Required
+    Backend -> Reviewer : Assign review task {exerciseId}
+    activate Reviewer
+    Reviewer --> Backend : reviewResult {approve/reject, comments}
+    deactivate Reviewer
+
+    alt Approved by Reviewer
+      Backend -> CDB : Mark exercise as published
+      activate CDB
+      CDB --> Backend : OK
+      deactivate CDB
+
+      Backend --> CUI : 200 Published
+      CUI --> Creator : Exercise published successfully
+    else Rejected by Reviewer
+      Backend --> CUI : 400 Rejected {comments}
+      CUI --> Creator : Show rejection reasons
+    end
+  else Auto-approved (no manual review required)
+    Backend -> CDB : Mark exercise as published
+    activate CDB
+    CDB --> Backend : OK
+    deactivate CDB
+
+    Backend --> CUI : 200 Published
+    CUI --> Creator : Exercise published successfully
+  end
+
+else Validation Failed
+  Backend --> CUI : 400 Validation Errors {details}
+  CUI --> Creator : Display validation errors
+end
+
+deactivate Backend
+deactivate CUI
+
+@enduml

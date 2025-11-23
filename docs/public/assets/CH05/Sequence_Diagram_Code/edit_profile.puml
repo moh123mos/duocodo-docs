@@ -1,0 +1,63 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+database "User DB" as UDB #E6FFE6
+participant "File Storage\n(Avatars)" as Storage #F0E6FF
+participant "Notification Service" as Notify #F2F2F2
+
+User -> WebUI : openProfile()
+activate WebUI
+WebUI -> Backend : GET /users/{id}
+activate Backend
+Backend -> UDB : SELECT * FROM users WHERE id = {id}
+activate UDB
+UDB --> Backend : userRecord
+deactivate UDB
+Backend --> WebUI : 200 OK {userRecord}
+deactivate Backend
+WebUI --> User : displayProfile(form)
+deactivate WebUI
+
+User -> WebUI : submitProfileUpdate(formData)
+activate WebUI
+alt includesAvatar
+  WebUI -> Storage : uploadAvatar(file)
+  activate Storage
+  Storage --> WebUI : {avatarUrl}
+  deactivate Storage
+  WebUI -> Backend : PUT /users/{id} {formData + avatarUrl}
+else noAvatar
+  WebUI -> Backend : PUT /users/{id} {formData}
+end
+activate Backend
+Backend -> UDB : UPDATE users SET ... WHERE id = {id}
+activate UDB
+UDB --> Backend : updateAck
+deactivate UDB
+Backend -> Notify : sendProfileUpdated(userId)
+activate Notify
+Notify --> Backend : ack
+deactivate Notify
+Backend --> WebUI : 200 OK {updatedUser}
+deactivate Backend
+WebUI --> User : showSuccess("Profile updated")
+deactivate WebUI
+@enduml

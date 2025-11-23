@@ -1,0 +1,170 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Billing Service" as Billing #E6FFE6
+participant "Payment Gateway" as Payment #F0E6FF
+database "Billing DB" as BDB #E6FFE6
+participant "Notification Service" as Notify #F2F2F2
+participant "Webhook Listener" as Webhook #F7F0D3
+
+User -> WebUI : openSubscriptionPage()
+activate WebUI
+WebUI -> Backend : GET /subscriptions/plans
+activate Backend
+Backend -> Billing : fetchPlans()
+activate Billing
+Billing -> BDB : SELECT plans
+activate BDB
+BDB --> Billing : plansList
+deactivate BDB
+Billing --> Backend : plansList
+deactivate Billing
+Backend --> WebUI : 200 OK {plansList}
+deactivate Backend
+WebUI --> User : displayPlans(plansList)
+deactivate WebUI
+
+User -> WebUI : selectPlan(planId) + choosePaymentMethod(method)
+activate WebUI
+WebUI -> Backend : POST /subscriptions/subscribe {userId, planId, paymentMethod}
+activate Backend
+Backend -> Billing : createSubscriptionDraft(userId, planId)
+activate Billing
+Billing -> BDB : INSERT subscriptionDraft
+activate BDB
+BDB --> Billing : draftAck
+deactivate BDB
+Billing --> Backend : draftCreated {draftId, amount}
+deactivate Billing
+
+alt paymentMethod == card
+  Backend -> Payment : createCharge(draftId, amount, cardDetails)
+  activate Payment
+  Payment --> Backend : chargeResult {success, transactionId, receipt}
+  deactivate Payment
+
+  alt chargeSuccess
+    Backend -> Billing : confirmSubscription(draftId, transactionId)
+    activate Billing
+    Billing -> BDB : UPDATE subscription SET status=active, tx=transactionId WHERE id=draftId
+    activate BDB
+    BDB --> Billing : updateAck
+    deactivate BDB
+    Billing --> Backend : subscriptionConfirmed {subscriptionId}
+    deactivate Billing
+
+    Backend -> Notify : sendSubscriptionReceipt(userId, receipt)
+    activate Notify
+    Notify --> Backend : notifyAck
+    deactivate Notify
+
+    Backend --> WebUI : 200 OK {subscribed:true, subscriptionId, receipt}
+  else chargeFailed
+    Backend --> WebUI : 402 Payment Required {subscribed:false, reason:payment_failed}
+  end
+
+else paymentMethod == wallet
+  Backend -> Billing : debitWallet(userId, amount)
+  activate Billing
+  Billing -> BDB : UPDATE wallet SET balance=balance-amount WHERE userId=...
+  activate BDB
+  BDB --> Billing : updateAck
+  deactivate BDB
+  Billing -> BDB : createSubscriptionRecord(...)
+  activate BDB
+  BDB --> Billing : createAck
+  deactivate BDB
+  Billing --> Backend : subscriptionConfirmed {subscriptionId}
+  deactivate Billing
+
+  Backend -> Notify : sendSubscriptionReceipt(userId, method:wallet)
+  activate Notify
+  Notify --> Backend : notifyAck
+  deactivate Notify
+
+  Backend --> WebUI : 200 OK {subscribed:true, subscriptionId}
+end
+
+deactivate Backend
+WebUI --> User : showSubscriptionResult()
+
+== Manage subscription ==
+User -> WebUI : openManageSubscription()
+activate WebUI
+WebUI -> Backend : GET /subscriptions/{userId}
+activate Backend
+Backend -> Billing : fetchActiveSubscription(userId)
+activate Billing
+Billing -> BDB : SELECT subscription WHERE userId=...
+activate BDB
+BDB --> Billing : subscriptionRecord
+deactivate BDB
+Billing --> Backend : subscriptionRecord
+deactivate Billing
+Backend --> WebUI : 200 OK {subscriptionRecord}
+deactivate Backend
+WebUI --> User : displaySubscriptionDetails()
+
+opt Cancel subscription
+  User -> WebUI : cancelSubscription(subscriptionId)
+  activate WebUI
+  WebUI -> Backend : POST /subscriptions/{id}/cancel
+  activate Backend
+  Backend -> Billing : cancelSubscription(subscriptionId)
+  activate Billing
+  Billing -> BDB : UPDATE subscription SET status=canceled, canceledAt=...
+  activate BDB
+  BDB --> Billing : updateAck
+  deactivate BDB
+  Billing --> Backend : canceledAck
+  deactivate Billing
+  Backend -> Notify : sendCancellationEmail(userId)
+  activate Notify
+  Notify --> Backend : notifyAck
+  deactivate Notify
+  Backend --> WebUI : 200 OK {canceled:true}
+  deactivate Backend
+  WebUI --> User : showCancellationConfirmation()
+end
+
+== Payment gateway webhook ==
+Payment -> Webhook : POST /webhook {event:payment_succeeded, transactionId}
+activate Webhook
+Webhook -> Backend : POST /internal/webhook/payment {transactionId,event}
+activate Backend
+Backend -> Billing : reconcileTransaction(transactionId)
+activate Billing
+Billing -> BDB : UPDATE subscription SET status=active WHERE tx=transactionId
+activate BDB
+BDB --> Billing : updateAck
+deactivate BDB
+Billing --> Backend : reconciled
+deactivate Billing
+Backend -> Notify : sendPaymentConfirmed(userId)
+activate Notify
+Notify --> Backend : notifyAck
+deactivate Notify
+Backend --> Webhook : 200 OK
+deactivate Backend
+Webhook --> Payment : 200 OK
+deactivate Webhook
+
+@enduml

@@ -1,0 +1,88 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Certificate Service" as CertSvc #E6FFE6
+participant "PDF Generator" as PDFGen #F0E6FF
+database "Progress DB" as PDB #E6FFE6
+participant "Storage (CDN)" as Storage #F7F0D3
+participant "Notification Service" as Notify #F2F2F2
+
+User -> WebUI : openCertificates()
+activate WebUI
+WebUI -> Backend : GET /users/{id}/certificates
+activate Backend
+Backend -> PDB : SELECT completedCourses WHERE userId={id}
+activate PDB
+PDB --> Backend : completedList
+deactivate PDB
+Backend --> WebUI : 200 OK {completedList, certificatesMeta}
+deactivate Backend
+WebUI --> User : displayCertificatesList()
+deactivate WebUI
+
+User -> WebUI : requestCertificate(courseId)
+activate WebUI
+WebUI -> Backend : POST /certificates/request {userId, courseId}
+activate Backend
+Backend -> PDB : SELECT completionStatus, grade WHERE userId, courseId
+activate PDB
+PDB --> Backend : {completed:true, grade, date}
+deactivate PDB
+
+alt eligibleForCertificate
+  Backend -> CertSvc : createCertificateRecord(userId, courseId, grade, date)
+  activate CertSvc
+  CertSvc -> PDFGen : generatePDF(userName, courseName, grade, date)
+  activate PDFGen
+  PDFGen --> CertSvc : pdfBlob
+  deactivate PDFGen
+  CertSvc -> Storage : upload(pdfBlob, metadata)
+  activate Storage
+  Storage --> CertSvc : url
+  deactivate Storage
+  CertSvc -> Backend : certificateReady {certificateId, url}
+  deactivate CertSvc
+
+  Backend -> Notify : sendCertificateEmail(userId, url)
+  activate Notify
+  Notify --> Backend : emailAck
+  deactivate Notify
+
+  Backend --> WebUI : 201 Created {certificateId, url}
+else notEligible
+  Backend --> WebUI : 400 Bad Request {error:not_eligible}
+end
+deactivate Backend
+WebUI --> User : showCertificateResult()
+deactivate WebUI
+
+opt User downloads certificate
+  User -> WebUI : downloadCertificate(certificateId)
+  activate WebUI
+  WebUI -> Storage : GET /files/{certificateId}
+  activate Storage
+  Storage --> WebUI : stream(pdf)
+  deactivate Storage
+  WebUI --> User : download(pdf)
+  deactivate WebUI
+end
+
+@enduml

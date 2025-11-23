@@ -1,0 +1,80 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Auth API" as Auth #FFE6E6
+database "User DB" as UDB #E6FFE6
+participant "Email Service" as Email #F0E6FF
+participant "Notification Service" as Notify #F2F2F2
+
+User -> WebUI : openChangeEmail()
+activate WebUI
+WebUI -> Auth : POST /users/{id}/request-email-change {newEmail, currentPassword}
+activate Auth
+Auth -> UDB : SELECT user WHERE id = {id}
+activate UDB
+UDB --> Auth : userRecord
+deactivate UDB
+Auth -> Auth : verifyPassword(currentPassword)
+alt passwordValid
+  Auth -> Auth : generateEmailChangeToken(newEmail)
+  Auth -> UDB : storePendingEmailChange(userId, newEmail, token, expiresAt)
+  activate UDB
+  UDB --> Auth : storeAck
+  deactivate UDB
+  Auth -> Email : sendEmailChangeVerification(newEmail, token)
+  activate Email
+  Email --> Auth : emailSent
+  deactivate Email
+  Auth --> WebUI : 200 OK {message:verification_sent}
+else invalidPassword
+  Auth --> WebUI : 403 Forbidden {error:invalid_password}
+end
+deactivate Auth
+WebUI --> User : showMessage()
+
+== User clicks verification link ==
+User -> WebUI : openEmailChangeLink(token)
+activate WebUI
+WebUI -> Auth : POST /users/{id}/confirm-email-change {token}
+activate Auth
+Auth -> UDB : SELECT pendingEmailChange WHERE token = {token}
+activate UDB
+UDB --> Auth : pendingRecord or null
+deactivate UDB
+alt validToken
+  Auth -> UDB : UPDATE users SET email = pendingEmail WHERE id = userId
+  activate UDB
+  UDB --> Auth : updateAck
+  Auth -> UDB : DELETE pendingEmailChange WHERE id = userId
+  UDB --> Auth : deleteAck
+  deactivate UDB
+  Auth -> Notify : sendEmailChangeConfirmed(userId, newEmail)
+  activate Notify
+  Notify --> Auth : notifyAck
+  deactivate Notify
+  Auth --> WebUI : 200 OK {emailChange:success}
+else invalidOrExpired
+  Auth --> WebUI : 400 Bad Request {error:invalid_or_expired_token}
+end
+deactivate Auth
+WebUI --> User : showResult()
+deactivate WebUI
+
+@enduml

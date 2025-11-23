@@ -1,0 +1,105 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Support Service" as Support #E6FFE6
+database "Support DB" as SDB #E6FFE6
+participant "Issue Tracker\n(3rd-party)" as Tracker #F0E6FF
+participant "Notification Service" as Notify #F2F2F2
+
+User -> WebUI : openFeedbackForm()
+activate WebUI
+WebUI -> Backend : GET /support/form-config
+activate Backend
+Backend -> SDB : SELECT formTemplates
+activate SDB
+SDB --> Backend : formTemplates
+deactivate SDB
+Backend --> WebUI : 200 OK {formTemplates}
+deactivate Backend
+WebUI --> User : displayFeedbackForm()
+deactivate WebUI
+
+User -> WebUI : submitFeedback(type, subject, description, attachments?)
+activate WebUI
+alt hasAttachments
+  WebUI -> Backend : POST /support/attachments (multipart)
+  activate Backend
+  Backend -> SDB : storeAttachment(metadata)
+  activate SDB
+  SDB --> Backend : attachmentId
+  deactivate SDB
+  Backend -> Support : createTicket(type, subject, description, attachmentId)
+else noAttachments
+  WebUI -> Backend : POST /support/feedback {type, subject, description}
+  activate Backend
+  Backend -> Support : createTicket(type, subject, description)
+end
+activate Support
+Support -> SDB : INSERT ticket {userId, type, subject, description, status:open}
+activate SDB
+SDB --> Support : ticketId, createdAt
+deactivate SDB
+Support -> Tracker : createIssue(ticketId, subject, description, attachments)
+activate Tracker
+Tracker --> Support : issueCreated {issueId, url}
+deactivate Tracker
+Support -> Notify : sendAcknowledgementEmail(userId, ticketId, issueUrl)
+activate Notify
+Notify --> Support : notifyAck
+deactivate Notify
+Support --> Backend : ticketCreated {ticketId, issueId, issueUrl}
+deactivate Support
+Backend --> WebUI : 201 Created {ticketId, status:open, issueUrl}
+deactivate Backend
+WebUI --> User : showConfirmation("Ticket created", ticketId)
+deactivate WebUI
+
+opt User checks ticket status later
+  User -> WebUI : GET /support/tickets/{ticketId}
+  activate WebUI
+  WebUI -> Backend : GET /support/tickets/{ticketId}
+  activate Backend
+  Backend -> SDB : SELECT * FROM tickets WHERE id = ticketId
+  activate SDB
+  SDB --> Backend : ticketRecord {status, assignedTo, updates}
+  deactivate SDB
+  Backend --> WebUI : 200 OK {ticketRecord}
+  deactivate Backend
+  WebUI --> User : displayTicketStatus(ticketRecord)
+  deactivate WebUI
+end
+
+opt Support posts update
+  Support -> Tracker : postComment(issueId, comment)
+  activate Tracker
+  Tracker --> Support : commentAck
+  deactivate Tracker
+  Support -> SDB : INSERT ticket_update(ticketId, comment, author)
+  activate SDB
+  SDB --> Support : updateAck
+  deactivate SDB
+  Support -> Notify : sendUpdateEmail(userId, ticketId, comment)
+  activate Notify
+  Notify --> Support : notifyAck
+  deactivate Notify
+end
+
+@enduml

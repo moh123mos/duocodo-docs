@@ -1,0 +1,79 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+title Earn XP and Level Up
+
+actor "Player" as Player #FFF2CC
+participant "Web UI\n(Mobile/Desktop)" as UI #E6F7FF
+participant "Game Server" as Server #FFE6E6
+participant "XP Engine" as XP #E6FFE6
+participant "Level Service" as Level #F0E6FF
+database "Player DB" as DB #E6FFE6
+participant "Notification Service" as Notify #F2F2F2
+
+Player -> UI : completeActivity(activityId)
+activate UI
+UI -> Server : POST /activities/complete {playerId, activityId}
+activate Server
+Server -> XP : calculateXP(playerId, activityId)
+activate XP
+XP -> DB : SELECT xp, level FROM players WHERE id = playerId
+activate DB
+DB --> XP : {xp, level}
+deactivate DB
+XP -> XP : compute earnedXp
+XP -> DB : UPDATE players SET xp = xp + earnedXp WHERE id = playerId
+activate DB
+DB --> XP : updateAck
+deactivate DB
+XP --> Server : {earnedXp, newTotalXp}
+deactivate XP
+
+Server -> Server : checkLevelThreshold(newTotalXp)
+alt levelUpNeeded
+  Server -> Level : levelUpIfNeeded(playerId, newTotalXp)
+  activate Level
+  Level -> DB : SELECT level FROM players WHERE id = playerId
+  activate DB
+  DB --> Level : {level}
+deactivate DB
+  Level -> Level : compute newLevel, remainingXp
+  Level -> DB : UPDATE players SET level = newLevel WHERE id = playerId
+  activate DB
+  DB --> Level : updateAck
+deactivate DB
+  Level --> Server : {newLevel, rewards}
+deactivate Level
+
+  Server -> Notify : sendLevelUp(playerId, newLevel, rewards)
+  activate Notify
+  Notify --> Server : notifyAck
+  deactivate Notify
+
+  Server -> UI : 200 OK {earnedXp, newTotalXp, levelUp: true, newLevel, rewards}
+else noLevelUp
+  Server -> UI : 200 OK {earnedXp, newTotalXp, levelUp: false}
+end
+
+deactivate Server
+UI --> Player : showXPUpdate(earnedXp, newTotalXp)
+alt levelUpNeeded
+  UI -> Player : playLevelUpAnimation(newLevel, rewards)
+end
+
+@enduml

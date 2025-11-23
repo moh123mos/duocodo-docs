@@ -1,0 +1,107 @@
+@startuml Complete_Exercise
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "Learner" as Learner #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Monaco\nEditor" as Monaco #F0E6FF
+participant "Backend API" as Backend #FFE6E6
+participant "Code Runner\nService" as Runner #FFF0CC
+database "Database" as DB #E6FFE6
+
+Learner -> WebUI : Open exercise page {exerciseId}
+activate WebUI
+WebUI -> Backend : GET /exercises/{id}
+activate Backend
+Backend --> WebUI : 200 OK {problem, samples, starterCode}
+deactivate Backend
+WebUI -> Monaco : Load starterCode & problem
+activate Monaco
+Monaco --> WebUI : ready
+deactivate Monaco
+deactivate WebUI
+
+Learner -> Monaco : Edit code (typing)
+activate Monaco
+opt Autosave periodically
+  Monaco -> Backend : PUT /drafts/{user}/{exercise} {code}
+  activate Backend
+  Backend --> Monaco : 200 OK
+  deactivate Backend
+end
+deactivate Monaco
+
+Learner -> WebUI : Click "Run"
+activate WebUI
+WebUI -> Backend : POST /run {code, lang, stdin}
+activate Backend
+Backend -> Runner : Execute in sandbox {code, timeLimit}
+activate Runner
+
+group Execution
+  alt Compile/Runtime Error
+    Runner --> Backend : error {stderr, exitCode}
+    Backend --> WebUI : 200 OK {status:error, stderr}
+    WebUI -> Monaco : Display error & hint
+  else Successful run
+    Runner --> Backend : results {stdout, testsPassed}
+    Backend --> WebUI : 200 OK {results}
+    WebUI -> Monaco : Display results & test feedback
+  end
+end
+
+deactivate Runner
+deactivate Backend
+deactivate WebUI
+
+Learner -> WebUI : Click "Submit"
+activate WebUI
+WebUI -> Backend : POST /submissions {code, metadata}
+activate Backend
+Backend -> Runner : Evaluate full test-suite (async or sync)
+activate Runner
+Runner --> Backend : evaluationResult {pass/fail, score, logs}
+deactivate Runner
+
+alt Submission Passed
+  Backend -> DB : Store submission & award XP {userId, exerciseId, score}
+  activate DB
+  DB --> Backend : OK
+  deactivate DB
+  Backend --> WebUI : 200 OK {status:passed, awardedXP}
+  WebUI --> Learner : Show success, awarded XP & badges
+else Submission Failed
+  Backend -> DB : Store submission {userId, exerciseId, score, logs}
+  activate DB
+  DB --> Backend : OK
+  deactivate DB
+  Backend --> WebUI : 200 OK {status:failed, feedback}
+  WebUI --> Learner : Show failure, show feedback & hints
+end
+
+deactivate Backend
+deactivate WebUI
+
+opt Post-submission actions
+  WebUI -> Backend : GET /exercises/{id}/solutions or hints
+  activate Backend
+  Backend --> WebUI : 200 OK {editorial, similar problems}
+  deactivate Backend
+  WebUI --> Learner : Offer next recommended exercise
+end
+
+@enduml

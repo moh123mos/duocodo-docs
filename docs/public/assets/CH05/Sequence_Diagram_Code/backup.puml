@@ -1,0 +1,100 @@
+@startuml Backup_Recovery
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+
+actor "Administrator" as Admin #FFF2CC
+participant "Admin UI" as AUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Backup Service" as Backup #FFF0CC
+database "Primary DB" as Primary #E6FFE6
+database "Backup Storage" as Storage #EFEFEF
+
+Admin -> AUI : Open Backup & Recovery panel
+activate AUI
+
+AUI -> Backend : POST /admin/backup {type: manual|full|incremental}
+activate Backend
+
+Backend -> Primary : Request export snapshot {consistency: quiesce|hot}
+activate Primary
+Primary --> Backend : snapshotRef {id, size, createdAt}
+deactivate Primary
+
+Backend -> Backup : Transfer snapshot {snapshotRef}
+activate Backup
+Backup -> Storage : Store snapshot {snapshotRef, metadata}
+activate Storage
+Storage --> Backup : storeResult {location, checksum}
+deactivate Storage
+Backup --> Backend : backupResult {backupId, location, checksum}
+deactivate Backup
+
+Backend --> AUI : 200 OK {backupId, status:completed}
+deactivate Backend
+AUI --> Admin : Show backup success {backupId, location}
+
+opt Schedule recurring backups
+  Admin -> AUI : Configure schedule {cron, retentionPolicy}
+  activate AUI
+  AUI -> Backend : POST /admin/backup/schedule {cron, retentionPolicy}
+  activate Backend
+  Backend --> AUI : 201 Created {scheduleId}
+  deactivate Backend
+  AUI --> Admin : Show schedule created
+  deactivate AUI
+end
+
+opt Enforce retention policy (automatic cleanup)
+  Backend -> Storage : List backups older than retention
+  activate Storage
+  Storage --> Backend : oldSnapshots[]
+  deactivate Storage
+  Backend -> Backup : Delete old snapshots {ids}
+  activate Backup
+  Backup --> Backend : deletionResult
+  deactivate Backup
+end
+
+Admin -> AUI : Trigger restore {backupId}
+activate AUI
+AUI -> Backend : POST /admin/restore {backupId, target: primary|staging}
+activate Backend
+
+Backend -> Backup : Retrieve snapshot {backupId}
+activate Backup
+Backup --> Backend : snapshotData {stream, checksum}
+deactivate Backup
+
+Backend -> Primary : Restore snapshot {stream, mode: read-only|overwrite}
+activate Primary
+Primary --> Backend : restoreResult {ok, warnings}
+deactivate Primary
+
+Backend --> AUI : 200 OK {restoreStatus: completed}
+deactivate Backend
+AUI --> Admin : Show restore success {backupId}
+
+opt Restore validation / smoke tests
+  Backend -> Primary : Run smoke tests {testSuiteId}
+  activate Primary
+  Primary --> Backend : smokeResult {pass/fail, details}
+  deactivate Primary
+  Backend --> AUI : smokeResult
+  AUI --> Admin : Show smoke test results
+end
+
+note right
+Source document: [[file:/mnt/data/4a81da6b-ae44-4ff1-85c0-36b7cb7733ad.pdf]]
+end note
+
+@enduml

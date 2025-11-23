@@ -1,0 +1,150 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "Learner" as Learner #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Exercise Service" as ExSvc #E6FFE6
+database "Exercise DB" as EDB #E6FFE6
+participant "Grading Service" as Grader #F0E6FF
+participant "Notification Service" as Notify #F7F0D3
+participant "Analytics Service" as Analytics #F2F2F2
+
+Learner -> WebUI : openExerciseReview(exerciseId, attemptId?)
+activate WebUI
+WebUI -> Backend : GET /exercises/{exerciseId}/review?attemptId=
+activate Backend
+Backend -> ExSvc : fetchAttemptOrLatest(exerciseId, attemptId)
+activate ExSvc
+ExSvc -> EDB : SELECT attempt, answers, feedback WHERE attemptId or latest
+activate EDB
+EDB --> ExSvc : attemptData
+deactivate EDB
+ExSvc -> Grader : fetchAutoGrades(attemptId)
+activate Grader
+Grader --> ExSvc : autoGrades, partialFeedback
+deactivate Grader
+ExSvc --> Backend : 200 OK {attemptData, autoGrades, feedback}
+deactivate ExSvc
+Backend --> WebUI : 200 OK {reviewPayload}
+deactivate Backend
+WebUI --> Learner : displayReview(answers, correctAnswers, feedback, hints)
+deactivate WebUI
+
+opt learner requests detailed explanation
+  Learner -> WebUI : clickExplain(questionId)
+  activate WebUI
+  WebUI -> Backend : GET /exercises/{exerciseId}/questions/{questionId}/explanation
+  activate Backend
+  Backend -> ExSvc : fetchExplanation(questionId)
+  activate ExSvc
+  ExSvc -> EDB : SELECT explanation, references WHERE questionId
+  activate EDB
+  EDB --> ExSvc : explanationData
+  deactivate EDB
+  ExSvc --> Backend : explanationData
+  deactivate ExSvc
+  Backend --> WebUI : 200 OK {explanationData}
+  deactivate Backend
+  WebUI --> Learner : showExplanationModal()
+  deactivate WebUI
+end
+
+opt learner chooses to retake
+  Learner -> WebUI : retakeExercise(exerciseId, mode=practice|graded)
+  activate WebUI
+  WebUI -> Backend : POST /exercises/{exerciseId}/attempts {userId, mode}
+  activate Backend
+  Backend -> ExSvc : createAttempt(userId, exerciseId, mode)
+  activate ExSvc
+  ExSvc -> EDB : INSERT attempt(status:in_progress, mode, startTime)
+  activate EDB
+  EDB --> ExSvc : attemptId
+  deactivate EDB
+  ExSvc -> Grader : reserveAutoGraderSlots(attemptId) 'if graded'
+  activate Grader
+  Grader --> ExSvc : reserved
+  deactivate Grader
+  ExSvc --> Backend : 201 Created {attemptId, mode, timeLimit}
+  deactivate ExSvc
+  Backend --> WebUI : 201 Created {attemptId, mode, questions}
+  deactivate Backend
+  WebUI --> Learner : startRetake(attemptId)
+  deactivate WebUI
+
+  loop submit answers
+    Learner -> WebUI : answerQuestion(attemptId, questionId, answer)
+    activate WebUI
+    WebUI -> Backend : POST /attempts/{attemptId}/answers {questionId, answer}
+    activate Backend
+    Backend -> ExSvc : recordAnswer(attemptId, questionId, answer)
+    activate ExSvc
+    ExSvc -> EDB : INSERT/UPDATE answer
+    activate EDB
+    EDB --> ExSvc : ack
+    deactivate EDB
+    ExSvc --> Backend : ack
+    deactivate ExSvc
+    Backend --> WebUI : 200 OK {saved:true}
+    deactivate Backend
+    WebUI --> Learner : showNextQuestion()
+    deactivate WebUI
+  end
+
+  Learner -> WebUI : submitAttempt(attemptId)
+  activate WebUI
+  WebUI -> Backend : POST /attempts/{attemptId}/submit
+  activate Backend
+  Backend -> ExSvc : finalizeAttempt(attemptId)
+  activate ExSvc
+  ExSvc -> Grader : gradeAutoQuestions(attemptId)
+  activate Grader
+  Grader -> EDB : writeAutoGrades(attemptId, scores)
+  activate EDB
+  EDB --> Grader : ack
+  deactivate EDB
+  Grader --> ExSvc : gradingResult {score, feedback}
+  deactivate Grader
+  ExSvc -> EDB : updateAttemptStatus(attemptId, submitted, score)
+  activate EDB
+  EDB --> ExSvc : updateAck
+  deactivate EDB
+  ExSvc --> Backend : {attemptId, score, feedback}
+  deactivate ExSvc
+  Backend -> Notify : sendAttemptResult(userId, attemptId, score)
+  activate Notify
+  Notify --> Backend : notifyAck
+  deactivate Notify
+  Backend --> WebUI : 200 OK {submitted:true, score}
+  deactivate Backend
+  WebUI --> Learner : showSubmissionSummary()
+  deactivate WebUI
+end
+
+opt instructor/manual review required
+  ExSvc -> Grader : enqueueForManualReview(attemptId)
+  activate Grader
+  Grader --> ExSvc : queued
+  deactivate Grader
+  ExSvc -> Analytics : publishAttemptForAnalytics(attemptId)
+  activate Analytics
+  Analytics --> ExSvc : ack
+  deactivate Analytics
+end
+
+@enduml

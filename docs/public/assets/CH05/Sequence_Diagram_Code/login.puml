@@ -1,0 +1,141 @@
+@startuml Login_To_System
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "Learner" as Learner #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Auth Service" as Auth #FFF0CC
+database "Database" as DB #E6FFE6
+participant "Email Service / SMS" as Notifier #F0E6FF
+
+Learner -> WebUI : Open login page
+activate WebUI
+
+Learner -> WebUI : Enter credentials {email, password} [or use OAuth / SSO]
+WebUI -> Backend : POST /auth/login {email, password, rememberMe, clientInfo}
+activate Backend
+
+Backend -> Auth : Validate credentials {email, password}
+activate Auth
+Auth -> DB : Lookup user {email}
+activate DB
+DB --> Auth : userRecord {id, passwordHash, status, 2faEnabled, failedAttempts}
+deactivate DB
+
+Auth --> Backend : validationResult {valid/invalid, reason, requires2FA}
+deactivate Auth
+
+alt Invalid credentials
+  Backend --> WebUI : 401 Unauthorized {message: "Invalid credentials"}
+  deactivate Backend
+  WebUI --> Learner : Show error ("Invalid email or password")
+  return
+end
+
+alt Account locked / too many attempts
+  Backend --> WebUI : 423 Locked {message:"Account locked"}
+  deactivate Backend
+  WebUI --> Learner : Show locked message with recovery option
+  return
+end
+
+alt Credentials valid & 2FA enabled
+  Backend --> WebUI : 200 Accepted {status: "2FA_REQUIRED"}
+  deactivate Backend
+  WebUI --> Learner : Prompt for 2FA code
+  Learner -> WebUI : Enter 2FA code
+  activate WebUI
+  WebUI -> Backend : POST /auth/2fa/verify {userId, code}
+  activate Backend
+  Backend -> Auth : Verify 2FA {userId, code}
+  activate Auth
+  Auth --> Backend : verificationResult {valid/invalid}
+  deactivate Auth
+
+  alt 2FA verification successful
+    Backend -> DB : Update lastLogin, reset failedAttempts
+    activate DB
+    DB --> Backend : OK
+    deactivate DB
+
+    Backend --> WebUI : 200 OK {accessToken, refreshToken, sessionCookie}
+    deactivate Backend
+    WebUI --> Learner : Redirect to dashboard (authenticated)
+  else 2FA verification failed
+    Backend --> WebUI : 400 Invalid 2FA code
+    deactivate Backend
+    WebUI --> Learner : Show error, allow retry or resend
+  end
+
+else Credentials valid & no 2FA
+  Backend -> DB : Update lastLogin, reset failedAttempts
+  activate DB
+  DB --> Backend : OK
+  deactivate DB
+
+  Backend --> WebUI : 200 OK {accessToken, refreshToken, sessionCookie}
+  deactivate Backend
+  WebUI --> Learner : Redirect to dashboard (authenticated)
+end
+
+opt Remember Me (persistent session)
+  WebUI -> Backend : Request long-lived token if rememberMe=true
+  activate Backend
+  Backend -> DB : Create persistent session {userId, expiry}
+  activate DB
+  DB --> Backend : persistentSessionId
+  deactivate DB
+  Backend --> WebUI : 200 OK {persistentToken}
+  deactivate Backend
+  WebUI -> Learner : Set persistent cookie
+end
+
+opt OAuth / SSO flow (optional)
+  Learner -> WebUI : Click "Sign in with Provider"
+  WebUI -> Backend : Redirect to /auth/oauth/{provider}
+  Backend -> Notifier : (handshake) initiate OAuth redirect
+  Notifier --> WebUI : Provider redirect URL
+  WebUI --> Learner : Redirect to provider, return with code
+  Learner -> WebUI : Return from provider with code
+  WebUI -> Backend : POST /auth/oauth/callback {code, provider}
+  Backend -> Auth : Exchange code for identity
+  Auth --> Backend : identity {email, name, providerId}
+  Backend -> DB : Find or create user, create session
+  DB --> Backend : user/session
+  Backend --> WebUI : 200 OK {accessToken}
+  WebUI --> Learner : Redirect to dashboard
+end
+
+opt Failed login recovery / forgot password
+  Learner -> WebUI : Click "Forgot password"
+  WebUI -> Backend : POST /auth/forgot-password {email}
+  activate Backend
+  Backend -> DB : Generate reset token & store
+  activate DB
+  DB --> Backend : tokenRef
+  deactivate DB
+  Backend -> Notifier : Send reset email/SMS {email, token}
+  activate Notifier
+  Notifier --> Backend : 202 Accepted
+  deactivate Notifier
+  Backend --> WebUI : 200 OK {message:"Check your email"}
+  deactivate Backend
+  WebUI --> Learner : Show instructions to reset password
+end
+
+@enduml

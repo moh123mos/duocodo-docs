@@ -1,0 +1,135 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Referral Service" as Referral #E6FFE6
+database "User DB" as UDB #E6FFE6
+participant "Email Service" as Email #F0E6FF
+participant "Notification Service" as Notify #F7F0D3
+participant "Analytics Service" as Analytics #F2F2F2
+
+User -> WebUI : openInviteFriends()
+activate WebUI
+WebUI -> Backend : GET /referrals/config
+activate Backend
+Backend -> Referral : fetchReferralConfig(userId)
+activate Referral
+Referral -> UDB : SELECT referralStatus, credits WHERE userId
+activate UDB
+UDB --> Referral : referralData
+deactivate UDB
+Referral --> Backend : {config, referralData}
+deactivate Referral
+Backend --> WebUI : 200 OK {config, referralData}
+deactivate Backend
+WebUI --> User : displayInviteOptions()
+deactivate WebUI
+
+User -> WebUI : inviteByEmail(email)
+activate WebUI
+WebUI -> Backend : POST /referrals/invite {userId, email}
+activate Backend
+Backend -> Referral : createInvite(userId, email)
+activate Referral
+Referral -> UDB : INSERT referral_invites (userId, email, token, status:pending)
+activate UDB
+UDB --> Referral : inviteRecord {inviteId, token}
+deactivate UDB
+Referral -> Email : sendReferralEmail(email, token, referrerInfo)
+activate Email
+Email --> Referral : emailSent
+deactivate Email
+Referral -> Analytics : trackEvent(invite_sent)
+activate Analytics
+Analytics --> Referral : tracked
+deactivate Analytics
+Referral --> Backend : {inviteId, token, status:pending}
+deactivate Referral
+Backend -> Notify : sendInAppInviteSent(userId, email)
+activate Notify
+Notify --> Backend : notifyAck
+deactivate Notify
+Backend --> WebUI : 201 Created {inviteId, status:pending}
+deactivate Backend
+WebUI --> User : showInviteSent()
+
+== Recipient accepts invite ==
+actor "Recipient" as Recipient #FFF2CC
+Recipient -> WebUI : openReferralLink(token)
+activate WebUI
+WebUI -> Backend : GET /referrals/accept?token=token
+activate Backend
+Backend -> Referral : validateToken(token)
+activate Referral
+Referral -> UDB : SELECT invite WHERE token=token
+activate UDB
+UDB --> Referral : inviteRecord or null
+deactivate UDB
+alt validToken
+  Referral -> Backend : {inviteId, referrerId, email}
+  deactivate Referral
+  Backend -> WebUI : 200 OK {prefillEmail, referrerInfo}
+  deactivate Backend
+  WebUI --> Recipient : showSignupPrefill(email)
+else invalidOrExpired
+  Referral --> Backend : {error:invalid_or_expired}
+  deactivate Referral
+  Backend --> WebUI : 400 Bad Request {error}
+  deactivate Backend
+  WebUI --> Recipient : showError()
+end
+deactivate WebUI
+
+== Recipient signs up ==
+Recipient -> WebUI : register({email, password})
+activate WebUI
+WebUI -> Backend : POST /auth/register {email, password, token?}
+activate Backend
+Backend -> UDB : CREATE user (email, passwordHash)
+activate UDB
+UDB --> Backend : userId
+deactivate UDB
+Backend -> Referral : markInviteAccepted(inviteId, userId)
+activate Referral
+Referral -> UDB : UPDATE referral_invites SET status=accepted, referredUserId=userId
+activate UDB
+UDB --> Referral : updateAck
+deactivate UDB
+Referral -> Referral : evaluateRewards(referrerId, userId)
+Referral -> UDB : creditReferrer(referrerId, rewardAmount)
+activate UDB
+UDB --> Referral : creditAck
+deactivate UDB
+Referral -> Backend : {referrerCredited:true, rewardAmount}
+deactivate Referral
+Backend -> Notify : sendReferralSuccessNotifications(referrerId, userId, rewardAmount)
+activate Notify
+Notify --> Backend : notifyAck
+deactivate Notify
+Backend -> Analytics : trackEvent(referral_converted)
+activate Analytics
+Analytics --> Backend : tracked
+deactivate Analytics
+Backend --> WebUI : 201 Created {registered:true, referralReward:applied}
+deactivate Backend
+WebUI --> Recipient : showWelcomeAndReward()
+deactivate WebUI
+
+@enduml

@@ -1,0 +1,147 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "Learner" as Learner #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Goals Service" as Goals #E6FFE6
+database "User DB" as UDB #E6FFE6
+participant "Scheduler Service" as Scheduler #F0E6FF
+participant "Notification Service" as Notify #F7F0D3
+participant "Analytics Service" as Analytics #F2F2F2
+
+Learner -> WebUI : openGoalsPage()
+activate WebUI
+WebUI -> Backend : GET /users/{id}/goals
+activate Backend
+Backend -> Goals : fetchUserGoals(userId)
+activate Goals
+Goals -> UDB : SELECT goals WHERE userId={id}
+activate UDB
+UDB --> Goals : goalsList
+deactivate UDB
+Goals --> Backend : goalsList
+deactivate Goals
+Backend --> WebUI : 200 OK {goalsList}
+deactivate Backend
+WebUI --> Learner : displayGoals(goalsList)
+deactivate WebUI
+
+== Create or update goal ==
+Learner -> WebUI : submitGoal({targetType, targetValue, deadline, recurrence?})
+activate WebUI
+WebUI -> Backend : POST /users/{id}/goals {goalPayload}
+activate Backend
+Backend -> Goals : validateAndSaveGoal(userId, goalPayload)
+activate Goals
+Goals -> UDB : INSERT/UPDATE goals (userId, targetType, value, deadline, recurrence)
+activate UDB
+UDB --> Goals : saveAck {goalId}
+deactivate UDB
+Goals -> Scheduler : scheduleReminders(goalId, recurrence, deadline)
+activate Scheduler
+Scheduler --> Goals : scheduleAck
+deactivate Scheduler
+Goals -> Analytics : trackGoalCreated(userId, goalId, targetType)
+activate Analytics
+Analytics --> Goals : tracked
+deactivate Analytics
+Goals --> Backend : {goalId, status:created}
+deactivate Goals
+Backend --> WebUI : 201 Created {goalId, status}
+deactivate Backend
+WebUI --> Learner : showGoalCreated(goalId)
+deactivate WebUI
+
+opt Edit or pause goal
+  Learner -> WebUI : editGoal(goalId, updates)
+  activate WebUI
+  WebUI -> Backend : PUT /users/{id}/goals/{goalId} {updates}
+  activate Backend
+  Backend -> Goals : updateGoal(goalId, updates)
+  activate Goals
+  Goals -> UDB : UPDATE goals SET ... WHERE id=goalId
+  activate UDB
+  UDB --> Goals : updateAck
+  deactivate UDB
+  Goals -> Scheduler : updateSchedule(goalId, updates)
+  activate Scheduler
+  Scheduler --> Goals : scheduleUpdated
+  deactivate Scheduler
+  Goals --> Backend : {goalId, status:updated}
+  deactivate Goals
+  Backend --> WebUI : 200 OK {updated:true}
+  deactivate Backend
+  WebUI --> Learner : showGoalUpdated()
+  deactivate WebUI
+end
+
+opt Mark goal progress / complete
+  Learner -> WebUI : recordProgress(goalId, progressDelta)
+  activate WebUI
+  WebUI -> Backend : POST /users/{id}/goals/{goalId}/progress {progressDelta}
+  activate Backend
+  Backend -> Goals : applyProgress(goalId, progressDelta)
+  activate Goals
+  Goals -> UDB : UPDATE goals SET progress = progress + progressDelta WHERE id=goalId
+  activate UDB
+  UDB --> Goals : updateAck {newProgress}
+  deactivate UDB
+  Goals -> Analytics : publishGoalProgress(userId, goalId, newProgress)
+  activate Analytics
+  Analytics --> Goals : ack
+  deactivate Analytics
+  Goals -> Notify : ifMilestoneSendNotifications(userId, goalId, newProgress)
+  activate Notify
+  Notify --> Goals : notifyAck
+  deactivate Notify
+  Goals --> Backend : {goalId, newProgress}
+  deactivate Goals
+  Backend --> WebUI : 200 OK {newProgress}
+  deactivate Backend
+  WebUI --> Learner : showProgressUpdate(newProgress)
+  deactivate WebUI
+end
+
+opt Auto-complete or deadline reached
+  Scheduler -> Goals : deadlineCheck()
+  activate Goals
+  Goals -> UDB : SELECT goals WHERE deadline<=now AND status!=completed
+  activate UDB
+  UDB --> Goals : dueGoals
+  deactivate UDB
+  Goals -> Backend : markGoalsAsExpiredOrCompleted(dueGoals)
+  activate Backend
+  Backend -> Notify : sendDeadlineNotifications(userId, dueGoals)
+  activate Notify
+  Notify --> Backend : notifyAck
+  deactivate Notify
+  Backend --> Goals : ack
+  deactivate Backend
+  Goals -> Analytics : recordGoalOutcomes(dueGoals)
+  activate Analytics
+  Analytics --> Goals : ack
+  deactivate Analytics
+  Goals --> Scheduler : cleanupSchedules(dueGoals)
+  activate Scheduler
+  Scheduler --> Goals : cleanupAck
+  deactivate Scheduler
+  deactivate Goals
+end
+
+@enduml

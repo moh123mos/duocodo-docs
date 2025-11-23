@@ -1,0 +1,74 @@
+@startuml Design_Learning_Path
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+
+actor "Content Creator" as Creator #FFF2CC
+participant "Path Builder UI" as PUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+database "Content DB" as CDB #E6FFE6
+
+Creator -> PUI : Open Path Builder
+activate PUI
+
+Creator -> PUI : Add modules, reorder, define prerequisites
+PUI -> Backend : POST /paths {modules, order, prerequisites}
+activate Backend
+
+Backend -> CDB : Store path definition
+activate CDB
+CDB --> Backend : {pathId}
+deactivate CDB
+
+Backend --> PUI : 201 Created {pathId}
+deactivate Backend
+
+PUI --> Creator : Path saved
+deactivate PUI
+
+opt Edit existing path
+  Creator -> PUI : Modify modules / structure
+  activate PUI
+  PUI -> Backend : PUT /paths/{pathId} {updates}
+  activate Backend
+
+  Backend -> CDB : Update path data
+  activate CDB
+  CDB --> Backend : OK
+  deactivate CDB
+
+  Backend --> PUI : 200 OK {updatedPath}
+  deactivate Backend
+
+  PUI --> Creator : Changes saved
+  deactivate PUI
+end
+
+opt Preview path as learner
+  Creator -> PUI : Preview learning flow
+  activate PUI
+
+  PUI -> Backend : GET /paths/{pathId}/preview
+  activate Backend
+  Backend -> CDB : Fetch path & modules
+  activate CDB
+  CDB --> Backend : pathData
+  deactivate CDB
+
+  Backend --> PUI : Generated preview {sequence, difficultyMap}
+  deactivate Backend
+
+  PUI --> Creator : Show preview
+  deactivate PUI
+end
+
+@enduml

@@ -1,0 +1,156 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "Learner" as Learner #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Quiz Service" as QuizSvc #E6FFE6
+database "Quiz DB" as QDB #E6FFE6
+participant "Timer Service" as Timer #F0E6FF
+participant "Notification Service" as Notify #F7F0D3
+participant "Analytics Service" as Analytics #F2F2F2
+
+Learner -> WebUI : openQuiz(quizId)
+activate WebUI
+WebUI -> Backend : GET /quizzes/{quizId}
+activate Backend
+Backend -> QuizSvc : fetchQuizMetadata(quizId)
+activate QuizSvc
+QuizSvc -> QDB : SELECT quiz, questions, settings WHERE id=quizId
+activate QDB
+QDB --> QuizSvc : quizPayload
+deactivate QDB
+QuizSvc --> Backend : quizPayload {questions masked if needed}
+deactivate QuizSvc
+Backend --> WebUI : 200 OK {quizPayload}
+deactivate Backend
+WebUI --> Learner : showQuizIntro(instructions, timeLimit)
+deactivate WebUI
+
+Learner -> WebUI : startQuiz()
+activate WebUI
+WebUI -> Backend : POST /quizzes/{quizId}/start {userId}
+activate Backend
+Backend -> QuizSvc : createAttempt(userId, quizId, startTime)
+activate QuizSvc
+QuizSvc -> QDB : INSERT attempt(status:in_progress, startTime,...)
+activate QDB
+QDB --> QuizSvc : attemptId
+deactivate QDB
+QuizSvc -> Timer : startTimer(attemptId, timeLimit)
+activate Timer
+Timer --> QuizSvc : timerAck
+deactivate Timer
+QuizSvc --> Backend : attemptCreated {attemptId, timeLimit}
+deactivate QuizSvc
+Backend --> WebUI : 200 OK {attemptId, questions}
+deactivate Backend
+WebUI --> Learner : presentQuestion(1)
+
+loop for each question
+  Learner -> WebUI : answerQuestion(attemptId, questionId, answer)
+  activate WebUI
+  WebUI -> Backend : POST /quizzes/{quizId}/attempts/{attemptId}/answer {questionId, answer, timestamp}
+  activate Backend
+  Backend -> QuizSvc : recordAnswer(attemptId, questionId, answer)
+  activate QuizSvc
+  QuizSvc -> QDB : INSERT/UPDATE answerRecord
+  activate QDB
+  QDB --> QuizSvc : ack
+  deactivate QDB
+  QuizSvc --> Backend : recordAck
+  deactivate QuizSvc
+  Backend --> WebUI : 200 OK {saved:true}
+  deactivate Backend
+  WebUI --> Learner : showNextQuestion()
+  deactivate WebUI
+end
+
+alt userSubmitsEarly
+  Learner -> WebUI : submitQuiz(attemptId)
+  activate WebUI
+  WebUI -> Backend : POST /quizzes/{quizId}/attempts/{attemptId}/submit
+  activate Backend
+  Backend -> QuizSvc : finalizeAttempt(attemptId)
+  activate QuizSvc
+  QuizSvc -> Timer : stopTimer(attemptId)
+  activate Timer
+  Timer --> QuizSvc : stopped
+  deactivate Timer
+  QuizSvc -> QDB : UPDATE attempt SET status=submitted, submittedAt=...
+  activate QDB
+  QDB --> QuizSvc : updateAck
+  deactivate QDB
+  QuizSvc -> QuizSvc : gradeAutoQuestions(attemptId)
+  QuizSvc -> QDB : writeGrades(partialGrade)
+  activate QDB
+  QDB --> QuizSvc : gradeAck
+  deactivate QDB
+  QuizSvc --> Backend : {attemptId, status:submitted, partialGrade}
+  deactivate QuizSvc
+  Backend --> WebUI : 200 OK {submitted:true, partialGrade}
+  deactivate Backend
+  WebUI --> Learner : showSubmissionConfirmation()
+  deactivate WebUI
+
+else timeExpires
+  Timer -> QuizSvc : notifyTimeout(attemptId)
+  activate QuizSvc
+  QuizSvc -> QDB : UPDATE attempt SET status:timed_out, submittedAt=...
+  activate QDB
+  QDB --> QuizSvc : updateAck
+  deactivate QDB
+  QuizSvc -> QuizSvc : gradeAutoQuestions(attemptId)
+  QuizSvc -> QDB : writeGrades(partialGrade)
+  activate QDB
+  QDB --> QuizSvc : gradeAck
+  deactivate QDB
+  QuizSvc --> Backend : {attemptId, status:timed_out, partialGrade}
+  deactivate QuizSvc
+  Backend --> WebUI : 200 OK {timed_out:true, partialGrade}
+  WebUI --> Learner : showTimeExpired()
+  deactivate WebUI
+end
+
+opt post-grading (manual or full)
+  Backend -> QuizSvc : requestFullGrading(attemptId)
+  activate QuizSvc
+  QuizSvc -> QDB : fetchAnswersForManualReview(attemptId)
+  activate QDB
+  QDB --> QuizSvc : answersBundle
+  deactivate QDB
+  QuizSvc -> QuizSvc : processManualGrading(graders)
+  QuizSvc -> QDB : updateFinalGrade(attemptId, finalGrade)
+  activate QDB
+  QDB --> QuizSvc : finalAck
+  deactivate QDB
+  QuizSvc -> Analytics : publishQuizMetrics(attemptId, finalGrade)
+  activate Analytics
+  Analytics --> QuizSvc : metricsAck
+  deactivate Analytics
+  QuizSvc -> Notify : sendQuizResult(userId, attemptId, finalGrade)
+  activate Notify
+  Notify --> QuizSvc : notifyAck
+  deactivate Notify
+  QuizSvc --> Backend : gradingComplete {attemptId, finalGrade}
+  deactivate QuizSvc
+  Backend --> WebUI : 200 OK {finalGrade}
+  WebUI --> Learner : showFinalResult(finalGrade)
+end
+
+@enduml

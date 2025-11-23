@@ -1,0 +1,103 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+database "User DB" as UDB #E6FFE6
+participant "Notification Service" as Notify #F0E6FF
+participant "Email Service" as Email #F7F0D3
+participant "Push Service" as Push #F2F2F2
+
+User -> WebUI : openNotificationSettings()
+activate WebUI
+WebUI -> Backend : GET /users/{id}/notifications/settings
+activate Backend
+Backend -> UDB : SELECT notification_settings WHERE userId={id}
+activate UDB
+UDB --> Backend : settingsRecord
+deactivate UDB
+Backend --> WebUI : 200 OK {settingsRecord}
+deactivate Backend
+WebUI --> User : displaySettings(form)
+deactivate WebUI
+
+User -> WebUI : updateNotificationSettings(newSettings)
+activate WebUI
+WebUI -> Backend : PUT /users/{id}/notifications/settings {newSettings}
+activate Backend
+Backend -> UDB : UPDATE notification_settings SET ... WHERE userId={id}
+activate UDB
+UDB --> Backend : updateAck
+deactivate UDB
+Backend -> Notify : refreshUserPreferences(userId, newSettings)
+activate Notify
+Notify --> Backend : refreshAck
+deactivate Notify
+Backend --> WebUI : 200 OK {updated:true}
+deactivate Backend
+WebUI --> User : showMessage("Preferences updated")
+deactivate WebUI
+
+opt Test notification (send preview)
+  User -> WebUI : sendTestNotification(type)
+  activate WebUI
+  WebUI -> Backend : POST /notifications/test {userId, type}
+  activate Backend
+  Backend -> Notify : generatePreviewNotification(userId, type)
+  activate Notify
+  Notify -> UDB : read(userId)  'for contact methods'
+  activate UDB
+  UDB --> Notify : contactInfo
+  deactivate UDB
+  Notify -> Email : sendPreviewEmail(contactInfo.email, payload)
+  activate Email
+  Email --> Notify : emailAck
+  deactivate Email
+  Notify -> Push : sendPreviewPush(contactInfo.deviceId, payload)
+  activate Push
+  Push --> Notify : pushAck
+  deactivate Push
+  Notify --> Backend : previewResult {emailAck, pushAck}
+  deactivate Notify
+  Backend --> WebUI : 200 OK {preview:sent}
+  deactivate Backend
+  WebUI --> User : showMessage("Preview sent")
+  deactivate WebUI
+end
+
+opt Unsubscribe from all (one-click)
+  User -> WebUI : clickUnsubscribeAll()
+  activate WebUI
+  WebUI -> Backend : POST /users/{id}/notifications/unsubscribe-all
+  activate Backend
+  Backend -> UDB : UPDATE notification_settings SET all=false WHERE userId={id}
+  activate UDB
+  UDB --> Backend : updateAck
+  deactivate UDB
+  Backend -> Notify : bulkUnsubscribe(userId)
+  activate Notify
+  Notify --> Backend : ack
+  deactivate Notify
+  Backend --> WebUI : 200 OK {unsubscribed:true}
+  deactivate Backend
+  WebUI --> User : showMessage("You are unsubscribed")
+  deactivate WebUI
+end
+
+@enduml

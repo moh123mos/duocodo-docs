@@ -1,0 +1,78 @@
+@startuml Create_Coding_Exercise
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+
+actor "Content Creator" as Creator #FFF2CC
+participant "Creator UI" as CUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Validator Service" as Validator #F0E6FF
+database "Content DB" as CDB #E6FFE6
+
+Creator -> CUI : New exercise -> fill title, statement, samples, tests
+activate CUI
+
+CUI -> Backend : POST /exercises {title, statement, samples, tests, metadata}
+activate Backend
+
+Backend -> Validator : Validate testcases & security (sandbox safety)
+activate Validator
+Validator --> Backend : validationReport {ok/warnings/errors}
+deactivate Validator
+
+alt Validation OK
+  Backend -> CDB : Store exercise as draft
+  activate CDB
+  CDB --> Backend : {exerciseId}
+  deactivate CDB
+
+  Backend --> CUI : 201 Created {exerciseId, status:draft}
+  CUI --> Creator : Show draft saved
+else Validation Failed
+  Backend --> CUI : 400 Validation errors {details}
+  CUI --> Creator : Show validation errors
+end
+
+deactivate Backend
+deactivate CUI
+
+opt Attach assets (optional)
+  Creator -> CUI : Upload asset (images, videos, attachments)
+  activate CUI
+  CUI -> Backend : POST /exercises/{id}/assets {file}
+  activate Backend
+  Backend -> CDB : Store asset metadata & fileRef
+  activate CDB
+  CDB --> Backend : OK
+  deactivate CDB
+  Backend --> CUI : 200 Asset uploaded
+  CUI --> Creator : Show asset uploaded
+  deactivate Backend
+  deactivate CUI
+end
+
+opt Localize exercise (optional)
+  Creator -> CUI : Add localization for language {lang, statement, samples}
+  activate CUI
+  CUI -> Backend : POST /exercises/{id}/locales {lang, payload}
+  activate Backend
+  Backend -> CDB : Save localization
+  activate CDB
+  CDB --> Backend : OK
+  deactivate CDB
+  Backend --> CUI : 200 Localization saved
+  CUI --> Creator : Show localization saved
+  deactivate Backend
+  deactivate CUI
+end
+
+@enduml

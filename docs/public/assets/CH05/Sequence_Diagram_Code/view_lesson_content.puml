@@ -1,0 +1,107 @@
+' Source: /mnt/data/4a81da6b-ae44-4ff1-85c0-36b7cb7733ad.pdf
+@startuml View_Lesson_Content
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "Learner" as Learner #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Backend API" as Backend #FFE6E6
+participant "Content CDN\n/ Media Service" as CDN #F0E6FF
+participant "Transcription/Subtitle\nService" as Subs #FFF0CC
+database "Content DB" as CDB #E6FFE6
+
+Learner -> WebUI : Open lesson page {lessonId}
+activate WebUI
+
+WebUI -> Backend : GET /lessons/{lessonId}?userId={userId}
+activate Backend
+Backend -> CDB : Fetch lesson metadata, content pointers, permissions
+activate CDB
+CDB --> Backend : lessonMeta {title, modules, resources, access}
+deactivate CDB
+
+alt Access allowed
+  Backend --> WebUI : 200 OK {lessonMeta, resourceURLs, transcriptId}
+  deactivate Backend
+
+  WebUI -> CDN : GET resource (video/audio/image) {resourceURL}
+  activate CDN
+  CDN --> WebUI : 200 Stream/URL or redirect
+  deactivate CDN
+
+  opt Subtitles / Transcript available
+    WebUI -> Subs : GET /transcripts/{transcriptId}
+    activate Subs
+    Subs --> WebUI : 200 OK {vtt, captions, languageList}
+    deactivate Subs
+    WebUI --> Learner : Render lesson content + captions/transcript
+  else No transcript
+    WebUI --> Learner : Render lesson content
+  end
+
+  Learner -> WebUI : Play / Pause / Seek / Change speed
+  WebUI -> CDN : Range request / control
+  CDN --> WebUI : stream chunk
+  WebUI --> Learner : Playback updates
+
+  opt Bookmark / Save note
+    Learner -> WebUI : Click "Bookmark" / Add note
+    activate WebUI
+    WebUI -> Backend : POST /users/{userId}/bookmarks {lessonId, position, note}
+    activate Backend
+    Backend -> CDB : Save bookmark/note
+    activate CDB
+    CDB --> Backend : OK
+    deactivate CDB
+    Backend --> WebUI : 201 Created
+    deactivate Backend
+    WebUI --> Learner : Show bookmark saved
+    deactivate WebUI
+  end
+
+  opt Mark lesson as completed
+    Learner -> WebUI : Click "Mark Complete"
+    activate WebUI
+    WebUI -> Backend : POST /lessons/{lessonId}/complete {userId}
+    activate Backend
+    Backend -> CDB : Update progress {userId, lessonId, timestamp}
+    activate CDB
+    CDB --> Backend : OK
+    deactivate CDB
+    Backend --> WebUI : 200 OK {progress, XP}
+    deactivate Backend
+    WebUI --> Learner : Show completion, award XP/badge
+    deactivate WebUI
+  end
+
+else Access denied / paywall
+  Backend --> WebUI : 403 Forbidden / 402 Payment Required
+  deactivate Backend
+  WebUI --> Learner : Show access denied / purchase prompt
+  deactivate WebUI
+  return
+end
+
+opt Offline / CDN error
+  WebUI -> CDN : GET resource {resourceURL}
+  activate CDN
+  CDN --> WebUI : 503 Service Unavailable / timeout
+  deactivate CDN
+  WebUI --> Learner : Show media load error, offer retry or download
+end
+
+@enduml

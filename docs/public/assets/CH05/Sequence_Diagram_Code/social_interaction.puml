@@ -1,0 +1,93 @@
+@startuml
+skinparam backgroundColor #FAFAFA
+skinparam sequence {
+  ArrowColor #2F5D8A
+  LifeLineBorderColor #2F5D8A
+  LifeLineBackgroundColor #D9E8F5
+  ParticipantBorderColor #1B3C59
+  ParticipantBackgroundColor #E6EEF5
+  ActorBorderColor #3D3D3D
+  ActorBackgroundColor #F2F2F2
+  GroupBackgroundColor #F7F0D3
+  GroupBorderColor #C5AF59
+}
+skinparam dpi 300
+skinparam maxMessageSize 240
+skinparam ParticipantPadding 30
+skinparam sequenceParticipantWidth 180
+
+actor "User" as User #FFF2CC
+actor "Other Learner" as Other #FFF2CC
+participant "Web UI\n(Frontend)" as WebUI #E6F7FF
+participant "Social API" as Social #FFE6E6
+database "User DB" as UDB #E6FFE6
+database "Social DB" as SDB #E6FFE6
+participant "Feed Service" as Feed #F0E6FF
+participant "Notification Service" as Notify #F2F2F2
+participant "Cache (Redis)" as Cache #F7F0D3
+
+User -> WebUI : clickFollow(targetUserId)
+activate WebUI
+WebUI -> Social : POST /social/follow {userId, targetUserId}
+activate Social
+Social -> UDB : SELECT user WHERE id = targetUserId
+activate UDB
+UDB --> Social : targetExists
+deactivate UDB
+
+alt targetExists
+  Social -> SDB : INSERT follower(userId, targetUserId)
+  activate SDB
+  SDB --> Social : insertAck
+  deactivate SDB
+
+  Social -> Cache : DEL followers:targetUserId  'invalidate cache'
+  activate Cache
+  Cache --> Social : delAck
+  deactivate Cache
+
+  Social -> Feed : addFollowEvent(userId, targetUserId)
+  activate Feed
+  Feed --> Social : feedAck
+  deactivate Feed
+
+  Social -> Notify : sendFollowNotification(targetUserId, userId)
+  activate Notify
+  Notify --> Social : notifyAck
+  deactivate Notify
+
+  Social --> WebUI : 200 OK {followed:true}
+else targetNotFound
+  Social --> WebUI : 404 Not Found {error:target_not_found}
+end
+deactivate Social
+WebUI --> User : updateFollowButton(state)
+deactivate WebUI
+
+opt unfollow
+  User -> WebUI : clickUnfollow(targetUserId)
+  activate WebUI
+  WebUI -> Social : POST /social/unfollow {userId, targetUserId}
+  activate Social
+  Social -> SDB : DELETE FROM followers WHERE userId=... AND targetUserId=...
+  activate SDB
+  SDB --> Social : deleteAck
+  deactivate SDB
+
+  Social -> Cache : DEL followers:targetUserId
+  activate Cache
+  Cache --> Social : delAck
+  deactivate Cache
+
+  Social -> Feed : addUnfollowEvent(userId, targetUserId)
+  activate Feed
+  Feed --> Social : feedAck
+  deactivate Feed
+
+  Social --> WebUI : 200 OK {unfollowed:true}
+  deactivate Social
+  WebUI --> User : updateFollowButton(state)
+  deactivate WebUI
+end
+
+@enduml
