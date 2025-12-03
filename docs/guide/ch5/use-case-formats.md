@@ -793,7 +793,7 @@ The content creator removes unpublished course materials or exercises from their
 
 ### Fully Dressed Format Use Cases
 
-#### 13. Create Coding Exercise
+#### 15. Create Coding Exercise
 
 **Primary Actor:** Content Creator
 
@@ -864,7 +864,7 @@ The content creator removes unpublished course materials or exercises from their
     - Submit for peer review
     - Publish immediately (if authorized)
 18. The content creator selects "Submit for Peer Review."
-19. The system assigns the exercise to 2-3 other content creators for review.
+19. The system assigns the exercise to 1-3 other content creators for review.
 20. Reviewers test the exercise and provide feedback within 3-5 days.
 21. The content creator receives feedback and makes revisions if needed.
 22. After approval, the exercise is published and becomes available to learners.
@@ -888,7 +888,7 @@ The content creator removes unpublished course materials or exercises from their
 
 **A4. Test Case Timeout**
 - At Step 15, if test execution exceeds time limits:
-  - The system displays: *"Test case [X] exceeds the 5-second limit. Consider optimizing or adjusting constraints."*
+  - The system displays: *"Test case [X] exceeds the [N]-second limit. Consider optimizing or adjusting constraints."*
 
 **A5. Duplicate Exercise Detected**
 - At Step 15, if a similar exercise exists:
@@ -899,7 +899,6 @@ The content creator removes unpublished course materials or exercises from their
 - At Step 21, if reviewers identify serious flaws:
   - The system compiles reviewer feedback.
   - The creator must address concerns before resubmission.
-  - Creator can discuss with reviewers or appeal to admin.
 
 **A7. Hidden Test Cases Too Predictable**
 - At Step 15, if hidden cases are similar to public ones:
@@ -938,13 +937,6 @@ The content creator removes unpublished course materials or exercises from their
 - Creator reviews and can incorporate into the exercise
 - Contributors receive recognition credits
 
-**E5. Exercise Versioning**
-- Creator can update exercises without disrupting active students
-- System maintains versions:
-  - V1 for students who started before update
-  - V2 for new enrollments
-- Both versions tracked separately
-
 **Special Requirements:**
 - Exercise validation must complete within 30 seconds.
 - Test cases must be stored securely; hidden cases not accessible to learners.
@@ -968,28 +960,198 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### 14. Validate Exercise Before Publishing (continued)
+#### *14. Validate Exercise Before Publishing*
 
-Special Requirements: (continued)
+*Primary Actor:* Content Creator
+
+*Stakeholders and Interests:*
+- *Content Creator:* Wants assurance that the exercise functions correctly before learners attempt it.
+- *Learners:* Need exercises that work properly without technical issues or unfair test cases.
+- *Platform Quality Team:* Wants to maintain high content standards.
+
+*Preconditions:*
+- Exercise must be created with problem statement, test cases, and model solution.
+- Content creator must be logged in.
+- Validation API and code execution environment must be operational.
+
+*Postconditions:*
+- Exercise is thoroughly tested and validated.
+- Any issues are identified and resolved.
+- Exercise receives a validation status (Passed/Failed/Warning).
+- Exercise can proceed to publishing workflow if validation passes.
+
+*Main Success Scenario:*
+1. The content creator completes exercise creation.
+2. The content creator clicks "Validate Exercise."
+3. The system displays: "Beginning validation process... This may take 30-60 seconds."
+4. *Step 1: Model Solution Validation*
+   - System executes model solution against all test cases
+   - Measures execution time and memory usage
+   - Checks for runtime errors or infinite loops
+5. The system confirms: "✓ Model solution passes all [X] test cases."
+6. *Step 2: Test Case Quality Check*
+   - System analyzes test case diversity
+   - Checks for edge cases: empty inputs, maximum values, negative numbers
+   - Verifies hidden tests differ meaningfully from public tests
+   - Ensures test cases cover multiple solution approaches
+7. The system reports: "✓ Test cases provide adequate coverage."
+8. *Step 3: Problem Statement Analysis*
+   - AI reviews problem statement for clarity
+   - Checks grammar and spelling
+   - Identifies ambiguous phrasing
+   - Verifies examples match expected input/output format
+9. The system reports: "✓ Problem statement is clear and complete."
+10. *Step 4: Difficulty Calibration*
+    - System estimates difficulty based on:
+      - Solution complexity (cyclomatic complexity, lines of code)
+      - Required concepts (data structures, algorithms)
+      - Test case difficulty
+    - Compares with creator's assigned difficulty
+11. The system reports: "Estimated difficulty matches assigned level (Intermediate)."
+12. *Step 5: Security Check*
+    - System scans for potential security vulnerabilities
+    - Checks test data doesn't contain sensitive information
+    - Verifies execution constraints prevent resource abuse
+13. The system reports: "✓ No security issues detected."
+14. *Step 6: Accessibility Review*
+    - Checks if problem statement is screen-reader friendly
+    - Verifies code examples use appropriate formatting
+    - Ensures visual elements have text alternatives
+15. The system reports: "✓ Accessibility requirements met."
+16. The system compiles a comprehensive validation report showing all checks.
+17. The system displays final status: "Validation Complete: PASSED"
+18. The content creator reviews the full report.
+19. The system offers options:
+    - Proceed to publish
+    - Submit for peer review
+    - Make revisions based on warnings
+20. The content creator selects "Proceed to Publish."
+21. The system marks the exercise as validated and ready for publication.
+
+*Alternative Scenarios:*
+
+*A1. Model Solution Fails Test Cases*
+- At Step 4-5, if model solution fails any test:
+  - System displays: "✗ Model solution failed test case #[X]"
+  - Shows: Input provided, Expected output, Actual output, Error message
+  - Validation status: FAILED
+  - Creator must fix solution or test case before retrying
+
+*A2. Missing Edge Cases*
+- At Step 6-7, if edge case coverage is insufficient:
+  - System warns: "⚠ Test cases may not cover edge scenarios: [empty input, single element, maximum constraints]"
+  - Validation status: PASSED WITH WARNINGS
+  - Creator should add edge cases but can proceed
+
+*A3. Problem Statement Unclear*
+- At Step 8-9, if AI detects ambiguity:
+  - System suggests: "⚠ Problem statement may be unclear: '[specific phrase]' could be interpreted multiple ways."
+  - Provides revision suggestions
+  - Validation status: PASSED WITH WARNINGS
+  - Creator should clarify but can proceed
+
+*A4. Difficulty Mismatch*
+- At Step 10-11, if estimated difficulty differs significantly:
+  - System reports: "⚠ This exercise appears to be [Advanced] but is marked [Intermediate]. Consider adjusting."
+  - Validation status: PASSED WITH WARNINGS
+  - Creator can adjust difficulty or provide justification
+
+*A5. Execution Timeout*
+- At Step 4, if model solution exceeds time limit:
+  - System displays: "✗ Model solution exceeded 5-second time limit. Execution time: [X]s"
+  - Validation status: FAILED
+  - Creator must optimize solution or adjust constraints
+
+*A6. Security Vulnerability Detected*
+- At Step 12-13, if potential security issue found:
+  - System alerts: "✗ Security issue detected: Test case contains [suspicious pattern]"
+  - Validation status: FAILED
+  - Creator must remove problematic content
+  - Admin is notified for serious violations
+
+*A7. Test Cases Too Similar*
+- At Step 6, if hidden tests are predictable:
+  - System warns: "⚠ Hidden test cases appear similar to public tests. Add more diverse scenarios."
+  - Validation status: PASSED WITH WARNINGS
+  - Creator should improve test diversity
+
+*A8. Grammatical Errors*
+- At Step 8-9, if grammar issues detected:
+  - System highlights errors with suggestions
+  - Auto-correct offered for minor issues
+  - Validation status: PASSED WITH WARNINGS
+  - Creator should review and fix
+
+*A9. Accessibility Issues*
+- At Step 14-15, if accessibility problems found:
+  - System lists: "⚠ Images lack alt text, Code blocks not properly formatted"
+  - Provides remediation guidance
+  - Validation status: PASSED WITH WARNINGS
+  - Creator should fix for inclusivity
+
+*A10. Validation Service Unavailable*
+- At Step 3, if validation API fails:
+  - System displays: "Validation service temporarily unavailable. You can save as draft and try again later."
+  - Exercise saved but not validated
+  - Creator notified when service resumes
+
+*A11. Multiple Languages, Different Results*
+- At Step 4-5, if exercise supports Python and JavaScript:
+  - If Python solution passes but JavaScript fails:
+    - System reports issues separately by language
+    - Creator must fix failing language implementation
+  - All language versions must pass before overall validation passes
+
+*Extensions:*
+
+*E1. Automated Test Generation*
+- System offers to generate additional test cases:
+  - Creates random inputs within constraints
+  - Uses model solution to compute expected outputs
+  - Creator reviews and approves generated tests
+
+*E2. Peer Validator Assignment*
+- For complex exercises, system can assign peer validators:
+  - Another experienced creator manually tests the exercise
+  - Provides human feedback on clarity and fairness
+  - Combined with automated validation
+
+*E3. Historical Performance Data*
+- If exercise is being updated:
+  - System shows previous student performance metrics
+  - Completion rate, average time, common mistakes
+  - Helps creator understand if changes improve quality
+
+*E4. Validation Report Export*
+- Creator can download detailed validation report as PDF
+- Useful for documentation or training purposes
+- Includes all checks, scores, and recommendations
+
+*E5. Incremental Validation*
+- For large exercises with many test cases:
+  - System validates in stages, showing progress
+  - Creator can cancel if early stages reveal issues
+  - Saves validation time
+
+*Special Requirements:* (continued)
 - All validation checks must be logged for quality assurance auditing.
 - Validation must detect common anti-patterns (hardcoded solutions, trivial test cases).
 - System should cache validation results; re-validation only needed if exercise changes.
 - Validation API must handle concurrent requests from multiple creators.
 - Failed validations must provide actionable guidance, not just error messages.
 
-Frequency of Use:
+*Frequency of Use:*
 - Every exercise creation (100% of exercises must be validated).
 - Re-validation after any exercise modification.
 - Estimated 50-100 validations per active content creator over platform lifetime.
 
-Open Issues:
+*Open Issues:*
 - Should we implement tiered validation (basic, standard, rigorous) based on content type?
 - How do we handle edge cases where automated validation gives false positives?
 - Should validation be required before saving as draft, or only before publishing?
 - Can we use machine learning to improve validation accuracy over time?
 
 ---
-
 #### 15. Design Learning Path
 
 Primary Actor: Content Creator
