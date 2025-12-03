@@ -383,733 +383,6 @@ The administrator displays a searchable list of all registered users with basic 
 - System automatically archives expired warnings
 - User's slate cleaned if no violations in 90 days
 
----
-
-### Fully Dressed Format Use Cases
-
-#### 10. Configure System Security Settings
-
-**Primary Actor:** Administrator (Super Admin level)
-
-**Stakeholders and Interests:**
-- **Administrator:** Wants to protect platform from security threats while maintaining usability.
-- **Users (All):** Want their data protected and accounts secure.
-- **Platform:** Needs robust security to prevent breaches, maintain trust, and comply with regulations.
-- **Legal/Compliance:** Requires adherence to data protection laws (GDPR, COPPA, etc.).
-
-**Preconditions:**
-- Administrator must be logged in with Super Admin privileges.
-- Administrator must have completed security training.
-- Security configuration interface must be operational.
-- Changes must be logged for compliance auditing.
-
-**Postconditions:**
-- Security settings are updated across the platform.
-- All users are subject to new security policies.
-- Changes are logged and reversible.
-- System security posture is enhanced.
-
-**Main Success Scenario:**
-1. The administrator logs into the admin panel with Super Admin credentials.
-2. The administrator navigates to "Security Configuration."
-3. The system displays current security settings organized by category:
-   - **Authentication Settings**
-   - **Password Policies**
-   - **Session Management**
-   - **API Security**
-   - **Data Protection**
-   - **Threat Prevention**
-4. **Authentication Settings Configuration:**
-   - The administrator reviews current settings:
-     - Two-factor authentication: Optional
-     - Social login providers: Google, GitHub
-     - Account lockout threshold: 5 failed attempts
-     - Lockout duration: 30 minutes
-   - The administrator changes 2FA setting:
-     - From: Optional
-     - To: Mandatory for Content Creators and Admins
-   - Sets grace period: 30 days for existing users to enable 2FA
-5. **Password Policy Configuration:**
-   - The administrator sets password requirements:
-     - Minimum length: 12 characters (increased from 8)
-     - Required character types: uppercase, lowercase, numbers, special characters
-     - Password expiration: 90 days (for admin accounts only)
-     - Password history: Cannot reuse last 5 passwords
-     - Common password blocking: Enabled
-   - System validates settings and warns:
-     - *"Increasing password requirements will require all users to update passwords on next login. This may cause support volume increase. Proceed?"*
-   - Administrator confirms understanding
-6. **Session Management Configuration:**
-   - The administrator configures session policies:
-     - Session timeout (inactive): 30 minutes
-     - Absolute session timeout: 12 hours
-     - Concurrent session limit: 3 devices maximum
-     - Force logout on password change: Enabled
-     - Remember me duration: 30 days
-7. **API Security Configuration:**
-   - The administrator sets API security rules:
-     - Rate limiting: 100 requests per minute per user
-     - Burst limit: 150 requests per minute
-     - API key rotation: Required every 90 days
-     - IP whitelist for admin API: Enabled
-     - CORS policy: Restrict to approved domains
-8. **Data Protection Configuration:**
-   - The administrator configures data protection:
-     - Encryption at rest: Enabled (AES-256)
-     - Encryption in transit: TLS 1.3 only
-     - Personal data retention: 2 years after last activity
-     - Automatic data deletion: Enabled for inactive accounts (3+ years)
-     - Data backup frequency: Daily full, hourly incremental
-     - Backup retention: 30 days
-9. **Threat Prevention Configuration:**
-   - The administrator enables security features:
-     - DDoS protection: Enabled
-     - SQL injection prevention: Enabled
-     - XSS filtering: Enabled
-     - CSRF protection: Enabled
-     - Suspicious activity monitoring: Enabled
-     - Auto-ban threshold: 10 failed login attempts from same IP in 1 hour
-     - Geo-blocking: Enable for high-risk countries (optional)
-10. The administrator reviews all proposed changes in a summary view.
-11. The system performs impact analysis:
-    - *"Changes will affect [X] users who must update passwords."*
-    - *"[Y] Content Creators must enable 2FA within 30 days."*
-    - *"API clients may need rate limit adjustments."*
-12. The administrator clicks "Apply Changes."
-13. The system prompts for confirmation with password re-entry.
-14. The administrator re-enters password and confirms.
-15. The system applies changes in staged rollout:
-    - Phase 1: Admin accounts (immediate)
-    - Phase 2: Content Creators (24 hours)
-    - Phase 3: All users (7 days)
-16. The system sends notifications to affected users:
-    - Email explaining upcoming security changes
-    - In-platform banners with action items
-    - FAQ links for common questions
-17. The system logs all configuration changes with:
-    - Timestamp
-    - Administrator who made changes
-    - Before/after values
-    - Rollout phase completion status
-18. The administrator monitors rollout progress dashboard:
-    - Compliance rates
-    - Support ticket volume
-    - User feedback
-    - Security incident reduction
-19. After successful rollout, the system generates security compliance report.
-20. The administrator reviews and archives the report for auditing.
-
-**Alternative Scenarios:**
-
-**A1. Configuration Conflict Detected**
-- At Step 10, if settings conflict (e.g., session timeout shorter than required task completion time):
-  - System warns: *"Session timeout of 15 minutes may disconnect users during code exercises. Recommend minimum 30 minutes."*
-  - Administrator adjusts or overrides with documented reason
-
-**A2. Overly Restrictive Settings**
-- At Step 11, if impact analysis shows high user disruption:
-  - System displays: *"Warning: 85% of users will need to take immediate action. Consider gradual rollout or less restrictive settings."*
-  - Administrator can adjust settings or proceed with comprehensive user communication plan
-
-**A3. Regulatory Compliance Violation**
-- At Step 8, if data retention exceeds legal limits for certain regions:
-  - System alerts: *"Data retention of 2 years exceeds GDPR requirements for EU users. Adjust to 1 year for EU or create region-specific policies?"*
-  - Administrator must resolve compliance issues before proceeding
-
-**A4. API Client Breakage Risk**
-- At Step 7, if rate limit changes will break existing integrations:
-  - System identifies affected API clients
-  - Administrator must notify API users in advance
-  - Provides grace period for adjustments
-
-**A5. Rollout Failure**
-- At Step 15, if technical issues occur during rollout:
-  - System automatically pauses rollout
-  - Alerts administrator: *"Rollout paused due to error: [details]"*
-  - Administrator can rollback, fix issue, or proceed manually
-
-**A6. User Resistance/Support Overload**
-- At Step 18, if support tickets spike significantly:
-  - System alerts: *"Support ticket volume increased 300%. Common issue: [problem]"*
-  - Administrator can pause rollout, extend grace period, or deploy additional help resources
-
-**A7. Emergency Security Threat**
-- If urgent security vulnerability discovered:
-  - Administrator can use "Emergency Security Update" option
-  - Bypasses staged rollout
-  - Applies critical fixes immediately across all users
-  - Post-incident communication sent to users
-
-**A8. Rollback Required**
-- At Step 18, if changes cause major issues:
-  - Administrator clicks "Rollback Security Changes"
-  - System reverts to previous configuration
-  - All users notified of temporary rollback
-  - Issues investigated before re-attempting
-
-**Extensions:**
-
-**E1. Custom Security Profiles**
-- Administrator can create role-specific security profiles:
-  - Admins: Strictest settings (mandatory 2FA, password rotation, IP restrictions)
-  - Content Creators: Moderate settings (optional 2FA, standard passwords)
-  - Learners: Basic settings (flexible authentication)
-- Applies appropriate profile to each user type
-
-**E2. Geo-Specific Security Rules**
-- Configure different security settings by region:
-  - EU users: GDPR-compliant data handling
-  - US users: COPPA compliance for minors
-  - High-risk regions: Additional authentication requirements
-- System automatically applies based on user location
-
-**E3. Scheduled Security Reviews**
-- System automatically prompts quarterly security reviews:
-  - Analyzes recent security incidents
-  - Recommends policy updates
-  - Shows industry best practice comparisons
-- Administrator reviews and updates policies
-
-**E4. Security Audit Trail**
-- Complete change history available:
-  - Who made what changes when
-  - Justification for changes
-  - Impact of changes
-- Exportable for compliance audits
-
-**E5. Automated Threat Response**
-- System can automatically respond to threats:
-  - Brute force attack detected → Auto-ban IP
-  - SQL injection attempt → Block request, alert admin
-  - Unusual API usage → Rate limit, require re-authentication
-- Administrator reviews automated actions and can adjust thresholds
-
-**E6. Security Testing Integration**
-- Before applying changes, run automated security tests:
-  - Penetration testing simulation
-  - Vulnerability scanning
-  - Compliance validation
-- Identifies issues before production deployment
-
-**Special Requirements:**
-- All security configuration changes must be logged in tamper-proof audit log.
-- Password policies must comply with NIST 800-63B guidelines.
-- Data encryption must use industry-standard algorithms (AES-256, RSA-2048+).
-- Session management must prevent fixation, hijacking, and replay attacks.
-- API security must include OAuth 2.0 support and JWT token validation.
-- System must support PCI DSS compliance if handling payment data.
-- Security settings must be exportable for compliance reporting.
-- Changes must be reversible with full rollback capability.
-- Critical security changes require dual administrator approval (separation of duties).
-
-**Frequency of Use:**
-- Initial configuration during platform setup.
-- Quarterly reviews and updates recommended.
-- Emergency updates as security threats emerge.
-- Adjustments based on compliance requirements or audit findings.
-
-**Open Issues:**
-- Should security settings be customizable per organization for enterprise clients?
-- How do we balance security with user experience for younger learners?
-- Should we implement risk-based authentication (stricter security for suspicious activity)?
-- What's the optimal rate limiting strategy to prevent abuse without impacting legitimate users?
-- Should we require security training completion before granting elevated privileges?
-
----
-
-#### 11. Perform Data Backup and Recovery (continued)
-
-**Alternative Scenarios:** (continued)
-
-**A7. Large-Scale Disaster Recovery** (continued)
-- For complete platform failure requiring full restoration:
-  - Administrator initiates "Disaster Recovery Mode"
-  - System guides through complete platform rebuild:
-    1. Provision new infrastructure
-    2. Restore databases from most recent backup
-    3. Restore file systems
-    4. Restore application configurations
-    5. Verify all services operational
-    6. Restore user sessions and state
-  - Estimated RTO: 4 hours for full platform recovery
-  - Status page updates users during recovery process
-
-**A8. Backup Encryption Key Lost**
-- If encryption keys are unavailable:
-  - System cannot decrypt backup data
-  - Administrator must retrieve keys from secure key management system
-  - If keys permanently lost, backup is unrecoverable
-  - Emphasizes importance of secure key backup procedures
-
-**A9. Selective User Data Recovery**
-- At Step 23, if restoring specific user's deleted account:
-  - System locates user data across all backup points
-  - Shows: *"User [username] data found in backups: [dates]"*
-  - Administrator selects specific backup point
-  - Only that user's data is restored
-  - User notified: *"Your account has been restored from [date]"*
-
-**A10. Compliance-Required Backup Retention**
-- When attempting to delete old backups:
-  - System checks retention policies
-  - If backup within retention period (e.g., 2 years for GDPR):
-    - System prevents deletion: *"Cannot delete. Required for compliance until [date]."*
-  - Administrator can override with documented justification
-
-**A11. Concurrent Backup and Restore**
-- At Step 6 or 22, if attempting operations simultaneously:
-  - System warns: *"A backup is currently in progress. Wait for completion or schedule restore for later?"*
-  - Prevents data inconsistency from simultaneous operations
-
-**A12. Restore Test Failed**
-- At Step 32, if post-restore validation detects issues:
-  - System alerts: *"Restore validation failed. Database relationships inconsistent."*
-  - Options:
-    - Rollback restore (revert to pre-restore state)
-    - Attempt repair
-    - Restore from different backup point
-  - Administrator investigates root cause
-
-**Extensions:**
-
-**E1. Automated Backup Monitoring**
-- System continuously monitors backup health:
-  - Checks backup completion status
-  - Verifies backup integrity automatically
-  - Monitors storage capacity trends
-  - Alerts if backup failures detected
-  - Sends weekly backup health report to administrators
-
-**E2. Point-in-Time Recovery (PITR)**
-- For databases with transaction logs:
-  - Administrator can restore to any specific timestamp
-  - Not just backup snapshot times
-  - Example: *"Restore database to 2025-11-19 14:37:22"*
-  - Useful for recovering from specific incidents (e.g., accidental mass deletion at 14:35)
-
-**E3. Backup Retention Policies**
-- Automated backup lifecycle management:
-  - Daily backups retained for 30 days
-  - Weekly backups retained for 3 months
-  - Monthly backups retained for 1 year
-  - Yearly backups retained for 7 years (compliance)
-  - System automatically archives and deletes per policy
-  - Exceptions for legally required retention
-
-**E4. Cross-Region Backup Replication**
-- Backups automatically replicated to multiple geographic regions:
-  - Primary: US East
-  - Secondary: EU West
-  - Tertiary: Asia Pacific
-  - Protects against regional disasters
-  - Administrator can trigger recovery from any region
-
-**E5. Backup Performance Optimization**
-- System intelligently optimizes backup operations:
-  - Schedules during low-usage periods
-  - Uses compression to reduce storage (up to 60% reduction)
-  - Implements deduplication for redundant data
-  - Prioritizes critical data for faster backup completion
-  - Throttles backup I/O to prevent production impact
-
-**E6. Backup Testing Schedule**
-- Quarterly disaster recovery drills:
-  - System automatically initiates test restore to staging environment
-  - Validates entire recovery process works
-  - Measures actual RTO (recovery time objective)
-  - Identifies issues before real disaster
-  - Generates test report for compliance
-
-**E7. User-Initiated Data Export**
-- Learners and content creators can request personal data exports:
-  - Not full backup, but their data only
-  - Complies with GDPR "right to data portability"
-  - System generates ZIP file with user's:
-    - Profile information
-    - Course progress
-    - Submitted code
-    - Created content
-  - Available for download for 7 days
-
-**E8. Incremental Forever Backup Strategy**
-- After initial full backup, only incremental backups needed:
-  - Saves storage space and time
-  - System maintains chain: Full → Inc1 → Inc2 → Inc3...
-  - Can restore to any point by combining full + incrementals
-  - Periodic synthetic full backups created from chain
-
-**E9. Backup Validation Reporting**
-- Detailed validation reports generated:
-  - Checksum verification results
-  - Data integrity checks
-  - Restore test outcomes
-  - Storage health status
-  - Compliance adherence
-  - Exportable for audits
-
-**E10. Emergency Backup Triggers**
-- System automatically creates backups before:
-  - Major system upgrades
-  - Database schema changes
-  - Security patches
-  - Configuration changes
-  - Mass data operations
-- Labeled "Pre-[Operation] Safety Backup"
-
-**Special Requirements:**
-- Backup encryption must use AES-256 or stronger algorithms.
-- Backup storage must be geographically redundant (3+ locations).
-- Recovery Point Objective (RPO) must not exceed 1 hour of data loss.
-- Recovery Time Objective (RTO) must not exceed 4 hours for full platform.
-- All backups must be tested quarterly through actual restore procedures.
-- Backup and restore operations must be logged in immutable audit trail.
-- System must support granular restoration (database, file, or record level).
-- Backup infrastructure must handle platform growth without performance degradation.
-- Compliance with GDPR, HIPAA (if applicable), SOC 2, and other regulations.
-- Backup access must require multi-factor authentication.
-- Backup retention must align with legal and business requirements.
-
-**Frequency of Use:**
-- **Automated backups**: Daily full, hourly incremental (24/7 automated).
-- **Manual backups**: As needed before major changes (weekly to monthly).
-- **Restore operations**: Rare but critical (monthly for testing, as-needed for recovery).
-- **Backup monitoring**: Continuous automated monitoring with weekly admin review.
-
-**Open Issues:**
-- Should we implement blockchain-based backup verification for immutability?
-- What's the optimal balance between backup frequency and storage costs?
-- Should individual users have access to restore their own deleted content?
-- How do we handle backup of AI-generated content and model weights?
-- Should we offer premium "instant recovery" SLA for enterprise clients?
-
----
-
-#### 12. Integrate External API Services
-
-**Primary Actor:** Administrator (Super Admin or Integration Specialist)
-
-**Stakeholders and Interests:**
-- **Administrator:** Wants seamless integration of third-party services to enhance platform capabilities.
-- **Platform:** Needs reliable, secure connections to external services (AI APIs, payment processors, analytics tools).
-- **Users:** Benefit from enhanced features without knowing technical integration details.
-- **External Service Providers:** Want their APIs used correctly according to their specifications.
-
-**Preconditions:**
-- Administrator must have integration privileges.
-- External API credentials and documentation must be available.
-- Platform must have network connectivity to external services.
-- Integration testing environment must be available.
-
-**Postconditions:**
-- External API is successfully integrated and operational.
-- Configuration is documented and monitored.
-- Fallback mechanisms are in place for service disruptions.
-- Usage metrics and costs are tracked.
-
-**Main Success Scenario:**
-
-1. The administrator logs into the admin panel with appropriate credentials.
-2. The administrator navigates to "Integrations" → "API Management."
-3. The system displays currently integrated services:
-   - **OpenRouter** (AI hints): Status: Active, Uptime: 99.7%, Requests today: 1,247
-   - **Gemini API** (Code analysis): Status: Active, Uptime: 99.9%, Requests today: 892
-   - **Payment Gateway** (Stripe): Status: Active, Transactions today: 34
-   - **Monaco Editor CDN**: Status: Active, Load time: 1.2s avg
-   - **Cloudflare** (CDN/Security): Status: Active
-4. The administrator clicks "Add New Integration."
-5. The system displays available integration templates:
-   - AI/ML Services (OpenAI, Anthropic, Google AI)
-   - Authentication Providers (OAuth, SAML, LDAP)
-   - Payment Processors (Stripe, PayPal, Square)
-   - Analytics Tools (Google Analytics, Mixpanel)
-   - Communication Services (SendGrid, Twilio)
-   - Storage Services (AWS S3, Azure Blob, Google Cloud Storage)
-   - Learning Management Systems (Canvas, Moodle)
-   - Custom API (manual configuration)
-6. **Example: Integrating New AI Service (Anthropic Claude API)**
-7. The administrator selects "AI/ML Services" → "Anthropic Claude."
-8. The system displays integration wizard with steps:
-   - **Step 1: API Credentials**
-   - **Step 2: Configuration**
-   - **Step 3: Testing**
-   - **Step 4: Deployment**
-9. **Step 1: API Credentials**
-   - System prompts for:
-     - API Key (encrypted input field)
-     - API Secret (if required)
-     - Organization ID (optional)
-     - Environment (Production/Sandbox)
-   - Administrator enters credentials from Anthropic dashboard
-   - System validates credential format
-10. **Step 2: Configuration**
-    - Administrator configures integration settings:
-      - **Service Name**: "Claude Code Review Assistant"
-      - **Purpose**: "Advanced code analysis and feedback"
-      - **Model**: "claude-sonnet-4-20250514"
-      - **Rate Limits**: 100 requests/minute
-      - **Timeout**: 30 seconds
-      - **Retry Policy**: 3 attempts with exponential backoff
-      - **Fallback Behavior**: Use cached responses or alternative service
-      - **Cost Tracking**: Enable billing alerts at $500/month
-11. Administrator sets usage rules:
-    - **Who can use**: Content creators for exercise validation, learners for advanced hints (premium feature)
-    - **Daily limits**: 10 requests per free user, unlimited for premium
-    - **Allowed operations**: Code review, hint generation, explanation generation
-    - **Blocked operations**: Content generation, user impersonation
-12. Administrator configures security settings:
-    - **Data handling**: Do not send personally identifiable information
-    - **Request logging**: Log prompts and responses (anonymized)
-    - **Encryption**: TLS 1.3 for all communications
-    - **IP restrictions**: Allow only from platform servers
-13. **Step 3: Testing**
-    - System provides test interface
-    - Administrator clicks "Test Connection"
-    - System sends test request to Claude API:
-      ```
-      Prompt: "Explain what this Python code does: print('Hello, World!')"
-      Expected: Natural language explanation
-      ```
-14. Claude API responds successfully within 2 seconds.
-15. System displays test results:
-    - *"✓ Connection successful"*
-    - *"✓ API credentials valid"*
-    - *"✓ Response received and parsed correctly"*
-    - *"✓ Latency: 1.8s (within acceptable range)"*
-16. Administrator runs additional test cases:
-    - Edge case: Empty input → API handles gracefully
-    - Error case: Invalid code → API provides helpful error message
-    - Load test: 10 concurrent requests → All successful
-17. All tests pass successfully.
-18. **Step 4: Deployment**
-    - System prompts: *"Deploy integration to:"*
-      - ☑ Production
-      - ☑ Staging (for final verification)
-    - Administrator selects both
-19. Administrator sets deployment schedule:
-    - Staging: Immediate
-    - Production: After 24-hour staging validation
-20. Administrator clicks "Deploy Integration."
-21. System deploys to staging environment first:
-    - Updates configuration
-    - Activates API endpoints
-    - Enables monitoring
-22. System notifies: *"Integration deployed to staging. Test thoroughly before production deployment."*
-23. Administrator conducts staging validation:
-    - Creates test exercise with code review feature
-    - Submits intentionally flawed code
-    - Verifies Claude API provides appropriate feedback
-    - Checks response formatting and UI integration
-24. After 24 hours of successful staging operation:
-    - No errors reported
-    - Response times acceptable
-    - User feedback positive
-25. System automatically deploys to production per schedule.
-26. System sends notification: *"Claude Code Review Assistant is now live in production!"*
-27. Administrator configures monitoring and alerts:
-    - Alert if response time > 10 seconds
-    - Alert if error rate > 5%
-    - Alert if daily cost exceeds $50
-    - Weekly usage summary report
-28. Integration is now fully operational and monitored.
-29. Administrator documents integration in platform knowledge base:
-    - Purpose and capabilities
-    - Usage guidelines
-    - Troubleshooting procedures
-    - Cost considerations
-
-**Alternative Scenarios:**
-
-**A1. Invalid API Credentials**
-- At Step 9-13, if credentials are incorrect:
-  - System displays: *"✗ Authentication failed. Please verify your API key."*
-  - Error details: "401 Unauthorized - Invalid API key format"
-  - Administrator must obtain correct credentials
-  - Cannot proceed until valid credentials provided
-
-**A2. API Service Unavailable**
-- At Step 13, if external service is down:
-  - System displays: *"✗ Connection failed. Service may be temporarily unavailable."*
-  - System retries 3 times with delays
-  - If still failing: *"Unable to reach service. Try again later or contact support."*
-  - Administrator can save configuration and test later
-
-**A3. Rate Limit Exceeded During Testing**
-- At Step 16, if hitting API rate limits:
-  - System warns: *"Rate limit reached (100/100 requests). Wait 60 seconds or reduce test volume."*
-  - Pauses testing automatically
-  - Resumes after rate limit window resets
-
-**A4. Cost Threshold Exceeded**
-- During operation, if monthly cost exceeds threshold ($500):
-  - System automatically throttles usage
-  - Sends alert: *"Claude API costs reached $500 limit. Integration paused."*
-  - Administrator can:
-    - Increase budget limit
-    - Review usage patterns
-    - Optimize request volume
-  - Critical operations can override throttling
-
-**A5. API Version Deprecated**
-- If external service announces API version deprecation:
-  - System displays banner: *"Anthropic API v1 will be deprecated on 2026-01-31. Upgrade required."*
-  - Provides migration guide
-  - Administrator must update integration before deadline
-  - System tests backward compatibility
-
-**A6. Integration Conflict**
-- At Step 10, if new integration conflicts with existing service:
-  - System warns: *"Claude API overlaps with existing OpenRouter integration. Both provide AI hints."*
-  - Suggests: *"Consider configuring primary/fallback relationship or specializing each service."*
-  - Administrator resolves conflict before proceeding
-
-**A7. Security Vulnerability Detected**
-- During operation, if security scan detects issue:
-  - System alerts: *"Security vulnerability in [Service] API detected. CVE-2025-XXXX."*
-  - Automatically disables integration
-  - Administrator must:
-    - Review vulnerability details
-    - Apply patches or workarounds
-    - Re-test security
-    - Re-enable integration
-
-**A8. Staging Tests Fail**
-- At Step 23, if staging validation reveals issues:
-  - Example: Response formatting breaks UI
-  - Administrator cancels production deployment
-  - Works with development team to fix integration
-  - Retests in staging
-  - Only deploys to production after successful validation
-
-**A9. Unexpected API Behavior Change**
-- If external service changes behavior without notice:
-  - System detects anomaly: response format different than expected
-  - Logs error: *"Unexpected API response structure from Claude"*
-  - Automatically switches to fallback service
-  - Alerts administrator to investigate
-  - Administrator contacts external service provider
-
-**A10. Geographic Restrictions**
-- At Step 13, if API unavailable in certain regions:
-  - System detects: *"Service unavailable in [region] due to geographic restrictions."*
-  - Administrator configures region-specific routing:
-    - EU users → EU-compliant service
-    - Other regions → Standard service
-  - Ensures compliance with data residency laws
-
-**Extensions:**
-
-**E1. Multi-Provider Failover**
-- Configure multiple providers for same function:
-  - Primary: Claude API
-  - Secondary: GPT-4 API
-  - Tertiary: Cached/pre-generated responses
-- If primary fails, automatically switches to secondary
-- Seamless failover without user impact
-
-**E2. A/B Testing Integration**
-- Test new API against current implementation:
-  - Route 10% of requests to new Claude API
-  - Route 90% to existing OpenRouter
-  - Compare: response quality, speed, cost
-  - Gradually shift traffic based on performance
-  - Full migration when new API proves superior
-
-**E3. Cost Optimization Analytics**
-- Track detailed usage and costs:
-  - Cost per request type
-  - Most expensive users/features
-  - Peak usage times
-  - Identify optimization opportunities
-- Recommendations: *"Caching hint responses could save $150/month"*
-
-**E4. Custom Integration Development**
-- For services without templates:
-  - Administrator selects "Custom API"
-  - Configures manually:
-    - Endpoint URLs
-    - Authentication method (API key, OAuth, JWT)
-    - Request/response formats
-    - Headers and parameters
-  - Writes request/response transformation logic
-  - Creates comprehensive test suite
-
-**E5. Webhook Configuration**
-- For event-driven integrations:
-  - Configure webhook endpoints
-  - Set up event triggers (user registration, course completion, payment success)
-  - Define payload format
-  - Implement security (HMAC signatures)
-  - Test webhook delivery and retries
-
-**E6. Integration Health Dashboard**
-- Real-time monitoring view:
-  - Service status (up/down/degraded)
-  - Response time trends
-  - Error rate graphs
-  - Request volume by hour/day
-  - Cost tracking
-  - SLA compliance metrics
-- Alerts displayed prominently for issues
-
-**E7. Bulk Integration Updates**
-- Update multiple integrations simultaneously:
-  - Example: Update all AI services to use new authentication method
-  - Administrator selects affected integrations
-  - Applies configuration changes in bulk
-  - Tests each integration
-  - Rolls out incrementally
-
-**E8. Integration Marketplace**
-- Pre-built integrations from community:
-  - Browse available connectors
-  - Read reviews and ratings
-  - One-click install
-  - Automatic configuration
-  - Community support
-
-**E9. API Usage Analytics**
-- Detailed insights into API consumption:
-  - Which features use which APIs
-  - User segments generating most API calls
-  - Time-of-day patterns
-  - Seasonal trends
-  - Cost attribution by feature
-- Helps optimize integration strategy
-
-**E10. Compliance and Data Governance**
-- Track data flow through integrations:
-  - What data is sent to external services
-  - How long data is retained
-  - Where data is processed geographically
-  - GDPR/CCPA compliance status
-  - Data processing agreements (DPAs) tracking
-
-**Special Requirements:**
-- All API credentials must be encrypted at rest using AES-256.
-- API keys must never be logged or displayed in plain text.
-- Integration must support circuit breaker pattern to prevent cascade failures.
-- All external API communications must use TLS 1.3 or higher.
-- System must implement rate limiting to prevent cost overruns.
-- Failed requests must be logged for troubleshooting without exposing sensitive data.
-- Integration configuration must be version-controlled and auditable.
-- System must support zero-downtime integration updates.
-- Comprehensive error handling for all potential API failures.
-- Integration testing must occur in isolated staging environment.
-
-**Frequency of Use:**
-- **New integrations**: Monthly to quarterly as platform expands.
-- **Integration updates**: As needed when external services change (monthly to yearly).
-- **Monitoring**: Continuous automated monitoring with daily admin review.
-- **Testing**: Weekly health checks, monthly comprehensive testing.
-
-**Open Issues:**
-- Should we implement automatic API selection based on cost/performance/availability?
-- How do we handle integrations with inconsistent uptime (< 95%)?
-- Should we build abstraction layer to make switching providers easier?
-- What's the optimal balance between feature richness and integration complexity?
-- Should we offer white-label integrations for enterprise clients?
-
-
 ## Content Creator Use Cases
 
 ---
@@ -1135,8 +408,75 @@ The content creator removes unpublished course materials or exercises from their
 ---
 
 ### Casual Format Use Cases
+#### 5. Register Account
 
-#### 5. Create Course
+**Actor:** Content Creator
+
+**Main Success Scenario:**
+1. The Content Creator navigates to the "Sign Up" page of the platform.
+2. The Content Creator selects the "Content Creator" role from account type options.
+3. The Content Creator provides required details:
+   - Full name
+   - Email address
+   - Password (with confirmation)
+   - Username
+   - Resume/CV upload
+4. The Content Creator agrees to Terms and Conditions and submits the form.
+5. The system validates input (email format, password strength, username uniqueness, resume/CV format).
+6. The system sends a verification email to the provided address.
+7. The Content Creator clicks the OTP in the email.
+8. Admin activates the account after reviewing the resume/CV.
+9. The system redirects to the login page.
+10. The Content Creator logs in successfully and sees a welcome message.
+
+**Alternative Scenarios:**
+
+**A1. Email Already Exists**
+- At Step 5, if the email is already registered, the system displays:
+  *"An account with this email already exists. Please log in or use a different email."*
+
+**A2. Weak Password**
+- At Step 5, if the password doesn't meet security criteria (minimum 8 characters with uppercase, lowercase, numbers, special characters), the system displays:
+  *"Your password must be at least 8 characters long and include uppercase, lowercase, numbers, and symbols."*
+
+**A3. Username Taken**
+- At Step 5, if the username is already in use, the system displays:
+  *"This username is already taken. Please choose a different one."*
+
+**A4. Admin Reject Resume/CV**
+- At Step 8, if the admin rejects the uploaded resume/CV after review, the system displays:
+  *"Your resume/CV did not meet our criteria. Please update and resubmit."*
+
+---
+
+#### 6. Login to System
+
+**Actor:** Content Creator
+
+**Main Success Scenario:**
+1. The content creator navigates to the login page.
+2. The content creator enters their email/username and password.
+3. The content creator clicks "Login."
+4. The system validates credentials.
+5. The system authenticates the content creator and redirects to the dashboard.
+6. The content creator sees their personalized dashboard with progress and recommendations.
+
+**Alternative Scenarios:**
+
+**A1. Incorrect Credentials**
+- At Step 4, if credentials are invalid, the system displays:
+  *"Incorrect email/username or password. Please try again."*
+
+**A2. Account Not Verified**
+- At Step 4, if the email is not verified, the system displays:
+  *"Please verify your email address before logging in. Check your inbox for the OTP."*
+
+**A3. Account Suspended**
+- At Step 4, if the account is suspended, the system displays:
+  *"Your account has been suspended. Please contact support for assistance."*
+
+---
+#### 7. Create Course
 
 **Actor:** Content Creator
 
@@ -1184,7 +524,7 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### 6. Create Lesson
+#### 8. Create Lesson
 
 **Actor:** Content Creator
 
@@ -1224,13 +564,9 @@ The content creator removes unpublished course materials or exercises from their
   - The system warns: *"This lesson appears brief. Consider adding more detail to help learners understand the concept."*
   - The creator can proceed or add more content.
 
-**A3. Missing Prerequisites**
-- At Step 10, if complex concepts lack foundation:
-  - The system suggests: *"This lesson covers advanced topics. Consider linking prerequisite lessons."*
-
 ---
 
-#### 7. Add Multimedia Content
+#### 9. Add Multimedia Content
 
 **Actor:** Content Creator
 
@@ -1274,7 +610,7 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### 8. Localize Content
+#### 10. Localize Content
 
 **Actor:** Content Creator
 
@@ -1309,7 +645,7 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### 9. Categorize Exercise Difficulty
+#### 11. Categorize Exercise Difficulty
 
 **Actor:** Content Creator
 
@@ -1340,7 +676,7 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### 10. Update Course Materials
+#### 12. Update Course Materials
 
 **Actor:** Content Creator
 
@@ -1375,35 +711,34 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### 11. Review Student Submissions
+#### 13. Review Student Submissions
 
 **Actor:** Content Creator
 
 **Main Success Scenario:**
-1. The content creator navigates to "Student Activity" dashboard.
-2. The system displays recent submissions for the creator's courses.
-3. The content creator filters by:
-   - Specific course or exercise
+1. The content creator navigates to "Course Management" dashboard.
+2. The content creator selects a lesson in specific course to review submissions.
+3. The system displays recent submissions for the creator's lesson.
+4. The content creator filters by:
+   - Execution metrics (time/memory)
+   - Test case pass rate
    - Submission date
-   - Grading status (graded/ungraded)
-4. The content creator selects a student submission to review.
-5. The system displays:
+5. The content creator selects a student submission to review.
+6. The system displays:
    - Student information (anonymous option available)
    - Problem statement
    - Student's code solution
    - Test case results
    - Execution metrics
-6. The content creator reviews the code for:
+7. The content creator reviews the code for:
    - Correctness
    - Code quality and style
    - Efficiency
    - Best practices
-7. The content creator provides written feedback.
-8. The content creator can award partial credit if applicable.
-9. The content creator assigns a final grade.
-10. The content creator clicks "Submit Review."
-11. The system saves the review and updates the student's grade.
-12. The student receives notification with feedback.
+8. The content creator provides written feedback.
+11. The content creator clicks "Submit Review."
+12. The system saves the review and updates the student's grade.
+13. The student receives notification with feedback.
 
 **Alternative Scenarios:**
 
@@ -1419,7 +754,7 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### 12. Manage Course Structure
+#### 14. Manage Course Structure
 
 **Actor:** Content Creator
 
@@ -2169,7 +1504,7 @@ The learner uploads or changes their profile picture.
 4. The learner agrees to Terms and Conditions and submits the form.
 5. The system validates input (email format, password strength, username uniqueness).
 6. The system sends a verification email to the provided address.
-7. The learner clicks the verification link in the email.
+7. The learner clicks the OTP in the email.
 8. The system activates the account and redirects to the login page.
 9. The learner logs in successfully and sees a welcome message.
 
@@ -2209,7 +1544,7 @@ The learner uploads or changes their profile picture.
 
 **A2. Account Not Verified**
 - At Step 4, if the email is not verified, the system displays:
-  *"Please verify your email address before logging in. Check your inbox for the verification link."*
+  *"Please verify your email address before logging in. Check your inbox for the OTP."*
 
 **A3. Account Suspended**
 - At Step 4, if the account is suspended, the system displays:
@@ -2795,7 +2130,7 @@ The learner uploads or changes their profile picture.
     - The system generates a digital certificate with unique ID.
     - Certificate includes: learner name, certification title, completion date, certificate ID, platform signature.
 17. The system adds the certificate to the learner's profile.
-18. The learner receives an email with certificate PDF and verification link.
+18. The learner receives an email with certificate PDF and OTP.
 19. The learner can share the certificate on LinkedIn, resume, or portfolio.
 20. The certificate is permanently recorded on blockchain for verification (optional feature).
 
