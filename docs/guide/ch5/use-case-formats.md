@@ -1911,7 +1911,7 @@ Open Issues:
 
 ---
 
-#### 18. Create Interactive Walkthrough
+<!-- #### 18. Create Interactive Walkthrough -->
 
 **Primary Actor:** Content Creator
 
