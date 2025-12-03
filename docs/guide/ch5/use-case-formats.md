@@ -383,6 +383,306 @@ The administrator displays a searchable list of all registered users with basic 
 - System automatically archives expired warnings
 - User's slate cleaned if no violations in 90 days
 
+### Fully Dressed Format Use Cases
+
+#### 17. Design Learning Path
+
+**Primary Actor:** Administrator
+
+**Stakeholders and Interests:**
+- **Administrator:** Wants to design a coherent, strategic curriculum that aligns with platform goals.
+- **Content Creators:** Need clear assignments and guidance on what content to create.
+- **Learners:** Need a clear, logical progression that builds on previous knowledge.
+- **Platform:** Needs well-structured paths that improve learning outcomes and retention.
+
+**Preconditions:**
+- Administrator must be logged in with appropriate privileges.
+- Multiple courses and lessons should exist in the system (or be planned).
+- Administrator should have curriculum design knowledge.
+
+**Postconditions:**
+- A complete learning path structure is created.
+- Content creators are assigned to specific modules/tiers.
+- Path is organized into skill tiers with clear progression.
+- Path is ready for content creation phase.
+- Path can be published when all content is completed.
+
+**Main Success Scenario:**
+1. The administrator navigates to "Learning Path Management" in the admin panel.
+2. The administrator clicks "Create New Learning Path."
+3. The system displays the path creation wizard with fields:
+   - Path name (e.g., "Python Full-Stack Developer")
+   - Path description and learning objectives
+   - Target audience (beginners, intermediate, advanced)
+   - Estimated total duration (e.g., 6 months, 200 hours)
+   - Career outcomes or certifications earned
+   - Prerequisites (if any)
+4. The administrator enters the basic path information.
+5. **Step 1: Define Skill Tiers Structure**
+   - The system displays a visual canvas for organizing content
+   - The administrator creates skill tiers (levels):
+     - **Tier 1: Foundation** (variables, data types, basic syntax)
+     - **Tier 2: Core Concepts** (loops, functions, data structures)
+     - **Tier 3: Intermediate** (OOP, file handling, APIs)
+     - **Tier 4: Advanced** (frameworks, databases, deployment)
+     - **Tier 5: Mastery** (architecture, optimization, real projects)
+6. For each tier, the administrator defines:
+   - Tier name and description
+   - Learning objectives
+   - Expected number of courses/lessons
+   - Estimated time to complete tier
+   - Tier completion criteria
+7. **Step 2: Assign Content Requirements**
+   - For each tier, the administrator specifies required content types:
+     - Number of video lessons needed
+     - Number of coding exercises needed
+     - Number of quizzes/assessments needed
+8. **Step 3: Set Prerequisites and Dependencies**
+   - The administrator defines relationships between tiers:
+     - Tier 2 requires 100% completion of Tier 1
+     - Tier 3 requires 80% mastery of Tier 2 skills
+     - Optional branches for advanced learners
+9. The system visualizes dependencies as a flowchart.
+10. **Step 4: Assign Content Creators to Tiers**
+    - For each tier/module, the administrator clicks "Assign Creator."
+    - The system displays a list of available content creators with:
+      - Expertise areas
+      - Current workload
+      - Previous content quality ratings
+      - Availability status
+11. The administrator selects one or multiple creators for each tier:
+    - Primary creator (responsible for main content)
+    - Contributing creators (assist with specific topics)
+    - Reviewer (quality checks)
+12. The system displays assignment summary showing which creators are assigned where.
+13. **Step 5: Create Content Creation Timeline**
+    - The administrator sets deadlines for each tier:
+      - Tier 1 content: Due in 4 weeks
+      - Tier 2 content: Due in 8 weeks
+      - And so on...
+    - The administrator can set milestones (e.g., "50% of Tier 1 lessons by week 2")
+14. **Step 6: Configure Assessment Checkpoints**
+    - The administrator adds evaluation points between tiers:
+      - End-of-tier quizzes (specify passing score: 70%)
+      - Portfolio projects (define requirements)
+      - Skill validation exercises
+15. The administrator defines checkpoint passing criteria.
+16. **Step 7: Set Adaptive Learning Rules** (Optional)
+    - The administrator configures adaptive progression rules:
+      - If learner struggles with topic X → recommend supplementary exercises
+      - If learner excels → offer accelerated track options
+      - If learner abandons for 7+ days → send encouragement notification
+17. **Step 8: Define Milestones and Rewards**
+    - The administrator creates milestone achievements:
+      - 25% completion → "Python Beginner" badge + 500 XP
+      - 50% completion → "Python Intermediate" badge + 1000 XP
+      - 75% completion → "Python Advanced" badge + 1500 XP
+      - 100% completion → Certificate + "Python Master" badge + 3000 XP
+18. **Step 9: Configure Enrollment Options**
+    - The administrator sets:
+      - Enrollment type: Free / Paid / Premium
+      - Entry requirements: Diagnostic quiz score / Prior experience
+      - Maximum concurrent enrollments (if limited)
+      - Certification fee (if applicable)
+19. The administrator writes a compelling path overview for learners:
+    - What you'll learn (detailed breakdown)
+    - Career opportunities (job roles, salary ranges)
+    - Success stories from graduates (if available)
+20. The administrator adds preview content (free introductory lessons).
+21. The administrator reviews the complete path structure.
+22. The administrator clicks "Validate Learning Path."
+23. **System Validation Process:**
+    - Checks for circular dependencies (A requires B, B requires A)
+    - Verifies all tiers have assigned creators
+    - Ensures prerequisite logic is sound
+    - Validates that content requirements are reasonable
+    - Estimates total time commitment is realistic
+24. The system reports validation results.
+25. If validation passes, the administrator sees: *"✓ Learning path structure validated successfully."*
+26. The administrator sets the path status:
+    - **Draft** (visible only to admin and assigned creators)
+    - **In Development** (creators can start working)
+    - **Beta** (open to limited testers once content is ready)
+    - **Published** (publicly available after all content is completed)
+27. The administrator selects "In Development" to activate content creation.
+28. **Step 10: Notify Assigned Content Creators**
+    - The system sends notifications to all assigned creators:
+      - *"You've been assigned to create content for '[Path Name]' - [Tier/Module Name]."*
+      - Notification includes:
+        - Content requirements
+        - Deadlines
+        - Guidelines and templates
+        - Contact info for coordination
+29. Assigned creators receive task assignments in their dashboards.
+30. The system creates a project management view showing:
+    - Content creation progress for each tier
+    - Creator task statuses
+    - Upcoming deadlines
+    - Bottlenecks or delays
+31. The administrator can monitor progress and send reminders.
+32. The system displays: *"Learning path '[Path Name]' created successfully! Content creators have been notified."*
+
+**Alternative Scenarios:**
+
+**A1. Circular Dependency Detected**
+- At Step 23, if prerequisites create a loop:
+  - System displays: *"✗ Circular dependency detected: Tier A → Tier B → Tier C → Tier A"*
+  - Shows visual diagram of the problematic chain
+  - Validation fails; administrator must restructure
+  - Suggests which prerequisite to remove to break cycle
+
+**A2. No Content Creators Available**
+- At Step 10-11, if no creators match the required expertise:
+  - System displays: *"⚠ No content creators with '[Skill]' expertise are currently available."*
+  - Administrator options:
+    - Recruit new creators
+    - Assign less experienced creator with mentor support
+    - Delay tier creation until suitable creator is available
+
+**A3. Content Creator Declines Assignment**
+- After Step 28, if a creator declines:
+  - Creator provides reason (workload, expertise mismatch, timeline)
+  - System notifies administrator
+  - Administrator must reassign to another creator
+  - Timeline may need adjustment
+
+**A4. Unrealistic Time Commitment**
+- At Step 23, if total estimated time is excessive:
+  - System warns: *"⚠ This path requires ~500 hours. Average learner completion for similar paths is 6-12 months. Consider breaking into multiple paths or reducing content."*
+  - Shows completion rate data for paths of similar length
+  - Administrator can proceed or revise
+
+**A5. Content Requirements Exceed Creator Capacity**
+- At Step 13, if deadlines are too aggressive:
+  - System calculates total content hours needed vs. creator availability
+  - Displays: *"⚠ Current assignments require 200 hours of content creation in 4 weeks. Assigned creators have capacity for 120 hours. Adjust timeline or add creators."*
+  - Administrator must revise timeline or add more creators
+
+**A6. Tier Without Learning Objectives**
+- At Step 6, if a tier lacks clear objectives:
+  - System warns: *"⚠ Tier [X] has no defined learning objectives. Creators need clear goals."*
+  - Administrator must add objectives before proceeding
+
+**A7. Missing Assessment Checkpoints**
+- At Step 14-15, if few or no checkpoints exist:
+  - System warns: *"⚠ This path lacks assessment checkpoints. Learners may progress without adequate skill validation."*
+  - Recommends adding checkpoints every 20-30 hours of content
+  - Administrator can add checkpoints or acknowledge and proceed
+
+**A8. Duplicate or Overlapping Path**
+- At Step 22, if a very similar path exists:
+  - System displays: *"⚠ A similar learning path exists: '[Path Name]'. Overlap: 60% of content. This may confuse learners or dilute enrollments."*
+  - Shows comparison of content overlap
+  - Administrator options:
+    - Differentiate the new path clearly
+    - Merge with existing path
+    - Archive old path if replacing it
+    - Proceed with justification
+
+**A9. Creator Workload Imbalance**
+- At Step 11-12, if one creator is overloaded:
+  - System warns: *"⚠ [Creator Name] is assigned to 3 tiers with deadlines in the same month. Consider redistributing workload."*
+  - Suggests alternative creators
+  - Administrator can adjust assignments
+
+**A10. Budget Constraints for Paid Creators**
+- At Step 11, if assigning paid creators:
+  - System calculates total cost based on creator rates and content requirements
+  - If budget is exceeded: *"⚠ Current assignments will cost $[X], exceeding the $[Y] budget. Adjust assignments or increase budget."*
+  - Administrator must optimize assignments
+
+**Extensions:**
+
+**E1. Path Branching**
+- Administrator can design choice points in the path:
+  - After Core Python, learner chooses:
+    - **Branch A:** Data Science specialization
+    - **Branch B:** Web Development specialization
+    - **Branch C:** Automation/DevOps specialization
+  - Each branch has unique content, assigned to specialized creators
+
+**E2. Collaborative Path Design**
+- Multiple administrators can co-design a path:
+  - Each contributes expertise in specific areas
+  - System tracks changes and responsibilities
+  - Approval workflow for major structural changes
+
+**E3. Path Templates**
+- Administrator can use templates for common path types:
+  - "Beginner to Professional" template
+  - "Specialization Track" template
+  - "Certification Prep" template
+  - Templates include suggested tier structures and checkpoints
+
+**E4. Content Reuse from Existing Paths**
+- Administrator can import tiers/modules from other successful paths:
+  - Select existing content to include
+  - System links to original content (doesn't duplicate)
+  - Credits original creators
+  - Useful for building hybrid or cross-domain paths
+
+**E5. Dynamic Path Updates**
+- After publication, administrator can update path without disrupting active learners:
+  - Add new optional modules
+  - Deprecate outdated content (remains accessible to enrolled learners)
+  - Update prerequisites if needed
+  - System notifies active learners of updates with opt-in
+
+**E6. Path Analytics Dashboard (Post-Publication)**
+- After content is created and path is published, administrator accesses analytics:
+  - Enrollment trends over time
+  - Completion rates per tier
+  - Common drop-off points
+  - Average time per module
+  - Learner satisfaction ratings
+  - Employment outcomes (if tracked)
+  - Creator performance metrics
+- Data informs path improvements
+
+**E7. Certification Integration**
+- Administrator can configure official certification:
+  - Final comprehensive exam specifications
+  - Portfolio review criteria
+  - Interview simulation requirements
+  - Digital credential design
+  - Verification method (blockchain, QR code)
+
+**E8. Corporate/Academic Partnerships**
+- Paths designed for institutions:
+  - Align with specific curriculum standards
+  - Include institutional branding
+  - Provide instructor dashboard for monitoring groups
+  - Export transcripts and grades
+  - Bulk enrollment management
+
+**Special Requirements:**
+- The visual path designer must support drag-and-drop for organizing tiers.
+- The system must prevent circular dependencies through real-time validation.
+- Administrator must be able to visualize the entire path structure at a glance.
+- All creator assignments must be logged with timestamps.
+- System must send automated reminders to creators as deadlines approach.
+- Content creation progress must be trackable in real-time.
+- Administrators must be able to export path structure as PDF for documentation.
+- The system must support versioning for path updates.
+- All prerequisite logic must be clearly documented and testable.
+- System must handle paths with 50+ courses without performance degradation.
+- Path analytics must aggregate data without exposing individual learner privacy.
+- Paths must support localization for international audiences.
+
+**Frequency of Use:**
+- Moderate frequency by administrators.
+- Typically 1-2 new major paths per quarter.
+- High usage during platform expansion or curriculum revisions.
+- Ongoing monitoring and updates for existing paths.
+
+**Open Issues:**
+- Should administrators require approval from senior management for new paths?
+- How do we handle creator disputes over assignments or deadlines?
+- Should there be financial incentives for creators who meet quality/timeline goals?
+- Can AI assist in recommending optimal path structures based on learning science?
+- How do we measure ROI for paths (enrollments vs. development cost)?
+- Should learning paths have expiration dates or version numbers?
+
 ## Content Creator Use Cases
 
 ---
@@ -809,8 +1109,8 @@ The content creator removes unpublished course materials or exercises from their
 
 **Postconditions:**
 - Exercise is created with complete problem statement, test cases, and model solution.
-- Exercise is validated and ready for publishing or remains in draft.
-- Exercise can be discovered by learners in appropriate course sections.
+- Exercise is saved as draft and ready for validation.
+- Exercise metadata is stored in the database.
 
 **Main Success Scenario:**
 1. The content creator navigates to a course lesson.
@@ -851,64 +1151,41 @@ The content creator removes unpublished course materials or exercises from their
     - Estimated time to complete
     - Skill tags (e.g., "arrays", "sorting", "dynamic-programming")
     - XP reward value
-14. The content creator clicks "Validate Exercise."
-15. The system runs comprehensive validation:
-    - Checks all test cases execute successfully
-    - Verifies model solution passes
-    - Tests for infinite loops or timeout issues
-    - Checks for ambiguous problem statements
-    - Validates that hidden test cases aren't trivially guessable
-16. If validation passes, the system displays: *"Exercise validated successfully!"*
+14. The content creator clicks "Save as Draft."
+15. The system saves the exercise in draft status.
+16. The system displays: *"Exercise saved successfully! Proceed to validation when ready."*
 17. The content creator can:
-    - Save as draft
-    - Submit for peer review
-    - Publish immediately (if authorized)
-18. The content creator selects "Submit for Peer Review."
-19. The system assigns the exercise to 1-3 other content creators for review.
-20. Reviewers test the exercise and provide feedback within 3-5 days.
-21. The content creator receives feedback and makes revisions if needed.
-22. After approval, the exercise is published and becomes available to learners.
+    - Continue editing
+    - Submit for validation (goes to Use Case 16)
+    - Delete draft
+18. The content creator clicks "Submit for Validation."
+19. The system transitions to Use Case 16 (Validate Exercise Before Publishing).
 
 **Alternative Scenarios:**
 
 **A1. Insufficient Test Cases**
-- At Step 15, if fewer than 5 test cases exist:
-  - The system displays: *"Add at least 5 test cases to ensure thorough testing."*
-  - Validation fails; exercise cannot be published.
+- At Step 14, if fewer than 5 test cases exist:
+  - The system displays: *"Add at least 5 test cases before saving."*
+  - Save is blocked until minimum requirement is met.
 
 **A2. Model Solution Fails Test Cases**
 - At Step 11, if the model solution doesn't pass all tests:
   - The system displays: *"Your model solution failed test case [X]. Expected: [Y], Got: [Z]."*
-  - The creator must fix either the solution or the test case.
+  - The creator must fix either the solution or the test case before saving.
 
-**A3. Ambiguous Problem Statement**
-- At Step 15, if AI analysis detects unclear instructions:
-  - The system suggests: *"The problem statement may be unclear. Consider adding examples or clarifying [specific area]."*
-  - Creator can revise or proceed with warning.
+**A3. Missing Required Fields**
+- At Step 14, if mandatory fields are empty:
+  - The system displays: *"Complete all required fields: [List]"*
+  - Incomplete sections are highlighted in red.
 
-**A4. Test Case Timeout**
-- At Step 15, if test execution exceeds time limits:
-  - The system displays: *"Test case [X] exceeds the [N]-second limit. Consider optimizing or adjusting constraints."*
+**A4. Auto-Save During Creation**
+- Throughout the process, the system auto-saves progress every 2 minutes.
+- If creator closes browser, they can resume from last saved state.
 
-**A5. Duplicate Exercise Detected**
-- At Step 15, if a similar exercise exists:
-  - The system displays: *"A similar exercise was found: [Exercise Name]. This may be redundant."*
-  - Creator can proceed or modify to differentiate.
-
-**A6. Peer Review Rejection**
-- At Step 21, if reviewers identify serious flaws:
-  - The system compiles reviewer feedback.
-  - The creator must address concerns before resubmission.
-
-**A7. Hidden Test Cases Too Predictable**
-- At Step 15, if hidden cases are similar to public ones:
-  - The system warns: *"Hidden test cases should cover scenarios not demonstrated in public tests."*
-  - Creator should add more diverse edge cases.
-
-**A8. Multiple Programming Languages**
+**A5. Multiple Programming Languages**
 - At Step 9, if the exercise supports multiple languages:
   - Creator must provide model solutions in each language.
-  - Each solution is validated independently.
+  - Each solution is validated independently before saving.
   - Language-specific hints may be needed.
 
 **Extensions:**
@@ -926,25 +1203,18 @@ The content creator removes unpublished course materials or exercises from their
   - Automatically compute expected outputs using model solution
   - Visualize test coverage
 
-**E3. Exercise Difficulty Calibration**
-- After 50+ student attempts:
-  - System analyzes completion rates and average time
-  - If actual difficulty differs from assigned level, system suggests recalibration
-  - Creator can adjust difficulty rating based on real data
-
-**E4. Community Test Cases**
-- Advanced learners can suggest additional test cases
-- Creator reviews and can incorporate into the exercise
-- Contributors receive recognition credits
+**E3. Import from External Sources**
+- Creator can import exercise templates from:
+  - Other platforms (with proper attribution)
+  - Previous exercises (as starting point)
+  - Community-contributed templates
 
 **Special Requirements:**
-- Exercise validation must complete within 30 seconds.
-- Test cases must be stored securely; hidden cases not accessible to learners.
+- All data must be auto-saved every 2 minutes to prevent loss.
+- Draft exercises are only visible to the creator.
 - Model solutions must be encrypted in database.
 - System must support Python, JavaScript, and eventually Java/C++.
-- Code execution sandbox must prevent malicious code.
-- All exercises must have at least one working solution verified.
-- Problem statements must be grammar-checked (AI-assisted).
+- Problem statements must pass basic grammar check before saving.
 - Exercise creation interface must be accessible via keyboard navigation.
 
 **Frequency of Use:**
@@ -953,216 +1223,485 @@ The content creator removes unpublished course materials or exercises from their
 - Estimated 10-20 exercises created per active content creator per month.
 
 **Open Issues:**
-- Should we allow community-contributed exercises with lighter review?
-- How do we handle exercise updates for courses with active students?
-- Should creators earn revenue share based on exercise popularity?
-- What's the ideal ratio of public to hidden test cases?
+- Should we allow saving incomplete exercises with warnings?
+- How long should drafts be retained before auto-deletion?
+- Should creators earn points for creating quality exercises?
 
 ---
 
 #### 16. Validate Exercise Before Publishing
 
-*Primary Actor:* Content Creator
+**Primary Actor:** Content Creator
 
-*Stakeholders and Interests:*
-- *Content Creator:* Wants assurance that the exercise functions correctly before learners attempt it.
-- *Learners:* Need exercises that work properly without technical issues or unfair test cases.
-- *Platform Quality Team:* Wants to maintain high content standards.
+**Stakeholders and Interests:**
+- **Content Creator:** Wants assurance that the exercise functions correctly before peer review.
+- **Learners:** Need exercises that work properly without technical issues or unfair test cases.
+- **Platform Quality Team:** Wants to maintain high content standards.
+- **Peer Reviewers:** Need well-validated exercises to review efficiently.
 
-*Preconditions:*
-- Exercise must be created with problem statement, test cases, and model solution.
+**Preconditions:**
+- Exercise must be created and saved as draft (Use Case 15 completed).
 - Content creator must be logged in.
 - Validation API and code execution environment must be operational.
+- Exercise must have minimum required components (problem, test cases, solution).
 
-*Postconditions:*
+**Postconditions:**
 - Exercise is thoroughly tested and validated.
-- Any issues are identified and resolved.
-- Exercise receives a validation status (Passed/Failed/Warning).
-- Exercise can proceed to publishing workflow if validation passes.
+- Validation report is generated and stored.
+- If validation passes, exercise is ready for peer review assignment.
+- If validation fails, creator receives detailed feedback for improvements.
 
-*Main Success Scenario:*
-1. The content creator completes exercise creation.
-2. The content creator clicks "Validate Exercise."
-3. The system displays: "Beginning validation process... This may take 30-60 seconds."
-4. *Step 1: Model Solution Validation*
+**Main Success Scenario:**
+1. The content creator has completed exercise creation (from Use Case 15).
+2. The content creator clicks "Submit for Validation."
+3. The system displays: *"Beginning comprehensive validation... This may take 30-60 seconds."*
+4. **Step 1: Model Solution Validation**
    - System executes model solution against all test cases
    - Measures execution time and memory usage
    - Checks for runtime errors or infinite loops
-5. The system confirms: "✓ Model solution passes all [X] test cases."
-6. *Step 2: Test Case Quality Check*
+   - Validates against time and memory constraints
+5. The system confirms: *"✓ Model solution passes all [X] test cases."*
+6. **Step 2: Test Case Quality Check**
    - System analyzes test case diversity
-   - Checks for edge cases: empty inputs, maximum values, negative numbers
+   - Checks for edge cases: empty inputs, maximum values, negative numbers, boundary conditions
    - Verifies hidden tests differ meaningfully from public tests
    - Ensures test cases cover multiple solution approaches
-7. The system reports: "✓ Test cases provide adequate coverage."
-8. *Step 3: Problem Statement Analysis*
-   - AI reviews problem statement for clarity
+   - Validates test case descriptions are clear
+7. The system reports: *"✓ Test cases provide adequate coverage."*
+8. **Step 3: Problem Statement Analysis**
+   - AI reviews problem statement for clarity and completeness
    - Checks grammar and spelling
    - Identifies ambiguous phrasing
    - Verifies examples match expected input/output format
-9. The system reports: "✓ Problem statement is clear and complete."
-10. *Step 4: Difficulty Calibration*
+   - Ensures constraints are clearly defined
+9. The system reports: *"✓ Problem statement is clear and complete."*
+10. **Step 4: Difficulty Calibration**
     - System estimates difficulty based on:
       - Solution complexity (cyclomatic complexity, lines of code)
       - Required concepts (data structures, algorithms)
       - Test case difficulty
     - Compares with creator's assigned difficulty
-11. The system reports: "Estimated difficulty matches assigned level (Intermediate)."
+11. The system reports: *"✓ Estimated difficulty matches assigned level (Intermediate)."*
+12. **Step 5: Hint Quality Assessment**
+    - Validates that hints don't reveal complete solution
+    - Checks hint progression (conceptual → specific → implementation)
+    - Ensures hints are appropriate for difficulty level
+13. The system reports: *"✓ Hints provide appropriate guidance without spoiling solution."*
+14. **Step 6: Security and Fairness Check**
+    - Ensures no hardcoded test cases in problem description
+    - Validates that public test cases don't make hidden cases obvious
+    - Checks for potential exploitation methods
+15. The system reports: *"✓ Exercise meets security and fairness standards."*
 16. The system compiles a comprehensive validation report showing all checks.
-17. The system displays final status: "Validation Complete: PASSED"
-18. The content creator reviews the full report.
+17. The system displays final status: *"✓ Validation Complete: PASSED"*
+18. The content creator reviews the full validation report.
 19. The system offers options:
-    - Proceed to publish
-    - Submit for peer review
-    - Make revisions based on warnings
-20. The content creator selects "Proceed to Publish."
-21. The system marks the exercise as validated and ready for publication.
+    - **Assign for Peer Review** (proceed to step 20)
+    - **Make Revisions** (return to editing)
+    - **Save for Later** (keep in validated draft status)
+20. The content creator clicks "Assign for Peer Review."
+21. The system displays peer reviewer selection interface.
+22. The system recommends 1-3 qualified reviewers based on:
+    - Expertise in relevant programming language
+    - Experience with similar difficulty levels
+    - Current review workload
+    - Reviewer ratings and reliability
+23. The content creator selects reviewers (1-3 reviewers).
+24. The system sends notifications to selected reviewers:
+    - *"You've been assigned to review exercise '[Title]'. Please complete within 3-5 business days."*
+25. The exercise is added to each reviewer's review queue.
+26. The system sets review deadline (5 business days from assignment).
+27. The system displays to creator: *"Exercise assigned for peer review. You'll be notified when reviews are complete."*
+28. The exercise status changes to "Under Peer Review."
+29. The creator receives a confirmation summary:
+    - Validation results
+    - Assigned reviewers
+    - Expected review completion date
+30. The system transitions to peer review workflow (not detailed in this use case).
 
-*Alternative Scenarios:*
+**Alternative Scenarios:**
 
-*A1. Model Solution Fails Test Cases*
+**A1. Model Solution Fails Test Cases**
 - At Step 4-5, if model solution fails any test:
-  - System displays: "✗ Model solution failed test case #[X]"
+  - System displays: *"✗ Model solution failed test case #[X]"*
   - Shows: Input provided, Expected output, Actual output, Error message
-  - Validation status: FAILED
-  - Creator must fix solution or test case before retrying
+  - Validation status: **FAILED**
+  - Creator options:
+    - Fix model solution
+    - Modify test case
+    - Add explanation if intentional
+  - Cannot proceed to peer review until resolved
 
-*A2. Missing Edge Cases*
+**A2. Missing Edge Cases**
 - At Step 6-7, if edge case coverage is insufficient:
-  - System warns: "⚠ Test cases may not cover edge scenarios: [empty input, single element, maximum constraints]"
-  - Validation status: PASSED WITH WARNINGS
-  - Creator should add edge cases but can proceed
+  - System warns: *"⚠ Test cases may not cover edge scenarios: [empty input, single element, maximum constraints]"*
+  - Validation status: **PASSED WITH WARNINGS**
+  - Creator can:
+    - Add recommended edge cases
+    - Proceed to peer review with warning documented
+  - Peer reviewers will see this warning
 
-*A3. Problem Statement Unclear*
+**A3. Problem Statement Unclear**
 - At Step 8-9, if AI detects ambiguity:
-  - System suggests: "⚠ Problem statement may be unclear: '[specific phrase]' could be interpreted multiple ways."
-  - Provides revision suggestions
-  - Validation status: PASSED WITH WARNINGS
+  - System suggests: *"⚠ Problem statement may be unclear: '[specific phrase]' could be interpreted multiple ways."*
+  - Provides revision suggestions with examples
+  - Validation status: **PASSED WITH WARNINGS**
   - Creator should clarify but can proceed
+  - Peer reviewers will be asked to verify clarity
 
-*A4. Difficulty Mismatch*
+**A4. Difficulty Mismatch**
 - At Step 10-11, if estimated difficulty differs significantly:
-  - System reports: "⚠ This exercise appears to be [Advanced] but is marked [Intermediate]. Consider adjusting."
-  - Validation status: PASSED WITH WARNINGS
-  - Creator can adjust difficulty or provide justification
+  - System reports: *"⚠ This exercise appears to be [Advanced] but is marked [Intermediate]. Consider adjusting."*
+  - Shows difficulty scoring breakdown
+  - Validation status: **PASSED WITH WARNINGS**
+  - Creator can:
+    - Adjust difficulty level
+    - Provide justification for current level
+    - Proceed with warning (reviewers will validate)
 
-*A5. Execution Timeout*
+**A5. Execution Timeout**
 - At Step 4, if model solution exceeds time limit:
-  - System displays: "✗ Model solution exceeded 5-second time limit. Execution time: [X]s"
-  - Validation status: FAILED
-  - Creator must optimize solution or adjust constraints
+  - System displays: *"✗ Model solution exceeded [N]-second time limit. Execution time: [X]s"*
+  - Validation status: **FAILED**
+  - Creator must:
+    - Optimize solution
+    - Adjust time constraints
+    - Reconsider problem complexity
+  - Cannot proceed until resolved
 
-*A6. Security Vulnerability Detected*
-- At Step 12-13, if potential security issue found:
-  - System alerts: "✗ Security issue detected: Test case contains [suspicious pattern]"
-  - Validation status: FAILED
-  - Creator must remove problematic content
-  - Admin is notified for serious violations
-
-*A7. Test Cases Too Similar*
+**A6. Test Cases Too Similar**
 - At Step 6, if hidden tests are predictable:
-  - System warns: "⚠ Hidden test cases appear similar to public tests. Add more diverse scenarios."
-  - Validation status: PASSED WITH WARNINGS
-  - Creator should improve test diversity
+  - System warns: *"⚠ Hidden test cases appear similar to public tests. Add more diverse scenarios."*
+  - Suggests specific missing scenarios
+  - Validation status: **PASSED WITH WARNINGS**
+  - Creator should improve diversity
+  - Reviewers will test with their own approaches
 
-*A8. Grammatical Errors*
+**A7. No Available Reviewers**
+- At Step 22-23, if no suitable reviewers available:
+  - System displays: *"No reviewers currently available with matching expertise. Options:"*
+    - Wait for reviewers to become available (estimated: X days)
+    - Expand reviewer criteria
+    - Request admin to assign reviewers
+  - Exercise remains in validated draft status
+
+**A8. Creator Cancels Review Assignment**
+- At Step 23, if creator changes mind:
+  - Creator clicks "Cancel Assignment"
+  - Exercise returns to validated draft status
+  - Can be edited or assigned later
+
+**A9. Grammatical Errors**
 - At Step 8-9, if grammar issues detected:
   - System highlights errors with suggestions
   - Auto-correct offered for minor issues
-  - Validation status: PASSED WITH WARNINGS
+  - Validation status: **PASSED WITH WARNINGS**
   - Creator should review and fix
+  - Reviewers will verify corrections
 
-*A9. Accessibility Issues*
-- At Step 14-15, if accessibility problems found:
-  - System lists: "⚠ Images lack alt text, Code blocks not properly formatted"
-  - Provides remediation guidance
-  - Validation status: PASSED WITH WARNINGS
-  - Creator should fix for inclusivity
-
-*A10. Validation Service Unavailable*
+**A10. Validation Service Unavailable**
 - At Step 3, if validation API fails:
-  - System displays: "Validation service temporarily unavailable. You can save as draft and try again later."
+  - System displays: *"Validation service temporarily unavailable. Options:"*
+    - Retry now
+    - Save and retry later
+    - Contact support if issue persists
   - Exercise saved but not validated
   - Creator notified when service resumes
 
-*A11. Multiple Languages, Different Results*
+**A11. Multiple Languages, Different Results**
 - At Step 4-5, if exercise supports Python and JavaScript:
   - If Python solution passes but JavaScript fails:
     - System reports issues separately by language
+    - Validation status: **PARTIALLY FAILED**
     - Creator must fix failing language implementation
-  - All language versions must pass before overall validation passes
+  - All language versions must pass before proceeding
 
-*Extensions:*
+**A12. Hints Reveal Too Much**
+- At Step 12-13, if hints are too specific:
+  - System warns: *"⚠ Hint level [X] may reveal too much of the solution. Consider making it more conceptual."*
+  - Validation status: **PASSED WITH WARNINGS**
+  - Shows which hints are problematic
+  - Reviewers will test hint effectiveness
 
-*E1. Automated Test Generation*
-- System offers to generate additional test cases:
+**Extensions:**
+
+**E1. Automated Test Generation Suggestions**
+- After validation, system offers to generate additional test cases:
   - Creates random inputs within constraints
   - Uses model solution to compute expected outputs
   - Creator reviews and approves generated tests
+  - Re-validates with new tests
 
-*E2. Peer Validator Assignment*
-- For complex exercises, system can assign peer validators:
-  - Another experienced creator manually tests the exercise
-  - Provides human feedback on clarity and fairness
-  - Combined with automated validation
-
-*E3. Historical Performance Data*
-- If exercise is being updated:
-  - System shows previous student performance metrics
-  - Completion rate, average time, common mistakes
-  - Helps creator understand if changes improve quality
-
-*E4. Validation Report Export*
+**E2. Validation Report Export**
 - Creator can download detailed validation report as PDF
-- Useful for documentation or training purposes
-- Includes all checks, scores, and recommendations
+- Includes:
+  - All validation checks and scores
+  - Recommendations for improvement
+  - Comparison with similar exercises
+  - Quality metrics
+- Useful for documentation or training
 
-*E5. Incremental Validation*
+**E3. Incremental Validation**
 - For large exercises with many test cases:
   - System validates in stages, showing progress
   - Creator can cancel if early stages reveal issues
-  - Saves validation time
+  - Partial results saved for faster re-validation
 
-*Special Requirements:* (continued)
+**E4. A/B Testing Suggestion**
+- If exercise is similar to existing ones:
+  - System suggests A/B testing with learners
+  - Tracks which version performs better
+  - Informs future exercise design
+
+**E5. Reviewer Self-Selection**
+- Instead of creator assigning reviewers:
+  - Creator can post exercise to "Review Marketplace"
+  - Qualified reviewers volunteer to review
+  - Creator selects from volunteers
+  - Faster assignment in active communities
+
+**Special Requirements:**
+- Validation must complete within 60 seconds for standard exercises.
 - All validation checks must be logged for quality assurance auditing.
 - Validation must detect common anti-patterns (hardcoded solutions, trivial test cases).
 - System should cache validation results; re-validation only needed if exercise changes.
 - Validation API must handle concurrent requests from multiple creators.
 - Failed validations must provide actionable guidance, not just error messages.
+- Warnings must be clearly documented for peer reviewers.
+- Reviewer recommendations must consider expertise, workload, and reliability.
+- System must prevent assigning reviewers who have conflicts of interest.
 
-*Frequency of Use:*
-- Every exercise creation (100% of exercises must be validated).
+**Frequency of Use:**
+- Every exercise must be validated before peer review (100% usage).
 - Re-validation after any exercise modification.
 - Estimated 50-100 validations per active content creator over platform lifetime.
 
-*Open Issues:*
-- Should we implement tiered validation (basic, standard, rigorous) based on content type?
+**Open Issues:**
+- Should we implement tiered validation (basic, standard, rigorous) based on difficulty?
 - How do we handle edge cases where automated validation gives false positives?
-- Should validation be required before saving as draft, or only before publishing?
+- Should validation scores affect creator reputation?
 - Can we use machine learning to improve validation accuracy over time?
+- Should we allow creators to skip certain validation checks with justification?
+- How do we balance validation thoroughness with creator experience?
 
----
-#### 15. Design Learning Path
+#### 17. Contribute to Learning Path
 
-Primary Actor: Content Creator
+**Primary Actor:** Content Creator
 
-Stakeholders and Interests:
+**Stakeholders and Interests:**
+- **Content Creator:** Wants clear requirements and reasonable deadlines for content creation.
+- **Administrator:** Needs quality content delivered on time to complete the learning path.
+- **Learners:** Will benefit from well-crafted, cohesive content within the path.
+
+**Preconditions:**
+- Content creator must be logged in and authorized.
+- Administrator must have created a learning path and assigned the creator to a specific tier/module.
+- Content creator must have received assignment notification.
+
+**Postconditions:**
+- Required content (lessons, exercises) is created within the assigned tier.
+- Content meets quality standards and aligns with path objectives.
+- Administrator can review and approve the content.
+- Tier is marked as complete and ready for integration.
+
+**Main Success Scenario:**
+1. The content creator receives a notification: *"You've been assigned to create content for '[Path Name]' - [Tier/Module Name]."*
+2. The content creator navigates to "My Assignments" in their dashboard.
+3. The system displays the learning path assignment with details:
+   - Path name and overall objectives
+   - Assigned tier/module name
+   - Content requirements:
+     - Number of lessons to create (e.g., 5 video lessons)
+     - Number of exercises to create (e.g., 10 coding challenges)
+   - Learning objectives for this tier
+   - Target audience and skill level
+   - Deadline for completion
+   - Guidelines and templates provided by administrator
+   - Contact information for coordination
+4. The content creator reviews the requirements and clicks "Accept Assignment."
+5. The system creates a task board for the creator showing:
+   - Checklist of required content items
+   - Progress tracker (0% complete)
+   - Deadline countdown
+6. **Step 1: Plan Content Structure**
+   - The creator outlines topics to cover in each lesson
+   - Maps exercises to specific learning objectives
+   - Designs project requirements
+7. The creator can request clarification from the administrator if objectives are unclear.
+8. **Step 2: Create Lessons**
+   - The creator follows Use Case 8 (Create Lesson) for each required lesson
+   - Ensures lessons align with tier objectives
+   - Covers prerequisite knowledge appropriately
+   - Follows platform style guidelines
+9. The system tracks completed lessons and updates progress (e.g., 30% complete).
+10. **Step 3: Create Exercises**
+    - The creator follows Use Case 15-16 (Create and Validate Coding Exercise) for each exercise
+    - Ensures difficulty aligns with tier level
+    - Ties exercises to specific lesson concepts
+    - Creates diverse problem types
+11. The system tracks completed exercises and updates progress (e.g., 60% complete).
+13. **Step 5: Review Content Cohesion**
+    - The creator reviews all created content for the tier
+    - Ensures logical flow between lessons
+    - Verifies exercises progressively build skills
+    - Checks that project appropriately challenges learners
+14. The creator can preview the entire tier as a learner would experience it.
+15. **Step 6: Internal Quality Check**
+    - The creator runs through their own content:
+      - Tests all code examples
+      - Verifies exercise solutions
+      - Checks for typos or errors
+      - Ensures multimedia loads correctly
+16. The creator makes any necessary revisions.
+17. **Step 7: Mark as Ready for Review**
+    - The creator clicks "Submit for Administrator Review."
+    - The system prompts: *"Are you sure all content is complete and meets quality standards?"*
+18. The creator confirms submission.
+19. The system notifies the administrator: *"[Creator Name] has submitted content for '[Tier Name]' in '[Path Name]'. Ready for review."*
+20. The system changes the tier status to "Under Administrator Review."
+21. The creator's task board shows "Awaiting Review" status.
+22. **Administrator Review Phase:**
+    - Administrator reviews all content (separate use case)
+    - Administrator can approve, request revisions, or reject
+23. If approved:
+    - Creator receives notification: *"Your content for '[Tier Name]' has been approved! Great work."*
+    - Creator earns XP/badges for completing assignment
+    - Content is integrated into the learning path
+24. If revisions requested:
+    - Creator receives detailed feedback with specific issues
+    - Creator makes requested changes
+    - Creator resubmits (returns to Step 17)
+25. The system tracks the creator's contribution for analytics and reputation.
+
+**Alternative Scenarios:**
+
+**A1. Creator Declines Assignment**
+- At Step 4, if the creator cannot accept:
+  - Creator clicks "Decline Assignment"
+  - System prompts for reason (workload, expertise mismatch, timeline)
+  - System notifies administrator to reassign
+  - Creator is removed from assignment
+
+**A2. Deadline Extension Needed**
+- Before deadline, if creator needs more time:
+  - Creator clicks "Request Extension"
+  - Provides justification and proposed new deadline
+  - Administrator reviews and approves/denies
+  - If approved, deadline is updated
+  - If denied, creator must meet original deadline or decline
+
+**A3. Clarification Required**
+- At Step 7, if objectives are unclear:
+  - Creator clicks "Request Clarification"
+  - Sends specific questions to administrator
+  - Administrator responds with guidance
+  - Creator proceeds with clarified understanding
+
+**A4. Content Requirements Change**
+- During content creation, if administrator updates requirements:
+  - Creator receives notification of changes
+  - System highlights what changed
+  - Creator acknowledges changes
+  - Deadline may be adjusted if significant changes
+
+**A5. Missed Deadline**
+- If creator doesn't submit by deadline:
+  - System sends urgent reminder 3 days before deadline
+  - If still missed:
+    - Administrator is notified
+    - Administrator can extend deadline or reassign
+    - Creator's reputation may be affected
+
+**A6. Revisions Requested Multiple Times**
+- At Step 24, if content is rejected twice:
+  - Administrator and creator have a coordination meeting
+  - Discuss issues and expectations
+  - If third submission also fails:
+    - Assignment may be reassigned
+    - Creator's compensation/reputation affected
+
+**A7. Technical Issues During Creation**
+- If system errors prevent content creation:
+  - Creator reports issue to support
+  - System logs the issue
+  - Deadline may be extended if issue is system-wide
+  - Creator can save drafts to prevent data loss
+
+**A8. Collaborating with Other Creators**
+- If multiple creators are assigned to the same tier:
+  - System provides shared workspace
+  - Creators can see each other's progress
+  - Chat/comment feature for coordination
+  - One creator designated as "lead" to avoid conflicts
+
+**Extensions:**
+
+**E1. Early Completion Bonus**
+- If creator completes high-quality content ahead of schedule:
+  - Creator earns "Early Bird" badge
+  - May receive bonus XP or recognition
+  - Reputation score increases
+
+**E2. Feedback and Iteration**
+- After path is published and learners use the content:
+  - Creator receives analytics on their tier:
+    - Completion rates
+    - Average time spent
+    - Learner satisfaction ratings
+    - Common misconceptions
+  - Creator can update content based on feedback
+
+**E3. Content Reuse Permission**
+- Creator can request to reuse tier content in personal courses:
+  - Submits request to administrator
+  - If approved, content can be adapted for other uses
+  - Original path retains rights to the content
+
+**E4. Compensation Tracking** (if applicable)
+- For paid creators:
+  - System tracks time spent on assignment
+  - Milestones trigger partial payments
+  - Final approval triggers full payment
+  - Invoicing generated automatically
+
+**Special Requirements:**
+- The task board must clearly show progress and remaining work.
+- Creators must be able to save work-in-progress at any time (auto-save every 2 minutes).
+- System must support version history for all created content.
+- Communication between creator and administrator must be logged.
+- Deadline reminders must be sent at 7 days, 3 days, and 1 day before due date.
+- Content submission must include a checklist confirmation (all requirements met).
+- Administrator feedback must be clear, actionable, and specific.
+
+**Frequency of Use:**
+- Moderate to high frequency depending on path creation activity.
+- Each creator may have 2-5 active assignments at any time.
+- Typically takes 2-6 weeks per tier assignment depending on complexity.
+
+**Open Issues:**
+- Should creators be able to collaborate in real-time on the same content?
+- How do we handle disputes between creator and administrator on content direction?
+- Should there be peer review before administrator review?
+- Can AI assist in identifying content gaps or quality issues?
+**Primary Actor:** Content Creator
+
+**Stakeholders and Interests:**
 - Content Creator: Wants to design a coherent, progressive curriculum that effectively builds skills.
 - Learners: Need a clear, logical progression that builds on previous knowledge.
 - Platform: Needs well-structured paths that improve learning outcomes and retention.
 
-Preconditions:
+**Preconditions:**
 - Content creator must be logged in with advanced privileges.
 - Multiple courses and lessons must already exist in the system.
 - Content creator must have curriculum design training or certification.
 
-Postconditions:
+**Postconditions:**
 - A complete learning path is created with prerequisite dependencies.
 - Path is organized into skill tiers with clear progression.
 - Path can be discovered and followed by learners.
 - Path analytics tracking is enabled.
 
-Main Success Scenario:
+**Main Success Scenario:**
 1. The content creator navigates to "Learning Paths" management section.
 2. The content creator clicks "Create New Learning Path."
 3. The system displays the path creation wizard with fields:
@@ -1174,7 +1713,7 @@ Main Success Scenario:
 4. The content creator enters the basic path information.
 5. Step 1: Define Skill Tiers
    - The system displays a visual canvas for organizing content
-   - The content creator creates skill tiers (levels):
+   - The content creator creates skill tiers (levels) for example:
      - Tier 1: Foundation (variables, data types, basic syntax)
      - Tier 2: Core Concepts (loops, functions, data structures)
      - Tier 3: Intermediate (OOP, file handling, APIs)
@@ -1190,7 +1729,6 @@ Main Success Scenario:
 9. Step 3: Create Checkpoints
    - The content creator adds assessment checkpoints:
      - End-of-tier quizzes
-     - Portfolio projects
      - Skill validation exercises
 10. The content creator defines checkpoint passing criteria (e.g., 70% score, project approval).
 11. Step 4: Configure Adaptive Elements
@@ -1226,7 +1764,6 @@ Main Success Scenario:
 19. The content creator writes a compelling path overview for learners:
     - What you'll learn
     - Career opportunities
-    - Sample projects you'll build
     - Success stories from graduates
 20. The content creator adds preview content (free introductory lessons).
 21. The content creator sets the path status:
@@ -1374,7 +1911,7 @@ Open Issues:
 
 ---
 
-#### 16. Create Interactive Walkthrough
+#### 18. Create Interactive Walkthrough
 
 **Primary Actor:** Content Creator
 
@@ -2259,7 +2796,6 @@ The learner uploads or changes their profile picture.
 5. The learner clicks "Enroll in Certification."
 6. The system creates a certification dashboard showing:
    - Required courses (5-10 courses)
-   - Required projects (2-3 portfolio projects)
    - Final assessment
    - Completion deadline (if applicable)
    - Progress tracker
