@@ -960,7 +960,7 @@ The content creator removes unpublished course materials or exercises from their
 
 ---
 
-#### *14. Validate Exercise Before Publishing*
+#### 16. Validate Exercise Before Publishing
 
 *Primary Actor:* Content Creator
 
@@ -1008,16 +1008,6 @@ The content creator removes unpublished course materials or exercises from their
       - Test case difficulty
     - Compares with creator's assigned difficulty
 11. The system reports: "Estimated difficulty matches assigned level (Intermediate)."
-12. *Step 5: Security Check*
-    - System scans for potential security vulnerabilities
-    - Checks test data doesn't contain sensitive information
-    - Verifies execution constraints prevent resource abuse
-13. The system reports: "✓ No security issues detected."
-14. *Step 6: Accessibility Review*
-    - Checks if problem statement is screen-reader friendly
-    - Verifies code examples use appropriate formatting
-    - Ensures visual elements have text alternatives
-15. The system reports: "✓ Accessibility requirements met."
 16. The system compiles a comprehensive validation report showing all checks.
 17. The system displays final status: "Validation Complete: PASSED"
 18. The content creator reviews the full report.
