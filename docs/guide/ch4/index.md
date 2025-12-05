@@ -49,7 +49,7 @@ Lesson bookmarking.
 
 ### 2.2 Lesson Content Delivery
 
-- **FR-2.5:** System shall support multi-format lesson content (text, videos, interactive demos).
+- **FR-2.5:** System shall support multi-format lesson content (text, videos).
 - **FR-2.6:** System shall provide step-by-step coding walkthroughs with highlighted code segments.
 - **FR-2.7:** System shall include conceptual explanations before practical exercises.
 - **FR-2.8:** System shall support rich text formatting, code syntax highlighting, and embedded media.

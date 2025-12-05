@@ -6,7 +6,7 @@
 
 - **Familiarity with Applications:** 
   - The target learners and educators in our region are already familiar with mobile educational apps and interactive tutorials (e.g. Duolingo, Code.org) in Arabic. Using a gamified, Arabic-language interface makes the platform intuitive; users require no extra training to log in, practice coding, or track progress.  
-  - Core team members have experience building web/mobile learning tools, so we understand typical user workflows (account setup, interactive lessons, community forums).  
+  - Core team members have experience building web/mobile learning tools, so we understand typical user workflows (account setup, interactive lessons).  
   - Because the UI and content are in Arabic, language barriers are eliminated, further smoothing the learning curve for beginners.
 
 - **Familiarity with Technology:**  
@@ -16,7 +16,7 @@
 
 - **Project Size:**  
   - The core team will include about 6 members (detailed below), which is appropriate for a mid-size project.  
-  - The platform's scope involves a moderate variety of features: a real-time code editor (supporting Python and JS), gamification mechanics (XP, badges, streaks, daily goals), AI-driven hints, and a community sharing module. This is a mid-level complexity for an experienced team.  
+  - The platform's scope involves a moderate variety of features: a real-time code editor (supporting Python and JS), gamification mechanics (XP, badges, streaks, daily goals), AI-driven hints. This is a mid-level complexity for an experienced team.  
   - The development timeline is relatively tight: with a target launch by May 2026 (about 6 months from planning start), the schedule is ambitious. However, by assigning parallel sprints for front-end, back-end, and content creation, and by leveraging reusable components (Nuxt/Vue libraries, Monaco Editor, etc.), we believe the team can meet this deadline.
 
 ### 3.1.2 Organizational Feasibility
@@ -60,7 +60,6 @@
 - **Intangible Benefits:**  
   - **Learner Engagement:** The gamified, Duolingo-style approach will keep students motivated. Studies show gamification (points, streaks, badges) significantly boosts user engagement and retention. By making coding fun and rewarding, we help learners persist.  
   - **Education Impact:** Providing coding education in Arabic removes language barriers and makes computer science more accessible. This can broaden participation in tech education and help develop local talent in programming.  
-  - **Community Growth:** Building a collaborative platform fosters a peer-learning community. Learners and mentors share projects and tips, which enhances learning outcomes and provides social value.  
   - **Brand and Market Position:** Successfully launching this platform will position our team as innovators in Arabic EdTech. Positive reputation and user testimonials will attract future investments, partnerships, and possibly expansion into new topics or markets.
 
 ---

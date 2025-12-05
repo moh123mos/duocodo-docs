@@ -755,7 +755,7 @@ The content creator removes unpublished course materials or exercises from their
 
 **Main Success Scenario:**
 1. The content creator navigates to the login page.
-2. The content creator enters their email/username and password.
+2. The content creator enters their email and password.
 3. The content creator clicks "Login."
 4. The system validates credentials.
 5. The system authenticates the content creator and redirects to the dashboard.
@@ -765,7 +765,7 @@ The content creator removes unpublished course materials or exercises from their
 
 **A1. Incorrect Credentials**
 - At Step 4, if credentials are invalid, the system displays:
-  *"Incorrect email/username or password. Please try again."*
+  *"Incorrect email or password. Please try again."*
 
 **A2. Account Not Verified**
 - At Step 4, if the email is not verified, the system displays:
@@ -835,13 +835,12 @@ The content creator removes unpublished course materials or exercises from their
 4. The system displays the lesson creation interface with sections:
    - Lesson title
    - Lesson objectives
-   - Content type selection (Text/Video/Interactive Demo)
+   - Content type selection (Text/Video)
    - Estimated completion time
 5. The content creator enters the lesson title and objectives.
 6. The content creator creates multi-format content:
    - Writes explanatory text with rich formatting
    - Uploads or embeds video tutorial
-   - Creates interactive code demonstrations
 7. The content creator adds code snippets with syntax highlighting.
 8. The content creator sets lesson order within the module.
 9. The content creator can mark the lesson as:
@@ -1911,239 +1910,6 @@ Open Issues:
 
 ---
 
-<!-- #### 18. Create Interactive Walkthrough -->
-
-**Primary Actor:** Content Creator
-
-**Stakeholders and Interests:**
-- Content Creator: Wants to create engaging, step-by-step coding demonstrations that enhance understanding.
-- Learners: Need guided, interactive experiences that build confidence before independent practice.
-- Platform: Needs high-quality interactive content that differentiates from static tutorials.
-
-Preconditions:
-- Content creator must be logged in.
-- A lesson must exist within a course to host the walkthrough.
-- Interactive walkthrough builder tool must be operational.
-- Content creator should have completed training on effective walkthrough design.
-
-Postconditions:
-- An interactive walkthrough is created with segmented code steps.
-- Each step includes explanations, highlights, and interactive elements.
-- Walkthrough is integrated into the lesson and accessible to learners.
-- Learner interactions are tracked for analytics.
-
-Main Success Scenario:
-1. The content creator is editing a lesson.
-2. The content creator clicks "Add Interactive Walkthrough."
-3. The system displays the walkthrough builder interface with two panels:
-   - Left panel: Code editor
-   - Right panel: Step-by-step annotations
-4. Step 1: Define the Coding Problem
-   - The creator writes the complete working code example
-   - Code could demonstrate:
-     - A specific algorithm (e.g., binary search)
-     - A programming concept (e.g., list comprehension)
-     - A real-world application (e.g., API request handling)
-5. The creator runs the code to verify it works correctly.
-6. Step 2: Segment the Code
-   - The creator divides the code into logical steps (typically 5-12 steps)
-   - Example for bubble sort algorithm:
-     - Step 1: Initialize array
-     - Step 2: Outer loop setup
-     - Step 3: Inner loop comparison
-     - Step 4: Swap elements
-     - Step 5: Continue iterations
-     - Step 6: Return sorted array
-7. For each step, the creator:
-   - Highlights relevant lines of code
-   - Writes explanation text (2-4 sentences)
-   - Adds visual annotations (arrows, boxes, emphasis)
-8. Step 3: Add Interactive Elements
-   - For each step, the creator can add:
-     - Variable state visualization: Show variable values at this point
-     - Memory diagrams: Visualize data structure state
-     - Input/output examples: Show what happens with specific inputs
-     - "Try it yourself" prompts: Learner modifies code and sees results
-     - Comprehension checks: Quick questions before proceeding
-9. The creator configures step navigation:
-   - Auto-advance (after X seconds)
-   - Manual advance (learner clicks "Next")
-   - Completion requirement (answer question correctly to proceed)
-10. Step 4: Add Code Evolution
-    - The creator can show code transformation:
-      - Start with pseudocode
-      - Gradually convert to actual syntax
-      - Show refactoring improvements
-      - Demonstrate optimization steps
-11. Step 5: Configure Interactivity Level
-    - Read-only mode: Learner just watches and reads
-    - Follow-along mode: Learner types code as instructor guides
-    - Guided practice: Learner completes partially written code
-    - Challenge mode: Learner implements concept independently after walkthrough
-12. The creator adds code execution at key steps:
-    - Click "Run at this step" shows output
-    - Learner sees program state after each step
-    - Console output displayed alongside code
-13. Step 6: Add Supplementary Resources
-    - The creator links related content:
-      - Prerequisite concepts
-      - Documentation references
-      - Extended reading
-      - Related exercises
-14. The creator adds narration (optional):
-    - Text-to-speech: System generates voice narration
-    - Video overlay: Creator records explanation video
-    - Audio commentary: Creator uploads audio track
-15. The creator previews the complete walkthrough as a learner would experience it.
-16. The creator tests all interactive elements:
-    - Clicks through each step
-    - Verifies code highlighting
-    - Tests comprehension questions
-    - Ensures visualizations render correctly
-17. The system validates:
-    - All code executes successfully at each step
-    - Explanations are clear and concise (AI readability check)
-    - Navigation flows logically
-    - No broken links or missing resources
-18. The creator sets accessibility options:
-    - Keyboard navigation support
-    - Screen reader compatibility
-    - Adjustable text size and contrast
-    - Caption/transcript availability
-19. The creator saves the walkthrough.
-20. The system integrates the walkthrough into the lesson.
-21. The walkthrough appears in the lesson with a prominent "Start Interactive Walkthrough" button.
-22. Learners can now access and interact with the walkthrough.
-23. The system tracks walkthrough analytics:
-    - Completion rate per step
-    - Time spent per step
-    - Common drop-off points
-    - Comprehension check performance
-
-Alternative Scenarios:
-
-A1. Code Execution Fails
-- At Step 5 or 17, if code doesn't execute properly:
-  - System displays: *"Code execution error at Step [X]: [Error message]"*
-  - Creator must debug and fix the code
-  - Cannot proceed until all steps execute successfully
-
-A2. Too Many Steps
-- At Step 6, if creator defines 20+ steps:
-  - System warns: *"⚠ This walkthrough has many steps. Consider breaking into multiple walkthroughs for better engagement."*
-  - Research shows optimal range is 5-12 steps
-  - Creator can proceed or split content
-
-A3. Missing Explanations
-- At Step 17, if some steps lack explanations:
-  - System alerts: *"Steps [X, Y, Z] are missing explanations. Add context to help learners understand."*
-  - Creator must add explanations or mark steps as self-explanatory
-
-A4. Visualization Rendering Error
-- At Step 16, if data structure visualizations fail:
-  - System displays: *"Unable to render visualization for Step [X]. Choose alternative visualization or simplify data."*
-  - Provides troubleshooting suggestions
-
-A5. Comprehension Check Too Difficult
-- After publication, if analytics show high failure rates:
-  - System notifies creator: *"80% of learners fail the check at Step [X]. Consider simplifying or adding hints."*
-  - Creator can adjust difficulty or reword questions
-
-A6. Walkthrough Too Long
-- At Step 17, if estimated completion time exceeds 20 minutes:
-  - System warns: *"⚠ This walkthrough may take 25+ minutes. Long walkthroughs have lower completion rates."*
-  - Suggests breaking into multiple shorter walkthroughs
-
-A7. Accessibility Issues Detected
-- At Step 18, if accessibility checks fail:
-  - System reports: *"Code highlights may not be visible to colorblind users. Add pattern fills or labels."*
-  - *"Audio narration lacks captions. Add text transcript."*
-  - Creator must address issues for inclusivity
-
-A8. Duplicate Walkthrough
-- At Step 19, if similar walkthrough exists:
-  - System displays: *"A walkthrough on [similar topic] already exists. Consider differentiating or linking as alternatives."*
-
-A9. Narration Sync Issues
-- At Step 14, if audio/video doesn't sync with steps:
-  - System provides timeline editor to align narration with code steps
-  - Creator adjusts timing for each segment
-
-A10. Learner Feedback Negative
-- After publication, if ratings are low:
-  - Creator reviews learner comments
-  - Common issues: "Too fast," "Unclear explanations," "Missing examples"
-  - Creator revises and republishes improved version
-
-Extensions:
-
-E1. Branching Walkthroughs
-- Creator can design choice points:
-  - "Choose approach: Iterative or Recursive"
-  - Learner selects and sees different implementation
-  - Both paths teach same concept with different techniques
-E2. Live Code Editing
-- Learner can modify code during walkthrough:
-  - Change variable values
-  - Adjust loop conditions
-  - See immediate impact on execution
-  - System provides feedback on modifications
-
-E3. Collaborative Walkthroughs
-- Multiple creators can contribute to complex walkthroughs:
-  - One handles frontend code, another backend
-  - Each annotates their expertise area
-  - Coordinated multi-file demonstrations
-
-E4. Version Comparison
-- Show before/after code versions side-by-side:
-  - Initial naive implementation
-  - Optimized version
-  - Highlight differences
-  - Explain improvements
-
-E5. Gamification Integration
-- Walkthrough completion earns XP and badges
-- Hidden achievement for completing without hints
-- Speed bonus for efficient progression
-- Mastery badge for answering all checks correctly
-
-E6. Community Remixes
-- Advanced learners can create variations:
-  - Same algorithm in different language
-  - Alternative approach to same problem
-  - Enhanced version with additional features
-  - Creator reviews and can feature remixes
-
-E7. Export and Sharing
-- Walkthrough can be exported as:
-  - Standalone HTML page
-  - Embeddable widget for external sites
-  - PDF with code snapshots
-  - Video rendering of the full walkthrough
-
-Special Requirements:
-- Walkthrough builder must auto-save progress every 30 seconds to prevent data loss.
-- Code highlighting must support all platform languages (Python, JavaScript, etc.).
-- Visualizations must render consistently across browsers and devices.
-- Interactive elements must work on touch devices (tablets, phones).
-- System must handle complex visualizations (trees, graphs, recursion stacks) efficiently.
-- Walkthroughs must load quickly; large assets should be lazy-loaded.
-- Analytics must track granular engagement (time per step, skipped steps, repeated steps).
-- Accessibility features must meet WCAG 2.1 AA standards.
-
-Frequency of Use:
-- Moderate frequency; creators typically develop 5-10 walkthroughs per comprehensive course.
-- High usage during course creation phases.
-- Periodic updates as programming best practices evolve.
-
-Open Issues:
-- Should we support real-time collaborative walkthrough creation between multiple creators?
-- How do we balance interactivity with completion rates (too much interaction may frustrate)?
-- Should walkthroughs be version-controlled like exercises?
-- Can AI generate draft walkthroughs from working code to accelerate creation?
-- Should we integrate with external visualization tools (Pythontutor.com, etc.)?
-
 ## Learner Use Cases
 
 ---
@@ -2156,7 +1922,7 @@ The learner views their profile information including avatar, bio, learning goal
 
 #### 2. Change Theme
 
-The learner switches between dark and light mode in the editor settings.
+The learner switches between dark and light mode in the editor settings (or using switch sun/moon icon).
 
 #### 3. View Badges
 
@@ -2183,19 +1949,20 @@ The learner uploads or changes their profile picture.
 **Actor:** Learner
 
 **Main Success Scenario:**
-1. The learner navigates to the "Sign Up" page of the platform.
+1. The learner navigates to the "Sign Up" page of the platform or app.
 2. The learner selects the "Learner" role from account type options.
 3. The learner provides required details:
    - Full name
    - Email address
    - Password (with confirmation)
    - Username
-4. The learner agrees to Terms and Conditions and submits the form.
-5. The system validates input (email format, password strength, username uniqueness).
-6. The system sends a verification email to the provided address.
-7. The learner clicks the OTP in the email.
-8. The system activates the account and redirects to the login page.
-9. The learner logs in successfully and sees a welcome message.
+4. The learner can register using social media accounts (Google, Github, LinkedIn) as an alternative.
+5. The learner agrees to Terms and Conditions and submits the form.
+6. The system validates input (email format, password strength, username uniqueness).
+7. The system sends a verification email to the provided address.
+8. The learner clicks the OTP in the email.
+9. The system activates the account and redirects to the login page.
+10. The learner logs in successfully and sees a welcome message.
 
 **Alternative Scenarios:**
 
@@ -2218,18 +1985,19 @@ The learner uploads or changes their profile picture.
 **Actor:** Learner
 
 **Main Success Scenario:**
-1. The learner navigates to the login page.
-2. The learner enters their email/username and password.
-3. The learner clicks "Login."
-4. The system validates credentials.
-5. The system authenticates the learner and redirects to the dashboard.
-6. The learner sees their personalized dashboard with progress and recommendations.
+1. The learner navigates to the login page in the platform or app.
+2. The learner enters their email and password.
+3. The learner can choose to log in using social media accounts (Google, Github, LinkedIn) as an alternative.
+4. The learner clicks "Login."
+5. The system validates credentials.
+6. The system authenticates the learner and redirects to the dashboard.
+7. The learner sees their personalized dashboard with progress and recommendations.
 
 **Alternative Scenarios:**
 
 **A1. Incorrect Credentials**
 - At Step 4, if credentials are invalid, the system displays:
-  *"Incorrect email/username or password. Please try again."*
+  *"Incorrect email or password. Please try again."*
 
 **A2. Account Not Verified**
 - At Step 4, if the email is not verified, the system displays:
@@ -2241,14 +2009,40 @@ The learner uploads or changes their profile picture.
 
 ---
 
+#### 20. Recover Password
+
+**Actor:** Learner
+
+**Main Success Scenario:**
+1. The learner clicks "Forgot Password" on the login page.
+2. The learner enters their registered email address.
+3. The system validates the email.
+4. The system sends a password OTP to the email.
+5. The learner enters the OTP received.
+6. The learner enters and confirms a new password.
+7. The system updates the password.
+8. The learner sees confirmation: *"Password reset successfully. You can now log in."*
+
+**Alternative Scenarios:**
+
+**A1. Email Not Found**
+- At Step 3, if the email isn't registered, the system displays:
+  *"No account found with this email address."*
+
+**A2. Link Expired**
+- At Step 5, if the OTP expired, the system displays:
+  *"This link has expired. Please request a new password reset."*
+
+---
+
 #### 9. Choose Learning Path
 
 **Actor:** Learner
 
 **Main Success Scenario:**
-1. The learner logs into the platform.
+1. The learner logs into the platform or app.
 2. The learner navigates to the "Learning Paths" section.
-3. The system displays available tracks (Python, JavaScript, Full-Stack Development, Algorithms).
+3. The system displays available tracks (Fundamentals, Machine Learning, Cybersecurity, Full-Stack Development).
 4. The learner selects their preferred learning path.
 5. The system shows a detailed overview including modules, estimated time, and prerequisites.
 6. The learner confirms their selection by clicking "Start Path."
@@ -2279,11 +2073,10 @@ The learner uploads or changes their profile picture.
 3. The system displays the lesson content including:
    - Text explanation
    - Video tutorial
-   - Interactive code demonstrations
 4. The learner reads/watches the content at their own pace.
 5. The learner can pause, rewind, or fast-forward video content.
 6. The system tracks time spent on the lesson.
-7. The learner clicks "Mark as Complete" when finished.
+7. The lesson is marked as complete when finished.
 8. The system updates progress and unlocks the next lesson.
 
 **Alternative Scenarios:**
@@ -2306,13 +2099,14 @@ The learner uploads or changes their profile picture.
 1. The learner navigates to the exercises section of a lesson.
 2. The learner selects an available coding challenge.
 3. The system displays the problem statement, input/output examples, and starter code.
-4. The learner writes code in the Monaco Editor.
-5. The learner clicks "Run Tests" to validate their solution.
-6. The system executes the code against test cases.
-7. The system displays results showing passed/failed test cases.
-8. If all tests pass, the learner clicks "Submit Solution."
-9. The system awards XP and updates skill mastery.
-10. The learner receives a success message with earned points.
+4. The learner writes code in the Monaco Editor in platform.
+5. The learner drag/drop blocks of code in the blockly Editor in app.
+6. The learner clicks "Run Tests" to validate their solution.
+7. The system executes the code against test cases.
+8. The system displays results showing passed/failed test cases.
+9. If all tests pass, the learner clicks "Submit Solution."
+10. The system awards XP and updates skill mastery.
+11. The learner receives a success message with earned points.
 
 **Alternative Scenarios:**
 
@@ -2331,27 +2125,49 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 12. Track Progress
+#### 12. Track Progress and View Learning Analytics
 
 **Actor:** Learner
 
 **Main Success Scenario:**
-1. The learner navigates to the "Progress" section from the dashboard.
-2. The system displays comprehensive progress metrics:
+1. The learner navigates to the "Progress & Analytics" section from the dashboard.
+2. The system displays a comprehensive dashboard with two main views:
+   - **Progress Overview**
+   - **Detailed Analytics**
+3. **Progress Overview Section** displays:
    - Completed modules and lessons
    - Current XP and level
    - Skill mastery percentages
    - Time spent learning
    - Streak information
-3. The learner views a visual roadmap showing their journey.
-4. The learner can filter progress by course, skill, or time period.
-5. The system highlights weak areas and recommends improvement exercises.
+4. **Detailed Analytics Section** displays:
+   - Accuracy rates per skill
+   - Time-to-completion trends
+   - Learning velocity
+   - Performance metrics with charts and graphs
+5. The system highlights weak areas and recommends improvement exercises based on analytics.
+6. The learner can view predictions and insights:
+   - Estimated time to complete current path
+   - Suggested focus areas
+7. The system provides actionable recommendations based on combined progress and analytics data.
 
 **Alternative Scenarios:**
 
 **A1. No Progress Data**
-- At Step 2, if the learner hasn't completed any content, the system displays:
-  *"Start your learning journey! Complete lessons to see your progress here."*
+- At Step 2, if the learner hasn't completed any content:
+  - The system displays: *"Start your learning journey! Complete lessons to see your progress and analytics here."*
+  - Shows sample analytics dashboard with demo data
+
+**A2. Insufficient Data for Detailed Analytics**
+- At Step 4, if there's not enough activity for meaningful analytics:
+  - The system displays: *"Complete more lessons (at least 10) to unlock detailed analytics and insights."*
+  - Shows basic progress metrics only
+  - Detailed analytics sections are grayed out with unlock requirements
+
+**A3. Data Loading Delays**
+- At Step 2, if analytics take time to compile:
+  - The system displays progress indicator: *"Loading your analytics... This may take a moment."*
+  - Shows cached data with timestamp while fresh data loads
 
 ---
 
@@ -2379,56 +2195,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 14. Participate in Challenge
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to the "Challenges" section.
-2. The system displays available challenges (speed, efficiency, weekly contests).
-3. The learner selects a challenge and clicks "Join."
-4. The system displays challenge rules, deadline, and prize information.
-5. The learner confirms participation.
-6. The learner completes the challenge within the time limit.
-7. The system evaluates the submission and ranks the learner.
-8. The learner receives results and rankings on the leaderboard.
-
-**Alternative Scenarios:**
-
-**A1. Challenge Expired**
-- At Step 3, if the deadline has passed, the system displays:
-  *"This challenge has ended. Check upcoming challenges for new opportunities."*
-
-**A2. Insufficient Skill Level**
-- At Step 5, if the challenge requires higher skills, the system displays:
-  *"This challenge is recommended for Level [X] learners. Continue learning to unlock it."*
-
----
-
-#### 15. View Learning Analytics
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to the "Analytics" dashboard.
-2. The system displays detailed performance metrics:
-   - Accuracy rates per skill
-   - Time-to-completion trends
-   - Strength/weakness heatmap
-   - Learning velocity
-3. The learner views charts and graphs visualizing their data.
-4. The system provides recommendations based on analytics.
-5. The learner can export reports for personal records.
-
-**Alternative Scenarios:**
-
-**A1. Insufficient Data**
-- At Step 2, if there's not enough activity, the system displays:
-  *"Complete more lessons to see detailed analytics."*
-
----
-
-#### 16. Set Language Preferences
+#### 14. Set Language Preferences
 
 **Actor:** Learner
 
@@ -2437,7 +2204,7 @@ The learner uploads or changes their profile picture.
 2. The learner selects "Language Preferences."
 3. The system displays options for:
    - Interface language (Arabic/English)
-   - Primary programming language (Python/JavaScript)
+   - Primary programming language (Python/JavaScript) in platform.
 4. The learner makes selections and clicks "Save."
 5. The system updates preferences and refreshes the interface.
 6. The learner sees confirmation: *"Preferences updated successfully."*
@@ -2488,54 +2255,6 @@ The learner uploads or changes their profile picture.
 - At Step 6, if the solution violates guidelines, moderators reject it with feedback.
 
 ---
-
-#### 19. Join Discussion Forum
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to the "Community" section.
-2. The learner browses discussion topics or searches for specific questions.
-3. The learner selects a thread to read.
-4. The learner posts a comment or question.
-5. The system publishes the comment.
-6. Other users and mentors can respond.
-7. The learner receives notifications for replies.
-
-**Alternative Scenarios:**
-
-**A1. Inappropriate Content**
-- At Step 5, if the post contains flagged content, the system displays:
-  *"Your post was flagged. Please review community guidelines."*
-
----
-
-#### 20. Recover Password
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner clicks "Forgot Password" on the login page.
-2. The learner enters their registered email address.
-3. The system validates the email.
-4. The system sends a password reset link to the email.
-5. The learner clicks the link and is directed to reset page.
-6. The learner enters and confirms a new password.
-7. The system updates the password.
-8. The learner sees confirmation: *"Password reset successfully. You can now log in."*
-
-**Alternative Scenarios:**
-
-**A1. Email Not Found**
-- At Step 3, if the email isn't registered, the system displays:
-  *"No account found with this email address."*
-
-**A2. Link Expired**
-- At Step 5, if the reset link expired, the system displays:
-  *"This link has expired. Please request a new password reset."*
-
----
-
 ### Fully Dressed Format Use Cases
 
 #### 21. Practice Coding with Monaco Editor
@@ -2925,16 +2644,68 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 24. Enable Two-Factor Authentication (continued)
+#### 24. Enable Two-Factor Authentication
 
-**Alternative Scenarios:** (continued)
+*Primary Actor:* Learner
 
-**A2. Backup Codes Not Saved**
+*Stakeholders and Interests:*
+- *Learner:* Wants enhanced account security to protect personal data and progress.
+- *Platform:* Needs to reduce account compromise and unauthorized access.
+- *Security Team:* Wants to enforce best practices for account protection.
+
+*Preconditions:*
+- Learner must be logged in.
+- Learner must have a verified email address.
+- Learner must have access to a mobile device or authenticator app.
+
+*Postconditions:*
+- 2FA is enabled on the learner's account.
+- Future logins require both password and verification code.
+- Backup codes are generated and stored securely.
+
+*Main Success Scenario:*
+1. The learner navigates to Account Settings.
+2. The learner selects "Security" tab.
+3. The learner clicks "Enable Two-Factor Authentication."
+4. The system displays 2FA setup options:
+   - Authenticator app (recommended)
+   - SMS text message
+   - Email verification code
+5. The learner selects "Authenticator App."
+6. The system generates a QR code and secret key.
+7. The system displays instructions:
+   - "Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)"
+8. The learner opens their authenticator app and scans the QR code.
+9. The authenticator app adds the DuoCode account and begins generating codes.
+10. The system prompts: "Enter the 6-digit code from your authenticator app to confirm setup."
+11. The learner enters the current code from their app.
+12. The system validates the code.
+13. The system generates 10 backup recovery codes.
+14. The system displays the recovery codes with instructions:
+    - "Save these codes securely. Each can be used once if you lose access to your authenticator."
+15. The learner downloads or copies the recovery codes.
+16. The learner confirms they've saved the codes by checking a box.
+17. The system enables 2FA on the account.
+18. The learner sees confirmation: "Two-Factor Authentication is now active. Your account is more secure!"
+19. The system logs out all other sessions for security.
+20. Future logins now require:
+    - Email/username + password
+    - 6-digit code from authenticator app
+
+*Alternative Scenarios:*
+
+*A1. Invalid Verification Code*
+- At Step 12, if the code is incorrect:
+  - The system displays: "Invalid code. Please ensure you're entering the current 6-digit code from your authenticator app."
+  - The learner can try again (up to 5 attempts).
+  - After 5 failed attempts, setup is cancelled and must restart.
+
+*A2. Backup Codes Not Saved*
 - At Step 16, if the learner tries to continue without confirming:
-  - The system displays: *"Please confirm you've saved your backup codes. You won't be able to view them again."*
+  - The system displays: "Please confirm you've saved your backup codes. You won't be able to view them again."
   - The "Continue" button remains disabled until confirmed.
 
-**A3. Learner Chooses SMS Method**
+*A3. Learner Chooses SMS Method*
 - At Step 5, if the learner selects SMS:
   - The system prompts for phone number.
   - The system sends a test verification code via SMS.
@@ -2942,21 +2713,21 @@ The learner uploads or changes their profile picture.
   - Setup proceeds with SMS as the 2FA method.
   - Note: The system warns that SMS is less secure than authenticator apps.
 
-**A4. Learner Chooses Email Method**
+*A4. Learner Chooses Email Method*
 - At Step 5, if the learner selects email verification:
   - The system uses the registered email address.
   - The system sends a test verification code via email.
   - The learner enters the code to confirm.
   - Setup completes with email as the 2FA method.
 
-**A5. QR Code Won't Scan**
+*A5. QR Code Won't Scan*
 - At Step 8, if the learner can't scan the QR code:
   - The learner clicks "Can't scan? Enter code manually."
   - The system displays the secret key as text.
   - The learner manually enters the key into their authenticator app.
   - Setup continues from Step 10.
 
-**A6. Lost Authenticator Device**
+*A6. Lost Authenticator Device*
 - After 2FA is enabled, if the learner loses access:
   - During login, the learner clicks "Use backup code instead."
   - The learner enters one of their saved recovery codes.
@@ -2964,7 +2735,7 @@ The learner uploads or changes their profile picture.
   - The system prompts the learner to reconfigure 2FA.
   - The used recovery code is marked as consumed.
 
-**A7. All Backup Codes Used**
+*A7. All Backup Codes Used*
 - If all 10 backup codes are exhausted:
   - The learner must contact support with identity verification.
   - Support verifies identity through:
@@ -2973,22 +2744,22 @@ The learner uploads or changes their profile picture.
     - Recent activity verification
   - Support can temporarily disable 2FA or reset it.
 
-**A8. Technical Error During Setup**
+*A8. Technical Error During Setup*
 - At any step, if a system error occurs:
-  - The system displays: *"We encountered an error during 2FA setup. Please try again or contact support."*
+  - The system displays: "We encountered an error during 2FA setup. Please try again or contact support."
   - The setup is rolled back; 2FA is not enabled.
   - The learner can retry after a few minutes.
 
-**Extensions:**
+*Extensions:*
 
-**E1. Disable 2FA**
+*E1. Disable 2FA*
 - The learner navigates to Security settings.
 - The learner clicks "Disable Two-Factor Authentication."
 - The system requires current password + 2FA code for confirmation.
 - The system warns about reduced security.
 - If confirmed, 2FA is disabled and all backup codes are invalidated.
 
-**E2. Regenerate Backup Codes**
+*E2. Regenerate Backup Codes*
 - If the learner loses their backup codes:
   - The learner navigates to Security settings.
   - The learner authenticates with password + 2FA code.
@@ -2996,20 +2767,20 @@ The learner uploads or changes their profile picture.
   - The system creates 10 new codes and invalidates old ones.
   - The learner saves the new codes securely.
 
-**E3. Change 2FA Method**
+*E3. Change 2FA Method*
 - The learner can switch from SMS to authenticator app (or vice versa):
   - The learner navigates to Security settings.
   - The learner selects "Change 2FA Method."
   - The system requires current 2FA verification.
   - Setup for new method proceeds as in main scenario.
 
-**E4. Trusted Devices**
+*E4. Trusted Devices*
 - After successful 2FA login:
-  - The system offers: *"Trust this device for 30 days?"*
+  - The system offers: "Trust this device for 30 days?"
   - If accepted, 2FA is not required on this device for 30 days.
   - Trusted devices can be managed in Security settings.
 
-**Special Requirements:**
+*Special Requirements:*
 - 2FA codes must expire after 30 seconds (standard TOTP protocol).
 - Backup codes must be cryptographically secure random strings.
 - The system must support time-based one-time passwords (TOTP) standard.
@@ -3018,12 +2789,12 @@ The learner uploads or changes their profile picture.
 - The system must rate-limit 2FA verification attempts (max 5 per 15 minutes).
 - All 2FA setup and verification events must be logged for security auditing.
 
-**Frequency of Use:**
+*Frequency of Use:*
 - One-time setup for security-conscious learners.
 - Estimated adoption rate: 25-40% of active users.
 - Daily use during login for enrolled users.
 
-**Open Issues:**
+*Open Issues:*
 - Should 2FA be mandatory for learners with certification credentials?
 - Should we support hardware security keys (FIDO2/U2F)?
 - How do we handle learners in regions with poor SMS delivery?

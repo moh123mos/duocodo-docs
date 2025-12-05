@@ -261,15 +261,6 @@ At its core, the platform seamlessly integrates:
       </ul>
     </li>
   </div>
-  <div class="highlight-box">
-    <li>
-      <bold>Collaborative Community:</bold>
-      <ul>
-        <li>Peer code reviews, solution sharing, and discussion forums for collective problem-solving.</li> 
-        <li>Optional challenges to apply skills in real-world scenarios.</li>
-      </ul>
-    </li>
-  </div>
 </ol>
 
 By combining structured curriculum, instant feedback, and social accountability, the platform turns programming education into an addictive, confidence-building journey—making learning feel like play while ensuring tangible skill development.
@@ -321,15 +312,6 @@ By combining structured curriculum, instant feedback, and social accountability,
      - Adaptive recommendations for weak areas.  
      - Bookmarkable "Playlists" for user-defined goals.  
 
-#### <div class="subsection">6. Collaborative Community Hub  </div>
-   - Knowledge Sharing:  
-     - Solution galleries with upvoting/commenting.  
-     - Peer review workflows (rubric-guided code critiques).  
-   - Social Learning:  
-     - Group challenges: Team-based projects (e.g., build a collaborative app).  
-     - Q&A forums with mentor verification.  
-     - Live events: Coding sprints or AMAs with experts.  
-
 #### <div class="subsection">7. Accessibility & Scalability  </div>
    - Mobile-responsive design: Seamless tablet/phone access.  
    - Offline mode: Download lessons/exercises for practice without internet.  
@@ -352,10 +334,6 @@ Learning programming remains a daunting barrier for beginners, exacerbated by *f
 3. Motivation Erosion:  
    - Isolated learning lacks psychological hooks (rewards, social accountability) to sustain consistency.  
    - *80% of beginners quit within 3 months* due to diminishing confidence.  
-
-4. Community & Real-World Gap:  
-   - No safe space to share imperfect code, receive peer reviews, or collaborate.  
-   - Exercises feel academic, detached from tangible projects or industry practices.  
 
 
 ### <div class="section">Solution Approach</div>
@@ -412,22 +390,7 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
   </ul>
 </div>
 
-#### <div class="subsection">D. Community-Powered Growth  </div>
-<div class="highlight-box">
-  <ul>
-    <li>Collaborative Accountability:</li>
-    <ul>
-      <li>Peer review pools: Anonymously critique solutions using <i>rubric-guided feedback</i>.</li>
-      <li>Solution Showcases: Compare/upvote multiple approaches (e.g., “Recursive vs. Iterative”).</li>
-    </ul>
-    <li>Mentor-Verified Support:</li>
-    <ul>
-      <li>Expert-vetted discussions in Q&A forums + live coding AMAs.</li>
-    </ul>
-  </ul>
-</div>
-
-#### <div class="subsection">E. Personalized Reinforcement  </div>
+#### <div class="subsection">D. Personalized Reinforcement  </div>
 <div class="highlight-box">
   <ul>
     <li>Predictive Roadmaps:</li>
@@ -492,12 +455,6 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
   - Guide users to build deployable micro-apps (e.g., REST API service, ainteractiveractive dashboard).  
 - Industry Challenges:  
   - Partner with tech firms for sponsored "real-world" tasks (e.g., "Optimize Shopify’s cart algorithm").  
-
-#### <div class="subsection">8. Drive Community-Led Innovation  </div>
-- User-Generated Content:  
-  - Allow advanced learners to design peer-reviewed exercises (vetted by mentors).  
-- Global Hackathons:  
-  - Host quarterly themed competitions (e.g., "Sustainable Code Challenge") with expert judging.  
 
 ---
 
@@ -683,7 +640,7 @@ Then the related work was described, (Which is listed in the previous table), an
 
 - **Familiarity with Applications:** 
   - The target learners and educators in our region are already familiar with mobile educational apps and interactive tutorials (e.g. Duolingo, Code.org) in Arabic. Using a gamified, Arabic-language interface makes the platform intuitive; users require no extra training to log in, practice coding, or track progress.  
-  - Core team members have experience building web/mobile learning tools, so we understand typical user workflows (account setup, interactive lessons, community forums).  
+  - Core team members have experience building web/mobile learning tools, so we understand typical user workflows (account setup, interactive lessons).  
   - Because the UI and content are in Arabic, language barriers are eliminated, further smoothing the learning curve for beginners.
 
 - **Familiarity with Technology:**  
@@ -693,7 +650,7 @@ Then the related work was described, (Which is listed in the previous table), an
 
 - **Project Size:**  
   - The core team will include about 6 members (detailed below), which is appropriate for a mid-size project.  
-  - The platform’s scope involves a moderate variety of features: a real-time code editor (supporting Python and JS), gamification mechanics (XP, badges, streaks, daily goals), AI-driven hints, and a community sharing module. This is a mid-level complexity for an experienced team.  
+  - The platform’s scope involves a moderate variety of features: a real-time code editor (supporting Python and JS), gamification mechanics (XP, badges, streaks, daily goals), AI-driven hints. This is a mid-level complexity for an experienced team.  
   - The development timeline is relatively tight: with a target launch by May 2026 (about 6 months from planning start), the schedule is ambitious. However, by assigning parallel sprints for front-end, back-end, and content creation, and by leveraging reusable components (Nuxt/Vue libraries, Monaco Editor, etc.), we believe the team can meet this deadline.
 
 
@@ -742,7 +699,6 @@ Then the related work was described, (Which is listed in the previous table), an
 - **Intangible Benefits:**  
   - **Learner Engagement:** The gamified, Duolingo-style approach will keep students motivated. Studies show gamification (points, streaks, badges) significantly boosts user engagement and retention. By making coding fun and rewarding, we help learners persist.  
   - **Education Impact:** Providing coding education in Arabic removes language barriers and makes computer science more accessible. This can broaden participation in tech education and help develop local talent in programming.  
-  - **Community Growth:** Building a collaborative platform fosters a peer-learning community. Learners and mentors share projects and tips, which enhances learning outcomes and provides social value.  
   - **Brand and Market Position:** Successfully launching this platform will position our team as innovators in Arabic EdTech. Positive reputation and user testimonials will attract future investments, partnerships, and possibly expansion into new topics or markets.
 
 ---

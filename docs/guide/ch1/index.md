@@ -67,18 +67,9 @@ By combining structured curriculum, instant feedback, and social accountability,
      - Time-tracking: Session duration, concepts revisited.  
    - Roadmap Customization:  
      - Adaptive recommendations for weak areas.  
-     - Bookmarkable "Playlists" for user-defined goals.  
+     - Bookmarkable "Playlists" for user-defined goals.   
 
-### 6. Collaborative Community Hub  
-   - Knowledge Sharing:  
-     - Solution galleries with upvoting/commenting.  
-     - Peer review workflows (rubric-guided code critiques).  
-   - Social Learning:  
-     - Group challenges: Team-based projects (e.g., build a collaborative app).  
-     - Q&A forums with mentor verification.  
-     - Live events: Coding sprints or AMAs with experts.  
-
-### 7. Accessibility & Scalability  
+### 6. Accessibility & Scalability  
    - Mobile-responsive design: Seamless tablet/phone access.  
    - Offline mode: Download lessons/exercises for practice without internet.  
    - API integration: Future compatibility with LMS/CMS platforms.  
@@ -98,10 +89,6 @@ Learning programming remains a daunting barrier for beginners, exacerbated by *f
 3. Motivation Erosion:  
    - Isolated learning lacks psychological hooks (rewards, social accountability) to sustain consistency.  
    - *80% of beginners quit within 3 months* due to diminishing confidence.  
-
-4. Community & Real-World Gap:  
-   - No safe space to share imperfect code, receive peer reviews, or collaborate.  
-   - Exercises feel academic, detached from tangible projects or industry practices.  
 
 
 ## Solution Approach
@@ -130,14 +117,7 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 - Complexity Playgrounds:  
   - Visualize Big O trade-offs via interactive graph comparisons (e.g., O(n²) vs. O(n log n)).  
 
-### D. Community-Powered Growth  
-- Collaborative Accountability:  
-  - Peer review pools: Anonymously critique solutions using *rubric-guided feedback*.  
-  - Solution Showcases: Compare/upvote multiple approaches (e.g., “Recursive vs. Iterative”).  
-- Mentor-Verified Support:  
-  - Expert-vetted discussions in Q&A forums + live coding AMAs.  
-
-### E. Personalized Reinforcement  
+### D. Personalized Reinforcement  
 - Predictive Roadmaps:  
   - Weakness-targeted challenges (e.g., “Struggling with callbacks? Try these 3 exercises!”).  
 - Mastery Analytics:  
