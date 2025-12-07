@@ -77,7 +77,7 @@ export default withMermaid({
                     text: 'CH6: Database Design',
                     collapsed: true,
                     items: [
-                        { text: 'Entity Relationship Diagram', link: '/guide/ch6' },
+                        { text: 'Entity Relationship Diagram', link: '/guide/ch6/erd' },
                     ]
                 },
                 {
