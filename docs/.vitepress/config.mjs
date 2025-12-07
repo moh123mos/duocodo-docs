@@ -70,6 +70,7 @@ export default withMermaid({
                         { text: 'Use Cases Diagram', link: '/guide/ch5/use-case-diagram' },
                         { text: 'Use Cases Formats', link: '/guide/ch5/use-case-formats' },
                         { text: 'Sequence Diagrams', link: '/guide/ch5/sequence-diagrams' },
+                        { text: 'Class Diagrams', link: '/guide/ch5/class-diagrams' },
                     ]
                 },
                 {
