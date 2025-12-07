@@ -2009,7 +2009,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 20. Recover Password
+#### 9. Recover Password
 
 **Actor:** Learner
 
@@ -2035,7 +2035,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 9. Choose Learning Path
+#### 10. Choose Learning Path
 
 **Actor:** Learner
 
@@ -2063,7 +2063,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 10. View Lesson Content
+#### 11. View Lesson Content
 
 **Actor:** Learner
 
@@ -2091,7 +2091,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 11. Complete Exercise
+#### 12. Complete Exercise
 
 **Actor:** Learner
 
@@ -2099,7 +2099,7 @@ The learner uploads or changes their profile picture.
 1. The learner navigates to the exercises section of a lesson.
 2. The learner selects an available coding challenge.
 3. The system displays the problem statement, input/output examples, and starter code.
-4. The learner writes code in the Monaco Editor in platform.
+4. The learner writes code in the Code Editor in platform.
 5. The learner drag/drop blocks of code in the blockly Editor in app.
 6. The learner clicks "Run Tests" to validate their solution.
 7. The system executes the code against test cases.
@@ -2125,7 +2125,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 12. Track Progress and View Learning Analytics
+#### 13. Track Progress and View Learning Analytics
 
 **Actor:** Learner
 
@@ -2171,7 +2171,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 13. Earn XP and Level Up
+#### 14. Earn XP and Level Up
 
 **Actor:** Learner
 
@@ -2195,7 +2195,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 14. Set Language Preferences
+#### 15. Set Language Preferences
 
 **Actor:** Learner
 
@@ -2217,7 +2217,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 17. Bookmark Lesson
+#### 16. Bookmark Lesson
 
 **Actor:** Learner
 
@@ -2236,7 +2236,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 18. Share Solution
+#### 17 . Share Solution
 
 **Actor:** Learner
 
@@ -2255,20 +2255,170 @@ The learner uploads or changes their profile picture.
 - At Step 6, if the solution violates guidelines, moderators reject it with feedback.
 
 ---
+
 ### Fully Dressed Format Use Cases
 
-#### 21. Practice Coding with Monaco Editor
+#### 18. Enable Two-Factor Authentication
 
 **Primary Actor:** Learner
 
 **Stakeholders and Interests:**
-- **Learner:** Wants to write, execute, and debug code efficiently in an intuitive environment.
-- **Platform:** Needs to provide secure, real-time code execution with helpful feedback.
+- *Learner:* Wants enhanced account security to protect personal data and progress.
+- *Platform:* Needs to reduce account compromise and unauthorized access.
+- *Security Team:* Wants to enforce best practices for account protection.
 
 **Preconditions:**
 - Learner must be logged in.
+- Learner must have a verified email address.
+- Learner must have access to a mobile device or authenticator app.
+
+**Postconditions:**
+- 2FA is enabled on the learner's account.
+- Future logins require both password and verification code.
+- Backup codes are generated and stored securely.
+
+**Main Success Scenario:**
+1. The learner navigates to Account Settings.
+2. The learner selects "Security" tab.
+3. The learner clicks "Enable Two-Factor Authentication."
+4. The system displays 2FA setup options:
+   - Authenticator app (recommended)
+   - Email verification code
+5. The learner selects "Authenticator App."
+6. The system generates a QR code and secret key.
+7. The system displays instructions:
+   - "Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)"
+8. The learner opens their authenticator app and scans the QR code.
+9. The authenticator app adds the DuoCode account and begins generating codes.
+10. The system prompts: "Enter the 6-digit code from your authenticator app to confirm setup."
+11. The learner enters the current code from their app.
+12. The system validates the code.
+13. The system generates 10 backup recovery codes.
+14. The system displays the recovery codes with instructions:
+    - "Save these codes securely. Each can be used once if you lose access to your authenticator."
+15. The learner downloads or copies the recovery codes.
+16. The learner confirms they've saved the codes by checking a box.
+17. The system enables 2FA on the account.
+18. The learner sees confirmation: "Two-Factor Authentication is now active. Your account is more secure!"
+19. The system logs out all other sessions for security.
+20. Future logins now require:
+    - Email/username + password
+    - 6-digit code from authenticator app
+
+**Alternative Scenarios:**
+
+**A1. Invalid Verification Code**
+- At Step 12, if the code is incorrect:
+  - The system displays: "Invalid code. Please ensure you're entering the current 6-digit code from your authenticator app."
+  - The learner can try again (up to 5 attempts).
+  - After 5 failed attempts, setup is cancelled and must restart.
+
+**A2. Backup Codes Not Saved**
+- At Step 16, if the learner tries to continue without confirming:
+  - The system displays: "Please confirm you've saved your backup codes. You won't be able to view them again."
+  - The "Continue" button remains disabled until confirmed.
+
+**A3. Learner Chooses Email Method**
+- At Step 5, if the learner selects email verification:
+  - The system uses the registered email address.
+  - The system sends a test verification code via email.
+  - The learner enters the code to confirm.
+  - Setup completes with email as the 2FA method.
+
+**A4. QR Code Won't Scan**
+  - At Step 8, if the learner can't scan the QR code:
+  - The learner clicks "Can't scan? Enter code manually."
+  - The system displays the secret key as text.
+  - The learner manually enters the key into their authenticator app.
+  - Setup continues from Step 10.
+
+**A5. Lost Authenticator Device**
+- After 2FA is enabled, if the learner loses access:
+  - During login, the learner clicks "Use backup code instead."
+  - The learner enters one of their saved recovery codes.
+  - The system validates the code and grants access.
+  - The system prompts the learner to reconfigure 2FA.
+  - The used recovery code is marked as consumed.
+
+**A6. All Backup Codes Used**
+- If all 10 backup codes are exhausted:
+  - The learner must contact support with identity verification.
+  - Support verifies identity through:
+    - Email verification
+    - Security questions
+    - Recent activity verification
+  - Support can temporarily disable 2FA or reset it.
+
+**A7. Technical Error During Setup**
+- At any step, if a system error occurs:
+  - The system displays: "We encountered an error during 2FA setup. Please try again or contact support."
+  - The setup is rolled back; 2FA is not enabled.
+  - The learner can retry after a few minutes.
+
+**Extensions:**
+
+**E1. Disable 2FA**
+- The learner navigates to Security settings.
+- The learner clicks "Disable Two-Factor Authentication."
+- The system requires current password + 2FA code for confirmation.
+- The system warns about reduced security.
+- If confirmed, 2FA is disabled and all backup codes are invalidated.
+
+**E2. Regenerate Backup Codes**
+- If the learner loses their backup codes:
+  - The learner navigates to Security settings.
+  - The learner authenticates with password + 2FA code.
+  - The learner clicks "Generate New Backup Codes."
+  - The system creates 10 new codes and invalidates old ones.
+  - The learner saves the new codes securely.
+
+**E3. Change 2FA Method**
+- The learner can switch from SMS to authenticator app (or vice versa):
+  - The learner navigates to Security settings.
+  - The learner selects "Change 2FA Method."
+  - The system requires current 2FA verification.
+  - Setup for new method proceeds as in main scenario.
+
+**E4. Trusted Devices**
+- After successful 2FA login:
+  - The system offers: "Trust this device for 30 days?"
+  - If accepted, 2FA is not required on this device for 30 days.
+  - Trusted devices can be managed in Security settings.
+
+**Special Requirements:**
+- 2FA codes must expire after 30 seconds (standard TOTP protocol).
+- Backup codes must be cryptographically secure random strings.
+- The system must support time-based one-time passwords (TOTP) standard.
+- SMS delivery must occur within 60 seconds.
+- Recovery codes must be hashed in the database, not stored in plain text.
+- The system must rate-limit 2FA verification attempts (max 5 per 15 minutes).
+- All 2FA setup and verification events must be logged for security auditing.
+
+**Frequency of Use:**
+- One-time setup for security-conscious learners.
+- Estimated adoption rate: 25-40% of active users.
+- Daily use during login for enrolled users.
+
+**Open Issues:**
+- Should 2FA be mandatory for learners with certification credentials?
+- Should we support hardware security keys (FIDO2/U2F)?
+- How do we handle learners in regions with poor SMS delivery?
+
+---
+
+#### 19. Practice Coding with Code Editor (Platform)
+
+**Primary Actor:** Learner
+
+**Stakeholders and Interests:**
+- **Learner:** Wants to write, execute, and debug code efficiently in a professional environment on web platform.
+- **Platform:** Needs to provide secure, real-time code execution with helpful feedback.
+
+**Preconditions:**
+- Learner must be logged in to the web platform.
 - Learner must have access to a lesson or exercise with a coding component.
-- Monaco Editor and execution APIs must be operational.
+- Code Editor and execution APIs must be operational.
+- Learner must be using desktop or laptop computer with modern web browser.
 
 **Postconditions:**
 - Code is written, executed, and results are displayed.
@@ -2276,104 +2426,534 @@ The learner uploads or changes their profile picture.
 - Learner receives feedback on their solution.
 
 **Main Success Scenario:**
-1. The learner navigates to a coding exercise or lesson.
-2. The system loads the Monaco Editor with syntax highlighting for the selected language (Python/JavaScript).
-3. The system displays the problem statement, starter code (if any), and expected output.
-4. The learner writes their code in the editor.
-5. The editor provides real-time features:
-   - Auto-completion
-   - Syntax highlighting
-   - Error underlining
-   - Code folding
-6. The learner clicks "Run Code" to test their solution.
-7. The system sends the code to the secure execution API.
-8. The execution API runs the code in an isolated sandbox environment.
-9. The system returns:
-   - Console output
-   - Execution time
-   - Memory usage
-   - Error messages (if any)
-10. The results are displayed in the output panel below the editor.
-11. If successful, the learner clicks "Submit Solution."
-12. The system validates the solution against all test cases.
-13. The system awards XP, updates mastery metrics, and saves the code.
-14. The learner sees a success message with earned rewards.
+1. The learner navigates to a coding exercise or lesson on the web platform.
+2. The system loads the Code Editor with syntax highlighting for the selected language (Python/JavaScript).
+3. The system displays:
+   - Problem statement on the left panel
+   - Code Editor in the center
+   - Output console at the bottom
+   - Starter code (if any) pre-loaded in the editor
+4. The learner writes their code in the Code Editor.
+5. The editor provides professional IDE features:
+   - **IntelliSense** auto-completion
+   - **Syntax highlighting** with color-coded keywords
+   - **Real-time error detection** with red underlines
+   - **Code folding** for functions and blocks
+   - **Multiple cursor editing**
+   - **Find and replace functionality**
+   - **Code formatting** (Ctrl+Shift+F)
+   - **Bracket matching**
+6. The learner can customize editor settings:
+   - Font size adjustment
+   - Theme selection (dark/light mode)
+   - Tab size configuration
+   - Line numbers toggle
+7. The learner clicks "Run Code" to test their solution.
+8. The system sends the code to the secure execution API via HTTPS.
+9. The execution API runs the code in an isolated Docker sandbox environment.
+10. The system returns execution results:
+    - Standard output (console.log, print statements)
+    - Execution time (in milliseconds)
+    - Memory usage (in MB)
+    - Error messages with line numbers (if any)
+    - Return values
+11. The results are displayed in the output console below the editor with syntax highlighting.
+12. The learner can view detailed execution metrics in an expandable panel.
+13. If the output matches expected results, the learner clicks "Submit Solution."
+14. The system validates the solution against all test cases (visible and hidden).
+15. The system displays test results:
+    - Passed test cases (✓ in green)
+    - Failed test cases (✗ in red) with input/output comparison
+    - Edge cases handled correctly
+16. If all tests pass:
+    - The system awards XP based on:
+      - First attempt bonus (+50 XP)
+      - Code efficiency score
+      - Time taken to solve
+    - Updates skill mastery metrics
+    - Saves the code to learner's solution history
+17. The learner sees a success message with:
+    - Earned XP and badges
+    - Performance comparison with other learners
+    - Suggestions for optimization (if applicable)
 
 **Alternative Scenarios:**
 
 **A1. Syntax Error Detected**
-- At Step 6, if the learner's code contains syntax errors:
-  - The editor underlines the error in red.
-  - A tooltip displays: *"Syntax Error: [Description]"*
-  - The learner corrects the error and continues.
+- At Step 5, if the learner's code contains syntax errors:
+  - Code Editor underlines the error in red with wavy line
+  - Hovering shows tooltip: *"Syntax Error: [Description] at line [X], column [Y]"*
+  - Error panel shows detailed message with suggested fixes
+  - The learner corrects the error and continues
 
 **A2. Runtime Error During Execution**
-- At Step 9, if the code crashes during execution:
-  - The system displays: *"Runtime Error: [Error Type]. Your code encountered an issue at line [X]."*
-  - The learner can view the stack trace and debug.
+- At Step 10, if the code crashes during execution:
+  - The system displays in output console:
+    ```
+    ✗ Runtime Error: IndexError
+    Your code encountered an issue at line 15
+    Stack Trace:
+    File "main.py", line 15, in <module>
+        print(arr[10])
+    IndexError: list index out of range
+    ```
+  - The learner can view full stack trace
+  - System suggests debugging tips based on error type
 
-**A3. Timeout Error**
-- At Step 9, if code execution exceeds the time limit:
-  - The system displays: *"Execution Timeout: Your code took too long to run. Consider optimizing your solution."*
-  - The learner can revise their approach.
+**A3. Execution Timeout**
+- At Step 9, if code execution exceeds 5 seconds:
+  - The system terminates execution and displays:
+    ```
+    ⏱️ Execution Timeout
+    Your code took longer than 5 seconds to run.
+    Possible issues:
+    - Infinite loop detected
+    - Inefficient algorithm (O(n²) or worse)
+    Suggestion: Consider optimizing your approach
+    ```
+  - The learner can review algorithm complexity
 
-**A4. Test Cases Failed**
-- At Step 12, if some test cases fail:
-  - The system displays which tests passed/failed with input/output comparisons.
-  - The learner can revise and resubmit.
+**A4. Memory Limit Exceeded**
+- At Step 10, if memory usage exceeds 512MB:
+  - The system displays:
+    ```
+    💾 Memory Limit Exceeded
+    Your code used more than 512MB of memory.
+    Consider:
+    - Reducing data structure sizes
+    - Using generators instead of lists
+    - Implementing streaming solutions
+    ```
 
-**A5. Code Execution Service Unavailable**
-- At Step 7, if the execution API is down:
-  - The system displays: *"The code execution service is temporarily unavailable. Please try again shortly."*
-  - The learner's code is saved as a draft.
+**A5. Test Cases Failed**
+- At Step 14-15, if some test cases fail:
+  - The system displays detailed comparison:
+    ```
+    Test Case 3: ✗ Failed
+    Input: [1, 2, 3, 4, 5]
+    Expected Output: 15
+    Your Output: 14
+    Difference: Off by 1 (check array indexing)
+    ```
+  - The learner can revise and resubmit
+  - Hint button becomes available after 2 failed attempts
 
-**A6. Invalid Programming Language**
-- At Step 2, if the selected language isn't supported:
-  - The system displays: *"This language is not currently supported. Please select Python or JavaScript."*
+**A6. Code Execution Service Unavailable**
+- At Step 8, if the execution API is down:
+  - The system displays:
+    ```
+    ⚠️ Execution Service Temporarily Unavailable
+    The code execution service is currently down.
+    Your code has been saved as a draft.
+    Please try again in a few minutes.
+    ```
+  - Code is auto-saved every 30 seconds
+  - Learner can continue working offline
+
+**A7. Browser Crash or Tab Closed**
+- If browser crashes or tab is accidentally closed:
+  - On return, system displays:
+    ```
+    🔄 Restored from Auto-Save
+    Last saved: 30 seconds ago
+    Would you like to continue where you left off?
+    [Restore Code] [Start Fresh]
+    ```
 
 **Extensions:**
 
-**E1. Using Code Snapshotting**
-- The learner can save multiple versions of their solution.
-- At any point, the learner clicks "Save Snapshot."
-- The system stores the current code version with a timestamp.
-- The learner can compare or restore previous versions.
+**E1. Code Snapshotting**
+- The learner can save multiple versions of their solution
+- Click "Save Snapshot" button (Ctrl+S)
+- System stores code with timestamp: "Version 1 - 14:30:25"
+- Learner can compare versions side-by-side
+- Restore any previous version with one click
 
-**E2. Accessing Model Solutions**
-- After successful submission, the learner clicks "View Solutions."
-- The system displays model solutions with complexity analysis.
-- The learner can compare their approach with optimal solutions.
+**E2. Code Sharing**
+- After successful submission, learner can share solution
+- Click "Share Code" generates unique URL
+- Other learners can view (not edit) the code
+- Solution appears in "Community Solutions" gallery
+
+**E3. Accessing Model Solutions**
+- After successful submission, "View Solutions" button appears
+- System displays 3-5 model solutions:
+  - **Optimal Solution** (best time/space complexity)
+  - **Beginner-Friendly** (easiest to understand)
+  - **Alternative Approaches** (different algorithms)
+- Each includes:
+  - Big O complexity analysis
+  - Line-by-line explanations
+  - When to use this approach
+
+**E4. Code Execution History**
+- Learner can view all previous runs:
+  - Timestamp of execution
+  - Output results
+  - Performance metrics
+  - Can re-run any previous version
+
+**E5. Split Screen View**
+- Learner can enable split-screen mode:
+  - Problem description on left
+  - Code editor on right
+  - Resizable panels
+  - Useful for referencing requirements while coding
+
+**E6. Keyboard Shortcuts**
+- Code Editor supports VS Code shortcuts:
+  - `Ctrl+/` - Toggle line comment
+  - `Ctrl+D` - Select next occurrence
+  - `Alt+Up/Down` - Move line up/down
+  - `Ctrl+Shift+K` - Delete line
+  - `F12` - Go to definition
+  - Full shortcut reference available in help menu
+
+**E7. Code Formatting**
+- Learner clicks "Format Code" or presses `Ctrl+Shift+F`
+- System auto-formats code following PEP 8 (Python) or StandardJS style
+- Fixes indentation and spacing
+- Improves code readability
+
+**E8. Collaborative Coding (Future)**
+- Multiple learners can work on same exercise together
+- Real-time cursor positions visible
+- Chat panel for discussion
+- Useful for pair programming exercises
 
 **Special Requirements:**
-- Monaco Editor must support Python and JavaScript with full IntelliSense.
-- Code execution must complete within 5 seconds for standard exercises.
-- The sandbox environment must prevent malicious code execution.
-- All code submissions must be encrypted during transmission.
-- The editor must be accessible via keyboard shortcuts.
-- Dark and light themes must be supported.
+- Code Editor must load within 2 seconds
+- Editor must support Python 3.10+ and ES6+ JavaScript
+- Code execution must complete within 5 seconds for standard exercises
+- The sandbox environment must prevent:
+  - File system access
+  - Network requests
+  - System command execution
+  - Resource exhaustion attacks
+- All code submissions must be encrypted during transmission (TLS 1.3)
+- The editor must be fully keyboard-accessible (WCAG 2.1 AA compliant)
+- Dark and light themes must both have sufficient contrast ratios
+- Editor must work on screens as small as 1024x768
+- Auto-save must occur every 30 seconds
+- Maximum code file size: 10,000 lines
+- Support for multiple programming languages must be extensible
 
 **Frequency of Use:**
-- This is one of the most frequently used features, occurring multiple times per session for active learners.
+- This is the most frequently used feature on web platform
+- Average: 15-20 code executions per active session
+- Daily active users spend 60% of their time in Code Editor
 
 **Open Issues:**
-- Should we support additional languages (Java, C++) in future releases?
-- How do we handle collaborative coding exercises?
+- Should we support additional languages (Java, C++, Ruby) in future releases?
+- How do we handle collaborative coding exercises without real-time sync?
+- Should we implement code review features for peer learning?
+- What's the optimal balance between sandbox security and execution speed?
 
 ---
 
-#### 22. Receive AI-Powered Hints
+#### 20. Practice Coding with Blockly Editor (Mobile App)
+
+**Primary Actor:** Learner
+
+**Stakeholders and Interests:**
+- **Learner:** Wants an intuitive, visual way to learn programming concepts on mobile devices without typing code.
+- **Platform:** Needs to make coding accessible to beginners and younger learners through mobile-friendly interface.
+- **Educators:** Want a tool that teaches computational thinking before syntax complexity.
+
+**Preconditions:**
+- Learner must be logged in to the mobile app (iOS/Android).
+- Learner must have access to a lesson or exercise supporting block-based coding.
+- Blockly library and execution engine must be operational.
+- Device must have touchscreen capability.
+
+**Postconditions:**
+- Visual block program is created and executed.
+- Generated code (Python/JavaScript) is executed successfully.
+- Progress is tracked and saved.
+- Learner understands the underlying code structure.
+
+**Main Success Scenario:**
+1. The learner navigates to a coding exercise on the mobile app.
+2. The system detects the device type and loads the Blockly visual editor.
+3. The system displays:
+   - Problem statement at the top (collapsible)
+   - **Blockly workspace** in the center (main area)
+   - **Block toolbox** on the left side (categorized blocks)
+   - **Output console** at the bottom (expandable)
+   - **Block bin/trash** for removing blocks
+4. The problem requires building a simple program (e.g., "Calculate sum of numbers in a list").
+5. The learner taps the toolbox to browse available block categories:
+   - **Logic blocks** (if/else, comparison, boolean)
+   - **Loop blocks** (for, while, repeat)
+   - **Math blocks** (arithmetic, random, functions)
+   - **Text blocks** (string operations, concatenation)
+   - **List blocks** (create, add, get, length)
+   - **Variable blocks** (create, set, get)
+   - **Function blocks** (define, call, return)
+6. The learner selects a "create variable" block and names it `sum`.
+7. The learner drags a "set variable to" block to the workspace.
+8. The learner adds a "for each item in list" loop block.
+9. Inside the loop, learner adds a "set sum to sum + item" block.
+10. Blocks automatically snap together when compatible (visual feedback):
+    - **Green outline** when blocks can connect
+    - **Red outline** when blocks are incompatible
+    - **Magnetic snap** when released near compatible blocks
+11. The learner can:
+    - **Drag blocks** with finger/stylus
+    - **Pinch to zoom** for better view
+    - **Pan** the workspace by dragging background
+    - **Duplicate blocks** by long-press
+    - **Delete blocks** by dragging to trash icon
+12. The system shows real-time validation:
+    - Incomplete blocks highlighted in yellow
+    - Required connections shown with puzzle piece icons
+    - Error indicators if logic is invalid
+13. The learner taps "Run Code" button.
+14. The system converts blocks to executable code (Python or JavaScript):
+    ```python
+    sum = 0
+    list = [1, 2, 3, 4, 5]
+    for item in list:
+        sum = sum + item
+    print(sum)
+    ```
+15. The generated code is displayed in a collapsible "View Code" panel.
+16. The learner can switch between:
+    - **Block View** (visual programming)
+    - **Code View** (text-based equivalent)
+    - **Split View** (both simultaneously)
+17. The system sends the generated code to the execution API.
+18. The execution API runs the code in a secure sandbox.
+19. The output console displays results:
+    - Console output: `15`
+    - Execution time: `0.02s`
+    - Memory used: `12MB`
+20. If output is correct, the learner taps "Submit Solution."
+21. The system validates against test cases:
+    - **Test 1:** Input `[1, 2, 3]` → Expected `6` ✓
+    - **Test 2:** Input `[10, 20, 30]` → Expected `60` ✓
+    - **Test 3:** Input `[]` → Expected `0` ✓
+22. If all tests pass:
+    - Confetti animation plays on mobile screen
+    - Success sound effect (optional, can be muted)
+    - XP points awarded with animation
+    - Badge earned (e.g., "Loop Master" for completing loop exercises)
+23. The learner sees a summary screen:
+    - "🎉 Exercise Completed!"
+    - XP earned: +30 XP
+    - Total XP: 450 XP
+    - Next exercise unlocked
+24. The block program is saved to the learner's solution history.
+25. The learner can share their block solution as an image on social media.
+
+**Alternative Scenarios:**
+
+**A1. Blocks Won't Connect (Type Mismatch)**
+- At Step 10, if learner tries to connect incompatible blocks:
+  - Blocks shake and show red outline
+  - Tooltip displays: *"❌ Cannot connect: Expected NUMBER, got TEXT"*
+  - Blocks bounce back to original position
+  - Learner must use correct block type
+
+**A2. Missing Required Blocks**
+- At Step 13, if program is incomplete:
+  - System displays: *"⚠️ Your program is incomplete. Missing: output block"*
+  - Incomplete blocks flash yellow
+  - "Run Code" button is disabled until complete
+  - Hint suggests which category has needed blocks
+
+**A3. Infinite Loop Detected**
+- At Step 18, if blocks create infinite loop:
+  - Execution is terminated after 3 seconds
+  - System displays:
+    ```
+    ⚠️ Infinite Loop Detected
+    Your loop ran more than 1000 times.
+    Check your loop condition to ensure it can exit.
+    ```
+  - Problematic loop block is highlighted in red
+  - Learner can review loop logic
+
+**A4. Runtime Error in Generated Code**
+- At Step 18, if execution fails:
+  - System displays error in simple terms:
+    ```
+    ❌ Error: Division by Zero
+    Your program tried to divide by 0 at this block:
+    [Highlights the specific block causing error]
+    Tip: Check if denominator can be zero
+    ```
+  - Problematic block glows red
+  - Learner can tap block for more details
+
+**A5. Test Cases Failed**
+- At Step 21, if some tests fail:
+  - System shows which tests failed:
+    ```
+    Test 2: ❌ Failed
+    Input: [10, 20, 30]
+    Expected: 60
+    Your Output: 50
+    Issue: Check your addition logic
+    ```
+  - Learner can revise blocks and retry
+
+**A6. Accidental Block Deletion**
+- At Step 11, if learner accidentally deletes important blocks:
+  - "Undo" button appears for 5 seconds
+  - Tapping "Undo" restores deleted blocks
+  - After 5 seconds, deletion is permanent
+  - Learner can recreate blocks from toolbox
+
+**A7. Device Orientation Change**
+- If device is rotated during exercise:
+  - System saves current block positions
+  - Re-layouts workspace for new orientation
+  - **Portrait mode:** Toolbox becomes bottom drawer
+  - **Landscape mode:** Toolbox on left sidebar
+  - All blocks remain in same relative positions
+
+**A8. App Crashes or Closed**
+- If app crashes or is closed:
+  - On relaunch, system displays:
+    ```
+    📂 Restore Previous Session?
+    You were working on: "Sum Calculator"
+    Last saved: 2 minutes ago
+    [Restore] [Start New]
+    ```
+  - Auto-save occurs every 20 seconds
+
+**A9. Network Unavailable**
+- At Step 17, if no internet connection:
+  - System displays: *"📡 No Internet - Code saved locally"*
+  - Execution is queued
+  - When connection restores, code executes automatically
+  - Learner receives notification when results are ready
+
+**Extensions:**
+
+**E1. Block Customization**
+- Learner can customize block colors:
+  - Tap block settings icon
+  - Choose from color palette
+  - Useful for organizing complex programs
+  - Custom colors saved per learner
+
+**E2. Voice Input for Block Names**
+- Learner can name variables using voice:
+  - Tap microphone icon
+  - Say variable name: "total score"
+  - System creates variable with that name
+  - Useful for accessibility
+
+**E3. Block Animation**
+- During execution, blocks light up sequentially:
+  - Shows program flow in real-time
+  - Helps learners understand execution order
+  - Speed can be adjusted (slow/normal/fast)
+  - Can be paused at any block
+
+**E4. Tutorial Hints with Arrows**
+- For first-time users:
+  - Animated arrows point to next action
+  - Speech bubbles explain each step
+  - "Try dragging this block here 👉"
+  - Tutorial can be skipped or replayed
+
+**E5. Block Library Favorites**
+- Learner can mark frequently-used blocks as favorites:
+  - Star icon on blocks
+  - Favorites appear in "My Blocks" category
+  - Speeds up program building
+
+**E6. Convert to Text Code**
+- After mastering blocks, learner can transition:
+  - Tap "Convert to Code" button
+  - System generates Python/JavaScript
+  - Opens in Code Editor (if on tablet/larger screen)
+  - Learner can edit and learn text-based syntax
+
+**E7. Collaborative Block Coding**
+- Learner can invite friend to code together:
+  - Share session code
+  - Both see blocks in real-time
+  - Each user's cursor shown with name
+  - Chat feature for discussion
+  - Useful for pair programming
+
+**E8. Block Challenges with Timers**
+- Timed challenges for competitive learning:
+  - Build program in 3 minutes
+  - Leaderboard for fastest correct solutions
+  - Bonus XP for speed
+  - Encourages efficiency
+
+**E9. Parent/Teacher Monitoring**
+- Parents or teachers can view learner's block programs:
+  - Dashboard shows completed exercises
+  - Can view block solutions
+  - Progress reports
+  - Useful for tracking learning at home/school
+
+**E10. Block Export as Image**
+- Learner can export block program as PNG:
+  - Tap "Share" button
+  - System generates image of blocks
+  - Can post to social media
+  - Useful for showcasing progress
+
+**E11. Adaptive Block Difficulty**
+- System adjusts available blocks based on skill level:
+  - **Beginner:** Basic blocks only (print, variables, simple loops)
+  - **Intermediate:** Add functions, lists, conditions
+  - **Advanced:** Classes, recursion, advanced data structures
+  - Prevents overwhelming beginners with too many options
+
+**Special Requirements:**
+- Blockly editor must load within 1.5 seconds on mobile devices
+- Touch targets must be at least 44x44 pixels (Apple HIG standard)
+- Blocks must have high contrast for visibility in sunlight
+- Pinch-to-zoom must support 50% to 200% zoom range
+- Drag operations must have 150ms delay to prevent accidental moves
+- Block snapping must have haptic feedback (vibration) on compatible devices
+- Workspace must support up to 100 blocks without performance degradation
+- App must work offline with local execution for basic exercises
+- All block actions must have undo/redo support (up to 50 steps)
+- Block colors must be colorblind-friendly (use patterns/icons in addition to colors)
+- Text on blocks must be readable at minimum 16px font size
+- Auto-save must occur every 20 seconds
+- Generated code must be syntactically correct and executable
+- Block toolbox must be searchable for finding specific blocks quickly
+
+**Frequency of Use:**
+- Very high frequency among mobile learners (ages 8-16 primary users)
+- Average: 10-15 block exercises per active mobile session
+- 70% of mobile app users prefer Blockly over text-based coding initially
+- Gateway to text-based programming (users transition after 3-6 months)
+
+**Open Issues:**
+- Should we support custom block creation for advanced users?
+- How do we handle very complex programs (100+ blocks) on small screens?
+- Should we implement AR (Augmented Reality) mode for 3D block visualization?
+- Can we integrate voice coding ("add a loop block") for hands-free operation?
+- Should there be a "block marketplace" where users share custom block libraries?
+- How do we transition users from Blockly to Code smoothly?
+- Should we support multiple languages (Spanish, Arabic) for block text?
+
+#### 21. Receive AI-Powered Hints
 
 **Primary Actor:** Learner
 
 **Stakeholders and Interests:**
 - **Learner:** Wants contextual, progressive hints that guide without giving away the complete solution.
 - **Platform:** Needs to provide intelligent assistance that enhances learning without creating dependency.
-- **AI System (Gemini/OpenRouter):** Provides adaptive hints based on code analysis.
+- **AI System (Gemini/OpenRouter/Custom model):** Provides adaptive hints based on code analysis.
 
 **Preconditions:**
 - Learner must be working on an exercise.
 - Learner must be logged in.
-- AI API services (OpenRouter/Gemini) must be operational.
+- AI API services (OpenRouter/Gemini/Custom model) must be operational.
 - Learner must have made at least one attempt at the exercise.
 
 **Postconditions:**
@@ -2416,7 +2996,7 @@ The learner uploads or changes their profile picture.
 **A2. Maximum Hints Reached**
 - At Step 4, if the learner has used all available hints for this exercise:
   - The system displays: *"You've used all available hints. Try applying what you've learned or view the model solution."*
-  - The learner is offered the option to view the complete solution (with reduced XP reward).
+  - The learner is offered the option to view the complete solution (with loss XP reward).
 
 **A3. AI Service Unavailable**
 - At Step 6, if the AI API is down or unresponsive:
@@ -2482,7 +3062,309 @@ The learner uploads or changes their profile picture.
 
 ---
 
-#### 23. Complete Certification Track
+#### 22. Complete Certification Track
+
+**Primary Actor:** Learner
+
+**Stakeholders and Interests:**
+- **Learner:** Wants to earn a credential that validates completion of their learning path and acquired programming skills.
+- **Platform:** Needs to ensure certification standards are maintained and verifiable.
+- **Potential Employers/Institutions:** Want assurance that certifications represent genuine path completion and competency.
+- **Content Creators:** Want their learning paths to offer valuable credentials that motivate completion.
+
+**Preconditions:**
+- Learner must be logged in.
+- Learner must be enrolled in a learning path (from Use Case 10: Choose Learning Path).
+- Learner must have completed at least 95% of the learning path requirements.
+- The final challenge of the learning path must be unlocked.
+
+**Postconditions:**
+- Learning path is marked as 100% complete.
+- Learner receives a digital certificate for the completed path.
+- Certificate is added to learner's profile and portfolio.
+- Certification data is recorded in the system with timestamp.
+- Certificate can be verified and shared publicly.
+
+**Main Success Scenario:**
+1. The learner is enrolled in a learning path (e.g., "Python Full-Stack Developer" from Use Case 10).
+2. The learner progresses through the path by completing courses, lessons, and exercises across all tiers:
+   - Tier 1: Foundation modules completed
+   - Tier 2: Core concepts mastered
+   - Tier 3: Intermediate skills acquired
+   - Tier 4: Advanced topics finished
+3. The system tracks progress in the learner's dashboard:
+   - Progress bar shows: 95% complete
+   - Status: "Final Challenge Unlocked"
+4. The learner navigates to the learning path dashboard.
+5. The system displays: *"🎉 You're almost there! Complete the final challenge to earn your certification."*
+6. The learner clicks "Start Final Challenge."
+7. The system displays the final challenge details:
+   - Challenge title: "Build a Full-Stack Task Management Application"
+   - Requirements:
+     - Implement frontend interface
+     - Create backend API
+     - Database integration
+     - User authentication
+     - Deployment instructions
+   - Time limit: 3-7 days (self-paced)
+   - Submission format: GitHub repository link + deployed app URL
+8. The learner works on the final challenge project using skills learned throughout the path.
+9. The learner tests their application thoroughly.
+10. The learner clicks "Submit Final Challenge."
+11. The system prompts for submission details:
+    - GitHub repository URL
+    - Live deployment URL
+    - Project description (optional)
+    - Technologies used
+12. The learner provides all required information and clicks "Confirm Submission."
+13. The system validates submission:
+    - Checks if URLs are accessible
+    - Verifies repository contains code
+    - Scans for plagiarism using code similarity detection
+14. **Automated Evaluation Process:**
+    - The system runs automated tests on the submitted project:
+      - Code quality analysis (linting, formatting)
+      - Functionality tests (API endpoints work correctly)
+      - Security checks (no obvious vulnerabilities)
+      - Performance benchmarks (response times acceptable)
+15. **Scoring System:**
+    - The system calculates a score based on:
+      - Functionality: 40 points (all features work correctly)
+      - Code quality: 30 points (clean, well-documented code)
+      - Creativity: 15 points (innovative features, UI/UX)
+      - Best practices: 15 points (security, performance, structure)
+    - Minimum passing score: 70/100
+16. If the learner achieves 70+ points:
+    - The system displays: *"✅ Congratulations! Your project meets certification standards."*
+17. **Certificate Generation:**
+    - The system generates a digital certificate including:
+      - Learner's full name
+      - Learning path title: "Python Full-Stack Developer"
+      - Completion date
+      - Unique certificate ID (e.g., DCD-PY-2025-12345)
+      - Platform logo and signature
+      - QR code for verification
+      - Path details (total hours, skills acquired)
+18. The system displays certificate preview with animation:
+    - Confetti effect
+    - Achievement sound
+    - Certificate appears with fade-in animation
+19. The system updates learner's profile:
+    - Badge: "Python Full-Stack Developer Certified"
+    - Total XP bonus: +5000 XP
+    - New level unlocked (if applicable)
+    - Certificate added to "My Certificates" section
+20. The system sends congratulatory email with:
+    - Certificate PDF attachment (high-resolution, printable)
+    - Certificate verification link
+    - Social sharing templates
+    - LinkedIn credential integration link
+21. The learner can now:
+    - Download certificate as PDF
+    - Share on social media (LinkedIn, Twitter, Facebook)
+    - Add to digital portfolio
+    - Print for display
+22. **Certificate Verification:**
+    - Each certificate has unique URL: `duocodo.com/verify/DCD-PY-2025-12345`
+    - Anyone can verify authenticity by:
+      - Scanning QR code on certificate
+      - Entering certificate ID on verification page
+    - Verification page displays:
+      - Learner name
+      - Path completed
+      - Completion date
+      - "✅ This certificate is authentic and verified by DuoCodo"
+23. The learning path is marked as "Completed" in learner's dashboard.
+24. The system recommends next learning paths:
+    - "Advanced Python Development"
+    - "DevOps for Full-Stack Developers"
+    - "React Native Mobile Development"
+25. The learner's portfolio automatically showcases:
+    - The certificate
+    - Final challenge project
+    - All portfolio projects from the path
+
+**Alternative Scenarios:**
+
+**A1. Final Challenge Score Below 70**
+- At Step 16, if score is 60-69 points:
+  - The system displays: *"Your project scored [X]/100. You need 70+ to pass. Review the feedback and resubmit."*
+  - The system provides detailed feedback:
+    ```
+    Areas for improvement:
+    - Functionality: Missing user logout feature (-5 points)
+    - Code quality: Inconsistent naming conventions (-8 points)
+    - Security: API endpoints not protected (-7 points)
+    
+    Recommendations:
+    - Review authentication lessons in Tier 4
+    - Study API security best practices
+    - Fix identified issues and resubmit
+    ```
+  - The learner can revise and resubmit (up to 3 attempts total).
+  - Each attempt must wait 48 hours for review.
+
+**A2. Plagiarism Detected**
+- At Step 13, if code similarity exceeds 80% with existing projects:
+  - The system flags submission for manual review.
+  - Admin investigates source of similarity.
+  - If confirmed plagiarism:
+    - Submission is rejected.
+    - The system displays: *"Your submission contains plagiarized content. Certification requires original work."*
+    - Learner receives warning.
+    - Must create new project from scratch.
+    - Serious violations may result in temporary suspension.
+
+**A3. Submission URLs Invalid**
+- At Step 13, if provided URLs are broken or inaccessible:
+  - The system displays: *"Unable to access your project. Please ensure URLs are correct and publicly accessible."*
+  - Learner must fix URLs and resubmit.
+  - Submission is not counted as an attempt if URLs are invalid.
+
+**A4. Technical Issues During Submission**
+- At Step 12, if submission fails due to system error:
+  - The system displays: *"Submission failed due to technical issues. Your work has been saved as draft."*
+  - Learner can retry submission.
+  - Support team is notified automatically.
+  - Deadline is extended by 24 hours if system was at fault.
+
+**A5. Maximum Attempts Reached (3 Failed Submissions)**
+- After 3rd failed submission:
+  - The system displays: *"You've reached the maximum submission attempts. To earn certification, you must:"*
+    - Option 1: Retake specific path modules and retry after 30 days
+    - Option 2: Schedule mentorship session for guidance
+    - Option 3: Restart learning path from Tier 3
+  - The learner must choose an option to continue.
+
+**A6. Deadline Expired (If Path Has Time Limit)**
+- If learner doesn't submit within path deadline (e.g., 6 months):
+  - The system displays: *"Your enrollment period has ended. To earn certification, re-enroll in the next cohort."*
+  - Progress is saved but path must be re-enrolled.
+  - Learner can view what they completed.
+
+**A7. Learning Path Not Fully Completed**
+- At Step 6, if learner tries to start final challenge prematurely:
+  - The system displays: *"Complete all path requirements before attempting final challenge. Current progress: [X]%"*
+  - Shows remaining incomplete modules/exercises.
+  - "Start Final Challenge" button remains disabled.
+
+**A8. Project Repository Private**
+- At Step 13, if GitHub repository is set to private:
+  - The system displays: *"Repository must be public for evaluation. Please change repository visibility settings."*
+  - Provides instructions on making repository public.
+  - Submission is not processed until accessible.
+
+**Extensions:**
+
+**E1. Certificate Levels Based on Performance**
+- Certificates are tiered by final challenge score:
+  - **Bronze Certificate:** 70-79 points (Pass)
+  - **Silver Certificate:** 80-89 points (Merit)
+  - **Gold Certificate:** 90-100 points (Distinction)
+- Certificate design and badge reflect achievement level.
+- Higher tiers may unlock additional benefits (e.g., featured portfolio, mentor access).
+
+**E2. LinkedIn Integration**
+- After certificate issuance:
+  - Learner clicks "Add to LinkedIn" button.
+  - System auto-populates LinkedIn credential form:
+    - Credential name: "Python Full-Stack Developer"
+    - Issuing organization: DuoCodo
+    - Issue date: [Completion date]
+    - Credential ID: [Certificate ID]
+    - Credential URL: [Verification link]
+  - Learner confirms and posts to LinkedIn profile.
+
+**E3. Portfolio Project Showcase**
+- Final challenge project is featured prominently:
+  - Public portfolio page displays:
+    - Project demo video/screenshots
+    - Live project link
+    - GitHub repository
+    - Technologies used
+    - Project description
+  - Other learners can view and learn from completed projects.
+  - Recruiters can discover learners through project showcase.
+
+**E4. Peer Recognition**
+- Other learners can congratulate certificate earners:
+  - "Congratulate" button sends encouragement message.
+  - Achievement appears in community feed.
+  - Builds motivational community culture.
+
+**E5. Multiple Learning Paths**
+- Learners can pursue multiple certifications:
+  - Each completed path earns separate certificate.
+  - Dashboard shows all earned certificates.
+  - "Collection" badges for completing related paths:
+    - "Web Development Master" (3 web paths completed)
+    - "Data Science Expert" (4 data science paths completed)
+
+**E6. Certificate Renewal/Updates**
+- For technology-focused paths that evolve:
+  - Certificates remain valid but note version: "Python Full-Stack Developer (2025)"
+  - Learners notified when path is significantly updated.
+  - Optional: Complete update modules for refreshed certificate.
+  - Keeps certifications current with industry standards.
+
+**E7. Employer Verification Portal**
+- Employers can verify certificates in bulk:
+  - Upload list of certificate IDs.
+  - System validates all certificates.
+  - Generates report of verified credentials.
+  - Useful for HR departments during hiring.
+
+**E8. Certificate Analytics**
+- Learner can view certificate statistics:
+  - How many people completed this path
+  - Average completion time
+  - Most common career outcomes
+  - Salary ranges for certificate holders (if data available)
+
+**E9. Blockchain Verification (Advanced)**
+- Certificate hash stored on blockchain:
+  - Immutable proof of achievement.
+  - Cannot be forged or tampered with.
+  - Blockchain explorer link included.
+  - Future-proof credential verification.
+
+**E10. Custom Certificate Frames**
+- Learners can choose certificate design themes:
+  - Professional (formal design)
+  - Modern (colorful, vibrant)
+  - Minimalist (clean, simple)
+- Personalization makes certificates more meaningful.
+
+**Special Requirements:**
+- Certificate generation must complete within 10 seconds of passing final challenge.
+- Certificates must be high-resolution (300 DPI) for printing.
+- PDF certificates must be accessible (screen reader compatible).
+- Certificate IDs must be cryptographically unique (collision-resistant).
+- Verification URLs must remain valid indefinitely (no expiration).
+- All certificate data must be backed up securely.
+- The system must handle concurrent certificate generation (100+ simultaneous).
+- Certificate templates must support multiple languages (English/Arabic).
+- Plagiarism detection must have <5% false positive rate.
+- Automated project evaluation must complete within 5 minutes.
+- Manual review (if needed) must complete within 2 business days.
+
+**Frequency of Use:**
+- Moderate frequency (20-30% of enrolled learners complete paths).
+- Peak certification periods: End of quarter, year-end, academic semesters.
+- Average time from path enrollment to certification: 3-6 months.
+- Completion rate varies by path difficulty and learner commitment.
+
+**Open Issues:**
+- Should certificates expire after a certain period (e.g., 3 years)?
+- How do we handle certificate revocation if plagiarism is discovered later?
+- Should we offer physical printed certificates for premium users?
+- Can certificates be transferable or sold (NFT certificates)?
+- How do we price premium certifications vs. free learning paths?
+- Should we partner with universities for academic credit recognition?
+- What level of manual review is needed vs. automated evaluation?
+- How do we keep certification standards consistent as platform scales?
+
+---
 
 **Primary Actor:** Learner
 
@@ -2641,162 +3523,5 @@ The learner uploads or changes their profile picture.
 - How do we price premium certifications vs. free learning?
 - Should we partner with universities for credit recognition?
 - What level of anti-cheating measures is appropriate?
-
----
-
-#### 24. Enable Two-Factor Authentication
-
-*Primary Actor:* Learner
-
-*Stakeholders and Interests:*
-- *Learner:* Wants enhanced account security to protect personal data and progress.
-- *Platform:* Needs to reduce account compromise and unauthorized access.
-- *Security Team:* Wants to enforce best practices for account protection.
-
-*Preconditions:*
-- Learner must be logged in.
-- Learner must have a verified email address.
-- Learner must have access to a mobile device or authenticator app.
-
-*Postconditions:*
-- 2FA is enabled on the learner's account.
-- Future logins require both password and verification code.
-- Backup codes are generated and stored securely.
-
-*Main Success Scenario:*
-1. The learner navigates to Account Settings.
-2. The learner selects "Security" tab.
-3. The learner clicks "Enable Two-Factor Authentication."
-4. The system displays 2FA setup options:
-   - Authenticator app (recommended)
-   - SMS text message
-   - Email verification code
-5. The learner selects "Authenticator App."
-6. The system generates a QR code and secret key.
-7. The system displays instructions:
-   - "Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)"
-8. The learner opens their authenticator app and scans the QR code.
-9. The authenticator app adds the DuoCode account and begins generating codes.
-10. The system prompts: "Enter the 6-digit code from your authenticator app to confirm setup."
-11. The learner enters the current code from their app.
-12. The system validates the code.
-13. The system generates 10 backup recovery codes.
-14. The system displays the recovery codes with instructions:
-    - "Save these codes securely. Each can be used once if you lose access to your authenticator."
-15. The learner downloads or copies the recovery codes.
-16. The learner confirms they've saved the codes by checking a box.
-17. The system enables 2FA on the account.
-18. The learner sees confirmation: "Two-Factor Authentication is now active. Your account is more secure!"
-19. The system logs out all other sessions for security.
-20. Future logins now require:
-    - Email/username + password
-    - 6-digit code from authenticator app
-
-*Alternative Scenarios:*
-
-*A1. Invalid Verification Code*
-- At Step 12, if the code is incorrect:
-  - The system displays: "Invalid code. Please ensure you're entering the current 6-digit code from your authenticator app."
-  - The learner can try again (up to 5 attempts).
-  - After 5 failed attempts, setup is cancelled and must restart.
-
-*A2. Backup Codes Not Saved*
-- At Step 16, if the learner tries to continue without confirming:
-  - The system displays: "Please confirm you've saved your backup codes. You won't be able to view them again."
-  - The "Continue" button remains disabled until confirmed.
-
-*A3. Learner Chooses SMS Method*
-- At Step 5, if the learner selects SMS:
-  - The system prompts for phone number.
-  - The system sends a test verification code via SMS.
-  - The learner enters the code to verify the phone number.
-  - Setup proceeds with SMS as the 2FA method.
-  - Note: The system warns that SMS is less secure than authenticator apps.
-
-*A4. Learner Chooses Email Method*
-- At Step 5, if the learner selects email verification:
-  - The system uses the registered email address.
-  - The system sends a test verification code via email.
-  - The learner enters the code to confirm.
-  - Setup completes with email as the 2FA method.
-
-*A5. QR Code Won't Scan*
-- At Step 8, if the learner can't scan the QR code:
-  - The learner clicks "Can't scan? Enter code manually."
-  - The system displays the secret key as text.
-  - The learner manually enters the key into their authenticator app.
-  - Setup continues from Step 10.
-
-*A6. Lost Authenticator Device*
-- After 2FA is enabled, if the learner loses access:
-  - During login, the learner clicks "Use backup code instead."
-  - The learner enters one of their saved recovery codes.
-  - The system validates the code and grants access.
-  - The system prompts the learner to reconfigure 2FA.
-  - The used recovery code is marked as consumed.
-
-*A7. All Backup Codes Used*
-- If all 10 backup codes are exhausted:
-  - The learner must contact support with identity verification.
-  - Support verifies identity through:
-    - Email verification
-    - Security questions
-    - Recent activity verification
-  - Support can temporarily disable 2FA or reset it.
-
-*A8. Technical Error During Setup*
-- At any step, if a system error occurs:
-  - The system displays: "We encountered an error during 2FA setup. Please try again or contact support."
-  - The setup is rolled back; 2FA is not enabled.
-  - The learner can retry after a few minutes.
-
-*Extensions:*
-
-*E1. Disable 2FA*
-- The learner navigates to Security settings.
-- The learner clicks "Disable Two-Factor Authentication."
-- The system requires current password + 2FA code for confirmation.
-- The system warns about reduced security.
-- If confirmed, 2FA is disabled and all backup codes are invalidated.
-
-*E2. Regenerate Backup Codes*
-- If the learner loses their backup codes:
-  - The learner navigates to Security settings.
-  - The learner authenticates with password + 2FA code.
-  - The learner clicks "Generate New Backup Codes."
-  - The system creates 10 new codes and invalidates old ones.
-  - The learner saves the new codes securely.
-
-*E3. Change 2FA Method*
-- The learner can switch from SMS to authenticator app (or vice versa):
-  - The learner navigates to Security settings.
-  - The learner selects "Change 2FA Method."
-  - The system requires current 2FA verification.
-  - Setup for new method proceeds as in main scenario.
-
-*E4. Trusted Devices*
-- After successful 2FA login:
-  - The system offers: "Trust this device for 30 days?"
-  - If accepted, 2FA is not required on this device for 30 days.
-  - Trusted devices can be managed in Security settings.
-
-*Special Requirements:*
-- 2FA codes must expire after 30 seconds (standard TOTP protocol).
-- Backup codes must be cryptographically secure random strings.
-- The system must support time-based one-time passwords (TOTP) standard.
-- SMS delivery must occur within 60 seconds.
-- Recovery codes must be hashed in the database, not stored in plain text.
-- The system must rate-limit 2FA verification attempts (max 5 per 15 minutes).
-- All 2FA setup and verification events must be logged for security auditing.
-
-*Frequency of Use:*
-- One-time setup for security-conscious learners.
-- Estimated adoption rate: 25-40% of active users.
-- Daily use during login for enrolled users.
-
-*Open Issues:*
-- Should 2FA be mandatory for learners with certification credentials?
-- Should we support hardware security keys (FIDO2/U2F)?
-- How do we handle learners in regions with poor SMS delivery?
 
 ---
