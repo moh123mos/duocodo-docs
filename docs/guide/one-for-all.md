@@ -632,11 +632,23 @@ Then the related work was described, (Which is listed in the previous table), an
 ---
 
 
-## <div class="chapter">Chapter 3: Requirement Analysis</div>
+## <div class="chapter">Chapter 3: Requirement Gathering</div>
 
-### <div class="section">3.1 Feasibility Study</div>
+### <div class="section">3.1 Function Requirements</div>
 
-#### <div class="subsection">3.1.1 Technical Feasibility</div>
+  **TO DO**
+
+### <div class="section">3.2 Non-Functional Requirements</div>
+
+  **TO DO**
+
+---
+
+## <div class="chapter">Chapter 4: Requirement Analysis</div>
+
+### <div class="section">4.1 Feasibility Study</div>
+
+#### <div class="subsection">4.1.1 Technical Feasibility</div>
 
 - **Familiarity with Applications:** 
   - The target learners and educators in our region are already familiar with mobile educational apps and interactive tutorials (e.g. Duolingo, Code.org) in Arabic. Using a gamified, Arabic-language interface makes the platform intuitive; users require no extra training to log in, practice coding, or track progress.  
@@ -654,18 +666,18 @@ Then the related work was described, (Which is listed in the previous table), an
   - The development timeline is relatively tight: with a target launch by May 2026 (about 6 months from planning start), the schedule is ambitious. However, by assigning parallel sprints for front-end, back-end, and content creation, and by leveraging reusable components (Nuxt/Vue libraries, Monaco Editor, etc.), we believe the team can meet this deadline.
 
 
-### <div class="section">3.1.2 Organizational Feasibility</div>
+### <div class="section">4.1.2 Organizational Feasibility</div>
+
+- **Project Advisor:** Dr. Rehab Emad El-Dein
+
+- **Project Manager:** Eng. Mohamed Farag
 
 - **Champion:** The development team and supervisors provide time and effort for the system.
-
-- **Project Sponsor:** Dr. Rehab Emad El-Dein
 
 - **System Users:**  
   1. **Learners:** Arabic-speaking students and self-learners who use the platform to learn programming through structured courses, interactive exercises, and real-time code challenges. They earn XP, badges, and streaks as they progress.  
   2. **Mentors/Instructors:** More experienced developers or educators who contribute by answering questions, reviewing user code, curating content, and moderating the community. Mentors help ensure quality and provide additional support (similar to Duolingo “language mentors”).  
   3. **Administrators/Content Creators:** A small team of admins who upload new course material, monitor the system, and handle technical support.
-
-- **Project Manager:** Dr. Rehab Emad El-Dein
 
 
 - **Development Team Breakdown:** The team is organized into specialized roles with overlapping collaboration to ensure flexibility:  
@@ -685,11 +697,11 @@ Then the related work was described, (Which is listed in the previous table), an
   - **Content & Instructional Design (shared responsibility):**  
     Instead of dedicated content creators, **all team members will collaborate** on producing and localizing course material in Arabic. This includes designing structured lessons, writing exercises, and embedding gamification mechanics. Team members’ technical expertise ensures content is accurate, while shared responsibility distributes workload evenly.  
     <figure class="figure">
-      <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
-      <figcaption>Figure 3.1: Development Team Roles</figcaption>
+      <img src="../public/assets/CH04/Figure_4.1_Development_Team_Roles.svg" alt = "Figure 4.1: Development Team Roles">
+      <figcaption>Figure 4.1: Development Team Roles</figcaption>
     </figure>
 
-### <div class="section">3.1.3 Economic Feasibility</div>
+### <div class="section">4.1.3 Economic Feasibility</div>
 
 - **Tangible Benefits:**  
   - **Course Revenue:** With a pay-per-course model at an average price of $30 per course, enrolling 5,000 users in Year 1 (our target) would generate roughly $150,000 in Year-1 sales. As user growth continues, Year 2 and 3 revenues could be, for example, $225,000 and $300,000 (assuming 50% year-over-year user growth).  
@@ -726,8 +738,8 @@ Then the related work was described, (Which is listed in the previous table), an
 > **3-Year ROI:** $185,000 ÷ $490,000 ≈ **37.8%**
 
 <figure>
-  <img src="../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.svg" alt="Figure 3.2: Net Profit per Year">
-  <figcaption>Figure 3.2: Net Profit per Year</figcaption>
+  <img src="../public/assets/CH04/Figure_4.2_Net_Profit_per_Year.svg" alt="Figure 4.2: Net Profit per Year">
+  <figcaption>Figure 4.2: Net Profit per Year</figcaption>
 </figure>
 
 ---
@@ -749,16 +761,16 @@ To illustrate:
 - Based on projected growth, this milestone will be reached in the **third year of operation**.  
 
 <figure>
-  <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="Figure 3.3: Cumulative Revenue vs Cumulative Cost - Chart showing break-even point analysis over a 3-year period">
-  <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
+  <img src="../public/assets/CH04/Figure_4.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="Figure 4.3: Cumulative Revenue vs Cumulative Cost - Chart showing break-even point analysis over a 3-year period">
+  <figcaption>Figure 4.3: Cumulative Revenue vs Cumulative Cost</figcaption>
 </figure>
 
 
-### <div class="section">3.2 Risk Management</div>
+### <div class="section">4.2 Risk Management</div>
 
 This section identifies key risks for the coding education platform across technical, operational, and legal domains. Each risk is assessed with a likelihood (Low/Medium/High), impact (Low/Medium/High), and mitigation strategies. Where appropriate, a qualitative risk matrix is used to emphasize prioritization.  
 
-#### <div class="subsection">3.2.1 Technical Risks</div>
+#### <div class="subsection">4.2.1 Technical Risks</div>
 
 | **Risk**                     | **Description**                                                                                                                                                     | **Likelihood** | **Impact** | **Mitigation**                                                                                                                                                                                         |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -766,7 +778,7 @@ This section identifies key risks for the coding education platform across techn
 | **External API Integration** | Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes. | Medium         | High       | Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails.         |
 | **Real-time Code Execution** | Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability.   | Medium         | High       | Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover. |
 
-#### <div class="subsection">3.2.2 Operational Risks</div>
+#### <div class="subsection">4.2.2 Operational Risks</div>
 
 | Risk                                | Description                                                                                                                          | Likelihood | Impact | Mitigation                                                                                                                                                     |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -774,7 +786,7 @@ This section identifies key risks for the coding education platform across techn
 | **Resource Constraints**            | Limited team size or skill shortages create bottlenecks.                                                                             | Medium     | High   | Cross-train staff and onboard talent early; use contingent resources; maintain a pipeline of developers; forecast and reallocate workloads proactively.        |
 | **Content Development Bottlenecks** | Creating high-quality, engaging coding lessons and exercises is time-consuming, which can delay releases or reduce quality.          | Medium     | Medium | Develop content iteratively with SMEs; reuse or adapt existing materials; employ instructional designers; prioritize high-impact modules first.                |
 
-#### <div class="subsection">3.2.3 Legal & Compliance Risks</div>
+#### <div class="subsection">4.2.3 Legal & Compliance Risks</div>
 
 | Risk                            | Description                                                                                                                                        | Likelihood | Impact | Mitigation                                                                                                                                                          |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -785,19 +797,13 @@ This section identifies key risks for the coding education platform across techn
 ---
 
 
-### <div class="section">3.3 Project plan</div>
+### <div class="section">4.3 Project plan</div>
 
   **TO DO**
 
-### <div class="section">3.4 Gantt Chart</div>
+### <div class="section">4.4 Gantt Chart</div>
 
   **TO DO**
-
----
-
-## <div class="chapter">Chapter 4: Requirement Gatnering</div>
-
-### <div class="section">4.1 Function Requirements</div>
 #### <div class="subsection">4.1.1 User Management System</div>
 
 **User Registration and Authentication**
