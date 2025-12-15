@@ -2,8 +2,8 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 
 export default withMermaid({
     mermaid: {
-      theme: 'neutral', // أو 'dark' أو 'default'
-      securityLevel: 'loose', // للسماح بروابط داخل الرسومات
+        theme: 'neutral', // أو 'dark' أو 'default'
+        securityLevel: 'loose', // للسماح بروابط داخل الرسومات
     },
     title: 'DuoCodo',
     description: 'Documentation for my awesome graduation project',
@@ -47,19 +47,20 @@ export default withMermaid({
                     ]
                 },
                 {
-                    text: 'CH3: Requirements',
+                    text: 'CH3: Reqs Gathering',
                     collapsed: true,
                     items: [
-                        { text: 'Requirement Analysis', link: '/guide/ch3/requirement-analysis' },
+                        { text: 'Functional Requirements', link: '/guide/ch3' },
+                        { text: 'Non-Functional Requirements', link: '/guide/ch3/non-functional' },
+                        { text: 'Functional Decomposition', link: '/guide/ch3/functional-decomposition' },
                     ]
                 },
                 {
-                    text: 'CH4: Reqs Gathering',
+
+                    text: 'CH4: Requirements',
                     collapsed: true,
                     items: [
-                        { text: 'Functional Requirements', link: '/guide/ch4' },
-                        { text: 'Non-Functional Requirements', link: '/guide/ch4/non-functional' },
-                        { text: 'Functional Decomposition', link: '/guide/ch4/functional-decomposition' },
+                        { text: 'Requirement Analysis', link: '/guide/ch4/requirement-analysis' },
                     ]
                 },
                 {
