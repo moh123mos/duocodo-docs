@@ -43,14 +43,14 @@ export default withMermaid({
                     text: 'CH2: Background',
                     collapsed: true,
                     items: [
-                        { text: 'Background', link: '/guide/ch2' },
+                        { text: 'Background', link: '/guide/ch2/background' },
                     ]
                 },
                 {
                     text: 'CH3: Requirements',
                     collapsed: true,
                     items: [
-                        { text: 'Requirement Analysis', link: '/guide/ch3' },
+                        { text: 'Requirement Analysis', link: '/guide/ch3/requirement-analysis' },
                     ]
                 },
                 {
@@ -78,6 +78,7 @@ export default withMermaid({
                     collapsed: true,
                     items: [
                         { text: 'Entity Relationship Diagrams', link: '/guide/ch6/erd' },
+                        { text: 'Schema Diagrams', link: '/guide/ch6/schema' },
                     ]
                 },
                 {

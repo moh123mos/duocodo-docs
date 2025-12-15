@@ -13,7 +13,7 @@
     
   .one-for-all {
     position: relative;
-    
+    font-family: 'Times New Roman', Times, serif !important;
     .highlight-box {
       background: #e8f4fc;
       border-left: 4px solid var(--secondary);
@@ -749,7 +749,7 @@ To illustrate:
 - Based on projected growth, this milestone will be reached in the **third year of operation**.  
 
 <figure>
-  <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="">
+  <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="Figure 3.3: Cumulative Revenue vs Cumulative Cost - Chart showing break-even point analysis over a 3-year period">
   <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
 </figure>
 
@@ -1400,7 +1400,7 @@ This section identifies key risks for the coding education platform across techn
 ### Decomposition Diagram - Part 2
 
 <figure>
-  <img src="../public/assets/CH04/Figure_4.2_decomposition_diagram.svg.svg" alt="Figure 4.2: Decomposition Diagram Part 2">
+  <img src="../public/assets/CH04/Figure_4.2_decomposition_diagram.svg" alt="Figure 4.2: Decomposition Diagram Part 2">
   <figcaption>Figure 4.2: Decomposition Diagram Part 2</figcaption>
 </figure>
 
@@ -4581,6 +4581,166 @@ l---
     <img src="../public/assets/CH05/Sequence-Diagrams/Figure_5.40_report_error.svg" alt="Figure 5.40: Report Error">
     <figcaption>Figure 5.40: Report Error Sequence Diagram</figcaption>
 </figure>
+
+---
+
+## <div class="chapter">Chapter 6: Database Design</div>
+
+This chapter presents the database design for the DuoCodo platform, including the Entity Relationship Diagram (ERD) and the complete database schema. The database design ensures efficient data storage, retrieval, and integrity for all platform components including user management, content delivery, progress tracking, and gamification features.
+
+The database architecture follows best practices in relational database design, incorporating proper normalization techniques and establishing clear relationships between entities. This foundation supports all system functionalities while ensuring scalability and optimal performance.
+
+### <div class="section">6.1 Entity Relationship Diagram (ERD)</div>
+
+Entity Relationship Diagrams (ERD) represent the data model of the DuoCodo platform, showing the entities, their attributes, and the relationships between them. This comprehensive database design ensures data integrity, efficient querying, and scalability.
+
+#### <div class="subsection">Part 1: User Management and Authentication</div>
+
+This section presents the core entities for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control.
+
+<figure>
+    <img src="../public/assets/CH06/ERD/Figure_6.47_ERD-Part1.svg" alt="Figure 6.47: User Management and Authentication ERD">
+    <figcaption>Figure 6.47: Entity Relationship Diagram - User Management and Authentication</figcaption>
+</figure>
+
+#### <div class="subsection">Part 2: Learning Content and Course Structure</div>
+
+This section illustrates the entities related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and interconnected within the platform.
+
+<figure>
+    <img src="../public/assets/CH06/ERD/Figure_6.48_ERD-Part2.svg" alt="Figure 6.48: Learning Content and Course Structure ERD">
+    <figcaption>Figure 6.48: Entity Relationship Diagram - Learning Content and Course Structure</figcaption>
+</figure>
+
+#### <div class="subsection">Part 3: Progress Tracking and Gamification</div>
+
+This section demonstrates the entities that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform motivates learners through gamification elements.
+
+<figure>
+    <img src="../public/assets/CH06/ERD/Figure_6.49_ERD-part3.svg" alt="Figure 6.49: Progress Tracking and Gamification ERD">
+    <figcaption>Figure 6.49: Entity Relationship Diagram - Progress Tracking and Gamification</figcaption>
+</figure>
+
+#### <div class="subsection">Part 4: Assessment and Certification</div>
+
+This section shows the entities for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform evaluates learner competency and issues credentials.
+
+<figure>
+    <img src="../public/assets/CH06/ERD/Figure_6.50_ERD-part4.svg" alt="Figure 6.50: Assessment and Certification ERD">
+    <figcaption>Figure 6.50: Entity Relationship Diagram - Assessment and Certification</figcaption>
+</figure>
+
+#### <div class="subsection">Part 5: Social Features and Community</div>
+
+This section presents the entities that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features.
+
+<figure>
+    <img src="../public/assets/CH06/ERD/Figure_6.51_ERD-part5.svg" alt="Figure 6.51: Social Features and Community ERD">
+    <figcaption>Figure 6.51: Entity Relationship Diagram - Social Features and Community</figcaption>
+</figure>
+
+#### <div class="subsection">Part 6: Administration and System Management</div>
+
+This section illustrates the entities for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities.
+
+<figure>
+    <img src="../public/assets/CH06/ERD/Figure_6.52_ERD-part6.svg" alt="Figure 6.52: Administration and System Management ERD">
+    <figcaption>Figure 6.52: Entity Relationship Diagram - Administration and System Management</figcaption>
+</figure>
+
+#### <div class="subsection">Database Design Principles</div>
+
+<div class="highlight-box">
+The ERD design follows these key principles:
+
+<ul>
+<li><strong>Normalization:</strong> Entities are normalized to reduce data redundancy and improve data integrity</li>
+<li><strong>Referential Integrity:</strong> Foreign key relationships ensure data consistency across tables</li>
+<li><strong>Scalability:</strong> Design supports horizontal and vertical scaling for growing user base</li>
+<li><strong>Performance:</strong> Indexed fields and optimized relationships for efficient queries</li>
+<li><strong>Flexibility:</strong> Schema allows for future extensions and feature additions</li>
+<li><strong>Security:</strong> Sensitive data fields include encryption and access control mechanisms</li>
+</ul>
+
+These diagrams provide a comprehensive view of the DuoCodo platform's data architecture, showing how information is stored, organized, and related to support all system functionalities.
+</div>
+
+### <div class="section">6.2 Database Schema</div>
+
+Database Schema represents the logical structure of the DuoCodo platform database, showing tables, columns, data types, constraints, and relationships. This detailed schema design ensures optimal performance, data integrity, and supports all platform functionalities.
+
+#### <div class="subsection">Part 1: User Management and Authentication</div>
+
+This section presents the database tables for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control with detailed field specifications.
+
+<figure>
+    <img src="../public/assets/CH06/Schema/Figure_6.53_schema-part1.svg" alt="Figure 6.53: User Management and Authentication Schema">
+    <figcaption>Figure 6.53: Database Schema - User Management and Authentication</figcaption>
+</figure>
+
+#### <div class="subsection">Part 2: Learning Content and Course Structure</div>
+
+This section illustrates the database tables related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and stored within the database with proper data types and constraints.
+
+<figure>
+    <img src="../public/assets/CH06/Schema/Figure_6.54_schema-part2.svg" alt="Figure 6.54: Learning Content and Course Structure Schema">
+    <figcaption>Figure 6.54: Database Schema - Learning Content and Course Structure</figcaption>
+</figure>
+
+#### <div class="subsection">Part 3: Progress Tracking and Gamification</div>
+
+This section demonstrates the database tables that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform stores and manages gamification elements with appropriate indexing.
+
+<figure>
+    <img src="../public/assets/CH06/Schema/Figure_6.55_schema-part3.svg" alt="Figure 6.55: Progress Tracking and Gamification Schema">
+    <figcaption>Figure 6.55: Database Schema - Progress Tracking and Gamification</figcaption>
+</figure>
+
+#### <div class="subsection">Part 4: Assessment and Certification</div>
+
+This section shows the database tables for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.
+
+<figure>
+    <img src="../public/assets/CH06/Schema/Figure_6.56_schema-part4.svg" alt="Figure 6.56: Assessment and Certification Schema">
+    <figcaption>Figure 6.56: Database Schema - Assessment and Certification</figcaption>
+</figure>
+
+#### <div class="subsection">Part 5: Social Features and Community</div>
+
+This section presents the database tables that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.
+
+<figure>
+    <img src="../public/assets/CH06/Schema/Figure_6.57_schema-part5.svg" alt="Figure 6.57: Social Features and Community Schema">
+    <figcaption>Figure 6.57: Database Schema - Social Features and Community</figcaption>
+</figure>
+
+#### <div class="subsection">Part 6: Administration and System Management</div>
+
+This section illustrates the database tables for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities with appropriate data retention policies.
+
+<figure>
+    <img src="../public/assets/CH06/Schema/Figure_6.58_schema-part6.svg" alt="Figure 6.58: Administration and System Management Schema">
+    <figcaption>Figure 6.58: Database Schema - Administration and System Management</figcaption>
+</figure>
+
+#### <div class="subsection">Database Schema Specifications</div>
+
+<div class="highlight-box">
+The database schema implementation follows these key specifications:
+
+<ul>
+<li><strong>Data Types:</strong> Appropriate data types chosen for optimal storage and performance</li>
+<li><strong>Constraints:</strong> Primary keys, foreign keys, unique constraints, and check constraints ensure data integrity</li>
+<li><strong>Indexing:</strong> Strategic indexes on frequently queried columns for optimal performance</li>
+<li><strong>Normalization:</strong> Tables normalized to 3NF (Third Normal Form) to eliminate redundancy</li>
+<li><strong>Referential Integrity:</strong> Foreign key relationships maintain consistency across related tables</li>
+<li><strong>Security:</strong> Sensitive fields include encryption specifications and access control measures</li>
+<li><strong>Scalability:</strong> Schema design supports partitioning and sharding for future growth</li>
+<li><strong>Backup Strategy:</strong> Tables include timestamp fields for incremental backup operations</li>
+</ul>
+
+This detailed schema provides the implementation blueprint for the DuoCodo platform's database, ensuring robust data management and optimal query performance across all system components.
+</div>
 
 ---
 
