@@ -11,4 +11,4 @@ This document presents the functional decomposition diagrams for the system, bre
 
 ## Decomposition Diagram - Part 2
 
-![Figure 4.2: Decomposition Diagram Part 2](../../public/assets/CH04/Figure_4.2_decomposition_diagram.svg.svg)
+![Figure 4.2: Decomposition Diagram Part 2](../../public/assets/CH04/Figure_4.2_decomposition_diagram.svg)

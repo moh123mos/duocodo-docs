@@ -57,7 +57,7 @@ export default withMermaid({
                     text: 'CH4: Reqs Gathering',
                     collapsed: true,
                     items: [
-                        { text: 'Functional Requirements', link: '/guide/ch4' },
+                        { text: 'Functional Requirements', link: '/guide/ch4/functional-reqs' },
                         { text: 'Non-Functional Requirements', link: '/guide/ch4/non-functional' },
                         { text: 'Functional Decomposition', link: '/guide/ch4/functional-decomposition' },
                     ]
