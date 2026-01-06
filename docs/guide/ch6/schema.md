@@ -19,8 +19,8 @@ Database Schema represents the logical structure of the DuoCodo platform databas
 This section presents the database tables for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control with detailed field specifications.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.53_schema-part1.svg" alt="Figure 6.53: User Management and Authentication Schema">
-    <figcaption>Figure 6.53: Database Schema - User Management and Authentication</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.7_schema-part1.svg" alt="Figure 6.7: User Management and Authentication Schema">
+    <figcaption>Figure 6.7: Database Schema - User Management and Authentication</figcaption>
 </figure>
 
 ---
@@ -30,8 +30,8 @@ This section presents the database tables for user management, including user ac
 This section illustrates the database tables related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and stored within the database with proper data types and constraints.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.54_schema-part2.svg" alt="Figure 6.54: Learning Content and Course Structure Schema">
-    <figcaption>Figure 6.54: Database Schema - Learning Content and Course Structure</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.8_schema-part2.svg" alt="Figure 6.8: Learning Content and Course Structure Schema">
+    <figcaption>Figure 6.8: Database Schema - Learning Content and Course Structure</figcaption>
 </figure>
 
 ---
@@ -41,8 +41,8 @@ This section illustrates the database tables related to educational content orga
 This section demonstrates the database tables that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform stores and manages gamification elements with appropriate indexing.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.55_schema-part3.svg" alt="Figure 6.55: Progress Tracking and Gamification Schema">
-    <figcaption>Figure 6.55: Database Schema - Progress Tracking and Gamification</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Progress Tracking and Gamification Schema">
+    <figcaption>Figure 6.9: Database Schema - Progress Tracking and Gamification</figcaption>
 </figure>
 
 ---
@@ -52,8 +52,8 @@ This section demonstrates the database tables that track learner progress, achie
 This section shows the database tables for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.56_schema-part4.svg" alt="Figure 6.56: Assessment and Certification Schema">
-    <figcaption>Figure 6.56: Database Schema - Assessment and Certification</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Assessment and Certification Schema">
+    <figcaption>Figure 6.10: Database Schema - Assessment and Certification</figcaption>
 </figure>
 
 ---
@@ -63,8 +63,8 @@ This section shows the database tables for quizzes, assessments, test cases, sub
 This section presents the database tables that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.57_schema-part5.svg" alt="Figure 6.57: Social Features and Community Schema">
-    <figcaption>Figure 6.57: Database Schema - Social Features and Community</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Social Features and Community Schema">
+    <figcaption>Figure 6.11: Database Schema - Social Features and Community</figcaption>
 </figure>
 
 ---
@@ -74,8 +74,8 @@ This section presents the database tables that enable social interactions, inclu
 This section illustrates the database tables for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities with appropriate data retention policies.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.58_schema-part6.svg" alt="Figure 6.58: Administration and System Management Schema">
-    <figcaption>Figure 6.58: Database Schema - Administration and System Management</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.12_schema-part6.svg" alt="Figure 6.12: Administration and System Management Schema">
+    <figcaption>Figure 6.12: Database Schema - Administration and System Management</figcaption>
 </figure>
 
 ---

@@ -19,8 +19,8 @@ Class diagrams are structural diagrams that show the static structure of the sys
 This section presents the foundational classes for user management, authentication, and authorization within the DuoCodo platform. It includes user roles, profile management, and security features.
 
 <figure>
-    <img src="/assets/CH05/Class-Diagrams/Figure_5.41_Class-part1.svg" alt="Figure 5.41: Core User and Authentication System">
-    <figcaption>Figure 5.41: Class Diagram - Core User and Authentication System</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.38_Class-part1.svg" alt="Figure 5.38: Core User and Authentication System">
+    <figcaption>Figure 5.38: Class Diagram - Core User and Authentication System</figcaption>
 </figure>
 
 ---
@@ -30,8 +30,8 @@ This section presents the foundational classes for user management, authenticati
 This section illustrates the classes responsible for managing educational content, including courses, lessons, exercises, and learning paths. It shows how content is structured and organized within the platform.
 
 <figure>
-    <img src="/assets/CH05/Class-Diagrams/Figure_5.42_Class-part2.svg" alt="Figure 5.42: Learning Content Management">
-    <figcaption>Figure 5.42: Class Diagram - Learning Content Management</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.39_Class-part2.svg" alt="Figure 5.39: Learning Content Management">
+    <figcaption>Figure 5.39: Class Diagram - Learning Content Management</figcaption>
 </figure>
 
 ---
@@ -41,8 +41,8 @@ This section illustrates the classes responsible for managing educational conten
 This section demonstrates the classes that handle learner progress tracking, gamification elements such as XP, achievements, badges, and leaderboards. It shows how the platform motivates and engages learners.
 
 <figure>
-    <img src="/assets/CH05/Class-Diagrams/Figure_5.43_Class-part3.svg" alt="Figure 5.43: Progress Tracking and Gamification">
-    <figcaption>Figure 5.43: Class Diagram - Progress Tracking and Gamification</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.40_Class-part3.svg" alt="Figure 5.40: Progress Tracking and Gamification">
+    <figcaption>Figure 5.40: Class Diagram - Progress Tracking and Gamification</figcaption>
 </figure>
 
 ---
@@ -52,8 +52,8 @@ This section demonstrates the classes that handle learner progress tracking, gam
 This section presents the classes that enable social interactions, including comments, discussions, friend connections, sharing capabilities, and community engagement features.
 
 <figure>
-    <img src="/assets/CH05/Class-Diagrams/Figure_5.44_Class-part4.svg" alt="Figure 5.44: Social and Community Features">
-    <figcaption>Figure 5.44: Class Diagram - Social and Community Features</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.41_Class-part4.svg" alt="Figure 5.41: Social and Community Features">
+    <figcaption>Figure 5.41: Class Diagram - Social and Community Features</figcaption>
 </figure>
 
 ---
@@ -63,8 +63,8 @@ This section presents the classes that enable social interactions, including com
 This section shows the classes related to quizzes, assessments, certifications, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.
 
 <figure>
-    <img src="/assets/CH05/Class-Diagrams/Figure_5.45_Class-part5.svg" alt="Figure 5.45: Assessment and Certification">
-    <figcaption>Figure 5.45: Class Diagram - Assessment and Certification</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.42_Class-part5.svg" alt="Figure 5.42: Assessment and Certification">
+    <figcaption>Figure 5.42: Class Diagram - Assessment and Certification</figcaption>
 </figure>
 
 ---
@@ -74,8 +74,8 @@ This section shows the classes related to quizzes, assessments, certifications, 
 This section illustrates the classes responsible for platform administration, including system monitoring, analytics, content moderation, user management, and reporting capabilities.
 
 <figure>
-    <img src="/assets/CH05/Class-Diagrams/Figure_5.46_Class-part6.svg" alt="Figure 5.46: Administration and Platform Management">
-    <figcaption>Figure 5.46: Class Diagram - Administration and Platform Management</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.43_Class-part6.svg" alt="Figure 5.43: Administration and Platform Management">
+    <figcaption>Figure 5.43: Class Diagram - Administration and Platform Management</figcaption>
 </figure>
 
 ---
