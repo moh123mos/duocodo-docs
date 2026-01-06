@@ -8,309 +8,408 @@ figure {
 
 ## 5.4 Sequence Diagrams
 
-Sequence diagrams are a type of interaction diagram that show how objects operate with one another and in what order. They are used to visualize the sequence of messages exchanged between objects in a particular scenario of a use case.
+Sequence diagrams were created only for casual and fully-dressed use cases, as these provide sufficient interaction detail to model system behavior. Brief use cases were excluded since they describe high-level functionality without internal system collaboration.
 
 [[toc]]
 
+## Admimistrator Sequence Diagrams
+
+### Manage User Accounts
+
 ---
 
-## Administrator Use Cases
-
-### Integrate External API
-
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.38_integrate_external_API.svg" alt="Figure 5.38: Integrate External API">
-    <figcaption>Figure 5.38: Integrate External API Sequence Diagram</figcaption>
-</figure>
-
-### Backup
-
-<figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.39_backup.svg" alt="Figure 5.39: Backup">
-    <figcaption>Figure 5.39: Backup Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.2_Manage_User_Accounts.svg" alt="Figure 5.2: Manage User Accounts">
+  <figcaption>Figure 5.2: Manage User Accounts</figcaption>
 </figure>
 
 ---
 
-## Content Creator Use Cases
+### Assign User Role
 
-### Create Coding Exercise
-
-<figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.16_create_coding_exercise.svg" alt="Figure 5.16: Create Coding Exercise">
-    <figcaption>Figure 5.16: Create Coding Exercise Sequence Diagram</figcaption>
-</figure>
-
-### Validate Exercise
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.17_validate_exercise.svg" alt="Figure 5.17: Validate Exercise">
-    <figcaption>Figure 5.17: Validate Exercise Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.3_Assign_User_Role.svg" alt="Figure 5.3: Assign User Role">
+  <figcaption>Figure 5.3: Assign User Role</figcaption>
 </figure>
+
+---
+
+### Monitor Platform Analytics
+
+---
+
+<figure>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.4_Monitor_Platform_Analytics.svg" alt="Figure 5.4: Monitor Platform Analytics">
+  <figcaption>Figure 5.4: Monitor Platform Analytics</figcaption>
+</figure>
+
+---
+
+### Review And Filter System Logs
+
+---
+
+<figure>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.5_Review_And_Filter_System_Logs.svg" alt="Figure 5.5: Review And Filter System Logs">
+  <figcaption>Figure 5.5: Review And Filter System Logs</figcaption>
+</figure>
+
+---
+
+### Remove Inappropriate Content
+
+---
+
+<figure>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.6_Remove_Inappropriate_Content.svg" alt="Figure 5.6: Remove Inappropriate Content">
+  <figcaption>Figure 5.6: Remove Inappropriate Content</figcaption>
+</figure>
+
+---
+
+### Issue User Warning
+
+---
+
+<figure>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.7_Issue_User_Warning.svg" alt="Figure 5.7: Issue User Warning">
+  <figcaption>Figure 5.7: Issue User Warning</figcaption>
+</figure>
+
+---
 
 ### Design Learning Path
 
-<figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.18_design_learning_path.svg" alt="Figure 5.18: Design Learning Path">
-    <figcaption>Figure 5.18: Design Learning Path Sequence Diagram</figcaption>
-</figure>
-
-### Create Interactive Walkthrough
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.19_create_interactive_walkthrough.svg" alt="Figure 5.19: Create Interactive Walkthrough">
-    <figcaption>Figure 5.19: Create Interactive Walkthrough Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.8_Design_Learning_Path.svg" alt="Figure 5.8: Design Learning Path">
+  <figcaption>Figure 5.8: Design Learning Path</figcaption>
 </figure>
 
 ---
 
-## Learner Use Cases
+## Content Creator Sequence Diagram
 
-### Authentication & Account Management
+### Register Account
 
-#### Register Account
-
-<figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.2_register_account.svg" alt="Figure 5.2: Register Account">
-    <figcaption>Figure 5.2: Register Account Sequence Diagram</figcaption>
-</figure>
-
-#### Login
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.3_login.svg" alt="Figure 5.3: Login">
-    <figcaption>Figure 5.3: Login Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.9_Register_Account.svg" alt="Figure 5.9: Register Account">
+  <figcaption>Figure 5.9: Register Account</figcaption>
 </figure>
 
-#### Logout
+---
+
+### Login to System
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.4_logout.svg" alt="Figure 5.4: Logout">
-    <figcaption>Figure 5.4: Logout Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.10_Login_to_System.svg" alt="Figure 5.10: Login to System">
+  <figcaption>Figure 5.10: Login to System</figcaption>
 </figure>
 
-#### Reset Password
+---
+
+### Create Course
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.5_reset_password.svg" alt="Figure 5.5: Reset Password">
-    <figcaption>Figure 5.5: Reset Password Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.11_Create_Course.svg" alt="Figure 5.11: Create Course">
+  <figcaption>Figure 5.11: Create Course</figcaption>
 </figure>
 
-#### Change Email
+---
+
+### Create Lesson
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.6_change_email.svg" alt="Figure 5.6: Change Email">
-    <figcaption>Figure 5.6: Change Email Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.12_Create_Lesson.svg" alt="Figure 5.12: Create Lesson">
+  <figcaption>Figure 5.12: Create Lesson</figcaption>
 </figure>
 
-#### Enable 2FA
+---
+
+### Add Multimedia Content
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.7_enable_2FA.svg" alt="Figure 5.7: Enable 2FA">
-    <figcaption>Figure 5.7: Enable 2FA Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.13_Add_Multimedia_Content.svg" alt="Figure 5.13: Add Multimedia Content">
+  <figcaption>Figure 5.13: Add Multimedia Content</figcaption>
 </figure>
 
-#### Edit Profile
+---
+
+### Localize Content
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.8_edit_profile.svg" alt="Figure 5.8: Edit Profile">
-    <figcaption>Figure 5.8: Edit Profile Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.14_Localize_Content.svg" alt="Figure 5.14: Localize Content">
+  <figcaption>Figure 5.14: Localize Content</figcaption>
 </figure>
 
-#### Notifications
+---
+
+### Categorize Exercise Difficulty
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.9_notifications.svg" alt="Figure 5.9: Notifications">
-    <figcaption>Figure 5.9: Notifications Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.15_Categorize_Exercise_Difficulty.svg" alt="Figure 5.15: Categorize Exercise Difficulty">
+  <figcaption>Figure 5.15: Categorize Exercise Difficulty</figcaption>
 </figure>
 
-### Learning & Courses
+---
 
-#### Set Learning Goals
+### Udate Course Materials
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.10_set_learning_goals.svg" alt="Figure 5.10: Set Learning Goals">
-    <figcaption>Figure 5.10: Set Learning Goals Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.16_Udate_Course_Materials.svg" alt="Figure 5.16: Udate Course Materials">
+  <figcaption>Figure 5.16: Udate Course Materials</figcaption>
 </figure>
 
-#### View Lesson Content
+---
+
+### Review Student Submissions
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.11_view_lesson_content.svg" alt="Figure 5.11: View Lesson Content">
-    <figcaption>Figure 5.11: View Lesson Content Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.17_Review_Student_Submissions.svg" alt="Figure 5.17: Review Student Submissions">
+  <figcaption>Figure 5.17: Review Student Submissions</figcaption>
 </figure>
 
-#### Choose Learning Path
+---
+
+### Manage Course Structure
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.20_choose_learing_path.svg" alt="Figure 5.20: Choose Learning Path">
-    <figcaption>Figure 5.20: Choose Learning Path Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.18_Manage_Course_Structure.svg" alt="Figure 5.18: Manage Course Structure">
+  <figcaption>Figure 5.18: Manage Course Structure</figcaption>
 </figure>
 
-#### Search Courses
+---
+
+### Create Coding Exercise
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.21_search_cources.svg" alt="Figure 5.21: Search Courses">
-    <figcaption>Figure 5.21: Search Courses Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.19_Create_Coding_Exercise.svg" alt="Figure 5.19: Create Coding Exercise">
+  <figcaption>Figure 5.19: Create Coding Exercise</figcaption>
 </figure>
 
-#### Join Course
+---
+
+### Validate Exercise before Publishing
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.28_join_course.svg" alt="Figure 5.28: Join Course">
-    <figcaption>Figure 5.28: Join Course Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.20_Validate_Exercise_before_Publishing.svg" alt="Figure 5.20: Validate Exercise before Publishing">
+  <figcaption>Figure 5.20: Validate Exercise before Publishing</figcaption>
 </figure>
 
-### Exercises & Practice
+---
 
-#### Complete Exercise
+### Contribute to Learning Path
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.12_complete_exercise.svg" alt="Figure 5.12: Complete Exercise">
-    <figcaption>Figure 5.12: Complete Exercise Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.21_Contribute_to_Learning_Path.svg" alt="Figure 5.21: Contribute to Learning Path">
+  <figcaption>Figure 5.21: Contribute to Learning Path</figcaption>
 </figure>
 
-#### Review Exercise
+---
+
+## Learner Sequence Diagrams
+
+### Register Account
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.13_review_exercise.svg" alt="Figure 5.13: Review Exercise">
-    <figcaption>Figure 5.13: Review Exercise Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.22_Register_Account.svg" alt="Figure 5.22: Register Account">
+  <figcaption>Figure 5.22: Register Account</figcaption>
 </figure>
 
-#### Practice Code
+---
+
+### Login to System
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.14_practice_code.svg" alt="Figure 5.14: Practice Code">
-    <figcaption>Figure 5.14: Practice Code Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.23_Login_to_System.svg" alt="Figure 5.23: Login to System">
+  <figcaption>Figure 5.23: Login to System</figcaption>
 </figure>
 
-#### Receive Hints
+---
+
+### Recover password
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.15_receive_hints.svg" alt="Figure 5.15: Receive Hints">
-    <figcaption>Figure 5.15: Receive Hints Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.24_Recover_password.svg" alt="Figure 5.24: Recover password">
+  <figcaption>Figure 5.24: Recover password</figcaption>
 </figure>
 
-### Quizzes & Assessments
+---
 
-#### Take Quiz
+### Choose Learning Path
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.25_take_quiz.svg" alt="Figure 5.25: Take Quiz">
-    <figcaption>Figure 5.25: Take Quiz Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.25_Choose_Learning_Path.svg" alt="Figure 5.25: Choose Learning Path">
+  <figcaption>Figure 5.25: Choose Learning Path</figcaption>
 </figure>
 
-#### View Quiz Results
+---
+
+### View Lesson Content
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.26_view_quiz_results.svg" alt="Figure 5.26: View Quiz Results">
-    <figcaption>Figure 5.26: View Quiz Results Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.26_View_Lesson_Content.svg" alt="Figure 5.26: View Lesson Content">
+  <figcaption>Figure 5.26: View Lesson Content</figcaption>
 </figure>
 
-### Progress & Rewards
+---
 
-#### Track Progress
+### Complete Exercise
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.22_track_progress.svg" alt="Figure 5.22: Track Progress">
-    <figcaption>Figure 5.22: Track Progress Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.27_Complete_Exercise.svg" alt="Figure 5.27: Complete Exercise">
+  <figcaption>Figure 5.27: Complete Exercise</figcaption>
 </figure>
 
-#### Earn XP
+---
+
+### Track Progress
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.23_earn_XP.svg" alt="Figure 5.23: Earn XP">
-    <figcaption>Figure 5.23: Earn XP Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.28_Track_Progress.svg" alt="Figure 5.28: Track Progress">
+  <figcaption>Figure 5.28: Track Progress</figcaption>
 </figure>
 
-#### Redeem Reward
+---
+
+### Learn XP and Level Up
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.24_redeem_reward.svg" alt="Figure 5.24: Redeem Reward">
-    <figcaption>Figure 5.24: Redeem Reward Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.29_Learn_XP_and_Level_Up.svg" alt="Figure 5.29: Learn XP and Level Up">
+  <figcaption>Figure 5.29: Learn XP and Level Up</figcaption>
 </figure>
 
-#### View Leaderboard
+---
+
+### Set Language Preferences
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.33_view_leader_board.svg" alt="Figure 5.33: View Leaderboard">
-    <figcaption>Figure 5.33: View Leaderboard Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.30_Set_Language_Preferences.svg" alt="Figure 5.30: Set Language Preferences">
+  <figcaption>Figure 5.30: Set Language Preferences</figcaption>
 </figure>
 
-### Certification & Achievements
+---
 
-#### Complete Certification Track
+### Bookmark Lesson
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.27_complete_certification_track.svg" alt="Figure 5.27: Complete Certification Track">
-    <figcaption>Figure 5.27: Complete Certification Track Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.31_Bookmark_Lesson.svg" alt="Figure 5.31: Bookmark Lesson">
+  <figcaption>Figure 5.31: Bookmark Lesson</figcaption>
 </figure>
 
-#### View Certificate
+---
+
+### Share Solution
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.30_view_certificate.svg" alt="Figure 5.30: View Certificate">
-    <figcaption>Figure 5.30: View Certificate Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.32_Share_Solution.svg" alt="Figure 5.32: Share Solution">
+  <figcaption>Figure 5.32: Share Solution</figcaption>
 </figure>
 
-### Social & Community
+---
 
-#### Social Interaction
+### Enable Two-factor Authontecation
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.34_social_interaction.svg" alt="Figure 5.34: Social Interaction">
-    <figcaption>Figure 5.34: Social Interaction Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.33_Enable_Two-factor_Authontecation.svg" alt="Figure 5.33: Enable Two-factor Authontecation">
+  <figcaption>Figure 5.33: Enable Two-factor Authontecation</figcaption>
 </figure>
 
-#### Share Progress
+---
+
+### Practice Coding
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.35_share_progress.svg" alt="Figure 5.35: Share Progress">
-    <figcaption>Figure 5.35: Share Progress Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.34_Practice_Coding.svg" alt="Figure 5.34: Practice Coding">
+  <figcaption>Figure 5.34: Practice Coding</figcaption>
 </figure>
 
-#### Invite Friend
+---
+
+### Practice Coding with Blockly Editor
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.36_invite_friend.svg" alt="Figure 5.36: Invite Friend">
-    <figcaption>Figure 5.36: Invite Friend Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.35_Practice_Coding_with_Blockly_Editor.svg" alt="Figure 5.35: Practice Coding with Blockly Editor">
+  <figcaption>Figure 5.35: Practice Coding with Blockly Editor</figcaption>
 </figure>
 
-#### Post Comment
+---
+
+### Receive AI-Powered Hints
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.37_post_comment.svg" alt="Figure 5.37: Post Comment">
-    <figcaption>Figure 5.37: Post Comment Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.36_Receive_AI-Powered_Hints.svg" alt="Figure 5.36: Receive AI-Powered Hints">
+  <figcaption>Figure 5.36: Receive AI-Powered Hints</figcaption>
 </figure>
 
-### Resources & Tools
+---
 
-#### Bookmark
+### Complete Certification Track
+
+---
 
 <figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.31_bookmark.svg" alt="Figure 5.31: Bookmark">
-    <figcaption>Figure 5.31: Bookmark Sequence Diagram</figcaption>
+  <img src="../../public/assets/CH05/Sequence-Diagram/Figure_5.37_Complete_Certification_Track.svg" alt="Figure 5.37: Complete Certification Track">
+  <figcaption>Figure 5.37: Complete Certification Track</figcaption>
 </figure>
 
-#### Download Resources
-
-<figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.32_download_resources.svg" alt="Figure 5.32: Download Resources">
-    <figcaption>Figure 5.32: Download Resources Sequence Diagram</figcaption>
-</figure>
-
-#### Report Error
-
-<figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.40_report_error.svg" alt="Figure 5.40: Report Error">
-    <figcaption>Figure 5.40: Report Error Sequence Diagram</figcaption>
-</figure>
-
-### Payment
-
-#### Manage Payment
-
-<figure>
-    <img src="../../public/assets/CH05/Sequence-Diagrams/Figure_5.29_manage_payment.svg" alt="Figure 5.29: Manage Payment">
-    <figcaption>Figure 5.29: Manage Payment Sequence Diagram</figcaption>
-</figure>
+---
