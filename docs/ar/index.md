@@ -16,7 +16,7 @@ hero:
       link: https://github.com/moh123mos/duocodo-docs
     - theme: alt
       text: 📄 تحميل PDF
-      link: /duocode.pdf
+      link: /duocodo.pdf
 
 features:
   - icon: 🎯

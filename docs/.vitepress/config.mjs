@@ -25,7 +25,7 @@ export default withMermaid({
             // { text: 'API', link: '/api/' },
             {
                 text: 'Download PDF',
-                link: '/duocode.pdf'
+                link: '/duocodo.pdf'
             }
         ],
         sidebar: {
@@ -50,7 +50,7 @@ export default withMermaid({
                     text: 'CH3: Reqs Gathering',
                     collapsed: true,
                     items: [
-                        { text: 'Functional Requirements', link: '/guide/ch3' },
+                        { text: 'Functional Requirements', link: '/guide/ch3/functional-requirements' },
                         { text: 'Non-Functional Requirements', link: '/guide/ch3/non-functional' },
                         { text: 'Functional Decomposition', link: '/guide/ch3/functional-decomposition' },
                     ]
@@ -88,7 +88,7 @@ export default withMermaid({
             ]
         },
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/moh123mos/duocode-docs' }
+            { icon: 'github', link: 'https://github.com/moh123mos/duocodo-docs' }
         ],
     },
     locales: {
@@ -113,7 +113,7 @@ export default withMermaid({
                     { text: 'الدليل', link: '/ar/guide/ch1' },
                     // { text: 'واجهة برمجة التطبيقات', link: '/api/' },
                     { text: 'الفريق', link: '/ar/team' },
-                    { text: 'تحميل PDF', link: '/duocode.pdf' },
+                    { text: 'تحميل PDF', link: '/duocodo.pdf' },
                 ],
                 sidebar: {
                     // This sidebar gets displayed when a user

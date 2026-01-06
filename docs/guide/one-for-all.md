@@ -3567,7 +3567,7 @@ The learner uploads or changes their profile picture.
 7. The system displays instructions:
    - "Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)"
 8. The learner opens their authenticator app and scans the QR code.
-9. The authenticator app adds the DuoCode account and begins generating codes.
+9. The authenticator app adds the DuoCodo account and begins generating codes.
 10. The system prompts: "Enter the 6-digit code from your authenticator app to confirm setup."
 11. The learner enters the current code from their app.
 12. The system validates the code.
