@@ -59,13 +59,7 @@ export default withMermaid({
                     text: 'CH4: Requirements',
                     collapsed: true,
                     items: [
-// <<<<<<< HEAD
                         { text: 'Requirement Analysis', link: '/guide/ch4/requirement-analysis' },
-// =======
-                        { text: 'Functional Requirements', link: '/guide/ch4/functional-reqs' },
-                        { text: 'Non-Functional Requirements', link: '/guide/ch4/non-functional' },
-                        { text: 'Functional Decomposition', link: '/guide/ch4/functional-decomposition' },
-// >>>>>>> bdfc2f8557317d32dd3ce1c1bfdbaceeb8fcd076
                     ]
                 },
                 {
