@@ -544,6 +544,30 @@
 
 </div>
 
+<div class="lof">
+
+#### <div class="lof-header">List of Tablse</div>
+
+- [Table 2.1: Elzero Web School](#table1)
+- [Table 2.2: Codeforces](#table2)
+- [Table 2.3: CodeChef](#table3)
+- [Table 2.4: HackerRank](#table4)
+- [Table 2.5: LeetCode](#table5)
+- [Table 2.6: TopCoder](#table6)
+- [Table 2.7: AtCoder](#table7)
+- [Table 2.8: CodinGame](#table8)
+- [Table 2.9: CodeCombat](#table9)
+- [Table 2.10: Codewars](#table10)
+- [Table 2.11: CheckiO](#table11)
+- [Table 3.1: Development and Operational Costs](#table12)
+- [Table 3.2: Financial Projections](#table13)
+- [Table 3.3: Technical Risks](#table14)
+- [Table 3.4: Project Management Risks](#table15)
+- [Table 3.5: Legal and Compliance Risks](#table16)
+- [Table 5.1: Actors and Goals List](#table17)
+
+</div>
+
 <div class="one-for-all">
 
 ## <div id="chapter-1-project-overview" class="chapter">Chapter 1: Project Overview</div>
@@ -848,99 +872,132 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 
 #### <div class="subsection">Elzero Web School</div>
 
+<div id="table1">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | Elzero Web School is an excellent free resource for Arabic-speaking beginners and intermediate learners who want to build strong web development skills through structured, practical learning. | - External resources and useful tool recommendations included<br>- A Q&A section to ask questions and receive community support | - Step-by-step structured study plans for better learning flow<br>- Dedicated learning paths for Frontend, Backend, and Full Stack | - No built-in progress tracking to monitor course completion<br>- Users cannot rate or review courses or lessons |
+</div>
 
 **Reference:** https://elzero.org
 
 
 #### <div class="subsection">Codeforces</div>
 
+<div id="table2">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | A well-known platform that hosts regular contests like Div 1 and Div 2. It includes a robust rating system and editorial support to develop algorithmic thinking. | - Mathematical algorithms<br>- Rating system<br>- Editorial learning | - Regular contests with large community participation<br>- Detailed editorial explanations<br>- Transparent and active rating system | - Interface can be intimidating for beginners<br>- Problems often require deep mathematical insight |
+</div>
 
 **Reference:** https://codeforces.com
 
 
 #### <div class="subsection">CodeChef</div>
 
+<div id="table3">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | An Indian educational platform hosting contests like Long Challenge and Lunchtime, with a vast problem archive and community engagement. | - Long format contests (Long Challenge)<br>- Short contests (Lunchtime)<br>- Tutorial-based learning | - Great for long-term learning with multiple contest formats<br>- Offers tutorials and mentorship programs | - Sometimes suffers from server lags during contests<br>- Problems can be less curated compared to Codeforces or LeetCode |
+</div>
 
 **Reference:** https://www.codechef.com
 
 
 #### <div class="subsection">HackerRank</div>
 
+<div id="table4">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | Focuses on algorithms, SQL, and data structures with a live coding environment, widely used for tech interviews. | - Structured learning paths<br>- Auto-grading system<br>- Skill-specific tracks (SQL, AI, etc.)<br>- Live coding interface | - Beginner-friendly interface and structured learning paths<br>- Great for practicing specific skills (e.g. SQL, AI)<br>- Instant feedback and auto-grading | - Contest competitiveness is relatively low<br>- Less challenging for advanced users |
+</div>
 
 **Reference:** https://www.hackerrank.com
 
 
 #### <div class="subsection">LeetCode</div>
 
+<div id="table5">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | A premier platform for coding interview prep with 2,500+ problems and company-specific questions. | - Interview prep questions<br>- Company-tagged problems<br>- Weekly contests<br>- Solution discussions | - Focused on technical interview preparation<br>- Community solutions and tutorials<br>- Weekly contests to benchmark skills | - Some premium features are behind a paywall<br>- Less emphasis on advanced algorithms |
+</div>
 
 **Reference:** https://leetcode.com
 
 
 #### <div class="subsection">TopCoder</div>
 
+<div id="table6">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | One of the oldest platforms, known for SRM (Single Round Matches) and Marathon Matches focusing on complex, long-term problems. | - SRM (Single Round Match)<br>- Marathon Match<br>- High-difficulty algorithm challenges<br>- Real-world modeling problems | - Highly competitive and professional-grade problems<br>- Real-world challenges and big prizes<br>- Community of expert coders | - Interface feels outdated<br>- Steeper learning curve for newcomers |
+</div>
 
 **Reference:** https://www.topcoder.com
 
 
 #### <div class="subsection">AtCoder</div>
 
+<div id="table7">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | A Japanese platform offering well-structured contests (ABC, ARC, AGC) with a focus on clean problem statements and difficulty progression. | - ABC, ARC, AGC contests<br>- Clean and structured problems<br>- Difficulty progression<br>- On-time weekly contests | - High-quality problems and fair difficulty curve<br>- Regular, punctual contests<br>- Structured for serious learners | - Japanese-first interface; some translations may be rough<br>- Smaller international community than others |
+</div>
 
 **Reference:** https://atcoder.jp
 
 
 #### <div class="subsection">CodinGame</div>
 
+<div id="table8">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | Gamifies coding challenges with multiplayer and story-based games like Clash of Code and Code vs Zombies. | - Game-based problem solving<br>- Real-time multiplayer coding<br>- Visual programming challenges<br>- Language flexibility (25+) | - Fun and visual way to learn coding<br>- Supports 25+ programming languages<br>- Great for casual or team play | - Not focused on algorithm depth<br>- Less suitable for serious competitive programming |
+</div>
 
 **Reference:** https://www.codingame.com
 
 
 #### <div class="subsection">CodeCombat</div>
 
+<div id="table9">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | An RPG-style platform that teaches Python, JavaScript, and HTML through story-driven games and challenges. | - RPG-style game interface<br>- Code-to-play mechanics<br>- Curriculum-based learning<br>- Beginner visual feedback | - Ideal for children and beginners<br>- Game-based engagement with rewards<br>- Offers structured curriculum | - Too basic for experienced developers<br>- Some content requires a subscription |
+</div>
 
 **Reference:** https://codecombat.com
 
 
 #### <div class="subsection">Codewars</div>
 
+<div id="table10">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | Uses "Kata" - short coding exercises - to improve coding progressively with ranking and community feedback. | - Community challenge creation<br>- Rank-based progression<br>- Peer-reviewed solutions | - Unique ranking and progression system<br>- Community-driven challenges and solutions<br>- Good for practicing idiomatic code | - Lacks formal contest system<br>- Quality of community challenges can vary |
+</div>
 
 **Reference:** https://www.codewars.com
 
 
 #### <div class="subsection">CheckiO</div>
 
+<div id="table11">
+
 | Description | Techniques Used | Advantages | Disadvantages |
 |------------|------------------|------------|----------------|
 | Offers gamified learning of Python and JavaScript through short, interactive problem-solving challenges. | - Gamified challenges<br>- Code review mechanism<br>- Puzzle solving<br>- Interactive feedback | - Fun and visual interface<br>- Encourages reviewing others' code<br>- Python-focused challenges are especially polished | - Less suitable for advanced algorithm training<br>- Limited language support |
+</div>
 
 **Reference:** https://checkio.org
 
@@ -1026,6 +1083,8 @@ Then the related work was described, (Which is listed in the previous table), an
 
 **Development and Operational Costs (Years 0–3):**
 
+<div id="table12">
+
 | Item                       | Year 0       | Year 1      | Year 2      | Year 3      | Total        |
 | -------------------------- | ------------ | ----------- | ----------- | ----------- | ------------ |
 | **Development (one-time)** | $280,000     | $0          | $0          | $0          | $280,000     |
@@ -1034,8 +1093,11 @@ Then the related work was described, (Which is listed in the previous table), an
 | **Hosting/AI/maint.**      | $0           | $20,000     | $20,000     | $20,000     | $60,000      |
 | **Marketing**              | $0           | $50,000     | $50,000     | $50,000     | $150,000     |
 | **Total Cost**             | **$280,000** | **$70,000** | **$70,000** | **$70,000** | **$490,000** |
+</div>
 
 **ROI and Cumulative Net:**
+
+<div id="table13">
 
 | Metric             | Year 0    | Year 1    | Year 2   | Year 3   | Total    |
 | ------------------ | --------- | --------- | -------- | -------- | -------- |
@@ -1043,6 +1105,7 @@ Then the related work was described, (Which is listed in the previous table), an
 | **Total Cost**     | $280,000  | $70,000   | $70,000  | $70,000  | $490,000 |
 | **Net Profit**     | -$280,000 | $80,000   | $155,000 | $230,000 | $185,000 |
 | **Cumulative Net** | -$280,000 | -$200,000 | -$45,000 | $185,000 | —        |
+</div>
 
 > **3-Year ROI:** $185,000 ÷ $490,000 ≈ **37.8%**
 
@@ -1081,27 +1144,36 @@ This section identifies key risks for the coding education platform across techn
 
 #### <div class="subsection">3.2.1 Technical Risks</div>
 
+<div id="table14">
+
 | **Risk**                     | **Description**                                                                                                                                                     | **Likelihood** | **Impact** | **Mitigation**                                                                                                                                                                                         |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Scalability & Uptime**     | High traffic or data growth could overwhelm the platform. Without modular architecture and robust testing, performance bottlenecks and downtime can occur.          | High           | High       | Design a scalable, microservices-based architecture; use horizontal scaling (load balancing, CDN, caching); implement automated testing and monitoring to detect and prevent bottlenecks.              |
 | **External API Integration** | Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes. | Medium         | High       | Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails.         |
 | **Real-time Code Execution** | Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability.   | Medium         | High       | Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover. |
+</div>
 
 #### <div class="subsection">3.2.2 Operational Risks</div>
+
+<div id="table15">
 
 | Risk                                | Description                                                                                                                          | Likelihood | Impact | Mitigation                                                                                                                                                     |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Timeline Delays**                 | Requirement changes, scope creep, or underestimation can derail schedules. Over-optimistic estimates may lead to extended deadlines. | High       | High   | Use thorough upfront planning and clear requirements; apply realistic time estimates with contingency; use agile sprints for incremental delivery and reviews. |
 | **Resource Constraints**            | Limited team size or skill shortages create bottlenecks.                                                                             | Medium     | High   | Cross-train staff and onboard talent early; use contingent resources; maintain a pipeline of developers; forecast and reallocate workloads proactively.        |
 | **Content Development Bottlenecks** | Creating high-quality, engaging coding lessons and exercises is time-consuming, which can delay releases or reduce quality.          | Medium     | Medium | Develop content iteratively with SMEs; reuse or adapt existing materials; employ instructional designers; prioritize high-impact modules first.                |
+</div>
 
 #### <div class="subsection">3.2.3 Legal & Compliance Risks</div>
+
+<div id="table16">
 
 | Risk                            | Description                                                                                                                                        | Likelihood | Impact | Mitigation                                                                                                                                                          |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Data Privacy (Minors)**       | Collecting data on children raises strict legal requirements (e.g., COPPA, GDPR). Failure to comply can cause severe penalties.                    | Medium     | High   | Apply "privacy by design": minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits.  |
 | **Copyright & Licensing**       | Using third-party or community code/assets risks license infringement. Even one noncompliant license could result in legal or financial penalties. | Low        | Medium | Enforce strict review of all content/code; use license scanners; prefer permissive or original content; educate users on plagiarism; remediate infringing material. |
 | **Terms-of-Service Violations** | Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform's ToS.                   | Medium     | Medium | Publish comprehensive ToS; implement moderation and reporting tools; enforce rules via filters and manual review; respond promptly and revise policies regularly.   |
+</div>
 
 ---
 
@@ -1719,6 +1791,8 @@ This section identifies key risks for the coding education platform across techn
 
 ### <div id="actor-goal-list" class="section">5.1 Actor-goal List</div>
 
+<div id="table17">
+
 | Actor | Goals |
 |-------|-------|
 | **Learner** | 1. Register, log in, and manage their own profiles.<br>2. Choose preferred programming languages and interface languages.<br>3. Follow structured learning paths and unlock lessons progressively.<br>4. Learn via text, videos, and interactive demos.<br>5. Practice coding using Monaco Editor with syntax highlighting, auto-completion, and real-time feedback.<br>6. Receive AI-powered hints, explanations, and recommendations.<br>7. Complete exercises, earn XP, badges, and certifications.<br>8. Track progress, mastery, and performance analytics.<br>9. Participate in leaderboards, streaks, and challenges. |
@@ -1726,6 +1800,7 @@ This section identifies key risks for the coding education platform across techn
 | **Administrator** | 1. Manage user accounts and assign roles/permissions.<br>2. Monitor platform analytics and logs.<br>3. Moderate content and enforce warnings or removals.<br>4. Oversee data security, backups, and system performance. **"*-*"**<br>5. Configure integrations and APIs for external services. **"*-*"** |
 | **AI System<br>(Gemini / OpenRouter)** | 1. Provide contextual hints and adaptive learning recommendations.<br>2. Analyze learner code to detect errors and suggest improvements.<br>3. Generate additional exercises and code examples. **"*-*"**<br>4. Adjust hint complexity based on user skill level. **"*-*"** |
 | **System<br>(Platform / App)** | 1. Securely store and manage user data.<br>2. Execute and validate user code safely.<br>3. Deliver responsive and cross-platform experiences.<br>4. Integrate with external authentication and AI APIs.<br>5. Enforce data protection, input validation, and DDoS prevention. |
+</div>
 
 ### <div id="use-cases-diagram" class="section">5.2 Use Cases Diagram</div>
 
