@@ -525,21 +525,21 @@
 - [Figure 5.37: Complete Certification Track](#Figure537)
 - [Figure 5.38: Class Diagram - Core User and Authentication System](#Figure538)
 - [Figure 5.39: Class Diagram - Learning Content Management](#Figure539)
-- [Figure 5.40: Class Diagram - Progress Tracking and Gamification](#Figure540)
-- [Figure 5.41: Class Diagram - Social and Community Features](#Figure541)
-- [Figure 5.42: Class Diagram - Assessment and Certification](#Figure542)
+- [Figure 5.40: Class Diagram - Submissions and Code Execution](#Figure540)
+- [Figure 5.41: Class Diagram - Exercises, Attempts and Code Analysis](#Figure541)
+- [Figure 5.42: Class Diagram - Certification and Gamification](#Figure542)
 - [Figure 5.43: Class Diagram - Administration and Platform Management](#Figure543)
 - [Figure 6.1: Entity Relationship Diagram - User Management and Authentication](#Figure61)
 - [Figure 6.2: Entity Relationship Diagram - Learning Content and Course Structure](#Figure62)
-- [Figure 6.3: Entity Relationship Diagram - Progress Tracking and Gamification](#Figure63)
-- [Figure 6.4: Entity Relationship Diagram - Assessment and Certification](#Figure64)
-- [Figure 6.5: Entity Relationship Diagram - Social Features and Community](#Figure65)
+- [Figure 6.3: Entity Relationship Diagram - Submissions and Code Execution](#Figure63)
+- [Figure 6.4: Entity Relationship Diagram - Exercises, Attempts and Code Analysis](#Figure64)
+- [Figure 6.5: Entity Relationship Diagram - Certification and Gamification](#Figure65)
 - [Figure 6.6: Entity Relationship Diagram - Administration and System Management](#Figure66)
 - [Figure 6.7: Database Schema - User Management and Authentication](#Figure67)
 - [Figure 6.8: Database Schema - Learning Content and Course Structure](#Figure68)
-- [Figure 6.9: Database Schema - Progress Tracking and Gamification](#Figure69)
-- [Figure 6.10: Database Schema - Assessment and Certification](#Figure610)
-- [Figure 6.11: Database Schema - Social Features and Community](#Figure611)
+- [Figure 6.9: Database Schema - Submissions and COde Execution](#Figure69)
+- [Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis](#Figure610)
+- [Figure 6.11: Database Schema - Certification and Gamification](#Figure611)
 - [Figure 6.12: Database Schema - Administration and System Management](#Figure612)
 
 </div>
@@ -5177,35 +5177,35 @@ This section illustrates the classes responsible for managing educational conten
 
 ---
 
-**Part 3:** Progress Tracking and Gamification
+**Part 3:** Submissions and Code Execution
 
-This section demonstrates the classes that handle learner progress tracking, gamification elements such as XP, achievements, badges, and leaderboards. It shows how the platform motivates and engages learners.
+This section demonstrates the classes that handle submission and code execution. It shows how the platform motivates and engages learners.
 
 <figure id="Figure540">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.40_Class-part3.svg" alt="Figure 5.40: Progress Tracking and Gamification">
-    <figcaption>Figure 5.40: Class Diagram - Progress Tracking and Gamification</figcaption>
+    <figcaption>Figure 5.40: Class Diagram - Submissions and Code Execution</figcaption>
 </figure>
 
 ---
 
-**Part 4:** Social and Community Features
+**Part 4:** Exercises, Attempts and Code Analysis
 
-This section presents the classes that enable social interactions, including comments, discussions, friend connections, sharing capabilities, and community engagement features.
+This section presents the classes that enable exercises, attempts and code analysis, including comments, discussions, friend connections, sharing capabilities, and community engagement features.
 
 <figure id="Figure541">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.41_Class-part4.svg" alt="Figure 5.41: Social and Community Features">
-    <figcaption>Figure 5.41: Class Diagram - Social and Community Features</figcaption>
+    <figcaption>Figure 5.41: Class Diagram - Exercises, Attempts and Code Analysis</figcaption>
 </figure>
 
 ---
 
-**Part 5:** Assessment and Certification
+**Part 5:** Certification and Gamification
 
-This section shows the classes related to quizzes, assessments, certifications, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.
+This section shows the classes related to certification and gamification, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.
 
 <figure id="Figure542">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.42_Class-part5.svg" alt="Figure 5.42: Assessment and Certification">
-    <figcaption>Figure 5.42: Class Diagram - Assessment and Certification</figcaption>
+    <figcaption>Figure 5.42: Class Diagram - Certification and Gamification</figcaption>
 </figure>
 
 ---
@@ -5265,35 +5265,35 @@ This section illustrates the entities related to educational content organizatio
 
 ---
 
-**Part 3: Progress Tracking and Gamification**
+**Part 3: Submissions and Code Execution**
 
-This section demonstrates the entities that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform motivates learners through gamification elements.
+This section demonstrates the entities that track submission and code execution. It shows how the platform motivates learners through gamification elements.
 
 <figure id="Figure63">
     <img src="../public/assets/CH06/ERD/Figure_6.3_ERD-part3.svg" alt="Figure 6.3: Progress Tracking and Gamification ERD">
-    <figcaption>Figure 6.3: Entity Relationship Diagram - Progress Tracking and Gamification</figcaption>
+    <figcaption>Figure 6.3: Entity Relationship Diagram - Submissions and Code Execution</figcaption>
 </figure>
 
 ---
 
-**Part 4: Assessment and Certification**
+**Part 4: Exercises, Attempts and Code Analysis**
 
-This section shows the entities for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform evaluates learner competency and issues credentials.
+This section shows the entities for exercises, attempts and code analysis. It demonstrates how the platform evaluates learner competency and issues credentials.
 
 <figure id="Figure64">
     <img src="../public/assets/CH06/ERD/Figure_6.4_ERD-part4.svg" alt="Figure 6.4: Assessment and Certification ERD">
-    <figcaption>Figure 6.4: Entity Relationship Diagram - Assessment and Certification</figcaption>
+    <figcaption>Figure 6.4: Entity Relationship Diagram - Exercises, Attempts and Code Analysis</figcaption>
 </figure>
 
 ---
 
-**Part 5: Social Features and Community**
+**Part 5: Certification and Gamification**
 
-This section presents the entities that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features.
+This section presents the entities that enable certification and gamification, including comments, discussions, friend connections, notifications, sharing, and community engagement features.
 
 <figure id="Figure65">
     <img src="../public/assets/CH06/ERD/Figure_6.5_ERD-part5.svg" alt="Figure 6.5: Social Features and Community ERD">
-    <figcaption>Figure 6.5: Entity Relationship Diagram - Social Features and Community</figcaption>
+    <figcaption>Figure 6.5: Entity Relationship Diagram - Certification and Gamification</figcaption>
 </figure>
 
 ---
@@ -5352,35 +5352,35 @@ This section illustrates the database tables related to educational content orga
 
 ---
 
-**Part 3: Progress Tracking and Gamification**
+**Part 3: Submissions and Code Execution**
 
 This section demonstrates the database tables that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform stores and manages gamification elements with appropriate indexing.
 
 <figure id="Figure69">
     <img src="../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Progress Tracking and Gamification Schema">
-    <figcaption>Figure 6.9: Database Schema - Progress Tracking and Gamification</figcaption>
+    <figcaption>Figure 6.9: Database Schema - Submissions and Code Execution</figcaption>
 </figure>
 
 ---
 
-**Part 4: Assessment and Certification**
+**Part 4: Exercises, Attempts and Code Analysis**
 
 This section shows the database tables for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.
 
 <figure id="Figure610">
     <img src="../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Assessment and Certification Schema">
-    <figcaption>Figure 6.10: Database Schema - Assessment and Certification</figcaption>
+    <figcaption>Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis</figcaption>
 </figure>
 
 ---
 
-**Part 5: Social Features and Community**
+**Part 5: Certification and Gamification**
 
 This section presents the database tables that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.
 
 <figure id="Figure611">
     <img src="../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Social Features and Community Schema">
-    <figcaption>Figure 6.11: Database Schema - Social Features and Community</figcaption>
+    <figcaption>Figure 6.11: Database Schema - Certification and Gamification</figcaption>
 </figure>
 
 ---
