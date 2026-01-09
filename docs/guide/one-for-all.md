@@ -592,7 +592,7 @@ At its core, the platform seamlessly integrates:
       <bold>Motivational Gamification:</bold>
       <ul>
         <li>XP systems, unlockable levels, daily streaks, and skill badges to reward consistency.</li>
-        <li>Global leaderboards and friendly competitions to fuel engagement.</li>
+        <li>Global leaderboards competitions to fuel engagement.</li>
       </ul>
     </li>
   </div>
@@ -612,23 +612,23 @@ By combining structured curriculum, instant feedback, and social accountability,
 
 ### <div id="project-scope" class="section">1.2 Project Scope</div>
 
+## Extended Project Scope  
+
 #### <div class="subsection">1. Comprehensive Curriculum & Content  </div>
    - Structured Learning Path:  
      - Tiered modules from absolute fundamentals (variables, loops) to advanced domains (OOP, algorithms, web frameworks, databases).  
      - Specialized tracks for Python, JavaScript, and full-stack development.  
    - Multi-Format Delivery:  
      - Concept primers: Short videos + annotated articles.  
-     - Interactive walkthroughs: Step-by-step coding simulations.  
-     - Real-world projects: Mini-applications (e.g., weather API integration, todo-list).  
+     - Interactive Chat Learning: AI mascot chatbot for conversational explanations.  
 
 #### <div class="subsection">2. Intelligent Code Editor  </div>
-   - Multi-Language Support:  
-     - Browser-based execution for Python, JavaScript, HTML/CSS, with plans for Java/C++.  
-   - Enhanced Developer Experience:  
+   - Multi-Language Support:
+     - Browser-based execution for Python, JavaScript, HTML/CSS, and more.  
+   - Enhanced Developer Experience:
      - Real-time syntax + error highlighting, auto-completion, and debugging hints.  
-     - Code snapshotting: Save/compare solution versions.  
-   - Accessibility:  
-     - Dark/light mode, keyboard shortcuts, screen-reader compatibility.  
+   - Accessibility:
+     - Dark/light mode, keyboard shortcuts.  
 
 #### <div class="subsection">3. Dynamic Interactive Exercises  </div>
    - Adaptive Challenges:  
@@ -646,20 +646,15 @@ By combining structured curriculum, instant feedback, and social accountability,
      - Unlockable content: Secret lessons or tools for high achievers.  
    - Competitive Elements:  
      - Global/weekly leaderboards (XP-based).  
-     - Speed challenges and efficiency contests with peer rankings.  
 
 #### <div class="subsection">5. Personalized Progress Ecosystem  </div>
    - Learning Analytics:  
      - Mastery dashboards showing skill proficiency (e.g., "Data Structures: 85%").  
      - Time-tracking: Session duration, concepts revisited.  
-   - Roadmap Customization:  
-     - Adaptive recommendations for weak areas.  
-     - Bookmarkable "Playlists" for user-defined goals.  
 
-#### <div class="subsection">7. Accessibility & Scalability  </div>
+#### <div class="subsection">6. Accessibility & Scalability  </div>
    - Mobile-responsive design: Seamless tablet/phone access.  
    - Offline mode: Download lessons/exercises for practice without internet.  
-   - API integration: Future compatibility with LMS/CMS platforms.  
 
 ---  
 
@@ -703,16 +698,16 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 <div class="highlight-box">
   <ul>
     <li>AI-Assisted Feedback:</li>
-    <li>
+    <ul>
       <li>
           Real-time error explanations + debugging hints (e.g., “Your loop exits early: check conditionals!”).
       </li>
-    </li>
+    </ul>
     <li>Exercise Evolution:</li>
-    <li>
+    <ul>
       <li>Adaptive difficulty: Problems scale complexity based on user mastery.</li>
       <li>Project Sprints: Build <i>portfolio-ready micro-apps</i> (e.g., API-driven weather dashboard).</li>
-    </li>
+    </ul>
   </ul>
 </div>
 
@@ -771,22 +766,14 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 - Competitive Arenas:  
   - Host weekly efficiency leagues (lowest Big O wins) and speed sprints (fastest debugger).  
 
-#### <div class="subsection">4. Foster Collaborative Expertise  </div>
-- Structured Peer Review:  
-  - Implement rubric-based code critiques (readability, efficiency, edge cases) with upvoted "Top Reviewer" rankings.  
-- Mentor-Guided Growth:  
-  - Verified experts host live "Code Clinics" for Q&A and architecture reviews.  
-- Solution Explorer:  
-  - Curate multiple approaches per problem (e.g., "3 Pythonic Solutions") with complexity comparisons.  
-
-#### <div class="subsection">5. Enable Hyper-Personalized Tracking  </div>
+#### <div class="subsection">4. Enable Hyper-Personalized Tracking  </div>
 - Predictive Analytics Dashboard:  
   - Visualize skill decay (e.g., "Arrays mastery ↓15% in 2 weeks") and recommend refreshers.  
   - Track efficiency gains (e.g., "Reduced solution time by 40% this month").  
 - Custom Roadmapping:  
   - Let users build goal-oriented playlists ("Prep for FAANG Interviews" → auto-adds relevant exercises).  
 
-#### <div class="subsection">6. Ensure Accessibility & Scalability  </div>
+#### <div class="subsection">5. Ensure Accessibility & Scalability  </div>
 - Inclusive Design:  
   - Support screen readers, keyboard navigation, and color-blind modes.  
   - Offer text-to-speech explanations for complex concepts.  
@@ -794,11 +781,7 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
   - Offline-first capability: Download modules + editor for remote learning.  
   - API extensibility: Integrate with GitHub/LMS platforms for portfolio syncing.  
 
-#### <div class="subsection">7. Bridge Theory to Real-World Impact  </div>
-- Portfolio Projects:  
-  - Guide users to build deployable micro-apps (e.g., REST API service, ainteractiveractive dashboard).  
-- Industry Challenges:  
-  - Partner with tech firms for sponsored "real-world" tasks (e.g., "Optimize Shopify’s cart algorithm").  
+  By achieving these objectives, the platform will not only demystify programming for beginners but also cultivate a motivated, skilled community ready to tackle real-world coding challenges.
 
 ---
 
