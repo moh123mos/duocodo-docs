@@ -36,35 +36,35 @@ This section illustrates the entities related to educational content organizatio
 
 ---
 
-## Part 3: Progress Tracking and Gamification
+## Part 3: Submission and Code Execution
 
-This section demonstrates the entities that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform motivates learners through gamification elements.
+This section demonstrates the entities that track submission and code execution. It shows how the platform motivates learners through gamification elements.
 
 <figure>
-    <img src="/assets/CH06/ERD/Figure_6.3_ERD-part3.svg" alt="Figure 6.3: Progress Tracking and Gamification ERD">
-    <figcaption>Figure 6.3: Entity Relationship Diagram - Progress Tracking and Gamification</figcaption>
+    <img src="/assets/CH06/ERD/Figure_6.3_ERD-part3.svg" alt="Figure 6.3: Submission and Code Execution ERD">
+    <figcaption>Figure 6.3: Entity Relationship Diagram - Submission and Code Execution</figcaption>
 </figure>
 
 ---
 
-## Part 4: Assessment and Certification
+## Part 4: Exercises, Attempts and Code Analysis
 
-This section shows the entities for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform evaluates learner competency and issues credentials.
+This section shows the entities for exercises, attempts and code analysis. It demonstrates how the platform evaluates learner competency and issues credentials.
 
 <figure>
-    <img src="/assets/CH06/ERD/Figure_6.4_ERD-part4.svg" alt="Figure 6.4: Assessment and Certification ERD">
-    <figcaption>Figure 6.4: Entity Relationship Diagram - Assessment and Certification</figcaption>
+    <img src="/assets/CH06/ERD/Figure_6.4_ERD-part4.svg" alt="Figure 6.4: Exercises, Attempts and Code Analysis ERD">
+    <figcaption>Figure 6.4: Entity Relationship Diagram - Exercises, Attempts and Code Analysis</figcaption>
 </figure>
 
 ---
 
-## Part 5: Social Features and Community
+## Part 5: Certification and Gamification
 
-This section presents the entities that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features.
+This section presents the entities that enable certification and gamification, including comments, discussions, friend connections, notifications, sharing, and community engagement features.
 
 <figure>
-    <img src="/assets/CH06/ERD/Figure_6.5_ERD-part5.svg" alt="Figure 6.5: Social Features and Community ERD">
-    <figcaption>Figure 6.5: Entity Relationship Diagram - Social Features and Community</figcaption>
+    <img src="/assets/CH06/ERD/Figure_6.5_ERD-part5.svg" alt="Figure 6.5: Certification and Gamification ERD">
+    <figcaption>Figure 6.5: Entity Relationship Diagram - Certification and Gamification</figcaption>
 </figure>
 
 ---

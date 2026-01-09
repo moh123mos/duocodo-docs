@@ -36,35 +36,35 @@ This section illustrates the classes responsible for managing educational conten
 
 ---
 
-## Part 3: Progress Tracking and Gamification
+## Part 3: Submission and Code Execution
 
-This section demonstrates the classes that handle learner progress tracking, gamification elements such as XP, achievements, badges, and leaderboards. It shows how the platform motivates and engages learners.
+This section demonstrates the classes that handle submission and code execution. It shows how the platform motivates and engages learners.
 
 <figure>
-    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.40_Class-part3.svg" alt="Figure 5.40: Progress Tracking and Gamification">
-    <figcaption>Figure 5.40: Class Diagram - Progress Tracking and Gamification</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.40_Class-part3.svg" alt="Figure 5.40: Submission and Code Execution">
+    <figcaption>Figure 5.40: Class Diagram - Submission and Code Execution</figcaption>
 </figure>
 
 ---
 
-## Part 4: Social and Community Features
+## Part 4: Exercises, Attempts and Code Analysis
 
-This section presents the classes that enable social interactions, including comments, discussions, friend connections, sharing capabilities, and community engagement features.
+This section presents the classes that enable exercises, attempts and code analysis, including comments, discussions, friend connections, sharing capabilities, and community engagement features.
 
 <figure>
-    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.41_Class-part4.svg" alt="Figure 5.41: Social and Community Features">
-    <figcaption>Figure 5.41: Class Diagram - Social and Community Features</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.41_Class-part4.svg" alt="Figure 5.41: Exercises, Attempts and Code Analysis">
+    <figcaption>Figure 5.41: Class Diagram - Exercises, Attempts and Code Analysis</figcaption>
 </figure>
 
 ---
 
-## Part 5: Assessment and Certification
+## Part 5: Certification and Gamification
 
-This section shows the classes related to quizzes, assessments, certifications, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.
+This section shows the classes related to certification and gamification, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.
 
 <figure>
-    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.42_Class-part5.svg" alt="Figure 5.42: Assessment and Certification">
-    <figcaption>Figure 5.42: Class Diagram - Assessment and Certification</figcaption>
+    <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.42_Class-part5.svg" alt="Figure 5.42: Certification and Gamification">
+    <figcaption>Figure 5.42: Class Diagram - Certification and Gamification</figcaption>
 </figure>
 
 ---

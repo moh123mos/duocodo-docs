@@ -36,35 +36,35 @@ This section illustrates the database tables related to educational content orga
 
 ---
 
-## Part 3: Progress Tracking and Gamification
+## Part 3: Submission and Code Execution
 
-This section demonstrates the database tables that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform stores and manages gamification elements with appropriate indexing.
+This section demonstrates the database tables that track submission and code execution. It shows how the platform stores and manages gamification elements with appropriate indexing.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Progress Tracking and Gamification Schema">
-    <figcaption>Figure 6.9: Database Schema - Progress Tracking and Gamification</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Submission and Code Execution Schema">
+    <figcaption>Figure 6.9: Database Schema - Submission and Code Execution</figcaption>
 </figure>
 
 ---
 
-## Part 4: Assessment and Certification
+## Part 4: Exercises, Attempts and Code Analysis
 
-This section shows the database tables for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.
+This section shows the database tables for exercises, attempts and code analysis. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Assessment and Certification Schema">
-    <figcaption>Figure 6.10: Database Schema - Assessment and Certification</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Exercises, Attempts and Code Analysis Schema">
+    <figcaption>Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis</figcaption>
 </figure>
 
 ---
 
-## Part 5: Social Features and Community
+## Part 5: Certification and Gamification
 
-This section presents the database tables that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.
+This section presents the database tables that enable certification and gamification, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Social Features and Community Schema">
-    <figcaption>Figure 6.11: Database Schema - Social Features and Community</figcaption>
+    <img src="../../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Certification and Gamification Schema">
+    <figcaption>Figure 6.11: Database Schema - Certification and Gamification</figcaption>
 </figure>
 
 ---
