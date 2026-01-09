@@ -222,10 +222,6 @@
       background: white;
     }
 
-    .figure figcaption {
-      color: #555;
-    }
-
     /* @top-center { */
       /* content: element(header); */
     /* } */
@@ -371,6 +367,75 @@
   .toc a:hover {
     color: #3498db;
   }
+
+  .lof {
+    page-break-after: always;
+    padding: 20px;
+    margin: 40px 0;
+    border: 1px solid #e0e0e0;
+    background-color: #fafafa;
+  }
+
+  .lof-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+  }
+
+  .lof ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .lof > ul > li {
+    margin-bottom: 15px;
+  }
+
+  .lof a {
+    text-decoration: none;
+    color: #2c3e50;
+    display: block;
+    position: relative;
+    padding-right: 40px;
+    line-height: 1.8;
+    padding-bottom: 18px;
+  }
+
+  .lof a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 40px;
+    border-bottom: 1px dotted #bdc3c7;
+  }
+
+  .lof a::after {
+    content: target-counter(attr(href), page);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: bold;
+    color: #3498db;
+    background-color: #fafafa;
+    padding-left: 5px;
+    padding-bottom: 15px;
+  }
+
+  .lof > ul > li > a {
+    font-weight: normal;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .lof a:hover {
+    color: #3498db;
+  }
 </style>
 
 <div class="toc">
@@ -409,6 +474,73 @@
   * [6.2 Database Schema](#database-schema)
 
 <!-- tocstop -->
+
+</div>
+
+<div class="lof">
+
+#### <div class="lof-header">List of Figures</div>
+
+- [Figure 3.1: Development Team Roles](#Figure31)
+- [Figure 3.2: Net Profit per Year](#Figure32)
+- [Figure 3.3: Cumulative Revenue vs Cumulative Cost](#Figure33)
+- [Figure 4.1: Decomposition Diagram Part 1](#Figure41)
+- [Figure 4.2: Decomposition Diagram Part 2](#Figure42)
+- [Figure 5.1: Use Cases Diagram](#Figure51)
+- [Figure 5.2: Manage User Accounts](#Figure52)
+- [Figure 5.3: Assign User Role](#Figure53)
+- [Figure 5.4: Monitor Platform Analytics](#Figure54)
+- [Figure 5.5: Review And Filter System Logs](#Figure55)
+- [Figure 5.6: Remove Inappropriate Content](#Figure56)
+- [Figure 5.7: Issue User Warning](#Figure57)
+- [Figure 5.8: Design Learning Path](#Figure58)
+- [Figure 5.9: Register Account](#Figure59)
+- [Figure 5.10: Login to System](#Figure510)
+- [Figure 5.11: Create Course](#Figure511)
+- [Figure 5.12: Create Lesson](#Figure512)
+- [Figure 5.13: Add Multimedia Content](#Figure513)
+- [Figure 5.14: Localize Content](#Figure514)
+- [Figure 5.15: Categorize Exercise Difficulty](#Figure515)
+- [Figure 5.16: Udate Course Materials](#Figure516)
+- [Figure 5.17: Review Student Submissions](#Figure517)
+- [Figure 5.18: Manage Course Structure](#Figure518)
+- [Figure 5.19: Create Coding Exercise](#Figure519)
+- [Figure 5.20: Validate Exercise before Publishing](#Figure520)
+- [Figure 5.21: Contribute to Learning Path](#Figure521)
+- [Figure 5.22: Register Account](#Figure522)
+- [Figure 5.23: Login to System](#Figure523)
+- [Figure 5.24: Recover password](#Figure524)
+- [Figure 5.25: Choose Learning Path](#Figure525)
+- [Figure 5.26: View Lesson Content](#Figure526)
+- [Figure 5.27: Complete Exercise](#Figure527)
+- [Figure 5.28: Track Progress](#Figure528)
+- [Figure 5.29: Learn XP and Level Up](#Figure529)
+- [Figure 5.30: Set Language Preferences](#Figure530)
+- [Figure 5.31: Bookmark Lesson](#Figure531)
+- [Figure 5.32: Share Solution](#Figure532)
+- [Figure 5.33: Enable Two-factor Authontecation](#Figure533)
+- [Figure 5.34: Practice Coding](#Figure534)
+- [Figure 5.35: Practice Coding with Blockly Editor](#Figure535)
+- [Figure 5.36: Receive AI-Powered Hints](#Figure536)
+- [Figure 5.37: Complete Certification Track](#Figure537)
+- [Figure 5.38: Class Diagram - Core User and Authentication System](#Figure538)
+- [Figure 5.39: Class Diagram - Learning Content Management](#Figure539)
+- [Figure 5.40: Class Diagram - Progress Tracking and Gamification](#Figure540)
+- [Figure 5.41: Class Diagram - Social and Community Features](#Figure541)
+- [Figure 5.42: Class Diagram - Assessment and Certification](#Figure542)
+- [Figure 5.43: Class Diagram - Administration and Platform Management](#Figure543)
+- [Figure 6.1: Entity Relationship Diagram - User Management and Authentication](#Figure61)
+- [Figure 6.2: Entity Relationship Diagram - Learning Content and Course Structure](#Figure62)
+- [Figure 6.3: Entity Relationship Diagram - Progress Tracking and Gamification](#Figure63)
+- [Figure 6.4: Entity Relationship Diagram - Assessment and Certification](#Figure64)
+- [Figure 6.5: Entity Relationship Diagram - Social Features and Community](#Figure65)
+- [Figure 6.6: Entity Relationship Diagram - Administration and System Management](#Figure66)
+- [Figure 6.7: Database Schema - User Management and Authentication](#Figure67)
+- [Figure 6.8: Database Schema - Learning Content and Course Structure](#Figure68)
+- [Figure 6.9: Database Schema - Progress Tracking and Gamification](#Figure69)
+- [Figure 6.10: Database Schema - Assessment and Certification](#Figure610)
+- [Figure 6.11: Database Schema - Social Features and Community](#Figure611)
+- [Figure 6.12: Database Schema - Administration and System Management](#Figure612)
 
 </div>
 
@@ -873,10 +1005,10 @@ Then the related work was described, (Which is listed in the previous table), an
   - **Content & Instructional Design (shared responsibility):**  
     Instead of dedicated content creators, **all team members will collaborate** on producing and localizing course material in Arabic. This includes designing structured lessons, writing exercises, and embedding gamification mechanics. Team members’ technical expertise ensures content is accurate, while shared responsibility distributes workload evenly.  
     
-    <figure class="figure">
-      <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
-      <figcaption>Figure 3.1: Development Team Roles</figcaption>
-    </figure>
+<figure id="Figure31">
+  <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
+  <figcaption>Figure 3.1: Development Team Roles</figcaption>
+</figure>
 
 #### <div class="section">3.1.3 Economic Feasibility</div>
 
@@ -914,7 +1046,7 @@ Then the related work was described, (Which is listed in the previous table), an
 
 > **3-Year ROI:** $185,000 ÷ $490,000 ≈ **37.8%**
 
-<figure>
+<figure id="Figure32">
   <img src="../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.svg" alt="Figure 3.2: Net Profit per Year">
   <figcaption>Figure 3.2: Net Profit per Year</figcaption>
 </figure>
@@ -937,7 +1069,7 @@ To illustrate:
 - Achieved at ~**16,333 paid enrollments** (490,000 ÷ $30).  
 - Based on projected growth, this milestone will be reached in the **third year of operation**.  
 
-<figure>
+<figure id="Figure33">
   <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="Figure 3.3: Cumulative Revenue vs Cumulative Cost - Chart showing break-even point analysis over a 3-year period">
   <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
 </figure>
@@ -1569,14 +1701,14 @@ This section identifies key risks for the coding education platform across techn
 
 **Decomposition Diagram - Part 1**
 
-<figure>
+<figure id="Figure41">
   <img src="../public/assets/CH04/Figure_4.1_decomposition_diagram.svg" alt="Figure 4.1: Decomposition Diagram Part 1">
   <figcaption>Figure 4.1: Decomposition Diagram Part 1</figcaption>
 </figure>
 
 **Decomposition Diagram - Part 2**
 
-<figure>
+<figure id="Figure42">
   <img src="../public/assets/CH04/Figure_4.2_decomposition_diagram.svg" alt="Figure 4.2: Decomposition Diagram Part 2">
   <figcaption>Figure 4.2: Decomposition Diagram Part 2</figcaption>
 </figure>
@@ -1597,7 +1729,7 @@ This section identifies key risks for the coding education platform across techn
 
 ### <div id="use-cases-diagram" class="section">5.2 Use Cases Diagram</div>
 
-<figure>
+<figure id="Figure51">
   <img src="../public/assets/CH05/Figure_5.1_use_case_diagram.svg" alt="Figure 5.1: Use Cases Diagram">
   <figcaption>Figure 5.1: Use Cases Diagram</figcaption>
 </figure>
@@ -4765,252 +4897,252 @@ The learner uploads or changes their profile picture.
 
 Sequence diagrams were created only for casual and fully-dressed use cases, as these provide sufficient interaction detail to model system behavior. Brief use cases were excluded since they describe high-level functionality without internal system collaboration.
 
-<figure>
+<figure id="Figure52">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.2_Manage_User_Accounts.svg" alt="Figure 5.2: Manage User Accounts">
   <figcaption>Figure 5.2: Manage User Accounts</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure53">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.3_Assign_User_Role.svg" alt="Figure 5.3: Assign User Role">
   <figcaption>Figure 5.3: Assign User Role</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure54">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.4_Monitor_Platform_Analytics.svg" alt="Figure 5.4: Monitor Platform Analytics">
   <figcaption>Figure 5.4: Monitor Platform Analytics</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure55">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.5_Review_And_Filter_System_Logs.svg" alt="Figure 5.5: Review And Filter System Logs">
   <figcaption>Figure 5.5: Review And Filter System Logs</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure56">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.6_Remove_Inappropriate_Content.svg" alt="Figure 5.6: Remove Inappropriate Content">
   <figcaption>Figure 5.6: Remove Inappropriate Content</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure57">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.7_Issue_User_Warning.svg" alt="Figure 5.7: Issue User Warning">
   <figcaption>Figure 5.7: Issue User Warning</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure58">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.8_Design_Learning_Path.svg" alt="Figure 5.8: Design Learning Path">
   <figcaption>Figure 5.8: Design Learning Path</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure59">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.9_Register_Account.svg" alt="Figure 5.9: Register Account">
   <figcaption>Figure 5.9: Register Account</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure510">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.10_Login_to_System.svg" alt="Figure 5.10: Login to System">
   <figcaption>Figure 5.10: Login to System</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure511">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.11_Create_Course.svg" alt="Figure 5.11: Create Course">
   <figcaption>Figure 5.11: Create Course</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure512">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.12_Create_Lesson.svg" alt="Figure 5.12: Create Lesson">
   <figcaption>Figure 5.12: Create Lesson</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure513">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.13_Add_Multimedia_Content.svg" alt="Figure 5.13: Add Multimedia Content">
   <figcaption>Figure 5.13: Add Multimedia Content</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure514">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.14_Localize_Content.svg" alt="Figure 5.14: Localize Content">
   <figcaption>Figure 5.14: Localize Content</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure515">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.15_Categorize_Exercise_Difficulty.svg" alt="Figure 5.15: Categorize Exercise Difficulty">
   <figcaption>Figure 5.15: Categorize Exercise Difficulty</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure516">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.16_Udate_Course_Materials.svg" alt="Figure 5.16: Udate Course Materials">
   <figcaption>Figure 5.16: Udate Course Materials</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure517">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.17_Review_Student_Submissions.svg" alt="Figure 5.17: Review Student Submissions">
   <figcaption>Figure 5.17: Review Student Submissions</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure518">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.18_Manage_Course_Structure.svg" alt="Figure 5.18: Manage Course Structure">
   <figcaption>Figure 5.18: Manage Course Structure</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure519">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.19_Create_Coding_Exercise.svg" alt="Figure 5.19: Create Coding Exercise">
   <figcaption>Figure 5.19: Create Coding Exercise</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure520">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.20_Validate_Exercise_before_Publishing.svg" alt="Figure 5.20: Validate Exercise before Publishing">
   <figcaption>Figure 5.20: Validate Exercise before Publishing</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure521">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.21_Contribute_to_Learning_Path.svg" alt="Figure 5.21: Contribute to Learning Path">
   <figcaption>Figure 5.21: Contribute to Learning Path</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure522">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.22_Register_Account.svg" alt="Figure 5.22: Register Account">
   <figcaption>Figure 5.22: Register Account</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure523">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.23_Login_to_System.svg" alt="Figure 5.23: Login to System">
   <figcaption>Figure 5.23: Login to System</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure524">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.24_Recover_password.svg" alt="Figure 5.24: Recover password">
   <figcaption>Figure 5.24: Recover password</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure525">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.25_Choose_Learning_Path.svg" alt="Figure 5.25: Choose Learning Path">
   <figcaption>Figure 5.25: Choose Learning Path</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure526">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.26_View_Lesson_Content.svg" alt="Figure 5.26: View Lesson Content">
   <figcaption>Figure 5.26: View Lesson Content</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure527">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.27_Complete_Exercise.svg" alt="Figure 5.27: Complete Exercise">
   <figcaption>Figure 5.27: Complete Exercise</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure528">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.28_Track_Progress.svg" alt="Figure 5.28: Track Progress">
   <figcaption>Figure 5.28: Track Progress</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure529">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.29_Learn_XP_and_Level_Up.svg" alt="Figure 5.29: Learn XP and Level Up">
   <figcaption>Figure 5.29: Learn XP and Level Up</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure530">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.30_Set_Language_Preferences.svg" alt="Figure 5.30: Set Language Preferences">
   <figcaption>Figure 5.30: Set Language Preferences</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure531">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.31_Bookmark_Lesson.svg" alt="Figure 5.31: Bookmark Lesson">
   <figcaption>Figure 5.31: Bookmark Lesson</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure532">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.32_Share_Solution.svg" alt="Figure 5.32: Share Solution">
   <figcaption>Figure 5.32: Share Solution</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure533">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.33_Enable_Two-factor_Authontecation.svg" alt="Figure 5.33: Enable Two-factor Authontecation">
   <figcaption>Figure 5.33: Enable Two-factor Authontecation</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure534">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.34_Practice_Coding.svg" alt="Figure 5.34: Practice Coding">
   <figcaption>Figure 5.34: Practice Coding</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure535">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.35_Practice_Coding_with_Blockly_Editor.svg" alt="Figure 5.35: Practice Coding with Blockly Editor">
   <figcaption>Figure 5.35: Practice Coding with Blockly Editor</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure536">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.36_Receive_AI-Powered_Hints.svg" alt="Figure 5.36: Receive AI-Powered Hints">
   <figcaption>Figure 5.36: Receive AI-Powered Hints</figcaption>
 </figure>
 
 ---
 
-<figure>
+<figure id="Figure537">
   <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.37_Complete_Certification_Track.svg" alt="Figure 5.37: Complete Certification Track">
   <figcaption>Figure 5.37: Complete Certification Track</figcaption>
 </figure>
@@ -5027,7 +5159,7 @@ Class diagrams are structural diagrams that show the static structure of the sys
 
 This section presents the foundational classes for user management, authentication, and authorization within the DuoCodo platform. It includes user roles, profile management, and security features.
 
-<figure>
+<figure id="Figure538">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.38_Class-part1.svg" alt="Figure 5.38: Core User and Authentication System">
     <figcaption>Figure 5.38: Class Diagram - Core User and Authentication System</figcaption>
 </figure>
@@ -5038,7 +5170,7 @@ This section presents the foundational classes for user management, authenticati
 
 This section illustrates the classes responsible for managing educational content, including courses, lessons, exercises, and learning paths. It shows how content is structured and organized within the platform.
 
-<figure>
+<figure id="Figure539">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.39_Class-part2.svg" alt="Figure 5.39: Learning Content Management">
     <figcaption>Figure 5.39: Class Diagram - Learning Content Management</figcaption>
 </figure>
@@ -5049,7 +5181,7 @@ This section illustrates the classes responsible for managing educational conten
 
 This section demonstrates the classes that handle learner progress tracking, gamification elements such as XP, achievements, badges, and leaderboards. It shows how the platform motivates and engages learners.
 
-<figure>
+<figure id="Figure540">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.40_Class-part3.svg" alt="Figure 5.40: Progress Tracking and Gamification">
     <figcaption>Figure 5.40: Class Diagram - Progress Tracking and Gamification</figcaption>
 </figure>
@@ -5060,7 +5192,7 @@ This section demonstrates the classes that handle learner progress tracking, gam
 
 This section presents the classes that enable social interactions, including comments, discussions, friend connections, sharing capabilities, and community engagement features.
 
-<figure>
+<figure id="Figure541">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.41_Class-part4.svg" alt="Figure 5.41: Social and Community Features">
     <figcaption>Figure 5.41: Class Diagram - Social and Community Features</figcaption>
 </figure>
@@ -5071,7 +5203,7 @@ This section presents the classes that enable social interactions, including com
 
 This section shows the classes related to quizzes, assessments, certifications, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.
 
-<figure>
+<figure id="Figure542">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.42_Class-part5.svg" alt="Figure 5.42: Assessment and Certification">
     <figcaption>Figure 5.42: Class Diagram - Assessment and Certification</figcaption>
 </figure>
@@ -5082,7 +5214,7 @@ This section shows the classes related to quizzes, assessments, certifications, 
 
 This section illustrates the classes responsible for platform administration, including system monitoring, analytics, content moderation, user management, and reporting capabilities.
 
-<figure>
+<figure id="Figure543">
     <img src="../public/assets/CH05/Class-Diagrams/Figure_5.43_Class-part6.svg" alt="Figure 5.43: Administration and Platform Management">
     <figcaption>Figure 5.43: Class Diagram - Administration and Platform Management</figcaption>
 </figure>
@@ -5115,7 +5247,7 @@ Entity Relationship Diagrams (ERD) represent the data model of the DuoCodo platf
 
 This section presents the core entities for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control.
 
-<figure>
+<figure id="Figure61">
     <img src="../public/assets/CH06/ERD/Figure_6.1_ERD-Part1.svg" alt="Figure 6.1: User Management and Authentication ERD">
     <figcaption>Figure 6.1: Entity Relationship Diagram - User Management and Authentication</figcaption>
 </figure>
@@ -5126,7 +5258,7 @@ This section presents the core entities for user management, including user acco
 
 This section illustrates the entities related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and interconnected within the platform.
 
-<figure>
+<figure id="Figure62">
     <img src="../public/assets/CH06/ERD/Figure_6.2_ERD-Part2.svg" alt="Figure 6.2: Learning Content and Course Structure ERD">
     <figcaption>Figure 6.2: Entity Relationship Diagram - Learning Content and Course Structure</figcaption>
 </figure>
@@ -5137,7 +5269,7 @@ This section illustrates the entities related to educational content organizatio
 
 This section demonstrates the entities that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform motivates learners through gamification elements.
 
-<figure>
+<figure id="Figure63">
     <img src="../public/assets/CH06/ERD/Figure_6.3_ERD-part3.svg" alt="Figure 6.3: Progress Tracking and Gamification ERD">
     <figcaption>Figure 6.3: Entity Relationship Diagram - Progress Tracking and Gamification</figcaption>
 </figure>
@@ -5148,7 +5280,7 @@ This section demonstrates the entities that track learner progress, achievements
 
 This section shows the entities for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform evaluates learner competency and issues credentials.
 
-<figure>
+<figure id="Figure64">
     <img src="../public/assets/CH06/ERD/Figure_6.4_ERD-part4.svg" alt="Figure 6.4: Assessment and Certification ERD">
     <figcaption>Figure 6.4: Entity Relationship Diagram - Assessment and Certification</figcaption>
 </figure>
@@ -5159,7 +5291,7 @@ This section shows the entities for quizzes, assessments, test cases, submission
 
 This section presents the entities that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features.
 
-<figure>
+<figure id="Figure65">
     <img src="../public/assets/CH06/ERD/Figure_6.5_ERD-part5.svg" alt="Figure 6.5: Social Features and Community ERD">
     <figcaption>Figure 6.5: Entity Relationship Diagram - Social Features and Community</figcaption>
 </figure>
@@ -5170,7 +5302,7 @@ This section presents the entities that enable social interactions, including co
 
 This section illustrates the entities for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities.
 
-<figure>
+<figure id="Figure66">
     <img src="../public/assets/CH06/ERD/Figure_6.6_ERD-part6.svg" alt="Figure 6.6: Administration and System Management ERD">
     <figcaption>Figure 6.6: Entity Relationship Diagram - Administration and System Management</figcaption>
 </figure>
@@ -5202,7 +5334,7 @@ Database Schema represents the logical structure of the DuoCodo platform databas
 
 This section presents the database tables for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control with detailed field specifications.
 
-<figure>
+<figure id="Figure67">
     <img src="../public/assets/CH06/Schema/Figure_6.7_schema-part1.svg" alt="Figure 6.7: User Management and Authentication Schema">
     <figcaption>Figure 6.7: Database Schema - User Management and Authentication</figcaption>
 </figure>
@@ -5213,7 +5345,7 @@ This section presents the database tables for user management, including user ac
 
 This section illustrates the database tables related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and stored within the database with proper data types and constraints.
 
-<figure>
+<figure id="Figure68">
     <img src="../public/assets/CH06/Schema/Figure_6.8_schema-part2.svg" alt="Figure 6.8: Learning Content and Course Structure Schema">
     <figcaption>Figure 6.8: Database Schema - Learning Content and Course Structure</figcaption>
 </figure>
@@ -5224,7 +5356,7 @@ This section illustrates the database tables related to educational content orga
 
 This section demonstrates the database tables that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform stores and manages gamification elements with appropriate indexing.
 
-<figure>
+<figure id="Figure69">
     <img src="../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Progress Tracking and Gamification Schema">
     <figcaption>Figure 6.9: Database Schema - Progress Tracking and Gamification</figcaption>
 </figure>
@@ -5235,7 +5367,7 @@ This section demonstrates the database tables that track learner progress, achie
 
 This section shows the database tables for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.
 
-<figure>
+<figure id="Figure610">
     <img src="../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Assessment and Certification Schema">
     <figcaption>Figure 6.10: Database Schema - Assessment and Certification</figcaption>
 </figure>
@@ -5246,7 +5378,7 @@ This section shows the database tables for quizzes, assessments, test cases, sub
 
 This section presents the database tables that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.
 
-<figure>
+<figure id="Figure611">
     <img src="../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Social Features and Community Schema">
     <figcaption>Figure 6.11: Database Schema - Social Features and Community</figcaption>
 </figure>
@@ -5257,7 +5389,7 @@ This section presents the database tables that enable social interactions, inclu
 
 This section illustrates the database tables for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities with appropriate data retention policies.
 
-<figure>
+<figure id="Figure612">
     <img src="../public/assets/CH06/Schema/Figure_6.12_schema-part6.svg" alt="Figure 6.12: Administration and System Management Schema">
     <figcaption>Figure 6.12: Database Schema - Administration and System Management</figcaption>
 </figure>
