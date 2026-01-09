@@ -1,6 +1,6 @@
-<meta charset="utf-8">
-
-<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+<!-- <meta charset="utf-8"> -->
+<!--  -->
+<!-- <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script> -->
 
 <style>
   :root {
