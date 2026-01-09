@@ -1,7 +1,6 @@
----
-  pdf_options:
-    timeout: 120000
----
+<meta charset="utf-8">
+
+<script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 
 <style>
   :root {
@@ -261,12 +260,8 @@
       background: linear-gradient(180deg, #1a2f3f 0%, #0d1821 100%);
       border: 1px solid #00d4ff;
       border-radius: 8px;
-      box-shadow: 
-        0 2px 10px rgba(0, 212, 255, 0.4),
-        inset 0 1px 5px rgba(0, 0, 0, 0.3);
-      
       margin-top: 10px;
-      margin-right: 12px;
+      margin-left: -12px;
     }
   }
   
@@ -288,22 +283,140 @@
       background: linear-gradient(180deg, #1a2f3f 0%, #0d1821 100%);
       border: 1px solid #00d4ff;
       border-radius: 8px;
-      box-shadow: 
-        0 2px 10px rgba(0, 212, 255, 0.4),
-        inset 0 1px 5px rgba(0, 0, 0, 0.3);
-      
       margin-top: 10px;
       margin-left: 12px;
     }
   }
+  
+  .toc {
+    page-break-after: always;
+    padding: 20px;
+    margin: 40px 0;
+    border: 1px solid #e0e0e0;
+    background-color: #fafafa;
+  }
 
+  .toc-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+  }
+
+  .toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .toc > ul > li {
+    margin-bottom: 15px;
+  }
+
+  .toc ul ul {
+    padding-left: 30px;
+    margin-top: 8px;
+  }
+
+  .toc ul ul li {
+    margin-bottom: 8px;
+  }
+
+  .toc a {
+    text-decoration: none;
+    color: #2c3e50;
+    display: block;
+    position: relative;
+    padding-right: 40px;
+    line-height: 1.8;
+    padding-bottom: 8px;
+  }
+
+  .toc a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 40px;
+    border-bottom: 1px dotted #bdc3c7;
+  }
+
+  .toc a::after {
+    content: target-counter(attr(href), page);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: bold;
+    color: #3498db;
+    background-color: #fafafa;
+    padding-left: 5px;
+    padding-bottom: 6px;
+  }
+
+  .toc > ul > li > a {
+    font-weight: bold;
+    font-size: 16px;
+    color: #2c3e50;
+  }
+
+  .toc ul ul a {
+    font-size: 14px;
+    font-weight: normal;
+    color: #555;
+  }
+
+  .toc a:hover {
+    color: #3498db;
+  }
 </style>
+
+<div class="toc">
+
+#### <div class="toc-header">Table of Contents</div>
+
+<!-- toc -->
+
+- [Chapter 1: Project Overview](#chapter-1-project-overview)
+  * [1.1 Main Idea](#main-idea)
+  * [1.2 Project Scope](#project-scope)
+  * [1.3 Problem Statement](#problem-statement)
+  * [1.4 Solution Approach](#solution-approach)
+  * [1.5 Project Objectives](#project-objectives)
+- [Chapter 2: Project Background](#chapter-2-project-background)
+  * [2.1 Project Background](#project-background)
+  * [2.2 Related Work](#related-work)
+  * [2.3 Summary](#summary)
+- [Chapter 3: Feasibility and Project Planning](#chapter-3-feasibility-and-project-planning)
+  * [3.1 Feasibility Study](#feasibility-study)
+  * [3.2 Risk Management](#risk-management)
+  * [3.3 Project plan](#project-plan)
+  * [3.4 Gantt Chart](#gantt-chart)
+- [Chapter 4: System Analysis](#chapter-4-system-analysis)
+  * [4.1 Function Requireements](#function-requireements)
+  * [4.2 Non-Function Requirements](#non-function-requirements)
+  * [4.3 Functional Decomposition](#functional-decomposition)
+- [Chapter 5: System Architecture](#chapter-5-system-architecture)
+  * [5.1 Actor-goal List](#actor-goal-list)
+  * [5.2 Use Cases Diagram](#use-cases-diagram)
+  * [5.3 Use Cases Format](#use-cases-format)
+  * [5.4 Sequence Diagram](#sequence-diagram)
+  * [5.5 Class Diagram](#class-diagram)
+- [Chapter 6: Database Design](#chapter-6-database-design)
+  * [6.1 Entity Relationship Diagram](#entity-relationship-diagram)
+  * [6.2 Database Schema](#database-schema)
+
+<!-- tocstop -->
+
+</div>
 
 <div class="one-for-all">
 
-## <div class="chapter">Chapter 1: Project Overview</div>
+## <div id="chapter-1-project-overview" class="chapter">Chapter 1: Project Overview</div>
 
-### <div class="section">Main Idea</div>
+### <div id="main-idea" class="section">1.1 Main Idea</div>
 
 We aim to create a Duolingo-inspired programming education platform that transforms how beginners learn to code by eliminating overwhelm through structured, gamified micro-lessons. Unlike fragmented resources, this platform provides a clear, progressive learning path—from core programming fundamentals to advanced topics like OOP, algorithms, and web development—all delivered via multi-format explanations (articles, videos, and guided walkthroughs).  
 
@@ -341,7 +454,7 @@ At its core, the platform seamlessly integrates:
 By combining structured curriculum, instant feedback, and social accountability, the platform turns programming education into an addictive, confidence-building journey—making learning feel like play while ensuring tangible skill development.
 
 
-### <div class="section">Project Scope</div>
+### <div id="project-scope" class="section">1.2 Project Scope</div>
 
 #### <div class="subsection">1. Comprehensive Curriculum & Content  </div>
    - Structured Learning Path:  
@@ -394,7 +507,7 @@ By combining structured curriculum, instant feedback, and social accountability,
 
 ---  
 
-### <div class="section">Problem Statement</div>
+### <div id="problem-statement" class="section">1.3 Problem Statement</div>
 
 Learning programming remains a daunting barrier for beginners, exacerbated by *four core gaps* in existing solutions:  
 
@@ -411,7 +524,7 @@ Learning programming remains a daunting barrier for beginners, exacerbated by *f
    - *80% of beginners quit within 3 months* due to diminishing confidence.  
 
 
-### <div class="section">Solution Approach</div>
+### <div id="solution-approach" class="section">1.4 Solution Approach</div>
 
 To bridge these gaps, the platform leverages Duolingo’s engagement model fused with developer-centric depth:  
 
@@ -481,7 +594,7 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 
 ---  
 
-### <div class="section">Project Objectives</div>
+### <div id="project-objectives" class="section">1.5 Project Objectives</div>
 
 #### <div class="subsection">1. Deliver a Progressive, Mastery-Based Curriculum  </div>
 - Modular Skill Tiers: Implement 10+ competency levels (Novice → Architect) with checkpoint assessments for each tier.  
@@ -533,9 +646,9 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 
 ---
 
-## <div class="chapter">Chapter 2: Project Background</div>
+## <div id="chapter-2-project-background" class="chapter">Chapter 2: Project Background</div>
 
-### <div class="section">Project Background</div>
+### <div id="project-background" class="section">2.1 Project Background</div>
 
 <div class="highlight-box">
   <p>
@@ -599,7 +712,7 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 </div>
 
 
-### <div class="section">Related Work</div>
+### <div id="related-work" class="section">2.2 Related Work</div>
 
 #### <div class="subsection">Elzero Web School</div>
 
@@ -700,16 +813,16 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 **Reference:** https://checkio.org
 
 
-### <div class="section">Summary</div>
+### <div id="summary" class="section">2.3 Summary</div>
 In this chapter, the tools that will be used in implementation like (Node.js, Nuxt.js, Figma, Gemini API, OpenRouter, Monaco Editor, and CloudFlare). were described.
 Then the related work was described, (Which is listed in the previous table), and the advantages, disadvantages, and benefits of each one, then compared with the project.
 
 ---
 
 
-## <div class="chapter">Chapter 3: Feasibility and Project Planning</div>
+## <div id="chapter-3-feasibility-and-project-planning" class="chapter">Chapter 3: Feasibility and Project Planning</div>
 
-### <div class="section">3.1 Feasibility Study</div>
+### <div id="feasibility-study" class="section">3.1 Feasibility Study</div>
 
 #### <div class="subsection">3.1.1 Technical Feasibility</div>
 
@@ -729,7 +842,7 @@ Then the related work was described, (Which is listed in the previous table), an
   - The development timeline is relatively tight: with a target launch by May 2026 (about 6 months from planning start), the schedule is ambitious. However, by assigning parallel sprints for front-end, back-end, and content creation, and by leveraging reusable components (Nuxt/Vue libraries, Monaco Editor, etc.), we believe the team can meet this deadline.
 
 
-### <div class="section">3.1.2 Organizational Feasibility</div>
+#### <div class="section">3.1.2 Organizational Feasibility</div>
 
 - **Project Advisor:** Dr. Rehab Emad El-Dein
 
@@ -765,7 +878,7 @@ Then the related work was described, (Which is listed in the previous table), an
       <figcaption>Figure 3.1: Development Team Roles</figcaption>
     </figure>
 
-### <div class="section">3.1.3 Economic Feasibility</div>
+#### <div class="section">3.1.3 Economic Feasibility</div>
 
 - **Tangible Benefits:**  
   - **Course Revenue:** With a pay-per-course model at an average price of $30 per course, enrolling 5,000 users in Year 1 (our target) would generate roughly $150,000 in Year-1 sales. As user growth continues, Year 2 and 3 revenues could be, for example, $225,000 and $300,000 (assuming 50% year-over-year user growth).  
@@ -830,7 +943,7 @@ To illustrate:
 </figure>
 
 
-### <div class="section">3.2 Risk Management</div>
+### <div id="risk-management" class="section">3.2 Risk Management</div>
 
 This section identifies key risks for the coding education platform across technical, operational, and legal domains. Each risk is assessed with a likelihood (Low/Medium/High), impact (Low/Medium/High), and mitigation strategies. Where appropriate, a qualitative risk matrix is used to emphasize prioritization.  
 
@@ -861,17 +974,21 @@ This section identifies key risks for the coding education platform across techn
 ---
 
 
-### <div class="section">3.3 Project plan</div>
+### <div id="project-plan" class="section">3.3 Project plan</div>
 
   **TO DO**
 
-### <div class="section">4.4 Gantt Chart</div>
+---
+
+### <div id="gantt-chart" class="section">3.4 Gantt Chart</div>
 
   **TO DO**
 
-## <div class="chapter">Chapter 4: System Analysis</div>
+---
 
-### <div class="section">4.1 Function Requireements</div>
+## <div id="chapter-4-system-analysis" class="chapter">Chapter 4: System Analysis</div>
+
+### <div id="function-requireements" class="section">4.1 Function Requireements</div>
 
 #### <div class="subsection">4.1.1 User Management System</div>
 
@@ -1198,7 +1315,7 @@ This section identifies key risks for the coding education platform across techn
 - **FR-11.8:** System shall implement rate limiting and DDoS protection.
 
 
-### <div class="section">4.2 Non-Function Requirements</div>
+### <div id="non-function-requirements" class="section">4.2 Non-Function Requirements</div>
 
 #### <div class="subsection">4.2.1 Performance</div>
 
@@ -1448,7 +1565,7 @@ This section identifies key risks for the coding education platform across techn
 
 ---
 
-### <div class="section">4.3 Functional Decomposition</div>
+### <div id="functional-decomposition" class="section">4.3 Functional Decomposition</div>
 
 **Decomposition Diagram - Part 1**
 
@@ -1466,9 +1583,9 @@ This section identifies key risks for the coding education platform across techn
 
 ---
 
-## <div class="chapter">Chapter 5: System Architecture</div>
+## <div id="chapter-5-system-architecture" class="chapter">Chapter 5: System Architecture</div>
 
-### <div class="section">5.1 Actor-goal List</div>
+### <div id="actor-goal-list" class="section">5.1 Actor-goal List</div>
 
 | Actor | Goals |
 |-------|-------|
@@ -1478,7 +1595,7 @@ This section identifies key risks for the coding education platform across techn
 | **AI System<br>(Gemini / OpenRouter)** | 1. Provide contextual hints and adaptive learning recommendations.<br>2. Analyze learner code to detect errors and suggest improvements.<br>3. Generate additional exercises and code examples. **"*-*"**<br>4. Adjust hint complexity based on user skill level. **"*-*"** |
 | **System<br>(Platform / App)** | 1. Securely store and manage user data.<br>2. Execute and validate user code safely.<br>3. Deliver responsive and cross-platform experiences.<br>4. Integrate with external authentication and AI APIs.<br>5. Enforce data protection, input validation, and DDoS prevention. |
 
-### <div class="section">5.2 Use Cases Diagram</div>
+### <div id="use-cases-diagram" class="section">5.2 Use Cases Diagram</div>
 
 <figure>
   <img src="../public/assets/CH05/Figure_5.1_use_case_diagram.svg" alt="Figure 5.1: Use Cases Diagram">
@@ -1487,7 +1604,7 @@ This section identifies key risks for the coding education platform across techn
 
 ---
 
-### <div class="section">5.3 Use Cases Format</div>
+### <div id="use-cases-format" class="section">5.3 Use Cases Format</div>
 
 This section presents use cases for the DuoCodo platform organized by user role. The cases progress from administrative functions through content creation to learner interactions, using three format levels: Brief (one-line), Casual (structured scenarios), and Fully Dressed (comprehensive specifications).
 
@@ -4644,7 +4761,7 @@ The learner uploads or changes their profile picture.
 
 ---
 
-### <div class="section">5.4 Sequence Diagram</div>
+### <div id="sequence-diagram" class="section">5.4 Sequence Diagram</div>
 
 Sequence diagrams were created only for casual and fully-dressed use cases, as these provide sufficient interaction detail to model system behavior. Brief use cases were excluded since they describe high-level functionality without internal system collaboration.
 
@@ -4900,7 +5017,7 @@ Sequence diagrams were created only for casual and fully-dressed use cases, as t
 
 ---
 
-### <div class="section">5.5 Class Diagram</div>
+### <div id="class-diagram" class="section">5.5 Class Diagram</div>
 
 Class diagrams are structural diagrams that show the static structure of the system, including its classes, attributes, operations, and the relationships among objects. They provide a detailed view of the system's architecture and design.
 
@@ -4986,9 +5103,9 @@ These diagrams provide a comprehensive view of the DuoCodo platform's architectu
 
 ---
 
-## <div class="chapter">Chapter 6: Database Design</div>
+## <div id="chapter-6-database-design" class="chapter">Chapter 6: Database Design</div>
 
-### <div class="section">6.1 Entity Relationship Diagram</div>
+### <div id="entity-relationship-diagram" class="section">6.1 Entity Relationship Diagram</div>
 
 Entity Relationship Diagrams (ERD) represent the data model of the DuoCodo platform, showing the entities, their attributes, and the relationships between them. This comprehensive database design ensures data integrity, efficient querying, and scalability.
 
@@ -5075,7 +5192,7 @@ These diagrams provide a comprehensive view of the DuoCodo platform's data archi
 
 ---
 
-### <div class="section">6.2 Database Schema</div>
+### <div id="database-schema" class="section">6.2 Database Schema</div>
 
 Database Schema represents the logical structure of the DuoCodo platform database, showing tables, columns, data types, constraints, and relationships. This detailed schema design ensures optimal performance, data integrity, and supports all platform functionalities.
 
