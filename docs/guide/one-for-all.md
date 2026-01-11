@@ -65,6 +65,355 @@
       font-weight: 600;
     }
 
+    /* Use Case Title Styling */
+    .usecase-title {
+      color: var(--primary);
+      padding: 12px 20px;
+      margin: 30px 0 20px 0;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      background: white;
+      border: 2px solid var(--secondary);
+      border-left: 6px solid var(--secondary);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .usecase-title::before {
+      content: "UC";
+      background: var(--secondary);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      margin-right: 12px;
+      font-weight: 600;
+    }
+
+    /* Brief Format - Minimal styling */
+    .brief-usecase {
+      background: var(--light);
+      border-left: 4px solid var(--info);
+      padding: 15px 20px;
+      margin: 15px 0;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .brief-usecase .title {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .brief-usecase .description {
+      color: #555;
+      font-size: 14px;
+    }
+
+    /* Casual & Fully Dressed Format Metadata */
+    .usecase-meta {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin: 15px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .usecase-meta .meta-item {
+      margin: 8px 0;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .usecase-meta .meta-label {
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 180px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .usecase-meta .meta-label::before {
+      content: "▸";
+      color: var(--secondary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .usecase-meta .meta-value {
+      color: var(--dark);
+      flex: 1;
+    }
+
+    /* Stakeholders section */
+    .stakeholders {
+      background: #f8f9fa;
+      border-left: 3px solid var(--info);
+      padding: 12px 18px;
+      margin: 12px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .stakeholders .stakeholder-item {
+      margin: 8px 0;
+    }
+
+    .stakeholders .stakeholder-role {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Main Success Scenario */
+    .main-scenario {
+      margin: 20px 0;
+    }
+
+    .scenario-header {
+      background: var(--primary);
+      color: white;
+      padding: 10px 18px;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 5px 5px 0 0;
+      margin-bottom: 0;
+    }
+
+    .scenario-steps {
+      background: white;
+      border: 2px solid var(--primary);
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+      padding: 20px 25px;
+      counter-reset: step-counter;
+    }
+
+    .scenario-steps .step {
+      margin: 12px 0;
+      padding-left: 35px;
+      position: relative;
+      counter-increment: step-counter;
+    }
+
+    .scenario-steps .step::before {
+      content: counter(step-counter) ".";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      color: var(--secondary);
+      font-size: 15px;
+    }
+
+    /* Sub-steps */
+    .scenario-steps .sub-step {
+      margin: 8px 0 8px 25px;
+      padding-left: 25px;
+      position: relative;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .scenario-steps .sub-step::before {
+      content: "◦";
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* System messages */
+    .system-message {
+      background: #e8f4fc;
+      border-left: 3px solid var(--info);
+      padding: 8px 15px;
+      margin: 8px 0 8px 35px;
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: #2c3e50;
+      font-size: 14px;
+    }
+
+    .system-message::before {
+      content: "💬 ";
+      margin-right: 5px;
+    }
+
+    /* Alternative Scenarios */
+    .alternative-scenarios {
+      margin: 25px 0;
+    }
+
+    .alt-scenario-header {
+      background: var(--warning);
+      color: var(--dark);
+      padding: 10px 18px;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 5px 5px 0 0;
+      margin-bottom: 0;
+    }
+
+    .alt-scenarios-container {
+      background: #fffbf0;
+      border: 2px solid var(--warning);
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+      padding: 20px 25px;
+    }
+
+    .alt-scenario-item {
+      margin: 20px 0;
+      padding: 15px;
+      background: white;
+      border-left: 4px solid var(--warning);
+      border-radius: 0 5px 5px 0;
+    }
+
+    .alt-scenario-item .alt-title {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .alt-scenario-item .alt-description {
+      margin: 5px 0 5px 15px;
+      color: #555;
+    }
+
+    /* Extensions */
+    .extensions {
+      margin: 25px 0;
+    }
+
+    .extensions-header {
+      background: var(--success);
+      color: white;
+      padding: 10px 18px;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 5px 5px 0 0;
+      margin-bottom: 0;
+    }
+
+    .extensions-container {
+      background: #f0f9f4;
+      border: 2px solid var(--success);
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+      padding: 20px 25px;
+    }
+
+    .extension-item {
+      margin: 20px 0;
+      padding: 15px;
+      background: white;
+      border-left: 4px solid var(--success);
+      border-radius: 0 5px 5px 0;
+    }
+
+    .extension-item .ext-title {
+      font-weight: 700;
+      color: var(--success);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    /* Special Requirements */
+    .special-requirements {
+      background: #fff3e0;
+      border: 2px solid var(--warning);
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .special-requirements .req-header {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--warning);
+    }
+
+    .special-requirements ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .special-requirements li {
+      margin: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .special-requirements li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      color: var(--warning);
+    }
+
+    /* Frequency & Open Issues */
+    .metadata-section {
+      background: var(--light);
+      border-left: 4px solid var(--secondary);
+      padding: 15px 20px;
+      margin: 15px 0;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .metadata-section .section-label {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .metadata-section .section-content {
+      color: #555;
+      margin-left: 15px;
+    }
+
+    /* Horizontal separator */
+    .usecase-separator {
+      border: none;
+      border-top: 3px double var(--secondary);
+      margin: 40px 0;
+    }
+
+    /* General list styling within use cases */
+    .scenario-steps ul,
+    .alt-scenarios-container ul,
+    .extensions-container ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0;
+    }
+
+    .scenario-steps ul li,
+    .alt-scenarios-container ul li,
+    .extensions-container ul li {
+      margin: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .scenario-steps ul li::before,
+    .alt-scenarios-container ul li::before,
+    .extensions-container ul li::before {
+      content: "▸";
+      color: var(--secondary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
     ul, ul ul, ul ul ul {
       list-style-type: none;
     }
@@ -345,8 +694,8 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    font-weight: bold;
-    color: #3498db;
+    font-weight: normal;
+    color: black;
     background-color: #fafafa;
     padding-left: 5px;
     padding-bottom: 6px;
@@ -1782,7 +2131,6 @@ This section identifies key risks for the coding education platform across techn
 | **Content Creator / Instructor** | 1. Create and manage courses, lessons, and coding exercises.<br>2. Categorize exercises by difficulty and validate before publishing.<br>3. Add multimedia (videos, images) and localized content.<br>4. Review and update educational materials.<br>5. Generate content in different formats (text, code, interactive demos). |
 | **Administrator** | 1. Manage user accounts and assign roles/permissions.<br>2. Monitor platform analytics and logs.<br>3. Moderate content and enforce warnings or removals.<br>4. Oversee data security, backups, and system performance. **"*-*"**<br>5. Configure integrations and APIs for external services. **"*-*"** |
 | **AI System<br>(Gemini / OpenRouter)** | 1. Provide contextual hints and adaptive learning recommendations.<br>2. Analyze learner code to detect errors and suggest improvements.<br>3. Generate additional exercises and code examples. **"*-*"**<br>4. Adjust hint complexity based on user skill level. **"*-*"** |
-| **System<br>(Platform / App)** | 1. Securely store and manage user data.<br>2. Execute and validate user code safely.<br>3. Deliver responsive and cross-platform experiences.<br>4. Integrate with external authentication and AI APIs.<br>5. Enforce data protection, input validation, and DDoS prevention. |
 </div>
 
 ### <div id="use-cases-diagram" class="section">5.2 Use Cases Diagram</div>
