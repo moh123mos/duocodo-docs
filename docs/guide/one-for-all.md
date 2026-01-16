@@ -1933,8 +1933,8 @@ This section identifies key risks for the coding education platform across techn
 #### <div class="subsection">4.2.4 Reliability</div>
 
 **NFR-4.1:** Error Rate
-- System error rate: **< 0.5%**
-- Code execution failures: **< 1%** (system errors only)
+- System error rate: **&lt0.5%**
+- Code execution failures: **&lt1%** (system errors only)
 
 ---
 
@@ -1990,7 +1990,7 @@ This section identifies key risks for the coding education platform across techn
 
 **NFR-6.1:** Learnability
 - Account setup → first lesson: **5 minutes**
-- Interactive tutorial: **< 10 minutes**
+- Interactive tutorial: **&lt10 minutes**
 
 ---
 
@@ -5112,7 +5112,7 @@ Moderate to high frequency depending on path creation activity. Each creator may
 ✗ Runtime Error: IndexError
 Your code encountered an issue at line 15
 Stack Trace:
-File "main.py", line 15, in <module>
+File "main.py", line 15, in &lt;module&gt;
 print(arr[10])
 IndexError: list index out of range
 </div>
