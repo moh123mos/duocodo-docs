@@ -87,10 +87,10 @@ export default withMermaid({
                         { text: 'Schema Diagrams', link: '/guide/ch6/schema' },
                     ]
                 },
-                {
-                    text: 'All Chapters',
-                    link: '/guide/one-for-all'
-                }
+                // {
+                //     text: 'All Chapters',
+                //     link: '/guide/one-for-all'
+                // }
             ]
         },
         socialLinks: [
@@ -140,10 +140,14 @@ export default withMermaid({
                             ]
                         },
                         {
-                            text: 'الفصل الثالث: المتطلبات',
+                            text: 'الفصل الثالث: دراسة الجدوى والتخطيط للمشروع',
                             collapsed: true,
                             items: [
-                                { text: 'تحليل المتطلبات', link: '/ar/guide/ch3' },
+                                { text: 'تحليل المتطلبات', link: '/ar/guide/ch3/requirement-analysis' },
+                                { text: 'دراسة الجدوى', link: '/ar/guide/ch3/feasibility-study' },
+                                { text: 'إدارة المخاطر', link: '/ar/guide/ch3/risk-management' },
+                                { text: 'خطة المشروع', link: '/ar/guide/ch3/project-plan' },
+                                { text: 'مخطط جانت', link: '/ar/guide/ch3/gantt-chart' },
                             ]
                         },
                         {
