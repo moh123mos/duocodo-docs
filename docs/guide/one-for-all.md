@@ -17,417 +17,21 @@
   .one-for-all {
     position: relative;
     font-family: 'Times New Roman', Times, serif !important;
-    .highlight-box {
-      background: #e8f4fc;
-      border-left: 4px solid var(--secondary);
-      padding: 15px 20px;
-      margin: 20px 0;
-      color: #333;
-      border-radius: 0 5px 5px 0;
-    }
-    
-    .chapter {
-      background: var(--primary);
-      color: white;
-      padding: 12px 20px;
-      /* margin: 40px 0 20px 0; */
-      border-radius: 5px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    
-    .chapter::before {
-      content: "Chapter";
-      background: var(--secondary);
-      padding: 4px 10px;
-      border-radius: 3px;
-      font-size: 14px;
-      margin-right: 10px;
-    }
-    
-    .section {
-      color: var(--primary);
-      border-left: 4px solid var(--secondary);
-      padding: 8px 15px;
-      margin: 25px 0 15px 0;
-      background: var(--light);
-      font-size: 18px;
-      font-weight: 600;
-      border-start-end-radius: 5px;
-      border-end-end-radius: 5px;
-    }
-    
-    .subsection {
-      border-bottom: 2px solid var(--secondary);
-      padding-bottom: 8px;
-      margin: 20px 0 12px 0;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    /* Use Case Title Styling */
-    .usecase-title {
-      color: var(--primary);
-      padding: 12px 20px;
-      margin: 30px 0 20px 0;
-      border-radius: 5px;
-      font-size: 20px;
-      font-weight: bold;
-      background: white;
-      border: 2px solid var(--secondary);
-      border-left: 6px solid var(--secondary);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-      position: relative;
-    }
-
-    .usecase-title::before {
-      content: "UC";
-      background: var(--secondary);
-      color: white;
-      padding: 3px 8px;
-      border-radius: 3px;
-      font-size: 12px;
-      margin-right: 12px;
-      font-weight: 600;
-    }
-
-    /* Brief Format - Minimal styling */
-    .brief-usecase {
-      background: var(--light);
-      border-left: 4px solid var(--info);
-      padding: 15px 20px;
-      margin: 15px 0;
-      border-radius: 0 5px 5px 0;
-    }
-
-    .brief-usecase .title {
-      font-weight: bold;
-      color: var(--primary);
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-
-    .brief-usecase .description {
-      color: #555;
-      font-size: 14px;
-    }
-
-    /* Casual & Fully Dressed Format Metadata */
-    .usecase-meta {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
-      padding: 15px 20px;
-      margin: 15px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .usecase-meta .meta-item {
-      margin: 8px 0;
-      display: flex;
-      align-items: baseline;
-    }
-
-    .usecase-meta .meta-label {
-      font-weight: 700;
-      color: var(--primary);
-      min-width: 180px;
-      position: relative;
-      padding-left: 20px;
-    }
-
-    .usecase-meta .meta-label::before {
-      content: "▸";
-      color: var(--secondary);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    .usecase-meta .meta-value {
-      color: var(--dark);
-      flex: 1;
-    }
-
-    /* Stakeholders section */
-    .stakeholders {
-      background: #f8f9fa;
-      border-left: 3px solid var(--info);
-      padding: 12px 18px;
-      margin: 12px 0;
-      border-radius: 0 4px 4px 0;
-    }
-
-    .stakeholders .stakeholder-item {
-      margin: 8px 0;
-    }
-
-    .stakeholders .stakeholder-role {
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    /* Main Success Scenario */
-    .main-scenario {
-      margin: 20px 0;
-    }
-
-    .scenario-header {
-      background: var(--primary);
-      color: white;
-      padding: 10px 18px;
-      font-weight: 600;
-      font-size: 16px;
-      border-radius: 5px 5px 0 0;
-      margin-bottom: 0;
-    }
-
-    .scenario-steps {
-      background: white;
-      border: 2px solid var(--primary);
-      border-top: none;
-      border-radius: 0 0 5px 5px;
-      padding: 20px 25px;
-      counter-reset: step-counter;
-    }
-
-    .scenario-steps .step {
-      margin: 12px 0;
-      padding-left: 35px;
-      position: relative;
-      counter-increment: step-counter;
-    }
-
-    .scenario-steps .step::before {
-      content: counter(step-counter) ".";
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-      color: var(--secondary);
-      font-size: 15px;
-    }
-
-    /* Sub-steps */
-    .scenario-steps .sub-step {
-      margin: 8px 0 8px 25px;
-      padding-left: 25px;
-      position: relative;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .scenario-steps .sub-step::before {
-      content: "◦";
-      position: absolute;
-      left: 0;
-      color: var(--secondary);
-      font-weight: bold;
-    }
-
-    /* System messages */
-    .system-message {
-      background: #e8f4fc;
-      border-left: 3px solid var(--info);
-      padding: 8px 15px;
-      margin: 8px 0 8px 35px;
-      border-radius: 0 4px 4px 0;
-      font-style: italic;
-      color: #2c3e50;
-      font-size: 14px;
-    }
-
-    .system-message::before {
-      content: "💬 ";
-      margin-right: 5px;
-    }
-
-    /* Alternative Scenarios */
-    .alternative-scenarios {
-      margin: 25px 0;
-    }
-
-    .alt-scenario-header {
-      background: var(--warning);
-      color: var(--dark);
-      padding: 10px 18px;
-      font-weight: 600;
-      font-size: 16px;
-      border-radius: 5px 5px 0 0;
-      margin-bottom: 0;
-    }
-
-    .alt-scenarios-container {
-      background: #fffbf0;
-      border: 2px solid var(--warning);
-      border-top: none;
-      border-radius: 0 0 5px 5px;
-      padding: 20px 25px;
-    }
-
-    .alt-scenario-item {
-      margin: 20px 0;
-      padding: 15px;
-      background: white;
-      border-left: 4px solid var(--warning);
-      border-radius: 0 5px 5px 0;
-    }
-
-    .alt-scenario-item .alt-title {
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    .alt-scenario-item .alt-description {
-      margin: 5px 0 5px 15px;
-      color: #555;
-    }
-
-    /* Extensions */
-    .extensions {
-      margin: 25px 0;
-    }
-
-    .extensions-header {
-      background: var(--success);
-      color: white;
-      padding: 10px 18px;
-      font-weight: 600;
-      font-size: 16px;
-      border-radius: 5px 5px 0 0;
-      margin-bottom: 0;
-    }
-
-    .extensions-container {
-      background: #f0f9f4;
-      border: 2px solid var(--success);
-      border-top: none;
-      border-radius: 0 0 5px 5px;
-      padding: 20px 25px;
-    }
-
-    .extension-item {
-      margin: 20px 0;
-      padding: 15px;
-      background: white;
-      border-left: 4px solid var(--success);
-      border-radius: 0 5px 5px 0;
-    }
-
-    .extension-item .ext-title {
-      font-weight: 700;
-      color: var(--success);
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    /* Special Requirements */
-    .special-requirements {
-      background: #fff3e0;
-      border: 2px solid var(--warning);
-      border-radius: 5px;
-      padding: 20px;
-      margin: 20px 0;
-    }
-
-    .special-requirements .req-header {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 16px;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--warning);
-    }
-
-    .special-requirements ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .special-requirements li {
-      margin: 8px 0;
-      padding-left: 25px;
-      position: relative;
-    }
-
-    .special-requirements li::before {
-      content: "⚡";
-      position: absolute;
-      left: 0;
-      color: var(--warning);
-    }
-
-    /* Frequency & Open Issues */
-    .metadata-section {
-      background: var(--light);
-      border-left: 4px solid var(--secondary);
-      padding: 15px 20px;
-      margin: 15px 0;
-      border-radius: 0 5px 5px 0;
-    }
-
-    .metadata-section .section-label {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    .metadata-section .section-content {
-      color: #555;
-      margin-left: 15px;
-    }
-
-    /* Horizontal separator */
-    .usecase-separator {
-      border: none;
-      border-top: 3px double var(--secondary);
-      margin: 40px 0;
-    }
-
-    /* General list styling within use cases */
-    .scenario-steps ul,
-    .alt-scenarios-container ul,
-    .extensions-container ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 10px 0;
-    }
-
-    .scenario-steps ul li,
-    .alt-scenarios-container ul li,
-    .extensions-container ul li {
-      margin: 6px 0;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .scenario-steps ul li::before,
-    .alt-scenarios-container ul li::before,
-    .extensions-container ul li::before {
-      content: "▸";
-      color: var(--secondary);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
 
     ul, ul ul, ul ul ul {
       list-style-type: none;
     }
-    
+
     ul, ol {
       margin: 15px 0;
       padding-left: 30px;
     }
-    
+
     ul li {
       margin: 8px 0;
       position: relative;
     }
-    
+
     ul li::before {
       content: "▸";
       color: var(--secondary);
@@ -451,14 +55,14 @@
       position: absolute;
       left: -20px;
     }
-    
+
     ol li::before {
       color: var(--secondary);
       font-weight: bold;
       position: absolute;
       left: -25px;
     }
-    
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -467,7 +71,7 @@
       border-radius: 5px;
       overflow: hidden;
     }
-    
+
     th {
       background: var(--primary);
       color: white;
@@ -475,17 +79,17 @@
       text-align: left;
       font-weight: 600;
     }
-    
+
     td {
       padding: 10px 15px;
       border-bottom: 1px solid #dee2e6;
     }
-    
+
     tr:nth-child(even) {
       background: var(--light);
         color: var(--dark);
     }
-    
+
     code {
       background: #f8f9fa;
       padding: 2px 6px;
@@ -494,7 +98,7 @@
       font-size: 0.9em;
       border: 1px solid #e9ecef;
     }
-    
+
     strong {
       font-weight: 700;
       padding: 2px 4px;
@@ -509,7 +113,6 @@
       word-spacing: normal;
       letter-spacing: normal;
     }
-    
 
     figure {
       margin: 20px auto;
@@ -519,17 +122,67 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-  
+
     figure img {
       max-width: 100%;
       height: auto;
       border-radius: 5px;
+      break-after: avoid;
     }
 
     figure figcaption {
       margin-top: 10px;
       font-size: 0.9em;
       font-style: italic;
+      break-before: avoid;
+    }
+
+    .highlight-box {
+      background: #e8f4fc;
+      border-left: 4px solid var(--secondary);
+      padding: 15px 20px;
+      margin: 20px 0;
+      color: #333;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .chapter {
+      background: var(--primary);
+      color: white;
+      padding: 12px 20px;
+      /* margin: 40px 0 20px 0; */
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .chapter::before {
+      content: "Chapter";
+      background: var(--secondary);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .section {
+      color: var(--primary);
+      border-left: 4px solid var(--secondary);
+      padding: 8px 15px;
+      margin: 25px 0 15px 0;
+      background: var(--light);
+      font-size: 18px;
+      font-weight: 600;
+      border-start-end-radius: 5px;
+      border-end-end-radius: 5px;
+    }
+
+    .subsection {
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 8px;
+      margin: 20px 0 12px 0;
+      font-size: 16px;
+      font-weight: 600;
     }
 
     .chapter {
@@ -549,6 +202,364 @@
     }
   }
 
+  /* Use Case Title Styling */
+  .usecase-title {
+    color: var(--primary);
+    padding: 12px 20px;
+    margin: 30px 0 20px 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid var(--secondary);
+    border-left: 6px solid var(--secondary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  .usecase-title::before {
+    content: "UC";
+    background: var(--secondary);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 12px;
+    font-weight: 600;
+  }
+
+  /* Brief Format - Minimal styling */
+  .brief-usecase {
+    background: var(--light);
+    border-left: 4px solid var(--info);
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .brief-usecase .title {
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .brief-usecase .description {
+    color: #555;
+    font-size: 14px;
+  }
+
+  /* Casual & Fully Dressed Format Metadata */
+  .usecase-meta {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .usecase-meta .meta-item {
+    margin: 8px 0;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .usecase-meta .meta-label {
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 180px;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .usecase-meta .meta-label::before {
+    content: "▸";
+    color: var(--secondary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .usecase-meta .meta-value {
+    color: var(--dark);
+    flex: 1;
+  }
+
+  /* Stakeholders section */
+  .stakeholders {
+    background: #f8f9fa;
+    border-left: 3px solid var(--info);
+    padding: 12px 18px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .stakeholders .stakeholder-item {
+    margin: 8px 0;
+  }
+
+  .stakeholders .stakeholder-role {
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  /* Main Success Scenario */
+  .main-scenario {
+    margin: 20px 0;
+  }
+
+  .scenario-header {
+    background: var(--primary);
+    color: white;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+  }
+
+  .scenario-steps {
+    background: white;
+    border: 2px solid var(--primary);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 20px 25px;
+    counter-reset: step-counter;
+  }
+
+  .scenario-steps .step {
+    margin: 12px 0;
+    padding-left: 35px;
+    position: relative;
+    counter-increment: step-counter;
+  }
+
+  .scenario-steps .step::before {
+    content: counter(step-counter) ".";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--secondary);
+    font-size: 15px;
+  }
+
+  /* Sub-steps */
+  .scenario-steps .sub-step {
+    margin: 8px 0 8px 25px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .scenario-steps .sub-step::before {
+    content: "◦";
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: bold;
+  }
+
+  /* System messages */
+  .system-message {
+    background: #e8f4fc;
+    border-left: 3px solid var(--info);
+    padding: 8px 15px;
+    margin: 8px 0 8px 35px;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+    color: #2c3e50;
+    font-size: 14px;
+  }
+
+  .system-message::before {
+    content: "💬 ";
+    margin-right: 5px;
+  }
+
+  /* Alternative Scenarios */
+  .alternative-scenarios {
+    margin: 25px 0;
+  }
+
+  .alt-scenario-header {
+    background: var(--warning);
+    color: var(--dark);
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+  }
+
+  .alt-scenarios-container {
+    background: #fffbf0;
+    border: 2px solid var(--warning);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 20px 25px;
+  }
+
+  .alt-scenario-item {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-left: 4px solid var(--warning);
+    border-radius: 0 5px 5px 0;
+  }
+
+  .alt-scenario-item .alt-title {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .alt-scenario-item .alt-description {
+    margin: 5px 0 5px 15px;
+    color: #555;
+  }
+
+  /* Extensions */
+  .extensions {
+    margin: 25px 0;
+  }
+
+  .extensions-header {
+    background: var(--success);
+    color: white;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+  }
+
+  .extensions-container {
+    background: #f0f9f4;
+    border: 2px solid var(--success);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 20px 25px;
+  }
+
+  .extension-item {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-left: 4px solid var(--success);
+    border-radius: 0 5px 5px 0;
+  }
+
+  .extension-item .ext-title {
+    font-weight: 700;
+    color: var(--success);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  /* Special Requirements */
+  .special-requirements {
+    background: #fff3e0;
+    border: 2px solid var(--warning);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .special-requirements .req-header {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--warning);
+  }
+
+  .special-requirements ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .special-requirements li {
+    margin: 8px 0;
+    padding-left: 25px;
+    position: relative;
+  }
+
+  .special-requirements li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    color: var(--warning);
+  }
+
+  /* Frequency & Open Issues */
+  .metadata-section {
+    background: var(--light);
+    border-left: 4px solid var(--secondary);
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .metadata-section .section-label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .metadata-section .section-content {
+    color: #555;
+    margin-left: 15px;
+  }
+
+  /* Horizontal separator */
+  .usecase-separator {
+    border: none;
+    border-top: 3px double var(--secondary);
+    margin: 40px 0;
+  }
+
+  /* General list styling within use cases */
+  .scenario-steps ul,
+  .alt-scenarios-container ul,
+  .extensions-container ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+  }
+
+  .scenario-steps ul li,
+  .alt-scenarios-container ul li,
+  .extensions-container ul li {
+    margin: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .scenario-steps ul li::before,
+  .alt-scenarios-container ul li::before,
+  .extensions-container ul li::before {
+    content: "▸";
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Page break rules for use cases */
+  .usecase-title,
+  .scenario-header,
+  .alt-scenario-header,
+  .extensions-header,
+  .req-header {
+    break-after: avoid;
+  }
+
   @page {
     border: 4px double #3398da;
     margin: 2cm 1.5cm;
@@ -565,21 +576,6 @@
     .subsection {
       color: var(--dark);
     }
-
-    strong {
-      color: var(--primary);
-      background: white;
-    }
-
-    /* @top-center { */
-      /* content: element(header); */
-    /* } */
-      /*  */
-    /* @bottom-center { */
-      /* content: counter(page); */
-      /* font-size: 10pt; */
-      /* color: #666; */
-    /* } */
   }
 
   @counter-style three-digit {
@@ -770,7 +766,7 @@
     right: 0;
     bottom: 0;
     font-weight: bold;
-    color: #3498db;
+    color: black;
     background-color: #fafafa;
     padding-left: 5px;
     padding-bottom: 15px;
@@ -2142,3163 +2138,4347 @@ This section identifies key risks for the coding education platform across techn
 
 ---
 
+
 ### <div id="use-cases-format" class="section">5.3 Use Cases Format</div>
-
 This section presents use cases for the DuoCodo platform organized by user role. The cases progress from administrative functions through content creation to learner interactions, using three format levels: Brief (one-line), Casual (structured scenarios), and Fully Dressed (comprehensive specifications).
-
-
 #### <div class="subsection">5.3.1 Administrator Use Cases</div>
-
 **Brief Format Use Cases**
 
-**1. View System Logs**
+<div class="brief-usecase">
+<div class="usecase-title">1. View System Logs</div>
+<div class="description">
 The administrator views system activity logs, error reports, and security events to monitor platform health.
-
----
-
-**2. Check Platform Statistics**
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">2. Check Platform Statistics</div>
+<div class="description">
 The administrator views key metrics including total users, active learners, course enrollments, and system performance indicators.
-
----
-
-**3. View User List**
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">3. View User List</div>
+<div class="description">
 The administrator displays a searchable list of all registered users with basic information and account status.
-
----
+</div>
+</div>
+<hr class="usecase-separator">
 
 **Casual Format Use Cases**
 
-**4. Manage User Accounts**
-
-**Actor:** Administrator
-
-**Main Success Scenario:**
-1. The administrator logs into the admin dashboard.
-2. The administrator navigates to the "User Management" section.
-3. The system displays a searchable, filterable user list with columns:
-   - Username
-   - Email
-   - Role (Learner/Content Creator/Admin)
-   - Account status (Active/Suspended/Deactivated)
-   - Registration date
-   - Last login
-   - Total XP/Activity level
-4. The administrator can search by username, email, or user ID.
-5. The administrator can filter by:
-   - Role type
-   - Account status
-   - Registration date range
-   - Activity level (active/inactive)
-6. The administrator selects a specific user to view details.
-7. The system displays comprehensive user profile:
-   - Personal information
-   - Enrolled courses
-   - Progress statistics
-   - Activity history
-   - Violation reports (if any)
-8. The administrator can perform actions:
-   - Edit user information
-   - Reset password
-   - Change account status
-   - Adjust user role
-   - View security logs
-9. The administrator makes necessary changes and clicks "Save."
-10. The system updates user information and logs the administrative action.
-11. The affected user receives notification of account changes (if applicable).
-
-**Alternative Scenarios:**
-
-**A1. User Not Found**
-- At Step 4, if search returns no results:
-  - The system displays: *"No users found matching '[search term]'. Try different keywords or check spelling."*
-
-**A2. Concurrent Admin Actions**
-- At Step 9, if another admin is editing the same user:
-  - The system displays: *"Administrator [Name] is currently editing this account. Changes may conflict."*
-  - System prevents conflicting simultaneous edits.
-
-**A3. Cannot Modify Super Admin**
-- At Step 8, if attempting to change super admin permissions:
-  - The system displays: *"Super Administrator accounts cannot be modified. Contact platform owner for changes."*
-
-**A4. Bulk Action Requested**
-- At Step 8, if admin selects multiple users:
-  - The system offers bulk actions: suspend, send message, export data
-  - Admin confirms bulk action
-  - System processes with progress indicator
-
----
-
-**5. Assign User Roles**
-
-**Actor:** Administrator
-
-**Main Success Scenario:**
-1. The administrator navigates to "Role Management" in the admin panel.
-2. The system displays available roles:
-   - Learner (default)
-   - Content Creator
-   - Mentor/Reviewer
-   - Administrator
-   - Super Administrator
-3. The administrator searches for a specific user.
-4. The administrator selects the user and clicks "Change Role."
-5. The system displays current role and available role options.
-6. The administrator selects the new role from the dropdown.
-7. If promoting to Content Creator or higher, the system prompts:
-   - *"This role grants elevated permissions. Confirm you want to proceed?"*
-8. The administrator confirms the role change.
-9. The system updates the user's role and permissions.
-10. The system sends notification to the user:
-    - *"Your account role has been updated to [New Role]. You now have access to [features]."*
-11. The system logs the role change with timestamp and admin identifier.
-12. The user's interface updates to reflect new capabilities on next login.
-
-**Alternative Scenarios:**
-
-**A1. Insufficient Permissions**
-- At Step 6, if the admin lacks authority to assign certain roles:
-  - The system displays: *"You cannot assign [Role Name]. Only Super Administrators can grant this role."*
-
-**A2. User Already Has Role**
-- At Step 6, if attempting to assign current role:
-  - The system displays: *"This user already has the [Role Name] role."*
-
-**A3. Content Creator Requirements Not Met**
-- At Step 8, if promoting to Content Creator but user hasn't met criteria:
-  - The system warns: *"This user hasn't completed Content Creator training. Assign role anyway?"*
-  - Admin can proceed with override or require training first.
-
-**A4. Demoting Active Content Creator**
-- At Step 8, if demoting a creator with published content:
-  - The system warns: *"This user has [X] published courses. Demoting will affect content management. Reassign content?"*
-  - Admin must decide how to handle existing content.
-
----
-
-**6. Monitor Platform Analytics**
-
-**Actor:** Administrator
-
-**Main Success Scenario:**
-1. The administrator logs into the admin dashboard.
-2. The administrator navigates to "Platform Analytics."
-3. The system displays a comprehensive analytics dashboard with widgets:
-   - **User Metrics**: Total users, new registrations, active users (daily/weekly/monthly)
-   - **Engagement Metrics**: Average session duration, lessons completed, exercises submitted
-   - **Content Metrics**: Total courses, lessons, exercises; most popular content
-   - **Performance Metrics**: System uptime, response times, error rates
-   - **Revenue Metrics**: Enrollments, certification purchases, subscription status
-   - **Geographic Distribution**: User locations, regional activity
-4. The administrator can customize the date range (last 7 days, 30 days, 90 days, custom).
-5. The administrator can filter by:
-   - User segment (learners, content creators)
-   - Course categories
-   - Learning paths
-   - Device types (desktop, mobile)
-6. The administrator views detailed charts and graphs:
-   - User growth trends (line graph)
-   - Enrollment distribution (pie chart)
-   - Peak usage times (heatmap)
-   - Course completion rates (bar chart)
-7. The administrator can drill down into specific metrics:
-   - Clicks on "Course Completion Rate"
-   - System shows breakdown by course, difficulty level, and time period
-8. The administrator identifies trends:
-   - Notice a drop in engagement on weekends
-   - See spike in mobile usage
-   - Identify popular learning paths
-9. The administrator can export reports in multiple formats:
-   - PDF (executive summary)
-   - Excel (detailed data)
-   - CSV (raw data)
-10. The administrator schedules automated reports:
-    - Weekly summary email
-    - Monthly executive dashboard
-    - Quarterly performance review
-11. The system saves admin's preferred dashboard configuration.
-
-**Alternative Scenarios:**
-
-**A1. Insufficient Data**
-- At Step 3, if platform is newly launched with minimal data:
-  - The system displays: *"Limited data available. Analytics become more meaningful after 30+ days of activity."*
-
-**A2. Data Loading Delays**
-- At Step 3, if analytics take time to compile:
-  - The system displays progress indicator: *"Loading analytics... This may take a minute for large datasets."*
-
-**A3. Export Limit Exceeded**
-- At Step 9, if requesting very large data export:
-  - The system warns: *"This export contains 100,000+ records. It will be processed in the background and emailed when ready."*
-
-**A4. Real-Time Data Unavailable**
-- At Step 3, if requesting real-time metrics during system maintenance:
-  - The system displays: *"Real-time data temporarily unavailable. Showing last cached data from [timestamp]."*
-
----
-
-**7. Review and Filter System Logs**
-
-**Actor:** Administrator
-
-**Main Success Scenario:**
-1. The administrator navigates to "System Logs" in the admin panel.
-2. The system displays log categories:
-   - Security logs (authentication, failed logins, permission changes)
-   - Error logs (application errors, API failures)
-   - User activity logs (major actions, submissions)
-   - Content logs (course creation, updates, deletions)
-   - System performance logs (response times, resource usage)
-3. The administrator selects "Security Logs."
-4. The system displays recent security events with details:
-   - Timestamp
-   - Event type
-   - User involved
-   - IP address
-   - Action taken
-   - Outcome (success/failure)
-5. The administrator can filter logs by:
-   - Date/time range
-   - Event severity (info, warning, error, critical)
-   - User or IP address
-   - Event type
-6. The administrator searches for specific events (e.g., "failed login attempts from IP X").
-7. The system highlights matching log entries.
-8. The administrator can expand log entries for detailed information:
-   - Full error stack trace
-   - Request parameters
-   - System state at time of event
-9. The administrator can export filtered logs for analysis.
-10. The system allows the administrator to flag logs for follow-up investigation.
-11. The administrator can set up alerts for specific log patterns:
-    - Multiple failed logins from same IP → possible attack
-    - Spike in errors → system issue requiring attention
-
-**Alternative Scenarios:**
-
-**A1. Excessive Log Volume**
-- At Step 4, if millions of log entries exist:
-  - The system displays: *"Showing most recent 10,000 entries. Narrow your search or time range for specific logs."*
-
-**A2. Sensitive Information in Logs**
-- At Step 8, if logs contain sensitive data:
-  - The system masks passwords, tokens, personal data
-  - Only super admins can view unmasked logs with additional authentication
-
-**A3. Log Storage Full**
-- At Step 2, if log storage approaching limit:
-  - The system alerts: *"Warning: Log storage at 85% capacity. Archive or delete old logs to prevent data loss."*
-
----
-
-**8. Remove Inappropriate Content**
-
-**Actor:** Administrator
-
-**Main Success Scenario:**
-1. The administrator receives a content flagging notification or browses flagged content.
-2. The administrator navigates to "Content Moderation" section.
-3. The system displays pending moderation queue:
-   - Flagged courses
-   - Flagged exercises
-   - Flagged forum posts
-   - Flagged solutions
-   - Reported user profiles
-4. Each item shows:
-   - Content preview
-   - Reporter information
-   - Reason for flag
-   - Timestamp
-   - Content creator
-5. The administrator selects a flagged item to review.
-6. The system displays the full content with context.
-7. The administrator evaluates against platform guidelines:
-   - Offensive language
-   - Plagiarized content
-   - Inappropriate images
-   - Misleading information
-   - Spam or advertising
-   - Copyright violations
-8. If content violates guidelines, the administrator chooses action:
-   - Remove content immediately
-   - Require revision by creator
-   - Issue warning to creator
-   - Suspend creator account
-9. The administrator selects "Remove Content."
-10. The system prompts for removal reason (required for transparency).
-11. The administrator enters: *"Contains plagiarized code from [source]. Violates copyright policy."*
-12. The system removes the content from public view.
-13. The system notifies the content creator:
-    - *"Your content '[Title]' has been removed for: [Reason]. You may appeal this decision or create compliant content."*
-14. If repeat violation, the system automatically escalates to account suspension.
-15. The system logs all moderation actions for audit trail.
-16. The reporter receives notification that their flag was reviewed and action taken.
-
-**Alternative Scenarios:**
-
-**A1. Content Doesn't Violate Guidelines**
-- At Step 8, if content is acceptable:
-  - Administrator selects "Dismiss Flag"
-  - Enters reason: *"Content reviewed - no violation found. Appropriate educational material."*
-  - Reporter notified that content was reviewed but approved
-  - Flag dismissed from queue
-
-**A2. Borderline Content**
-- At Step 8, if content is questionable but not clearly violating:
-  - Administrator selects "Request Revision"
-  - Specifies improvements needed
-  - Creator has 7 days to revise
-  - If not revised, content is removed
-
-**A3. False/Malicious Reporting**
-- At Step 7, if multiple flags from same user are consistently dismissed:
-  - System alerts: *"User [X] has filed 5+ false reports. Possible abuse of flagging system."*
-  - Administrator can warn or restrict user's flagging ability
-
-**A4. Emergency Content Removal**
-- At Step 1, for severe violations (illegal content, safety concerns):
-  - Administrator uses "Emergency Remove" option
-  - Content immediately removed without notification delay
-  - Account automatically suspended pending investigation
-  - Legal team notified if necessary
-
----
-
-**9. Issue User Warnings**
-
-**Actor:** Administrator
-
-**Main Success Scenario:**
-1. The administrator identifies a policy violation (minor infraction).
-2. The administrator navigates to the user's account.
-3. The administrator clicks "Issue Warning."
-4. The system displays warning form with fields:
-   - Violation type (dropdown: spam, inappropriate language, plagiarism, etc.)
-   - Severity (Minor, Moderate, Severe)
-   - Description of violation
-   - Evidence (attach screenshots, links)
-   - Suggested corrective action
-5. The administrator fills in the form:
-   - Violation: "Inappropriate forum language"
-   - Severity: Minor
-   - Description: "Used profanity in discussion thread on [date]"
-   - Action: "Please review community guidelines and maintain respectful communication"
-6. The administrator selects "Send Warning."
-7. The system records the warning on user's account.
-8. The system sends notification to the user:
-   - Email and in-platform notification
-   - Clear explanation of violation
-   - Link to relevant policy
-   - Consequences of repeated violations
-9. The warning appears on user's account record (visible to admins only).
-10. The system tracks warning count:
-    - 1st warning: Notice only
-    - 2nd warning: 24-hour activity restriction
-    - 3rd warning: 7-day suspension
-    - 4th warning: Permanent ban
-11. User can acknowledge warning or submit an appeal.
-12. The system logs the warning issuance.
-
-**Alternative Scenarios:**
-
-**A1. User Appeals Warning**
-- After Step 11, if user submits appeal:
-  - Administrator reviews appeal and additional context
-  - Can uphold, modify, or rescind warning
-  - User notified of appeal decision with explanation
-  - Decision is final unless escalated to senior admin
-
-**A2. Warning Escalation Required**
-- At Step 5, if violation is more serious than initially assessed:
-  - Administrator changes severity to "Severe"
-  - System suggests immediate suspension instead of warning
-  - Administrator can proceed with suspension instead
-
-**A3. Pattern of Violations**
-- At Step 3, if user has prior warnings:
-  - System displays: *"This user has [X] prior warnings. Escalated action may be warranted."*
-  - Suggests automatic penalties based on policy
-
-**A4. Warning Expiration**
-- Warnings expire after 90 days of good behavior
-- System automatically archives expired warnings
-- User's slate cleaned if no violations in 90 days
+<div class="usecase-title">4. Manage User Accounts</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator logs into the admin dashboard.</div>
+<div class="step">The administrator navigates to the "User Management" section.</div>
+<div class="step">The system displays a searchable, filterable user list with columns:</div>
+<div class="sub-step">Username</div>
+<div class="sub-step">Email</div>
+<div class="sub-step">Role (Learner/Content Creator/Admin)</div>
+<div class="sub-step">Account status (Active/Suspended/Deactivated)</div>
+<div class="sub-step">Registration date</div>
+<div class="sub-step">Last login</div>
+<div class="sub-step">Total XP/Activity level</div>
+<div class="step">The administrator can search by username, email, or user ID.</div>
+<div class="step">The administrator can filter by:</div>
+<div class="sub-step">Role type</div>
+<div class="sub-step">Account status</div>
+<div class="sub-step">Registration date range</div>
+<div class="sub-step">Activity level (active/inactive)</div>
+<div class="step">The administrator selects a specific user to view details.</div>
+<div class="step">The system displays comprehensive user profile:</div>
+<div class="sub-step">Personal information</div>
+<div class="sub-step">Enrolled courses</div>
+<div class="sub-step">Progress statistics</div>
+<div class="sub-step">Activity history</div>
+<div class="sub-step">Violation reports (if any)</div>
+<div class="step">The administrator can perform actions:</div>
+<div class="sub-step">Edit user information</div>
+<div class="sub-step">Reset password</div>
+<div class="sub-step">Change account status</div>
+<div class="sub-step">Adjust user role</div>
+<div class="sub-step">View security logs</div>
+<div class="step">The administrator makes necessary changes and clicks "Save."</div>
+<div class="step">The system updates user information and logs the administrative action.</div>
+<div class="step">The affected user receives notification of account changes (if applicable).</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. User Not Found</div>
+<div class="alt-description">At Step 4, if search returns no results:</div>
+<div class="system-message">"No users found matching '[search term]'. Try different keywords or check spelling."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Concurrent Admin Actions</div>
+<div class="alt-description">At Step 9, if another admin is editing the same user:</div>
+<div class="system-message">"Administrator [Name] is currently editing this account. Changes may conflict."</div>
+<div class="alt-description">System prevents conflicting simultaneous edits.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Cannot Modify Super Admin</div>
+<div class="alt-description">At Step 8, if attempting to change super admin permissions:</div>
+<div class="system-message">"Super Administrator accounts cannot be modified. Contact platform owner for changes."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Bulk Action Requested</div>
+<div class="alt-description">At Step 8, if admin selects multiple users:</div>
+<div class="alt-description">The system offers bulk actions: suspend, send message, export data</div>
+<div class="alt-description">Admin confirms bulk action</div>
+<div class="alt-description">System processes with progress indicator</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">5. Assign User Roles</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator navigates to "Role Management" in the admin panel.</div>
+<div class="step">The system displays available roles:</div>
+<div class="sub-step">Learner (default)</div>
+<div class="sub-step">Content Creator</div>
+<div class="sub-step">Mentor/Reviewer</div>
+<div class="sub-step">Administrator</div>
+<div class="sub-step">Super Administrator</div>
+<div class="step">The administrator searches for a specific user.</div>
+<div class="step">The administrator selects the user and clicks "Change Role."</div>
+<div class="step">The system displays current role and available role options.</div>
+<div class="step">The administrator selects the new role from the dropdown.</div>
+<div class="step">If promoting to Content Creator or higher, the system prompts:</div>
+<div class="system-message">"This role grants elevated permissions. Confirm you want to proceed?"</div>
+<div class="step">The administrator confirms the role change.</div>
+<div class="step">The system updates the user's role and permissions.</div>
+<div class="step">The system sends notification to the user:</div>
+<div class="system-message">"Your account role has been updated to [New Role]. You now have access to [features]."</div>
+<div class="step">The system logs the role change with timestamp and admin identifier.</div>
+<div class="step">The user's interface updates to reflect new capabilities on next login.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Insufficient Permissions</div>
+<div class="alt-description">At Step 6, if the admin lacks authority to assign certain roles:</div>
+<div class="system-message">"You cannot assign [Role Name]. Only Super Administrators can grant this role."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. User Already Has Role</div>
+<div class="alt-description">At Step 6, if attempting to assign current role:</div>
+<div class="system-message">"This user already has the [Role Name] role."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Content Creator Requirements Not Met</div>
+<div class="alt-description">At Step 8, if promoting to Content Creator but user hasn't met criteria:</div>
+<div class="system-message">"This user hasn't completed Content Creator training. Assign role anyway?"</div>
+<div class="alt-description">Admin can proceed with override or require training first.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Demoting Active Content Creator</div>
+<div class="alt-description">At Step 8, if demoting a creator with published content:</div>
+<div class="system-message">"This user has [X] published courses. Demoting will affect content management. Reassign content?"</div>
+<div class="alt-description">Admin must decide how to handle existing content.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">6. Monitor Platform Analytics</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator logs into the admin dashboard.</div>
+<div class="step">The administrator navigates to "Platform Analytics."</div>
+<div class="step">The system displays a comprehensive analytics dashboard with widgets:</div>
+<div class="sub-step">User Metrics: Total users, new registrations, active users (daily/weekly/monthly)</div>
+<div class="sub-step">Engagement Metrics: Average session duration, lessons completed, exercises submitted</div>
+<div class="sub-step">Content Metrics: Total courses, lessons, exercises; most popular content</div>
+<div class="sub-step">Performance Metrics: System uptime, response times, error rates</div>
+<div class="sub-step">Revenue Metrics: Enrollments, certification purchases, subscription status</div>
+<div class="sub-step">Geographic Distribution: User locations, regional activity</div>
+<div class="step">The administrator can customize the date range (last 7 days, 30 days, 90 days, custom).</div>
+<div class="step">The administrator can filter by:</div>
+<div class="sub-step">User segment (learners, content creators)</div>
+<div class="sub-step">Course categories</div>
+<div class="sub-step">Learning paths</div>
+<div class="sub-step">Device types (desktop, mobile)</div>
+<div class="step">The administrator views detailed charts and graphs:</div>
+<div class="sub-step">User growth trends (line graph)</div>
+<div class="sub-step">Enrollment distribution (pie chart)</div>
+<div class="sub-step">Peak usage times (heatmap)</div>
+<div class="sub-step">Course completion rates (bar chart)</div>
+<div class="step">The administrator can drill down into specific metrics:</div>
+<div class="sub-step">Clicks on "Course Completion Rate"</div>
+<div class="sub-step">System shows breakdown by course, difficulty level, and time period</div>
+<div class="step">The administrator identifies trends:</div>
+<div class="sub-step">Notice a drop in engagement on weekends</div>
+<div class="sub-step">See spike in mobile usage</div>
+<div class="sub-step">Identify popular learning paths</div>
+<div class="step">The administrator can export reports in multiple formats:</div>
+<div class="sub-step">PDF (executive summary)</div>
+<div class="sub-step">Excel (detailed data)</div>
+<div class="sub-step">CSV (raw data)</div>
+<div class="step">The administrator schedules automated reports:</div>
+<div class="sub-step">Weekly summary email</div>
+<div class="sub-step">Monthly executive dashboard</div>
+<div class="sub-step">Quarterly performance review</div>
+<div class="step">The system saves admin's preferred dashboard configuration.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Insufficient Data</div>
+<div class="alt-description">At Step 3, if platform is newly launched with minimal data:</div>
+<div class="system-message">"Limited data available. Analytics become more meaningful after 30+ days of activity."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Data Loading Delays</div>
+<div class="alt-description">At Step 3, if analytics take time to compile:</div>
+<div class="system-message">"Loading analytics... This may take a minute for large datasets."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Export Limit Exceeded</div>
+<div class="alt-description">At Step 9, if requesting very large data export:</div>
+<div class="system-message">"This export contains 100,000+ records. It will be processed in the background and emailed when ready."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Real-Time Data Unavailable</div>
+<div class="alt-description">At Step 3, if requesting real-time metrics during system maintenance:</div>
+<div class="system-message">"Real-time data temporarily unavailable. Showing last cached data from [timestamp]."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">7. Review and Filter System Logs</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator navigates to "System Logs" in the admin panel.</div>
+<div class="step">The system displays log categories:</div>
+<div class="sub-step">Security logs (authentication, failed logins, permission changes)</div>
+<div class="sub-step">Error logs (application errors, API failures)</div>
+<div class="sub-step">User activity logs (major actions, submissions)</div>
+<div class="sub-step">Content logs (course creation, updates, deletions)</div>
+<div class="sub-step">System performance logs (response times, resource usage)</div>
+<div class="step">The administrator selects "Security Logs."</div>
+<div class="step">The system displays recent security events with details:</div>
+<div class="sub-step">Timestamp</div>
+<div class="sub-step">Event type</div>
+<div class="sub-step">User involved</div>
+<div class="sub-step">IP address</div>
+<div class="sub-step">Action taken</div>
+<div class="sub-step">Outcome (success/failure)</div>
+<div class="step">The administrator can filter logs by:</div>
+<div class="sub-step">Date/time range</div>
+<div class="sub-step">Event severity (info, warning, error, critical)</div>
+<div class="sub-step">User or IP address</div>
+<div class="sub-step">Event type</div>
+<div class="step">The administrator searches for specific events (e.g., "failed login attempts from IP X").</div>
+<div class="step">The system highlights matching log entries.</div>
+<div class="step">The administrator can expand log entries for detailed information:</div>
+<div class="sub-step">Full error stack trace</div>
+<div class="sub-step">Request parameters</div>
+<div class="sub-step">System state at time of event</div>
+<div class="step">The administrator can export filtered logs for analysis.</div>
+<div class="step">The system allows the administrator to flag logs for follow-up investigation.</div>
+<div class="step">The administrator can set up alerts for specific log patterns:</div>
+<div class="sub-step">Multiple failed logins from same IP → possible attack</div>
+<div class="sub-step">Spike in errors → system issue requiring attention</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Excessive Log Volume</div>
+<div class="alt-description">At Step 4, if millions of log entries exist:</div>
+<div class="system-message">"Showing most recent 10,000 entries. Narrow your search or time range for specific logs."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Sensitive Information in Logs</div>
+<div class="alt-description">At Step 8, if logs contain sensitive data:</div>
+<div class="alt-description">The system masks passwords, tokens, personal data</div>
+<div class="alt-description">Only super admins can view unmasked logs with additional authentication</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Log Storage Full</div>
+<div class="alt-description">At Step 2, if log storage approaching limit:</div>
+<div class="system-message">"Warning: Log storage at 85% capacity. Archive or delete old logs to prevent data loss."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">8. Remove Inappropriate Content</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator receives a content flagging notification or browses flagged content.</div>
+<div class="step">The administrator navigates to "Content Moderation" section.</div>
+<div class="step">The system displays pending moderation queue:</div>
+<div class="sub-step">Flagged courses</div>
+<div class="sub-step">Flagged exercises</div>
+<div class="sub-step">Flagged forum posts</div>
+<div class="sub-step">Flagged solutions</div>
+<div class="sub-step">Reported user profiles</div>
+<div class="step">Each item shows:</div>
+<div class="sub-step">Content preview</div>
+<div class="sub-step">Reporter information</div>
+<div class="sub-step">Reason for flag</div>
+<div class="sub-step">Timestamp</div>
+<div class="sub-step">Content creator</div>
+<div class="step">The administrator selects a flagged item to review.</div>
+<div class="step">The system displays the full content with context.</div>
+<div class="step">The administrator evaluates against platform guidelines:</div>
+<div class="sub-step">Offensive language</div>
+<div class="sub-step">Plagiarized content</div>
+<div class="sub-step">Inappropriate images</div>
+<div class="sub-step">Misleading information</div>
+<div class="sub-step">Spam or advertising</div>
+<div class="sub-step">Copyright violations</div>
+<div class="step">If content violates guidelines, the administrator chooses action:</div>
+<div class="sub-step">Remove content immediately</div>
+<div class="sub-step">Require revision by creator</div>
+<div class="sub-step">Issue warning to creator</div>
+<div class="sub-step">Suspend creator account</div>
+<div class="step">The administrator selects "Remove Content."</div>
+<div class="step">The system prompts for removal reason (required for transparency).</div>
+<div class="step">The administrator enters: "Contains plagiarized code from [source]. Violates copyright policy."</div>
+<div class="step">The system removes the content from public view.</div>
+<div class="step">The system notifies the content creator:</div>
+<div class="system-message">"Your content '[Title]' has been removed for: [Reason]. You may appeal this decision or create compliant content."</div>
+<div class="step">If repeat violation, the system automatically escalates to account suspension.</div>
+<div class="step">The system logs all moderation actions for audit trail.</div>
+<div class="step">The reporter receives notification that their flag was reviewed and action taken.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Content Doesn't Violate Guidelines</div>
+<div class="alt-description">At Step 8, if content is acceptable:</div>
+<div class="alt-description">Administrator selects "Dismiss Flag"</div>
+<div class="alt-description">Enters reason: "Content reviewed - no violation found. Appropriate educational material."</div>
+<div class="alt-description">Reporter notified that content was reviewed but approved</div>
+<div class="alt-description">Flag dismissed from queue</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Borderline Content</div>
+<div class="alt-description">At Step 8, if content is questionable but not clearly violating:</div>
+<div class="alt-description">Administrator selects "Request Revision"</div>
+<div class="alt-description">Specifies improvements needed</div>
+<div class="alt-description">Creator has 7 days to revise</div>
+<div class="alt-description">If not revised, content is removed</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. False/Malicious Reporting</div>
+<div class="alt-description">At Step 7, if multiple flags from same user are consistently dismissed:</div>
+<div class="system-message">"User [X] has filed 5+ false reports. Possible abuse of flagging system."</div>
+<div class="alt-description">Administrator can warn or restrict user's flagging ability</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Emergency Content Removal</div>
+<div class="alt-description">At Step 1, for severe violations (illegal content, safety concerns):</div>
+<div class="alt-description">Administrator uses "Emergency Remove" option</div>
+<div class="alt-description">Content immediately removed without notification delay</div>
+<div class="alt-description">Account automatically suspended pending investigation</div>
+<div class="alt-description">Legal team notified if necessary</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">9. Issue User Warnings</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator identifies a policy violation (minor infraction).</div>
+<div class="step">The administrator navigates to the user's account.</div>
+<div class="step">The administrator clicks "Issue Warning."</div>
+<div class="step">The system displays warning form with fields:</div>
+<div class="sub-step">Violation type (dropdown: spam, inappropriate language, plagiarism, etc.)</div>
+<div class="sub-step">Severity (Minor, Moderate, Severe)</div>
+<div class="sub-step">Description of violation</div>
+<div class="sub-step">Evidence (attach screenshots, links)</div>
+<div class="sub-step">Suggested corrective action</div>
+<div class="step">The administrator fills in the form:</div>
+<div class="sub-step">Violation: "Inappropriate forum language"</div>
+<div class="sub-step">Severity: Minor</div>
+<div class="sub-step">Description: "Used profanity in discussion thread on [date]"</div>
+<div class="sub-step">Action: "Please review community guidelines and maintain respectful communication"</div>
+<div class="step">The administrator selects "Send Warning."</div>
+<div class="step">The system records the warning on user's account.</div>
+<div class="step">The system sends notification to the user:</div>
+<div class="sub-step">Email and in-platform notification</div>
+<div class="sub-step">Clear explanation of violation</div>
+<div class="sub-step">Link to relevant policy</div>
+<div class="sub-step">Consequences of repeated violations</div>
+<div class="step">The warning appears on user's account record (visible to admins only).</div>
+<div class="step">The system tracks warning count:</div>
+<div class="sub-step">1st warning: Notice only</div>
+<div class="sub-step">2nd warning: 24-hour activity restriction</div>
+<div class="sub-step">3rd warning: 7-day suspension</div>
+<div class="sub-step">4th warning: Permanent ban</div>
+<div class="step">User can acknowledge warning or submit an appeal.</div>
+<div class="step">The system logs the warning issuance.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. User Appeals Warning</div>
+<div class="alt-description">After Step 11, if user submits appeal:</div>
+<div class="alt-description">Administrator reviews appeal and additional context</div>
+<div class="alt-description">Can uphold, modify, or rescind warning</div>
+<div class="alt-description">User notified of appeal decision with explanation</div>
+<div class="alt-description">Decision is final unless escalated to senior admin</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Warning Escalation Required</div>
+<div class="alt-description">At Step 5, if violation is more serious than initially assessed:</div>
+<div class="alt-description">Administrator changes severity to "Severe"</div>
+<div class="system-message">"This user has [X] prior warnings. Escalated action may be warranted."</div>
+<div class="alt-description">Administrator can proceed with suspension instead</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Pattern of Violations</div>
+<div class="alt-description">At Step 3, if user has prior warnings:</div>
+<div class="system-message">"This user has [X] prior warnings. Escalated action may be warranted."</div>
+<div class="alt-description">Suggests automatic penalties based on policy</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Warning Expiration</div>
+<div class="alt-description">Warnings expire after 90 days of good behavior</div>
+<div class="alt-description">System automatically archives expired warnings</div>
+<div class="alt-description">User's slate cleaned if no violations in 90 days</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
 
 **Fully Dressed Format Use Cases**
 
----
-
-**10. Design Learning Path**
-
-**Primary Actor:** Administrator
-
-**Stakeholders and Interests:**
-- **Administrator:** Wants to design a coherent, strategic curriculum that aligns with platform goals.
-- **Content Creators:** Need clear assignments and guidance on what content to create.
-- **Learners:** Need a clear, logical progression that builds on previous knowledge.
-- **Platform:** Needs well-structured paths that improve learning outcomes and retention.
-
-**Preconditions:**
-- Administrator must be logged in with appropriate privileges.
-- Multiple courses and lessons should exist in the system (or be planned).
-- Administrator should have curriculum design knowledge.
-
-**Postconditions:**
-- A complete learning path structure is created.
-- Content creators are assigned to specific modules/tiers.
-- Path is organized into skill tiers with clear progression.
-- Path is ready for content creation phase.
-- Path can be published when all content is completed.
-
-**Main Success Scenario:**
-1. The administrator navigates to "Learning Path Management" in the admin panel.
-2. The administrator clicks "Create New Learning Path."
-3. The system displays the path creation wizard with fields:
-   - Path name (e.g., "Python Full-Stack Developer")
-   - Path description and learning objectives
-   - Target audience (beginners, intermediate, advanced)
-   - Estimated total duration (e.g., 6 months, 200 hours)
-   - Career outcomes or certifications earned
-   - Prerequisites (if any)
-4. The administrator enters the basic path information.
-5. **Step 1: Define Skill Tiers Structure**
-   - The system displays a visual canvas for organizing content
-   - The administrator creates skill tiers (levels):
-     - **Tier 1: Foundation** (variables, data types, basic syntax)
-     - **Tier 2: Core Concepts** (loops, functions, data structures)
-     - **Tier 3: Intermediate** (OOP, file handling, APIs)
-     - **Tier 4: Advanced** (frameworks, databases, deployment)
-     - **Tier 5: Mastery** (architecture, optimization, real projects)
-6. For each tier, the administrator defines:
-   - Tier name and description
-   - Learning objectives
-   - Expected number of courses/lessons
-   - Estimated time to complete tier
-   - Tier completion criteria
-7. **Step 2: Assign Content Requirements**
-   - For each tier, the administrator specifies required content types:
-     - Number of video lessons needed
-     - Number of coding exercises needed
-     - Number of quizzes/assessments needed
-8. **Step 3: Set Prerequisites and Dependencies**
-   - The administrator defines relationships between tiers:
-     - Tier 2 requires 100% completion of Tier 1
-     - Tier 3 requires 80% mastery of Tier 2 skills
-     - Optional branches for advanced learners
-9. The system visualizes dependencies as a flowchart.
-10. **Step 4: Assign Content Creators to Tiers**
-    - For each tier/module, the administrator clicks "Assign Creator."
-    - The system displays a list of available content creators with:
-      - Expertise areas
-      - Current workload
-      - Previous content quality ratings
-      - Availability status
-11. The administrator selects one or multiple creators for each tier:
-    - Primary creator (responsible for main content)
-    - Contributing creators (assist with specific topics)
-    - Reviewer (quality checks)
-12. The system displays assignment summary showing which creators are assigned where.
-13. **Step 5: Create Content Creation Timeline**
-    - The administrator sets deadlines for each tier:
-      - Tier 1 content: Due in 4 weeks
-      - Tier 2 content: Due in 8 weeks
-      - And so on...
-    - The administrator can set milestones (e.g., "50% of Tier 1 lessons by week 2")
-14. **Step 6: Configure Assessment Checkpoints**
-    - The administrator adds evaluation points between tiers:
-      - End-of-tier quizzes (specify passing score: 70%)
-      - Portfolio projects (define requirements)
-      - Skill validation exercises
-15. The administrator defines checkpoint passing criteria.
-16. **Step 7: Set Adaptive Learning Rules** (Optional)
-    - The administrator configures adaptive progression rules:
-      - If learner struggles with topic X → recommend supplementary exercises
-      - If learner excels → offer accelerated track options
-      - If learner abandons for 7+ days → send encouragement notification
-17. **Step 8: Define Milestones and Rewards**
-    - The administrator creates milestone achievements:
-      - 25% completion → "Python Beginner" badge + 500 XP
-      - 50% completion → "Python Intermediate" badge + 1000 XP
-      - 75% completion → "Python Advanced" badge + 1500 XP
-      - 100% completion → Certificate + "Python Master" badge + 3000 XP
-18. **Step 9: Configure Enrollment Options**
-    - The administrator sets:
-      - Enrollment type: Free / Paid / Premium
-      - Entry requirements: Diagnostic quiz score / Prior experience
-      - Maximum concurrent enrollments (if limited)
-      - Certification fee (if applicable)
-19. The administrator writes a compelling path overview for learners:
-    - What you'll learn (detailed breakdown)
-    - Career opportunities (job roles, salary ranges)
-    - Success stories from graduates (if available)
-20. The administrator adds preview content (free introductory lessons).
-21. The administrator reviews the complete path structure.
-22. The administrator clicks "Validate Learning Path."
-23. **System Validation Process:**
-    - Checks for circular dependencies (A requires B, B requires A)
-    - Verifies all tiers have assigned creators
-    - Ensures prerequisite logic is sound
-    - Validates that content requirements are reasonable
-    - Estimates total time commitment is realistic
-24. The system reports validation results.
-25. If validation passes, the administrator sees: *"✓ Learning path structure validated successfully."*
-26. The administrator sets the path status:
-    - **Draft** (visible only to admin and assigned creators)
-    - **In Development** (creators can start working)
-    - **Beta** (open to limited testers once content is ready)
-    - **Published** (publicly available after all content is completed)
-27. The administrator selects "In Development" to activate content creation.
-28. **Step 10: Notify Assigned Content Creators**
-    - The system sends notifications to all assigned creators:
-      - *"You've been assigned to create content for '[Path Name]' - [Tier/Module Name]."*
-      - Notification includes:
-        - Content requirements
-        - Deadlines
-        - Guidelines and templates
-        - Contact info for coordination
-29. Assigned creators receive task assignments in their dashboards.
-30. The system creates a project management view showing:
-    - Content creation progress for each tier
-    - Creator task statuses
-    - Upcoming deadlines
-    - Bottlenecks or delays
-31. The administrator can monitor progress and send reminders.
-32. The system displays: *"Learning path '[Path Name]' created successfully! Content creators have been notified."*
-
-**Alternative Scenarios:**
-
-**A1. Circular Dependency Detected**
-- At Step 23, if prerequisites create a loop:
-  - System displays: *"✗ Circular dependency detected: Tier A → Tier B → Tier C → Tier A"*
-  - Shows visual diagram of the problematic chain
-  - Validation fails; administrator must restructure
-  - Suggests which prerequisite to remove to break cycle
-
-**A2. No Content Creators Available**
-- At Step 10-11, if no creators match the required expertise:
-  - System displays: *"⚠ No content creators with '[Skill]' expertise are currently available."*
-  - Administrator options:
-    - Recruit new creators
-    - Assign less experienced creator with mentor support
-    - Delay tier creation until suitable creator is available
-
-**A3. Content Creator Declines Assignment**
-- After Step 28, if a creator declines:
-  - Creator provides reason (workload, expertise mismatch, timeline)
-  - System notifies administrator
-  - Administrator must reassign to another creator
-  - Timeline may need adjustment
-
-**A4. Unrealistic Time Commitment**
-- At Step 23, if total estimated time is excessive:
-  - System warns: *"⚠ This path requires ~500 hours. Average learner completion for similar paths is 6-12 months. Consider breaking into multiple paths or reducing content."*
-  - Shows completion rate data for paths of similar length
-  - Administrator can proceed or revise
-
-**A5. Content Requirements Exceed Creator Capacity**
-- At Step 13, if deadlines are too aggressive:
-  - System calculates total content hours needed vs. creator availability
-  - Displays: *"⚠ Current assignments require 200 hours of content creation in 4 weeks. Assigned creators have capacity for 120 hours. Adjust timeline or add creators."*
-  - Administrator must revise timeline or add more creators
-
-**A6. Tier Without Learning Objectives**
-- At Step 6, if a tier lacks clear objectives:
-  - System warns: *"⚠ Tier [X] has no defined learning objectives. Creators need clear goals."*
-  - Administrator must add objectives before proceeding
-
-**A7. Missing Assessment Checkpoints**
-- At Step 14-15, if few or no checkpoints exist:
-  - System warns: *"⚠ This path lacks assessment checkpoints. Learners may progress without adequate skill validation."*
-  - Recommends adding checkpoints every 20-30 hours of content
-  - Administrator can add checkpoints or acknowledge and proceed
-
-**A8. Duplicate or Overlapping Path**
-- At Step 22, if a very similar path exists:
-  - System displays: *"⚠ A similar learning path exists: '[Path Name]'. Overlap: 60% of content. This may confuse learners or dilute enrollments."*
-  - Shows comparison of content overlap
-  - Administrator options:
-    - Differentiate the new path clearly
-    - Merge with existing path
-    - Archive old path if replacing it
-    - Proceed with justification
-
-**A9. Creator Workload Imbalance**
-- At Step 11-12, if one creator is overloaded:
-  - System warns: *"⚠ [Creator Name] is assigned to 3 tiers with deadlines in the same month. Consider redistributing workload."*
-  - Suggests alternative creators
-  - Administrator can adjust assignments
-
-**A10. Budget Constraints for Paid Creators**
-- At Step 11, if assigning paid creators:
-  - System calculates total cost based on creator rates and content requirements
-  - If budget is exceeded: *"⚠ Current assignments will cost $[X], exceeding the $[Y] budget. Adjust assignments or increase budget."*
-  - Administrator must optimize assignments
-
-**Extensions:**
-
-**E1. Path Branching**
-- Administrator can design choice points in the path:
-  - After Core Python, learner chooses:
-    - **Branch A:** Data Science specialization
-    - **Branch B:** Web Development specialization
-    - **Branch C:** Automation/DevOps specialization
-  - Each branch has unique content, assigned to specialized creators
-
-**E2. Collaborative Path Design**
-- Multiple administrators can co-design a path:
-  - Each contributes expertise in specific areas
-  - System tracks changes and responsibilities
-  - Approval workflow for major structural changes
-
-**E3. Path Templates**
-- Administrator can use templates for common path types:
-  - "Beginner to Professional" template
-  - "Specialization Track" template
-  - "Certification Prep" template
-  - Templates include suggested tier structures and checkpoints
-
-**E4. Content Reuse from Existing Paths**
-- Administrator can import tiers/modules from other successful paths:
-  - Select existing content to include
-  - System links to original content (doesn't duplicate)
-  - Credits original creators
-  - Useful for building hybrid or cross-domain paths
-
-**E5. Dynamic Path Updates**
-- After publication, administrator can update path without disrupting active learners:
-  - Add new optional modules
-  - Deprecate outdated content (remains accessible to enrolled learners)
-  - Update prerequisites if needed
-  - System notifies active learners of updates with opt-in
-
-**E6. Path Analytics Dashboard (Post-Publication)**
-- After content is created and path is published, administrator accesses analytics:
-  - Enrollment trends over time
-  - Completion rates per tier
-  - Common drop-off points
-  - Average time per module
-  - Learner satisfaction ratings
-  - Employment outcomes (if tracked)
-  - Creator performance metrics
-- Data informs path improvements
-
-**E7. Certification Integration**
-- Administrator can configure official certification:
-  - Final comprehensive exam specifications
-  - Portfolio review criteria
-  - Interview simulation requirements
-  - Digital credential design
-  - Verification method (blockchain, QR code)
-
-**E8. Corporate/Academic Partnerships**
-- Paths designed for institutions:
-  - Align with specific curriculum standards
-  - Include institutional branding
-  - Provide instructor dashboard for monitoring groups
-  - Export transcripts and grades
-  - Bulk enrollment management
-
-**Special Requirements:**
-- The visual path designer must support drag-and-drop for organizing tiers.
-- The system must prevent circular dependencies through real-time validation.
-- Administrator must be able to visualize the entire path structure at a glance.
-- All creator assignments must be logged with timestamps.
-- System must send automated reminders to creators as deadlines approach.
-- Content creation progress must be trackable in real-time.
-- Administrators must be able to export path structure as PDF for documentation.
-- The system must support versioning for path updates.
-- All prerequisite logic must be clearly documented and testable.
-- System must handle paths with 50+ courses without performance degradation.
-- Path analytics must aggregate data without exposing individual learner privacy.
-- Paths must support localization for international audiences.
-
-**Frequency of Use:**
-- Moderate frequency by administrators.
-- Typically 1-2 new major paths per quarter.
-- High usage during platform expansion or curriculum revisions.
-- Ongoing monitoring and updates for existing paths.
-
-**Open Issues:**
-- Should administrators require approval from senior management for new paths?
-- How do we handle creator disputes over assignments or deadlines?
-- Should there be financial incentives for creators who meet quality/timeline goals?
-- Can AI assist in recommending optimal path structures based on learning science?
-- How do we measure ROI for paths (enrollments vs. development cost)?
-- Should learning paths have expiration dates or version numbers?
-
----
+<div class="usecase-title">10. Design Learning Path</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Administrator:</span> Wants to design a coherent, strategic curriculum that aligns with platform goals.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Content Creators:</span> Need clear assignments and guidance on what content to create.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learners:</span> Need a clear, logical progression that builds on previous knowledge.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs well-structured paths that improve learning outcomes and retention.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<div>Administrator must be logged in with appropriate privileges.</div>
+<div>Multiple courses and lessons should exist in the system (or be planned).</div>
+<div>Administrator should have curriculum design knowledge.</div>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<div>A complete learning path structure is created.</div>
+<div>Content creators are assigned to specific modules/tiers.</div>
+<div>Path is organized into skill tiers with clear progression.</div>
+<div>Path is ready for content creation phase.</div>
+<div>Path can be published when all content is completed.</div>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator navigates to "Learning Path Management" in the admin panel.</div>
+<div class="step">The administrator clicks "Create New Learning Path."</div>
+<div class="step">The system displays the path creation wizard with fields:</div>
+<div class="sub-step">Path name (e.g., "Python Full-Stack Developer")</div>
+<div class="sub-step">Path description and learning objectives</div>
+<div class="sub-step">Target audience (beginners, intermediate, advanced)</div>
+<div class="sub-step">Estimated total duration (e.g., 6 months, 200 hours)</div>
+<div class="sub-step">Career outcomes or certifications earned</div>
+<div class="sub-step">Prerequisites (if any)</div>
+<div class="step">The administrator enters the basic path information.</div>
+<div class="step">Step 1: Define Skill Tiers Structure</div>
+<div class="sub-step">The system displays a visual canvas for organizing content</div>
+<div class="sub-step">The administrator creates skill tiers (levels):</div>
+<div class="system-message">Tier 1: Foundation (variables, data types, basic syntax)</div>
+<div class="system-message">Tier 2: Core Concepts (loops, functions, data structures)</div>
+<div class="system-message">Tier 3: Intermediate (OOP, file handling, APIs)</div>
+<div class="system-message">Tier 4: Advanced (frameworks, databases, deployment)</div>
+<div class="system-message">Tier 5: Mastery (architecture, optimization, real projects)</div>
+<div class="step">For each tier, the administrator defines:</div>
+<div class="sub-step">Tier name and description</div>
+<div class="sub-step">Learning objectives</div>
+<div class="sub-step">Expected number of courses/lessons</div>
+<div class="sub-step">Estimated time to complete tier</div>
+<div class="sub-step">Tier completion criteria</div>
+<div class="step">Step 2: Assign Content Requirements</div>
+<div class="sub-step">For each tier, the administrator specifies required content types:</div>
+<div class="system-message">Number of video lessons needed</div>
+<div class="system-message">Number of coding exercises needed</div>
+<div class="system-message">Number of quizzes/assessments needed</div>
+<div class="step">Step 3: Set Prerequisites and Dependencies</div>
+<div class="sub-step">The administrator defines relationships between tiers:</div>
+<div class="system-message">Tier 2 requires 100% completion of Tier 1</div>
+<div class="system-message">Tier 3 requires 80% mastery of Tier 2 skills</div>
+<div class="system-message">Optional branches for advanced learners</div>
+<div class="step">The system visualizes dependencies as a flowchart.</div>
+<div class="step">Step 4: Assign Content Creators to Tiers</div>
+<div class="sub-step">For each tier/module, the administrator clicks "Assign Creator."</div>
+<div class="sub-step">The system displays a list of available content creators with:</div>
+<div class="system-message">Expertise areas</div>
+<div class="system-message">Current workload</div>
+<div class="system-message">Previous content quality ratings</div>
+<div class="system-message">Availability status</div>
+<div class="step">The administrator selects one or multiple creators for each tier:</div>
+<div class="sub-step">Primary creator (responsible for main content)</div>
+<div class="sub-step">Contributing creators (assist with specific topics)</div>
+<div class="sub-step">Reviewer (quality checks)</div>
+<div class="step">The system displays assignment summary showing which creators are assigned where.</div>
+<div class="step">Step 5: Create Content Creation Timeline</div>
+<div class="sub-step">The administrator sets deadlines for each tier:</div>
+<div class="system-message">Tier 1 content: Due in 4 weeks</div>
+<div class="system-message">Tier 2 content: Due in 8 weeks</div>
+<div class="system-message">And so on...</div>
+<div class="sub-step">The administrator can set milestones (e.g., "50% of Tier 1 lessons by week 2")</div>
+<div class="step">Step 6: Configure Assessment Checkpoints</div>
+<div class="sub-step">The administrator adds evaluation points between tiers:</div>
+<div class="system-message">End-of-tier quizzes (specify passing score: 70%)</div>
+<div class="system-message">Portfolio projects (define requirements)</div>
+<div class="system-message">Skill validation exercises</div>
+<div class="step">The administrator defines checkpoint passing criteria.</div>
+<div class="step">Step 7: Set Adaptive Learning Rules (Optional)</div>
+<div class="sub-step">The administrator configures adaptive progression rules:</div>
+<div class="system-message">If learner struggles with topic X → recommend supplementary exercises</div>
+<div class="system-message">If learner excels → offer accelerated track options</div>
+<div class="system-message">If learner abandons for 7+ days → send encouragement notification</div>
+<div class="step">Step 8: Define Milestones and Rewards</div>
+<div class="sub-step">The administrator creates milestone achievements:</div>
+<div class="system-message">25% completion → "Python Beginner" badge + 500 XP</div>
+<div class="system-message">50% completion → "Python Intermediate" badge + 1000 XP</div>
+<div class="system-message">75% completion → "Python Advanced" badge + 1500 XP</div>
+<div class="system-message">100% completion → Certificate + "Python Master" badge + 3000 XP</div>
+<div class="step">Step 9: Configure Enrollment Options</div>
+<div class="sub-step">The administrator sets:</div>
+<div class="system-message">Enrollment type: Free / Paid / Premium</div>
+<div class="system-message">Entry requirements: Diagnostic quiz score / Prior experience</div>
+<div class="system-message">Maximum concurrent enrollments (if limited)</div>
+<div class="system-message">Certification fee (if applicable)</div>
+<div class="step">The administrator writes a compelling path overview for learners:</div>
+<div class="sub-step">What you'll learn (detailed breakdown)</div>
+<div class="sub-step">Career opportunities (job roles, salary ranges)</div>
+<div class="sub-step">Success stories from graduates (if available)</div>
+<div class="step">The administrator adds preview content (free introductory lessons).</div>
+<div class="step">The administrator reviews the complete path structure.</div>
+<div class="step">The administrator clicks "Validate Learning Path."</div>
+<div class="step">System Validation Process:</div>
+<div class="sub-step">Checks for circular dependencies (A requires B, B requires A)</div>
+<div class="sub-step">Verifies all tiers have assigned creators</div>
+<div class="sub-step">Ensures prerequisite logic is sound</div>
+<div class="sub-step">Validates that content requirements are reasonable</div>
+<div class="sub-step">Estimates total time commitment is realistic</div>
+<div class="step">The system reports validation results.</div>
+<div class="step">If validation passes, the administrator sees: "✓ Learning path structure validated successfully."</div>
+<div class="step">The administrator sets the path status:</div>
+<div class="sub-step">Draft (visible only to admin and assigned creators)</div>
+<div class="sub-step">In Development (creators can start working)</div>
+<div class="sub-step">Beta (open to limited testers once content is ready)</div>
+<div class="sub-step">Published (publicly available after all content is completed)</div>
+<div class="step">The administrator selects "In Development" to activate content creation.</div>
+<div class="step">Step 10: Notify Assigned Content Creators</div>
+<div class="sub-step">The system sends notifications to all assigned creators:</div>
+<div class="system-message">"You've been assigned to create content for '[Path Name]' - [Tier/Module Name]."</div>
+<div class="sub-step">Notification includes:</div>
+<div class="system-message">Content requirements</div>
+<div class="system-message">Deadlines</div>
+<div class="system-message">Guidelines and templates</div>
+<div class="system-message">Contact info for coordination</div>
+<div class="step">Assigned creators receive task assignments in their dashboards.</div>
+<div class="step">The system creates a project management view showing:</div>
+<div class="sub-step">Content creation progress for each tier</div>
+<div class="sub-step">Creator task statuses</div>
+<div class="sub-step">Upcoming deadlines</div>
+<div class="sub-step">Bottlenecks or delays</div>
+<div class="step">The administrator can monitor progress and send reminders.</div>
+<div class="step">The system displays: "Learning path '[Path Name]' created successfully! Content creators have been notified."</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Circular Dependency Detected</div>
+<div class="alt-description">At Step 23, if prerequisites create a loop:</div>
+<div class="system-message">"✗ Circular dependency detected: Tier A → Tier B → Tier C → Tier A"</div>
+<div class="alt-description">Shows visual diagram of the problematic chain</div>
+<div class="alt-description">Validation fails; administrator must restructure</div>
+<div class="alt-description">Suggests which prerequisite to remove to break cycle</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. No Content Creators Available</div>
+<div class="alt-description">At Step 10-11, if no creators match the required expertise:</div>
+<div class="system-message">"⚠ No content creators with '[Skill]' expertise are currently available."</div>
+<div class="alt-description">Administrator options:</div>
+<div class="alt-description">Recruit new creators</div>
+<div class="alt-description">Assign less experienced creator with mentor support</div>
+<div class="alt-description">Delay tier creation until suitable creator is available</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Content Creator Declines Assignment</div>
+<div class="alt-description">After Step 28, if a creator declines:</div>
+<div class="alt-description">Creator provides reason (workload, expertise mismatch, timeline)</div>
+<div class="alt-description">System notifies administrator</div>
+<div class="alt-description">Administrator must reassign to another creator</div>
+<div class="alt-description">Timeline may need adjustment</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Unrealistic Time Commitment</div>
+<div class="alt-description">At Step 23, if total estimated time is excessive:</div>
+<div class="system-message">"⚠ This path requires ~500 hours. Average learner completion for similar paths is 6-12 months. Consider breaking into multiple paths or reducing content."</div>
+<div class="alt-description">Shows completion rate data for paths of similar length</div>
+<div class="alt-description">Administrator can proceed or revise</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Content Requirements Exceed Creator Capacity</div>
+<div class="alt-description">At Step 13, if deadlines are too aggressive:</div>
+<div class="system-message">"⚠ Current assignments require 200 hours of content creation in 4 weeks. Assigned creators have capacity for 120 hours. Adjust timeline or add creators."</div>
+<div class="alt-description">Administrator must revise timeline or add more creators</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. Tier Without Learning Objectives</div>
+<div class="alt-description">At Step 6, if a tier lacks clear objectives:</div>
+<div class="system-message">"⚠ Tier [X] has no defined learning objectives. Creators need clear goals."</div>
+<div class="alt-description">Administrator must add objectives before proceeding</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A7. Missing Assessment Checkpoints</div>
+<div class="alt-description">At Step 14-15, if few or no checkpoints exist:</div>
+<div class="system-message">"⚠ This path lacks assessment checkpoints. Learners may progress without adequate skill validation."</div>
+<div class="alt-description">Recommends adding checkpoints every 20-30 hours of content</div>
+<div class="alt-description">Administrator can add checkpoints or acknowledge and proceed</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A8. Duplicate or Overlapping Path</div>
+<div class="alt-description">At Step 22, if a very similar path exists:</div>
+<div class="system-message">"⚠ A similar learning path exists: '[Path Name]'. Overlap: 60% of content. This may confuse learners or dilute enrollments."</div>
+<div class="alt-description">Shows comparison of content overlap</div>
+<div class="alt-description">Administrator options:</div>
+<div class="alt-description">Differentiate the new path clearly</div>
+<div class="alt-description">Merge with existing path</div>
+<div class="alt-description">Archive old path if replacing it</div>
+<div class="alt-description">Proceed with justification</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A9. Creator Workload Imbalance</div>
+<div class="alt-description">At Step 11-12, if one creator is overloaded:</div>
+<div class="system-message">"⚠ [Creator Name] is assigned to 3 tiers with deadlines in the same month. Consider redistributing workload."</div>
+<div class="alt-description">Suggests alternative creators</div>
+<div class="alt-description">Administrator can adjust assignments</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A10. Budget Constraints for Paid Creators</div>
+<div class="alt-description">At Step 11, if assigning paid creators:</div>
+<div class="system-message">"⚠ Current assignments will cost $[X], exceeding the $[Y] budget. Adjust assignments or increase budget."</div>
+<div class="alt-description">Administrator must optimize assignments</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Path Branching</div>
+<div class="alt-description">Administrator can design choice points in the path:</div>
+<div class="alt-description">After Core Python, learner chooses:</div>
+<div class="alt-description">Branch A: Data Science specialization</div>
+<div class="alt-description">Branch B: Web Development specialization</div>
+<div class="alt-description">Branch C: Automation/DevOps specialization</div>
+<div class="alt-description">Each branch has unique content, assigned to specialized creators</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Collaborative Path Design</div>
+<div class="alt-description">Multiple administrators can co-design a path:</div>
+<div class="alt-description">Each contributes expertise in specific areas</div>
+<div class="alt-description">System tracks changes and responsibilities</div>
+<div class="alt-description">Approval workflow for major structural changes</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Path Templates</div>
+<div class="alt-description">Administrator can use templates for common path types:</div>
+<div class="alt-description">"Beginner to Professional" template</div>
+<div class="alt-description">"Specialization Track" template</div>
+<div class="alt-description">"Certification Prep" template</div>
+<div class="alt-description">Templates include suggested tier structures and checkpoints</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Content Reuse from Existing Paths</div>
+<div class="alt-description">Administrator can import tiers/modules from other successful paths:</div>
+<div class="alt-description">Select existing content to include</div>
+<div class="alt-description">System links to original content (doesn't duplicate)</div>
+<div class="alt-description">Credits original creators</div>
+<div class="alt-description">Useful for building hybrid or cross-domain paths</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E5. Dynamic Path Updates</div>
+<div class="alt-description">After publication, administrator can update path without disrupting active learners:</div>
+<div class="alt-description">Add new optional modules</div>
+<div class="alt-description">Deprecate outdated content (remains accessible to enrolled learners)</div>
+<div class="alt-description">Update prerequisites if needed</div>
+<div class="alt-description">System notifies active learners of updates with opt-in</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E6. Path Analytics Dashboard (Post-Publication)</div>
+<div class="alt-description">After content is created and path is published, administrator accesses analytics:</div>
+<div class="alt-description">Enrollment trends over time</div>
+<div class="alt-description">Completion rates per tier</div>
+<div class="alt-description">Common drop-off points</div>
+<div class="alt-description">Average time per module</div>
+<div class="alt-description">Learner satisfaction ratings</div>
+<div class="alt-description">Employment outcomes (if tracked)</div>
+<div class="alt-description">Creator performance metrics</div>
+<div class="alt-description">Data informs path improvements</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E7. Certification Integration</div>
+<div class="alt-description">Administrator can configure official certification:</div>
+<div class="alt-description">Final comprehensive exam specifications</div>
+<div class="alt-description">Portfolio review criteria</div>
+<div class="alt-description">Interview simulation requirements</div>
+<div class="alt-description">Digital credential design</div>
+<div class="alt-description">Verification method (blockchain, QR code)</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E8. Corporate/Academic Partnerships</div>
+<div class="alt-description">Paths designed for institutions:</div>
+<div class="alt-description">Align with specific curriculum standards</div>
+<div class="alt-description">Include institutional branding</div>
+<div class="alt-description">Provide instructor dashboard for monitoring groups</div>
+<div class="alt-description">Export transcripts and grades</div>
+<div class="alt-description">Bulk enrollment management</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>The visual path designer must support drag-and-drop for organizing tiers.</li>
+<li>The system must prevent circular dependencies through real-time validation.</li>
+<li>Administrator must be able to visualize the entire path structure at a glance.</li>
+<li>All creator assignments must be logged with timestamps.</li>
+<li>System must send automated reminders to creators as deadlines approach.</li>
+<li>Content creation progress must be trackable in real-time.</li>
+<li>Administrators must be able to export path structure as PDF for documentation.</li>
+<li>The system must support versioning for path updates.</li>
+<li>All prerequisite logic must be clearly documented and testable.</li>
+<li>System must handle paths with 50+ courses without performance degradation.</li>
+<li>Path analytics must aggregate data without exposing individual learner privacy.</li>
+<li>Paths must support localization for international audiences.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+Moderate frequency by administrators.
+Typically 1-2 new major paths per quarter.
+High usage during platform expansion or curriculum revisions.
+Ongoing monitoring and updates for existing paths.
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+Should administrators require approval from senior management for new paths?
+How do we handle creator disputes over assignments or deadlines?
+Should there be financial incentives for creators who meet quality/timeline goals?
+Can AI assist in recommending optimal path structures based on learning science?
+How do we measure ROI for paths (enrollments vs. development cost)?
+Should learning paths have expiration dates or version numbers?
+</div>
+</div>
+<hr class="usecase-separator">
 
 #### <div class="subsection">5.3.2 Content Creator Use Cases</div>
-
 **Brief Format Use Cases**
 
-**1. View Created Content**
-The content creator views a list of all courses, lessons, and exercises they have authored.
-
----
-
-**2. Preview Lesson**
-The content creator previews how learners will see and interact with a lesson before publishing.
-
----
-
-**3. Duplicate Exercise**
-The content creator clones an existing exercise as a template for creating similar challenges.
-
----
-
-**4. Delete Draft**
-The content creator removes unpublished course materials or exercises from their drafts.
-
----
+<div class="brief-usecase">
+<div class="usecase-title">1. View Created Content</div>
+<div class="description">The content creator views a list of all courses, lessons, and exercises they have authored.</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">2. Preview Lesson</div>
+<div class="description">The content creator previews how learners will see and interact with a lesson before publishing.</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">3. Duplicate Exercise</div>
+<div class="description">The content creator clones an existing exercise as a template for creating similar challenges.</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">4. Delete Draft</div>
+<div class="description">The content creator removes unpublished course materials or exercises from their drafts.</div>
+</div>
+<hr class="usecase-separator">
 
 **Casual Format Use Cases**
 
-
-**5. Register Account**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The Content Creator navigates to the "Sign Up" page of the platform.
-2. The Content Creator selects the "Content Creator" role from account type options.
-3. The Content Creator provides required details:
-   - Full name
-   - Email address
-   - Password (with confirmation)
-   - Username
-   - Resume/CV upload
-4. The Content Creator agrees to Terms and Conditions and submits the form.
-5. The system validates input (email format, password strength, username uniqueness, resume/CV format).
-6. The system sends a verification email to the provided address.
-7. The Content Creator clicks the OTP in the email.
-8. Admin activates the account after reviewing the resume/CV.
-9. The system redirects to the login page.
-10. The Content Creator logs in successfully and sees a welcome message.
-
-**Alternative Scenarios:**
-
-**A1. Email Already Exists**
-- At Step 5, if the email is already registered, the system displays:
-  *"An account with this email already exists. Please log in or use a different email."*
-
-**A2. Weak Password**
-- At Step 5, if the password doesn't meet security criteria (minimum 8 characters with uppercase, lowercase, numbers, special characters), the system displays:
-  *"Your password must be at least 8 characters long and include uppercase, lowercase, numbers, and symbols."*
-
-**A3. Username Taken**
-- At Step 5, if the username is already in use, the system displays:
-  *"This username is already taken. Please choose a different one."*
-
-**A4. Admin Reject Resume/CV**
-- At Step 8, if the admin rejects the uploaded resume/CV after review, the system displays:
-  *"Your resume/CV did not meet our criteria. Please update and resubmit."*
-
----
-
-**6. Login to System**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator navigates to the login page.
-2. The content creator enters their email and password.
-3. The content creator clicks "Login."
-4. The system validates credentials.
-5. The system authenticates the content creator and redirects to the dashboard.
-6. The content creator sees their personalized dashboard with progress and recommendations.
-
-**Alternative Scenarios:**
-
-**A1. Incorrect Credentials**
-- At Step 4, if credentials are invalid, the system displays:
-  *"Incorrect email or password. Please try again."*
-
-**A2. Account Not Verified**
-- At Step 4, if the email is not verified, the system displays:
-  *"Please verify your email address before logging in. Check your inbox for the OTP."*
-
-**A3. Account Suspended**
-- At Step 4, if the account is suspended, the system displays:
-  *"Your account has been suspended. Please contact support for assistance."*
-
----
-
-**7. Create Course**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator logs into the platform.
-2. The content creator navigates to "Content Management" section.
-3. The content creator clicks "Create New Course."
-4. The system displays a course creation form with fields:
-   - Course title
-   - Course description
-   - Programming language (Python/JavaScript/Multi-language)
-   - Difficulty level (Beginner/Intermediate/Advanced)
-   - Estimated duration
-   - Prerequisites
-   - Course thumbnail image
-5. The content creator fills in all required information.
-6. The content creator organizes the course into modules:
-   - Adds module titles
-   - Orders modules sequentially
-   - Assigns estimated time per module
-7. The content creator clicks "Create Course."
-8. The system validates all inputs and generates a unique course ID.
-9. The system creates the course structure and saves it as a draft.
-10. The system displays: *"Course created successfully! Now you can add lessons and exercises."*
-11. The content creator is redirected to the course dashboard to begin adding content.
-
-**Alternative Scenarios:**
-
-**A1. Missing Required Fields**
-- At Step 7, if required fields are empty:
-  - The system displays: *"Please complete all required fields: [Field Names]."*
-  - Incomplete fields are highlighted in red.
-
-**A2. Duplicate Course Title**
-- At Step 8, if a course with the same title exists:
-  - The system displays: *"A course with this title already exists. Please choose a different title or modify the existing course."*
-
-**A3. Invalid Image Format**
-- At Step 5, if the thumbnail isn't in an accepted format:
-  - The system displays: *"Please upload an image in JPG, PNG, or WebP format."*
-
-**A4. Course Creation Limit Reached**
-- At Step 3, if the creator has reached their course limit:
-  - The system displays: *"You've reached the maximum number of draft courses (5). Please publish or delete existing drafts."*
-
----
-
-**8. Create Lesson**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator selects an existing course from their dashboard.
-2. The content creator selects a module within the course.
-3. The content creator clicks "Add New Lesson."
-4. The system displays the lesson creation interface with sections:
-   - Lesson title
-   - Lesson objectives
-   - Content type selection (Text/Video)
-   - Estimated completion time
-5. The content creator enters the lesson title and objectives.
-6. The content creator creates multi-format content:
-   - Writes explanatory text with rich formatting
-   - Uploads or embeds video tutorial
-7. The content creator adds code snippets with syntax highlighting.
-8. The content creator sets lesson order within the module.
-9. The content creator can mark the lesson as:
-   - Draft (not visible to learners)
-   - Published (immediately available)
-   - Scheduled (available on specific date)
-10. The content creator clicks "Save Lesson."
-11. The system validates content and saves the lesson.
-12. The system displays: *"Lesson saved successfully!"*
-
-**Alternative Scenarios:**
-
-**A1. Video Upload Fails**
-- At Step 6, if video upload encounters an error:
-  - The system displays: *"Video upload failed. Please ensure the file is under 500MB and in MP4 format."*
-  - Text content is saved as draft automatically.
-
-**A2. Content Too Short**
-- At Step 11, if the lesson content is minimal:
-  - The system warns: *"This lesson appears brief. Consider adding more detail to help learners understand the concept."*
-  - The creator can proceed or add more content.
-
----
-
-**9. Add Multimedia Content**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator is editing a lesson.
-2. The content creator clicks "Add Media" in the content editor.
-3. The system displays media upload options:
-   - Upload video file
-   - Embed YouTube/Vimeo link
-   - Upload images/diagrams
-   - Add audio explanations
-4. The content creator selects "Upload Video."
-5. The content creator selects a video file from their device.
-6. The system validates file size (max 500MB) and format (MP4, WebM).
-7. The system displays upload progress bar.
-8. The video uploads successfully to cloud storage.
-9. The system generates a video player preview.
-10. The content creator positions the video within the lesson content.
-11. The content creator adds captions or transcripts (optional).
-12. The content creator saves the lesson with embedded media.
-13. The system confirms: *"Media added successfully!"*
-
-**Alternative Scenarios:**
-
-**A1. File Size Exceeds Limit**
-- At Step 6, if the video is larger than 500MB:
-  - The system displays: *"Video file is too large. Please compress to under 500MB or use an external hosting link."*
-
-**A2. Unsupported Format**
-- At Step 6, if the file format isn't supported:
-  - The system displays: *"This format is not supported. Please upload MP4 or WebM files."*
-
-**A3. Upload Interrupted**
-- At Step 7, if internet connection drops:
-  - The system attempts to resume upload.
-  - If unsuccessful after 3 attempts: *"Upload interrupted. Please try again."*
-
-**A4. Embed Link Invalid**
-- At Step 4, if an external video link doesn't work:
-  - The system displays: *"Unable to embed this link. Please verify the URL and privacy settings."*
-
----
-
-**10. Localize Content**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator selects a published course or lesson.
-2. The content creator clicks "Add Translation."
-3. The system displays available languages (Arabic, English).
-4. The content creator selects the target language (e.g., Arabic).
-5. The system creates a duplicate content template with original text.
-6. The content creator translates:
-   - Lesson titles and descriptions
-   - Content paragraphs
-   - Code comments
-   - Exercise instructions
-7. The content creator adjusts formatting for RTL (right-to-left) if translating to Arabic.
-8. The content creator can use AI-assisted translation for initial draft.
-9. The content creator reviews and refines the AI-generated translation.
-10. The content creator saves the localized version.
-11. The system marks the content as available in multiple languages.
-12. Learners can now switch between languages when viewing the content.
-
-**Alternative Scenarios:**
-
-**A1. AI Translation Unavailable**
-- At Step 8, if AI service is down:
-  - The system displays: *"AI translation is temporarily unavailable. Please translate manually."*
-
-**A2. Incomplete Translation**
-- At Step 10, if some sections remain untranslated:
-  - The system warns: *"Some content is still in [Original Language]. Do you want to save anyway?"*
-  - The creator can save as draft or complete translation.
-
----
-
-**11. Categorize Exercise Difficulty**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator is creating or editing an exercise.
-2. The system displays difficulty level options:
-   - Beginner (Basic syntax and concepts)
-   - Intermediate (Multiple concepts, logic building)
-   - Advanced (Complex algorithms, optimization)
-   - Expert (Real-world problems, system design)
-3. The content creator selects the appropriate difficulty.
-4. The system displays difficulty criteria to guide selection.
-5. The content creator assigns skill tags (e.g., "loops", "arrays", "recursion").
-6. The system estimates average completion time based on difficulty.
-7. The content creator can test the exercise themselves to verify difficulty.
-8. The content creator saves the categorization.
-9. The system uses this information for:
-   - Adaptive learning path recommendations
-   - Filtering in course catalog
-   - XP reward calculation
-
-**Alternative Scenarios:**
-
-**A1. Difficulty Mismatch Detected**
-- At Step 8, if the system's AI analysis suggests different difficulty:
-  - The system displays: *"Our analysis suggests this exercise may be [Suggested Level]. Would you like to review?"*
-  - The creator can keep their choice or adjust.
-
----
-
-**12. Update Course Materials**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator navigates to "My Courses."
-2. The content creator selects a published course.
-3. The content creator identifies content to update (lesson, exercise, video).
-4. The content creator clicks "Edit."
-5. The system loads the content in edit mode.
-6. The content creator makes changes:
-   - Updates outdated information
-   - Fixes errors or typos
-   - Improves explanations
-   - Adds new examples
-7. The content creator saves changes.
-8. The system creates a new version and maintains version history.
-9. If the course has active learners, the system displays: *"[X] students are enrolled. Notify them of updates?"*
-10. The content creator chooses to send update notification.
-11. Enrolled learners receive: *"[Course Name] has been updated with new content!"*
-12. The system logs all changes for audit trail.
-
-**Alternative Scenarios:**
-
-**A1. Breaking Changes**
-- At Step 6, if changes affect exercise solutions or grading:
-  - The system warns: *"This change may affect existing student submissions. Consider creating a new exercise instead."*
-
-**A2. Multiple Editors Conflict**
-- At Step 5, if another creator is editing simultaneously:
-  - The system displays: *"[Creator Name] is currently editing this content. Changes may conflict."*
-  - The system locks editing or enables collaborative editing mode.
-
----
-
-**13. Review Student Submissions**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator navigates to "Course Management" dashboard.
-2. The content creator selects a lesson in specific course to review submissions.
-3. The system displays recent submissions for the creator's lesson.
-4. The content creator filters by:
-   - Execution metrics (time/memory)
-   - Test case pass rate
-   - Submission date
-5. The content creator selects a student submission to review.
-6. The system displays:
-   - Student information (anonymous option available)
-   - Problem statement
-   - Student's code solution
-   - Test case results
-   - Execution metrics
-7. The content creator reviews the code for:
-   - Correctness
-   - Code quality and style
-   - Efficiency
-   - Best practices
-8. The content creator provides written feedback.
-11. The content creator clicks "Submit Review."
-12. The system saves the review and updates the student's grade.
-13. The student receives notification with feedback.
-
-**Alternative Scenarios:**
-
-**A1. Auto-Graded Exercise**
-- At Step 4, if the exercise is automatically graded:
-  - The system displays: *"This exercise was automatically graded. Manual review is optional."*
-  - The creator can still provide additional feedback.
-
-**A2. Plagiarism Suspected**
-- At Step 6, if the system detects potential plagiarism:
-  - The system flags the submission with similarity score.
-  - The creator investigates and can report if confirmed.
-
----
-
-**14. Manage Course Structure**
-
-**Actor:** Content Creator
-
-**Main Success Scenario:**
-1. The content creator selects a course from their dashboard.
-2. The content creator clicks "Edit Course Structure."
-3. The system displays the course outline with all modules and lessons.
-4. The content creator can:
-   - Drag and drop to reorder modules
-   - Drag and drop to reorder lessons within modules
-   - Add new modules
-   - Rename modules
-   - Delete modules (with confirmation)
-5. The content creator sets prerequisites:
-   - Marks lessons that must be completed before others unlock
-   - Creates skill dependencies
-6. The content creator saves the new structure.
-7. The system validates that prerequisites don't create circular dependencies.
-8. The system updates the course structure.
-9. If students are enrolled, the system adjusts their progress tracking.
-10. The system displays: *"Course structure updated successfully!"*
-
-**Alternative Scenarios:**
-
-**A1. Circular Dependency Detected**
-- At Step 7, if prerequisites create a loop:
-  - The system displays: *"Error: This creates a circular dependency. Lesson A cannot require Lesson B if Lesson B requires Lesson A."*
-  - Changes are not saved until resolved.
-
-**A2. Active Students Affected**
-- At Step 6, if reordering affects students mid-course:
-  - The system warns: *"[X] students are currently progressing through this course. Major restructuring may confuse them."*
-  - The creator can proceed with caution or schedule changes.
-
----
+<div class="usecase-title">5. Register Account</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The Content Creator navigates to the "Sign Up" page of the platform.</div>
+<div class="step">The Content Creator selects the "Content Creator" role from account type options.</div>
+<div class="step">The Content Creator provides required details:
+<div class="sub-step">Full name</div>
+<div class="sub-step">Email address</div>
+<div class="sub-step">Password (with confirmation)</div>
+<div class="sub-step">Username</div>
+<div class="sub-step">Resume/CV upload</div>
+</div>
+<div class="step">The Content Creator agrees to Terms and Conditions and submits the form.</div>
+<div class="step">The system validates input (email format, password strength, username uniqueness, resume/CV format).</div>
+<div class="step">The system sends a verification email to the provided address.</div>
+<div class="step">The Content Creator clicks the OTP in the email.</div>
+<div class="step">Admin activates the account after reviewing the resume/CV.</div>
+<div class="step">The system redirects to the login page.</div>
+<div class="step">The Content Creator logs in successfully and sees a welcome message.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Email Already Exists</div>
+<div class="alt-description">At Step 5, if the email is already registered, the system displays:</div>
+<div class="system-message">"An account with this email already exists. Please log in or use a different email."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Weak Password</div>
+<div class="alt-description">At Step 5, if the password doesn't meet security criteria (minimum 8 characters with uppercase, lowercase, numbers, special characters), the system displays:</div>
+<div class="system-message">"Your password must be at least 8 characters long and include uppercase, lowercase, numbers, and symbols."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Username Taken</div>
+<div class="alt-description">At Step 5, if the username is already in use, the system displays:</div>
+<div class="system-message">"This username is already taken. Please choose a different one."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Admin Reject Resume/CV</div>
+<div class="alt-description">At Step 8, if the admin rejects the uploaded resume/CV after review, the system displays:</div>
+<div class="system-message">"Your resume/CV did not meet our criteria. Please update and resubmit."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">6. Login to System</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator navigates to the login page.</div>
+<div class="step">The content creator enters their email and password.</div>
+<div class="step">The content creator clicks "Login."</div>
+<div class="step">The system validates credentials.</div>
+<div class="step">The system authenticates the content creator and redirects to the dashboard.</div>
+<div class="step">The content creator sees their personalized dashboard with progress and recommendations.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Incorrect Credentials</div>
+<div class="alt-description">At Step 4, if credentials are invalid, the system displays:</div>
+<div class="system-message">"Incorrect email or password. Please try again."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Account Not Verified</div>
+<div class="alt-description">At Step 4, if the email is not verified, the system displays:</div>
+<div class="system-message">"Please verify your email address before logging in. Check your inbox for the OTP."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Account Suspended</div>
+<div class="alt-description">At Step 4, if the account is suspended, the system displays:</div>
+<div class="system-message">"Your account has been suspended. Please contact support for assistance."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">7. Create Course</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator logs into the platform.</div>
+<div class="step">The content creator navigates to "Content Management" section.</div>
+<div class="step">The content creator clicks "Create New Course."</div>
+<div class="step">The system displays a course creation form with fields:
+<div class="sub-step">Course title</div>
+<div class="sub-step">Course description</div>
+<div class="sub-step">Programming language (Python/JavaScript/Multi-language)</div>
+<div class="sub-step">Difficulty level (Beginner/Intermediate/Advanced)</div>
+<div class="sub-step">Estimated duration</div>
+<div class="sub-step">Prerequisites</div>
+<div class="sub-step">Course thumbnail image</div>
+</div>
+<div class="step">The content creator fills in all required information.</div>
+<div class="step">The content creator organizes the course into modules:
+<div class="sub-step">Adds module titles</div>
+<div class="sub-step">Orders modules sequentially</div>
+<div class="sub-step">Assigns estimated time per module</div>
+</div>
+<div class="step">The content creator clicks "Create Course."</div>
+<div class="step">The system validates all inputs and generates a unique course ID.</div>
+<div class="step">The system creates the course structure and saves it as a draft.</div>
+<div class="step">The system displays:
+<div class="system-message">"Course created successfully! Now you can add lessons and exercises."</div>
+</div>
+<div class="step">The content creator is redirected to the course dashboard to begin adding content.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Missing Required Fields</div>
+<div class="alt-description">At Step 7, if required fields are empty:</div>
+<div class="system-message">"Please complete all required fields: [Field Names]."</div>
+<div class="alt-description">Incomplete fields are highlighted in red.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Duplicate Course Title</div>
+<div class="alt-description">At Step 8, if a course with the same title exists:</div>
+<div class="system-message">"A course with this title already exists. Please choose a different title or modify the existing course."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Invalid Image Format</div>
+<div class="alt-description">At Step 5, if the thumbnail isn't in an accepted format:</div>
+<div class="system-message">"Please upload an image in JPG, PNG, or WebP format."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Course Creation Limit Reached</div>
+<div class="alt-description">At Step 3, if the creator has reached their course limit:</div>
+<div class="system-message">"You've reached the maximum number of draft courses (5). Please publish or delete existing drafts."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">8. Create Lesson</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator selects an existing course from their dashboard.</div>
+<div class="step">The content creator selects a module within the course.</div>
+<div class="step">The content creator clicks "Add New Lesson."</div>
+<div class="step">The system displays the lesson creation interface with sections:
+<div class="sub-step">Lesson title</div>
+<div class="sub-step">Lesson objectives</div>
+<div class="sub-step">Content type selection (Text/Video)</div>
+<div class="sub-step">Estimated completion time</div>
+</div>
+<div class="step">The content creator enters the lesson title and objectives.</div>
+<div class="step">The content creator creates multi-format content:
+<div class="sub-step">Writes explanatory text with rich formatting</div>
+<div class="sub-step">Uploads or embeds video tutorial</div>
+</div>
+<div class="step">The content creator adds code snippets with syntax highlighting.</div>
+<div class="step">The content creator sets lesson order within the module.</div>
+<div class="step">The content creator can mark the lesson as:
+<div class="sub-step">Draft (not visible to learners)</div>
+<div class="sub-step">Published (immediately available)</div>
+<div class="sub-step">Scheduled (available on specific date)</div>
+</div>
+<div class="step">The content creator clicks "Save Lesson."</div>
+<div class="step">The system validates content and saves the lesson.</div>
+<div class="step">The system displays:
+<div class="system-message">"Lesson saved successfully!"</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Video Upload Fails</div>
+<div class="alt-description">At Step 6, if video upload encounters an error:</div>
+<div class="system-message">"Video upload failed. Please ensure the file is under 500MB and in MP4 format."</div>
+<div class="alt-description">Text content is saved as draft automatically.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Content Too Short</div>
+<div class="alt-description">At Step 11, if the lesson content is minimal:</div>
+<div class="system-message">"This lesson appears brief. Consider adding more detail to help learners understand the concept."</div>
+<div class="alt-description">The creator can proceed or add more content.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">9. Add Multimedia Content</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator is editing a lesson.</div>
+<div class="step">The content creator clicks "Add Media" in the content editor.</div>
+<div class="step">The system displays media upload options:
+<div class="sub-step">Upload video file</div>
+<div class="sub-step">Embed YouTube/Vimeo link</div>
+<div class="sub-step">Upload images/diagrams</div>
+<div class="sub-step">Add audio explanations</div>
+</div>
+<div class="step">The content creator selects "Upload Video."</div>
+<div class="step">The content creator selects a video file from their device.</div>
+<div class="step">The system validates file size (max 500MB) and format (MP4, WebM).</div>
+<div class="step">The system displays upload progress bar.</div>
+<div class="step">The video uploads successfully to cloud storage.</div>
+<div class="step">The system generates a video player preview.</div>
+<div class="step">The content creator positions the video within the lesson content.</div>
+<div class="step">The content creator adds captions or transcripts (optional).</div>
+<div class="step">The content creator saves the lesson with embedded media.</div>
+<div class="step">The system confirms:
+<div class="system-message">"Media added successfully!"</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. File Size Exceeds Limit</div>
+<div class="alt-description">At Step 6, if the video is larger than 500MB:</div>
+<div class="system-message">"Video file is too large. Please compress to under 500MB or use an external hosting link."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Unsupported Format</div>
+<div class="alt-description">At Step 6, if the file format isn't supported:</div>
+<div class="system-message">"This format is not supported. Please upload MP4 or WebM files."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Upload Interrupted</div>
+<div class="alt-description">At Step 7, if internet connection drops:</div>
+<div class="alt-description">The system attempts to resume upload.</div>
+<div class="alt-description">If unsuccessful after 3 attempts:</div>
+<div class="system-message">"Upload interrupted. Please try again."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Embed Link Invalid</div>
+<div class="alt-description">At Step 4, if an external video link doesn't work:</div>
+<div class="system-message">"Unable to embed this link. Please verify the URL and privacy settings."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">10. Localize Content</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator selects a published course or lesson.</div>
+<div class="step">The content creator clicks "Add Translation."</div>
+<div class="step">The system displays available languages (Arabic, English).</div>
+<div class="step">The content creator selects the target language (e.g., Arabic).</div>
+<div class="step">The system creates a duplicate content template with original text.</div>
+<div class="step">The content creator translates:
+<div class="sub-step">Lesson titles and descriptions</div>
+<div class="sub-step">Content paragraphs</div>
+<div class="sub-step">Code comments</div>
+<div class="sub-step">Exercise instructions</div>
+</div>
+<div class="step">The content creator adjusts formatting for RTL (right-to-left) if translating to Arabic.</div>
+<div class="step">The content creator can use AI-assisted translation for initial draft.</div>
+<div class="step">The content creator reviews and refines the AI-generated translation.</div>
+<div class="step">The content creator saves the localized version.</div>
+<div class="step">The system marks the content as available in multiple languages.</div>
+<div class="step">Learners can now switch between languages when viewing the content.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. AI Translation Unavailable</div>
+<div class="alt-description">At Step 8, if AI service is down:</div>
+<div class="system-message">"AI translation is temporarily unavailable. Please translate manually."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Incomplete Translation</div>
+<div class="alt-description">At Step 10, if some sections remain untranslated:</div>
+<div class="system-message">"Some content is still in [Original Language]. Do you want to save anyway?"</div>
+<div class="alt-description">The creator can save as draft or complete translation.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">11. Categorize Exercise Difficulty</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator is creating or editing an exercise.</div>
+<div class="step">The system displays difficulty level options:
+<div class="sub-step">Beginner (Basic syntax and concepts)</div>
+<div class="sub-step">Intermediate (Multiple concepts, logic building)</div>
+<div class="sub-step">Advanced (Complex algorithms, optimization)</div>
+<div class="sub-step">Expert (Real-world problems, system design)</div>
+</div>
+<div class="step">The content creator selects the appropriate difficulty.</div>
+<div class="step">The system displays difficulty criteria to guide selection.</div>
+<div class="step">The content creator assigns skill tags (e.g., "loops", "arrays", "recursion").</div>
+<div class="step">The system estimates average completion time based on difficulty.</div>
+<div class="step">The content creator can test the exercise themselves to verify difficulty.</div>
+<div class="step">The content creator saves the categorization.</div>
+<div class="step">The system uses this information for:
+<div class="sub-step">Adaptive learning path recommendations</div>
+<div class="sub-step">Filtering in course catalog</div>
+<div class="sub-step">XP reward calculation</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Difficulty Mismatch Detected</div>
+<div class="alt-description">At Step 8, if the system's AI analysis suggests different difficulty:</div>
+<div class="system-message">"Our analysis suggests this exercise may be [Suggested Level]. Would you like to review?"</div>
+<div class="alt-description">The creator can keep their choice or adjust.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">12. Update Course Materials</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator navigates to "My Courses."</div>
+<div class="step">The content creator selects a published course.</div>
+<div class="step">The content creator identifies content to update (lesson, exercise, video).</div>
+<div class="step">The content creator clicks "Edit."</div>
+<div class="step">The system loads the content in edit mode.</div>
+<div class="step">The content creator makes changes:
+<div class="sub-step">Updates outdated information</div>
+<div class="sub-step">Fixes errors or typos</div>
+<div class="sub-step">Improves explanations</div>
+<div class="sub-step">Adds new examples</div>
+</div>
+<div class="step">The content creator saves changes.</div>
+<div class="step">The system creates a new version and maintains version history.</div>
+<div class="step">If the course has active learners, the system displays:
+<div class="system-message">"[X] students are enrolled. Notify them of updates?"</div>
+</div>
+<div class="step">The content creator chooses to send update notification.</div>
+<div class="step">Enrolled learners receive:
+<div class="system-message">"[Course Name] has been updated with new content!"</div>
+</div>
+<div class="step">The system logs all changes for audit trail.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Breaking Changes</div>
+<div class="alt-description">At Step 6, if changes affect exercise solutions or grading:</div>
+<div class="system-message">"This change may affect existing student submissions. Consider creating a new exercise instead."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Multiple Editors Conflict</div>
+<div class="alt-description">At Step 5, if another creator is editing simultaneously:</div>
+<div class="system-message">"[Creator Name] is currently editing this content. Changes may conflict."</div>
+<div class="alt-description">The system locks editing or enables collaborative editing mode.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">13. Review Student Submissions</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator navigates to "Course Management" dashboard.</div>
+<div class="step">The content creator selects a lesson in specific course to review submissions.</div>
+<div class="step">The system displays recent submissions for the creator's lesson.</div>
+<div class="step">The content creator filters by:
+<div class="sub-step">Execution metrics (time/memory)</div>
+<div class="sub-step">Test case pass rate</div>
+<div class="sub-step">Submission date</div>
+</div>
+<div class="step">The content creator selects a student submission to review.</div>
+<div class="step">The system displays:
+<div class="sub-step">Student information (anonymous option available)</div>
+<div class="sub-step">Problem statement</div>
+<div class="sub-step">Student's code solution</div>
+<div class="sub-step">Test case results</div>
+<div class="sub-step">Execution metrics</div>
+</div>
+<div class="step">The content creator reviews the code for:
+<div class="sub-step">Correctness</div>
+<div class="sub-step">Code quality and style</div>
+<div class="sub-step">Efficiency</div>
+<div class="sub-step">Best practices</div>
+</div>
+<div class="step">The content creator provides written feedback.</div>
+<div class="step">The content creator clicks "Submit Review."</div>
+<div class="step">The system saves the review and updates the student's grade.</div>
+<div class="step">The student receives notification with feedback.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Auto-Graded Exercise</div>
+<div class="alt-description">At Step 4, if the exercise is automatically graded:</div>
+<div class="system-message">"This exercise was automatically graded. Manual review is optional."</div>
+<div class="alt-description">The creator can still provide additional feedback.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Plagiarism Suspected</div>
+<div class="alt-description">At Step 6, if the system detects potential plagiarism:</div>
+<div class="alt-description">The system flags the submission with similarity score.</div>
+<div class="alt-description">The creator investigates and can report if confirmed.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">14. Manage Course Structure</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator selects a course from their dashboard.</div>
+<div class="step">The content creator clicks "Edit Course Structure."</div>
+<div class="step">The system displays the course outline with all modules and lessons.</div>
+<div class="step">The content creator can:
+<div class="sub-step">Drag and drop to reorder modules</div>
+<div class="sub-step">Drag and drop to reorder lessons within modules</div>
+<div class="sub-step">Add new modules</div>
+<div class="sub-step">Rename modules</div>
+<div class="sub-step">Delete modules (with confirmation)</div>
+</div>
+<div class="step">The content creator sets prerequisites:
+<div class="sub-step">Marks lessons that must be completed before others unlock</div>
+<div class="sub-step">Creates skill dependencies</div>
+</div>
+<div class="step">The content creator saves the new structure.</div>
+<div class="step">The system validates that prerequisites don't create circular dependencies.</div>
+<div class="step">The system updates the course structure.</div>
+<div class="step">If students are enrolled, the system adjusts their progress tracking.</div>
+<div class="step">The system displays: <div class="system-message">"Course structure updated successfully!"</div></div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Circular Dependency Detected</div>
+<div class="alt-description">At Step 7, if prerequisites create a loop:</div>
+<div class="system-message">"Error: This creates a circular dependency. Lesson A cannot require Lesson B if Lesson B requires Lesson A."</div>
+<div class="alt-description">Changes are not saved until resolved.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Active Students Affected</div>
+<div class="alt-description">At Step 6, if reordering affects students mid-course:</div>
+<div class="system-message">"[X] students are currently progressing through this course. Major restructuring may confuse them."</div>
+<div class="alt-description">The creator can proceed with caution or schedule changes.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
 
 **Fully Dressed Format Use Cases**
 
-**15. Create Coding Exercise**
-
-**Primary Actor:** Content Creator
-
-**Stakeholders and Interests:**
-- **Content Creator:** Wants to design effective, fair exercises that test specific skills.
-- **Learners:** Need clear instructions, fair test cases, and appropriate difficulty.
-- **Platform:** Needs quality-controlled exercises that can be auto-graded reliably.
-
-**Preconditions:**
-- Content creator must be logged in and authorized.
-- Content creator must have at least one course created.
-- Content creator must have completed platform training on exercise creation.
-
-**Postconditions:**
-- Exercise is created with complete problem statement, test cases, and model solution.
-- Exercise is saved as draft and ready for validation.
-- Exercise metadata is stored in the database.
-
-**Main Success Scenario:**
-1. The content creator navigates to a course lesson.
-2. The content creator clicks "Add Exercise."
-3. The system displays the exercise creation wizard with tabs:
-   - Problem Details
-   - Test Cases
-   - Model Solution
-   - Hints
-   - Metadata
-4. **Problem Details Tab:** The content creator enters:
-   - Exercise title (clear, concise)
-   - Problem statement with context
-   - Input format explanation
-   - Output format explanation
-   - Example inputs and outputs (2-3 examples)
-   - Constraints (time limits, input ranges)
-5. The content creator writes starter code template (optional).
-6. **Test Cases Tab:** The content creator creates test cases:
-   - At least 5 test cases (minimum requirement)
-   - Mix of edge cases, typical cases, and boundary cases
-   - For each test case: input data, expected output, visibility (public/hidden)
-   - Test case descriptions explaining what is being tested
-7. The content creator marks 2-3 test cases as public (visible to learners).
-8. The content creator marks remaining cases as hidden (for final validation).
-9. **Model Solution Tab:** The content creator writes a reference solution:
-   - Correct, efficient code in the target language
-   - Well-commented for educational value
-   - Multiple approaches (optimal, brute-force, alternative methods)
-10. The content creator runs the model solution against all test cases.
-11. The system validates that the model solution passes all test cases.
-12. **Hints Tab:** The content creator creates progressive hints:
-    - Level 1: Conceptual hint (approach suggestion)
-    - Level 2: Algorithmic hint (specific strategy)
-    - Level 3: Implementation hint (code structure)
-13. **Metadata Tab:** The content creator sets:
-    - Difficulty level (Beginner/Intermediate/Advanced)
-    - Estimated time to complete
-    - Skill tags (e.g., "arrays", "sorting", "dynamic-programming")
-    - XP reward value
-14. The content creator clicks "Save as Draft."
-15. The system saves the exercise in draft status.
-16. The system displays: *"Exercise saved successfully! Proceed to validation when ready."*
-17. The content creator can:
-    - Continue editing
-    - Submit for validation (goes to Use Case 16)
-    - Delete draft
-18. The content creator clicks "Submit for Validation."
-19. The system transitions to Use Case 16 (Validate Exercise Before Publishing).
-
-**Alternative Scenarios:**
-
-**A1. Insufficient Test Cases**
-- At Step 14, if fewer than 5 test cases exist:
-  - The system displays: *"Add at least 5 test cases before saving."*
-  - Save is blocked until minimum requirement is met.
-
-**A2. Model Solution Fails Test Cases**
-- At Step 11, if the model solution doesn't pass all tests:
-  - The system displays: *"Your model solution failed test case [X]. Expected: [Y], Got: [Z]."*
-  - The creator must fix either the solution or the test case before saving.
-
-**A3. Missing Required Fields**
-- At Step 14, if mandatory fields are empty:
-  - The system displays: *"Complete all required fields: [List]"*
-  - Incomplete sections are highlighted in red.
-
-**A4. Auto-Save During Creation**
-- Throughout the process, the system auto-saves progress every 2 minutes.
-- If creator closes browser, they can resume from last saved state.
-
-**A5. Multiple Programming Languages**
-- At Step 9, if the exercise supports multiple languages:
-  - Creator must provide model solutions in each language.
-  - Each solution is validated independently before saving.
-  - Language-specific hints may be needed.
-
-**Extensions:**
-
-**E1. Complexity Analysis Addition**
-- Creator adds Big O notation explanations:
-  - Time complexity of optimal solution
-  - Space complexity analysis
-  - Comparison with alternative approaches
-- This enhances educational value.
-
-**E2. Interactive Test Case Builder**
-- System provides GUI to build test cases:
-  - Generate random inputs within constraints
-  - Automatically compute expected outputs using model solution
-  - Visualize test coverage
-
-**E3. Import from External Sources**
-- Creator can import exercise templates from:
-  - Other platforms (with proper attribution)
-  - Previous exercises (as starting point)
-  - Community-contributed templates
-
-**Special Requirements:**
-- All data must be auto-saved every 2 minutes to prevent loss.
-- Draft exercises are only visible to the creator.
-- Model solutions must be encrypted in database.
-- System must support Python, JavaScript, and eventually Java/C++.
-- Problem statements must pass basic grammar check before saving.
-- Exercise creation interface must be accessible via keyboard navigation.
-
-**Frequency of Use:**
-- High frequency during initial course development.
-- Moderate ongoing use as creators add content.
-- Estimated 10-20 exercises created per active content creator per month.
-
-**Open Issues:**
-- Should we allow saving incomplete exercises with warnings?
-- How long should drafts be retained before auto-deletion?
-- Should creators earn points for creating quality exercises?
-
----
-
-**16. Validate Exercise Before Publishing**
-
-**Primary Actor:** Content Creator
-
-**Stakeholders and Interests:**
-- **Content Creator:** Wants assurance that the exercise functions correctly before peer review.
-- **Learners:** Need exercises that work properly without technical issues or unfair test cases.
-- **Platform Quality Team:** Wants to maintain high content standards.
-- **Peer Reviewers:** Need well-validated exercises to review efficiently.
-
-**Preconditions:**
-- Exercise must be created and saved as draft (Use Case 15 completed).
-- Content creator must be logged in.
-- Validation API and code execution environment must be operational.
-- Exercise must have minimum required components (problem, test cases, solution).
-
-**Postconditions:**
-- Exercise is thoroughly tested and validated.
-- Validation report is generated and stored.
-- If validation passes, exercise is ready for peer review assignment.
-- If validation fails, creator receives detailed feedback for improvements.
-
-**Main Success Scenario:**
-1. The content creator has completed exercise creation (from Use Case 15).
-2. The content creator clicks "Submit for Validation."
-3. The system displays: *"Beginning comprehensive validation... This may take 30-60 seconds."*
-4. **Step 1: Model Solution Validation**
-   - System executes model solution against all test cases
-   - Measures execution time and memory usage
-   - Checks for runtime errors or infinite loops
-   - Validates against time and memory constraints
-5. The system confirms: *"✓ Model solution passes all [X] test cases."*
-6. **Step 2: Test Case Quality Check**
-   - System analyzes test case diversity
-   - Checks for edge cases: empty inputs, maximum values, negative numbers, boundary conditions
-   - Verifies hidden tests differ meaningfully from public tests
-   - Ensures test cases cover multiple solution approaches
-   - Validates test case descriptions are clear
-7. The system reports: *"✓ Test cases provide adequate coverage."*
-8. **Step 3: Problem Statement Analysis**
-   - AI reviews problem statement for clarity and completeness
-   - Checks grammar and spelling
-   - Identifies ambiguous phrasing
-   - Verifies examples match expected input/output format
-   - Ensures constraints are clearly defined
-9. The system reports: *"✓ Problem statement is clear and complete."*
-10. **Step 4: Difficulty Calibration**
-    - System estimates difficulty based on:
-      - Solution complexity (cyclomatic complexity, lines of code)
-      - Required concepts (data structures, algorithms)
-      - Test case difficulty
-    - Compares with creator's assigned difficulty
-11. The system reports: *"✓ Estimated difficulty matches assigned level (Intermediate)."*
-12. **Step 5: Hint Quality Assessment**
-    - Validates that hints don't reveal complete solution
-    - Checks hint progression (conceptual → specific → implementation)
-    - Ensures hints are appropriate for difficulty level
-13. The system reports: *"✓ Hints provide appropriate guidance without spoiling solution."*
-14. **Step 6: Security and Fairness Check**
-    - Ensures no hardcoded test cases in problem description
-    - Validates that public test cases don't make hidden cases obvious
-    - Checks for potential exploitation methods
-15. The system reports: *"✓ Exercise meets security and fairness standards."*
-16. The system compiles a comprehensive validation report showing all checks.
-17. The system displays final status: *"✓ Validation Complete: PASSED"*
-18. The content creator reviews the full validation report.
-19. The system offers options:
-    - **Assign for Peer Review** (proceed to step 20)
-    - **Make Revisions** (return to editing)
-    - **Save for Later** (keep in validated draft status)
-20. The content creator clicks "Assign for Peer Review."
-21. The system displays peer reviewer selection interface.
-22. The system recommends 1-3 qualified reviewers based on:
-    - Expertise in relevant programming language
-    - Experience with similar difficulty levels
-    - Current review workload
-    - Reviewer ratings and reliability
-23. The content creator selects reviewers (1-3 reviewers).
-24. The system sends notifications to selected reviewers:
-    - *"You've been assigned to review exercise '[Title]'. Please complete within 3-5 business days."*
-25. The exercise is added to each reviewer's review queue.
-26. The system sets review deadline (5 business days from assignment).
-27. The system displays to creator: *"Exercise assigned for peer review. You'll be notified when reviews are complete."*
-28. The exercise status changes to "Under Peer Review."
-29. The creator receives a confirmation summary:
-    - Validation results
-    - Assigned reviewers
-    - Expected review completion date
-30. The system transitions to peer review workflow (not detailed in this use case).
-
-**Alternative Scenarios:**
-
-**A1. Model Solution Fails Test Cases**
-- At Step 4-5, if model solution fails any test:
-  - System displays: *"✗ Model solution failed test case #[X]"*
-  - Shows: Input provided, Expected output, Actual output, Error message
-  - Validation status: **FAILED**
-  - Creator options:
-    - Fix model solution
-    - Modify test case
-    - Add explanation if intentional
-  - Cannot proceed to peer review until resolved
-
-**A2. Missing Edge Cases**
-- At Step 6-7, if edge case coverage is insufficient:
-  - System warns: *"⚠ Test cases may not cover edge scenarios: [empty input, single element, maximum constraints]"*
-  - Validation status: **PASSED WITH WARNINGS**
-  - Creator can:
-    - Add recommended edge cases
-    - Proceed to peer review with warning documented
-  - Peer reviewers will see this warning
-
-**A3. Problem Statement Unclear**
-- At Step 8-9, if AI detects ambiguity:
-  - System suggests: *"⚠ Problem statement may be unclear: '[specific phrase]' could be interpreted multiple ways."*
-  - Provides revision suggestions with examples
-  - Validation status: **PASSED WITH WARNINGS**
-  - Creator should clarify but can proceed
-  - Peer reviewers will be asked to verify clarity
-
-**A4. Difficulty Mismatch**
-- At Step 10-11, if estimated difficulty differs significantly:
-  - System reports: *"⚠ This exercise appears to be [Advanced] but is marked [Intermediate]. Consider adjusting."*
-  - Shows difficulty scoring breakdown
-  - Validation status: **PASSED WITH WARNINGS**
-  - Creator can:
-    - Adjust difficulty level
-    - Provide justification for current level
-    - Proceed with warning (reviewers will validate)
-
-**A5. Execution Timeout**
-- At Step 4, if model solution exceeds time limit:
-  - System displays: *"✗ Model solution exceeded [N]-second time limit. Execution time: [X]s"*
-  - Validation status: **FAILED**
-  - Creator must:
-    - Optimize solution
-    - Adjust time constraints
-    - Reconsider problem complexity
-  - Cannot proceed until resolved
-
-**A6. Test Cases Too Similar**
-- At Step 6, if hidden tests are predictable:
-  - System warns: *"⚠ Hidden test cases appear similar to public tests. Add more diverse scenarios."*
-  - Suggests specific missing scenarios
-  - Validation status: **PASSED WITH WARNINGS**
-  - Creator should improve diversity
-  - Reviewers will test with their own approaches
-
-**A7. No Available Reviewers**
-- At Step 22-23, if no suitable reviewers available:
-  - System displays: *"No reviewers currently available with matching expertise. Options:"*
-    - Wait for reviewers to become available (estimated: X days)
-    - Expand reviewer criteria
-    - Request admin to assign reviewers
-  - Exercise remains in validated draft status
-
-**A8. Creator Cancels Review Assignment**
-- At Step 23, if creator changes mind:
-  - Creator clicks "Cancel Assignment"
-  - Exercise returns to validated draft status
-  - Can be edited or assigned later
-
-**A9. Grammatical Errors**
-- At Step 8-9, if grammar issues detected:
-  - System highlights errors with suggestions
-  - Auto-correct offered for minor issues
-  - Validation status: **PASSED WITH WARNINGS**
-  - Creator should review and fix
-  - Reviewers will verify corrections
-
-**A10. Validation Service Unavailable**
-- At Step 3, if validation API fails:
-  - System displays: *"Validation service temporarily unavailable. Options:"*
-    - Retry now
-    - Save and retry later
-    - Contact support if issue persists
-  - Exercise saved but not validated
-  - Creator notified when service resumes
-
-**A11. Multiple Languages, Different Results**
-- At Step 4-5, if exercise supports Python and JavaScript:
-  - If Python solution passes but JavaScript fails:
-    - System reports issues separately by language
-    - Validation status: **PARTIALLY FAILED**
-    - Creator must fix failing language implementation
-  - All language versions must pass before proceeding
-
-**A12. Hints Reveal Too Much**
-- At Step 12-13, if hints are too specific:
-  - System warns: *"⚠ Hint level [X] may reveal too much of the solution. Consider making it more conceptual."*
-  - Validation status: **PASSED WITH WARNINGS**
-  - Shows which hints are problematic
-  - Reviewers will test hint effectiveness
-
-**Extensions:**
-
-**E1. Automated Test Generation Suggestions**
-- After validation, system offers to generate additional test cases:
-  - Creates random inputs within constraints
-  - Uses model solution to compute expected outputs
-  - Creator reviews and approves generated tests
-  - Re-validates with new tests
-
-**E2. Validation Report Export**
-- Creator can download detailed validation report as PDF
-- Includes:
-  - All validation checks and scores
-  - Recommendations for improvement
-  - Comparison with similar exercises
-  - Quality metrics
-- Useful for documentation or training
-
-**E3. Incremental Validation**
-- For large exercises with many test cases:
-  - System validates in stages, showing progress
-  - Creator can cancel if early stages reveal issues
-  - Partial results saved for faster re-validation
-
-**E4. A/B Testing Suggestion**
-- If exercise is similar to existing ones:
-  - System suggests A/B testing with learners
-  - Tracks which version performs better
-  - Informs future exercise design
-
-**E5. Reviewer Self-Selection**
-- Instead of creator assigning reviewers:
-  - Creator can post exercise to "Review Marketplace"
-  - Qualified reviewers volunteer to review
-  - Creator selects from volunteers
-  - Faster assignment in active communities
-
-**Special Requirements:**
-- Validation must complete within 60 seconds for standard exercises.
-- All validation checks must be logged for quality assurance auditing.
-- Validation must detect common anti-patterns (hardcoded solutions, trivial test cases).
-- System should cache validation results; re-validation only needed if exercise changes.
-- Validation API must handle concurrent requests from multiple creators.
-- Failed validations must provide actionable guidance, not just error messages.
-- Warnings must be clearly documented for peer reviewers.
-- Reviewer recommendations must consider expertise, workload, and reliability.
-- System must prevent assigning reviewers who have conflicts of interest.
-
-**Frequency of Use:**
-- Every exercise must be validated before peer review (100% usage).
-- Re-validation after any exercise modification.
-- Estimated 50-100 validations per active content creator over platform lifetime.
-
-**Open Issues:**
-- Should we implement tiered validation (basic, standard, rigorous) based on difficulty?
-- How do we handle edge cases where automated validation gives false positives?
-- Should validation scores affect creator reputation?
-- Can we use machine learning to improve validation accuracy over time?
-- Should we allow creators to skip certain validation checks with justification?
-- How do we balance validation thoroughness with creator experience?
-
----
-
-**17. Contribute to Learning Path**
-
-**Primary Actor:** Content Creator
-
-**Stakeholders and Interests:**
-- **Content Creator:** Wants clear requirements and reasonable deadlines for content creation.
-- **Administrator:** Needs quality content delivered on time to complete the learning path.
-- **Learners:** Will benefit from well-crafted, cohesive content within the path.
-
-**Preconditions:**
-- Content creator must be logged in and authorized.
-- Administrator must have created a learning path and assigned the creator to a specific tier/module.
-- Content creator must have received assignment notification.
-
-**Postconditions:**
-- Required content (lessons, exercises) is created within the assigned tier.
-- Content meets quality standards and aligns with path objectives.
-- Administrator can review and approve the content.
-- Tier is marked as complete and ready for integration.
-
-**Main Success Scenario:**
-1. The content creator receives a notification: *"You've been assigned to create content for '[Path Name]' - [Tier/Module Name]."*
-2. The content creator navigates to "My Assignments" in their dashboard.
-3. The system displays the learning path assignment with details:
-   - Path name and overall objectives
-   - Assigned tier/module name
-   - Content requirements:
-     - Number of lessons to create (e.g., 5 video lessons)
-     - Number of exercises to create (e.g., 10 coding challenges)
-   - Learning objectives for this tier
-   - Target audience and skill level
-   - Deadline for completion
-   - Guidelines and templates provided by administrator
-   - Contact information for coordination
-4. The content creator reviews the requirements and clicks "Accept Assignment."
-5. The system creates a task board for the creator showing:
-   - Checklist of required content items
-   - Progress tracker (0% complete)
-   - Deadline countdown
-6. **Step 1: Plan Content Structure**
-   - The creator outlines topics to cover in each lesson
-   - Maps exercises to specific learning objectives
-   - Designs project requirements
-7. The creator can request clarification from the administrator if objectives are unclear.
-8. **Step 2: Create Lessons**
-   - The creator follows Use Case 8 (Create Lesson) for each required lesson
-   - Ensures lessons align with tier objectives
-   - Covers prerequisite knowledge appropriately
-   - Follows platform style guidelines
-9. The system tracks completed lessons and updates progress (e.g., 30% complete).
-10. **Step 3: Create Exercises**
-    - The creator follows Use Case 15-16 (Create and Validate Coding Exercise) for each exercise
-    - Ensures difficulty aligns with tier level
-    - Ties exercises to specific lesson concepts
-    - Creates diverse problem types
-11. The system tracks completed exercises and updates progress (e.g., 60% complete).
-13. **Step 5: Review Content Cohesion**
-    - The creator reviews all created content for the tier
-    - Ensures logical flow between lessons
-    - Verifies exercises progressively build skills
-    - Checks that project appropriately challenges learners
-14. The creator can preview the entire tier as a learner would experience it.
-15. **Step 6: Internal Quality Check**
-    - The creator runs through their own content:
-      - Tests all code examples
-      - Verifies exercise solutions
-      - Checks for typos or errors
-      - Ensures multimedia loads correctly
-16. The creator makes any necessary revisions.
-17. **Step 7: Mark as Ready for Review**
-    - The creator clicks "Submit for Administrator Review."
-    - The system prompts: *"Are you sure all content is complete and meets quality standards?"*
-18. The creator confirms submission.
-19. The system notifies the administrator: *"[Creator Name] has submitted content for '[Tier Name]' in '[Path Name]'. Ready for review."*
-20. The system changes the tier status to "Under Administrator Review."
-21. The creator's task board shows "Awaiting Review" status.
-22. **Administrator Review Phase:**
-    - Administrator reviews all content (separate use case)
-    - Administrator can approve, request revisions, or reject
-23. If approved:
-    - Creator receives notification: *"Your content for '[Tier Name]' has been approved! Great work."*
-    - Creator earns XP/badges for completing assignment
-    - Content is integrated into the learning path
-24. If revisions requested:
-    - Creator receives detailed feedback with specific issues
-    - Creator makes requested changes
-    - Creator resubmits (returns to Step 17)
-25. The system tracks the creator's contribution for analytics and reputation.
-
-**Alternative Scenarios:**
-
-**A1. Creator Declines Assignment**
-- At Step 4, if the creator cannot accept:
-  - Creator clicks "Decline Assignment"
-  - System prompts for reason (workload, expertise mismatch, timeline)
-  - System notifies administrator to reassign
-  - Creator is removed from assignment
-
-**A2. Deadline Extension Needed**
-- Before deadline, if creator needs more time:
-  - Creator clicks "Request Extension"
-  - Provides justification and proposed new deadline
-  - Administrator reviews and approves/denies
-  - If approved, deadline is updated
-  - If denied, creator must meet original deadline or decline
-
-**A3. Clarification Required**
-- At Step 7, if objectives are unclear:
-  - Creator clicks "Request Clarification"
-  - Sends specific questions to administrator
-  - Administrator responds with guidance
-  - Creator proceeds with clarified understanding
-
-**A4. Content Requirements Change**
-- During content creation, if administrator updates requirements:
-  - Creator receives notification of changes
-  - System highlights what changed
-  - Creator acknowledges changes
-  - Deadline may be adjusted if significant changes
-
-**A5. Missed Deadline**
-- If creator doesn't submit by deadline:
-  - System sends urgent reminder 3 days before deadline
-  - If still missed:
-    - Administrator is notified
-    - Administrator can extend deadline or reassign
-    - Creator's reputation may be affected
-
-**A6. Revisions Requested Multiple Times**
-- At Step 24, if content is rejected twice:
-  - Administrator and creator have a coordination meeting
-  - Discuss issues and expectations
-  - If third submission also fails:
-    - Assignment may be reassigned
-    - Creator's compensation/reputation affected
-
-**A7. Technical Issues During Creation**
-- If system errors prevent content creation:
-  - Creator reports issue to support
-  - System logs the issue
-  - Deadline may be extended if issue is system-wide
-  - Creator can save drafts to prevent data loss
-
-**A8. Collaborating with Other Creators**
-- If multiple creators are assigned to the same tier:
-  - System provides shared workspace
-  - Creators can see each other's progress
-  - Chat/comment feature for coordination
-  - One creator designated as "lead" to avoid conflicts
-
-**Extensions:**
-
-**E1. Early Completion Bonus**
-- If creator completes high-quality content ahead of schedule:
-  - Creator earns "Early Bird" badge
-  - May receive bonus XP or recognition
-  - Reputation score increases
-
-**E2. Feedback and Iteration**
-- After path is published and learners use the content:
-  - Creator receives analytics on their tier:
-    - Completion rates
-    - Average time spent
-    - Learner satisfaction ratings
-    - Common misconceptions
-  - Creator can update content based on feedback
-
-**E3. Content Reuse Permission**
-- Creator can request to reuse tier content in personal courses:
-  - Submits request to administrator
-  - If approved, content can be adapted for other uses
-  - Original path retains rights to the content
-
-**E4. Compensation Tracking** (if applicable)
-- For paid creators:
-  - System tracks time spent on assignment
-  - Milestones trigger partial payments
-  - Final approval triggers full payment
-  - Invoicing generated automatically
-
-**Special Requirements:**
-- The task board must clearly show progress and remaining work.
-- Creators must be able to save work-in-progress at any time (auto-save every 2 minutes).
-- System must support version history for all created content.
-- Communication between creator and administrator must be logged.
-- Deadline reminders must be sent at 7 days, 3 days, and 1 day before due date.
-- Content submission must include a checklist confirmation (all requirements met).
-- Administrator feedback must be clear, actionable, and specific.
-
-**Frequency of Use:**
-- Moderate to high frequency depending on path creation activity.
-- Each creator may have 2-5 active assignments at any time.
-- Typically takes 2-6 weeks per tier assignment depending on complexity.
-
-**Open Issues:**
-- Should creators be able to collaborate in real-time on the same content?
-- How do we handle disputes between creator and administrator on content direction?
-- Should there be peer review before administrator review?
-- Can AI assist in identifying content gaps or quality issues?
-
+<div class="usecase-title">15. Create Coding Exercise</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Content Creator:</span> Wants to design effective, fair exercises that test specific skills.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learners:</span> Need clear instructions, fair test cases, and appropriate difficulty.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs quality-controlled exercises that can be auto-graded reliably.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<div>Content creator must be logged in and authorized.</div>
+<div>Content creator must have at least one course created.</div>
+<div>Content creator must have completed platform training on exercise creation.</div>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<div>Exercise is created with complete problem statement, test cases, and model solution.</div>
+<div>Exercise is saved as draft and ready for validation.</div>
+<div>Exercise metadata is stored in the database.</div>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator navigates to a course lesson.</div>
+<div class="step">The content creator clicks "Add Exercise."</div>
+<div class="step">The system displays the exercise creation wizard with tabs:
+<div class="sub-step">Problem Details</div>
+<div class="sub-step">Test Cases</div>
+<div class="sub-step">Model Solution</div>
+<div class="sub-step">Hints</div>
+<div class="sub-step">Metadata</div>
+</div>
+<div class="step"><strong>Problem Details Tab:</strong> The content creator enters:
+<div class="sub-step">Exercise title (clear, concise)</div>
+<div class="sub-step">Problem statement with context</div>
+<div class="sub-step">Input format explanation</div>
+<div class="sub-step">Output format explanation</div>
+<div class="sub-step">Example inputs and outputs (2-3 examples)</div>
+<div class="sub-step">Constraints (time limits, input ranges)</div>
+</div>
+<div class="step">The content creator writes starter code template (optional).</div>
+<div class="step"><strong>Test Cases Tab:</strong> The content creator creates test cases:
+<div class="sub-step">At least 5 test cases (minimum requirement)</div>
+<div class="sub-step">Mix of edge cases, typical cases, and boundary cases</div>
+<div class="sub-step">For each test case: input data, expected output, visibility (public/hidden)</div>
+<div class="sub-step">Test case descriptions explaining what is being tested</div>
+</div>
+<div class="step">The content creator marks 2-3 test cases as public (visible to learners).</div>
+<div class="step">The content creator marks remaining cases as hidden (for final validation).</div>
+<div class="step"><strong>Model Solution Tab:</strong> The content creator writes a reference solution:
+<div class="sub-step">Correct, efficient code in the target language</div>
+<div class="sub-step">Well-commented for educational value</div>
+<div class="sub-step">Multiple approaches (optimal, brute-force, alternative methods)</div>
+</div>
+<div class="step">The content creator runs the model solution against all test cases.</div>
+<div class="step">The system validates that the model solution passes all test cases.</div>
+<div class="step"><strong>Hints Tab:</strong> The content creator creates progressive hints:
+<div class="sub-step">Level 1: Conceptual hint (approach suggestion)</div>
+<div class="sub-step">Level 2: Algorithmic hint (specific strategy)</div>
+<div class="sub-step">Level 3: Implementation hint (code structure)</div>
+</div>
+<div class="step"><strong>Metadata Tab:</strong> The content creator sets:
+<div class="sub-step">Difficulty level (Beginner/Intermediate/Advanced)</div>
+<div class="sub-step">Estimated time to complete</div>
+<div class="sub-step">Skill tags (e.g., "arrays", "sorting", "dynamic-programming")</div>
+<div class="sub-step">XP reward value</div>
+</div>
+<div class="step">The content creator clicks "Save as Draft."</div>
+<div class="step">The system saves the exercise in draft status.</div>
+<div class="step">The system displays: <div class="system-message">"Exercise saved successfully! Proceed to validation when ready."</div></div>
+<div class="step">The content creator can:
+<div class="sub-step">Continue editing</div>
+<div class="sub-step">Submit for validation (goes to Use Case 16)</div>
+<div class="sub-step">Delete draft</div>
+</div>
+<div class="step">The content creator clicks "Submit for Validation."</div>
+<div class="step">The system transitions to Use Case 16 (Validate Exercise Before Publishing).</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Insufficient Test Cases</div>
+<div class="alt-description">At Step 14, if fewer than 5 test cases exist:</div>
+<div class="system-message">"Add at least 5 test cases before saving."</div>
+<div class="alt-description">Save is blocked until minimum requirement is met.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Model Solution Fails Test Cases</div>
+<div class="alt-description">At Step 11, if the model solution doesn't pass all tests:</div>
+<div class="system-message">"Your model solution failed test case [X]. Expected: [Y], Got: [Z]."</div>
+<div class="alt-description">The creator must fix either the solution or the test case before saving.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Missing Required Fields</div>
+<div class="alt-description">At Step 14, if mandatory fields are empty:</div>
+<div class="system-message">"Complete all required fields: [List]"</div>
+<div class="alt-description">Incomplete sections are highlighted in red.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Auto-Save During Creation</div>
+<div class="alt-description">Throughout the process, the system auto-saves progress every 2 minutes.</div>
+<div class="alt-description">If creator closes browser, they can resume from last saved state.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Multiple Programming Languages</div>
+<div class="alt-description">At Step 9, if the exercise supports multiple languages:</div>
+<div class="alt-description">Creator must provide model solutions in each language.</div>
+<div class="alt-description">Each solution is validated independently before saving.</div>
+<div class="alt-description">Language-specific hints may be needed.</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Complexity Analysis Addition</div>
+<div class="alt-description">Creator adds Big O notation explanations:</div>
+<div class="alt-description">
+<div class="sub-step">Time complexity of optimal solution</div>
+<div class="sub-step">Space complexity analysis</div>
+<div class="sub-step">Comparison with alternative approaches</div>
+</div>
+<div class="alt-description">This enhances educational value.</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Interactive Test Case Builder</div>
+<div class="alt-description">System provides GUI to build test cases:</div>
+<div class="alt-description">
+<div class="sub-step">Generate random inputs within constraints</div>
+<div class="sub-step">Automatically compute expected outputs using model solution</div>
+<div class="sub-step">Visualize test coverage</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Import from External Sources</div>
+<div class="alt-description">Creator can import exercise templates from:</div>
+<div class="alt-description">
+<div class="sub-step">Other platforms (with proper attribution)</div>
+<div class="sub-step">Previous exercises (as starting point)</div>
+<div class="sub-step">Community-contributed templates</div>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>All data must be auto-saved every 2 minutes to prevent loss.</li>
+<li>Draft exercises are only visible to the creator.</li>
+<li>Model solutions must be encrypted in database.</li>
+<li>System must support Python, JavaScript, and eventually Java/C++.</li>
+<li>Problem statements must pass basic grammar check before saving.</li>
+<li>Exercise creation interface must be accessible via keyboard navigation.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+High frequency during initial course development. Moderate ongoing use as creators add content. Estimated 10-20 exercises created per active content creator per month.
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<div>Should we allow saving incomplete exercises with warnings?</div>
+<div>How long should drafts be retained before auto-deletion?</div>
+<div>Should creators earn points for creating quality exercises?</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">16. Validate Exercise Before Publishing</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Content Creator:</span> Wants assurance that the exercise functions correctly before peer review.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learners:</span> Need exercises that work properly without technical issues or unfair test cases.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform Quality Team:</span> Wants to maintain high content standards.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Peer Reviewers:</span> Need well-validated exercises to review efficiently.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<div>Exercise must be created and saved as draft (Use Case 15 completed).</div>
+<div>Content creator must be logged in.</div>
+<div>Validation API and code execution environment must be operational.</div>
+<div>Exercise must have minimum required components (problem, test cases, solution).</div>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<div>Exercise is thoroughly tested and validated.</div>
+<div>Validation report is generated and stored.</div>
+<div>If validation passes, exercise is ready for peer review assignment.</div>
+<div>If validation fails, creator receives detailed feedback for improvements.</div>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator has completed exercise creation (from Use Case 15).</div>
+<div class="step">The content creator clicks "Submit for Validation."</div>
+<div class="step">The system displays: <div class="system-message">"Beginning comprehensive validation... This may take 30-60 seconds."</div></div>
+<div class="step"><strong>Step 1: Model Solution Validation</strong>
+<div class="sub-step">System executes model solution against all test cases</div>
+<div class="sub-step">Measures execution time and memory usage</div>
+<div class="sub-step">Checks for runtime errors or infinite loops</div>
+<div class="sub-step">Validates against time and memory constraints</div>
+</div>
+<div class="step">The system confirms: <div class="system-message">"✓ Model solution passes all [X] test cases."</div></div>
+<div class="step"><strong>Step 2: Test Case Quality Check</strong>
+<div class="sub-step">System analyzes test case diversity</div>
+<div class="sub-step">Checks for edge cases: empty inputs, maximum values, negative numbers, boundary conditions</div>
+<div class="sub-step">Verifies hidden tests differ meaningfully from public tests</div>
+<div class="sub-step">Ensures test cases cover multiple solution approaches</div>
+<div class="sub-step">Validates test case descriptions are clear</div>
+</div>
+<div class="step">The system reports: <div class="system-message">"✓ Test cases provide adequate coverage."</div></div>
+<div class="step"><strong>Step 3: Problem Statement Analysis</strong>
+<div class="sub-step">AI reviews problem statement for clarity and completeness</div>
+<div class="sub-step">Checks grammar and spelling</div>
+<div class="sub-step">Identifies ambiguous phrasing</div>
+<div class="sub-step">Verifies examples match expected input/output format</div>
+<div class="sub-step">Ensures constraints are clearly defined</div>
+</div>
+<div class="step">The system reports: <div class="system-message">"✓ Problem statement is clear and complete."</div></div>
+<div class="step"><strong>Step 4: Difficulty Calibration</strong>
+<div class="sub-step">System estimates difficulty based on:</div>
+<div class="sub-step">Solution complexity (cyclomatic complexity, lines of code)</div>
+<div class="sub-step">Required concepts (data structures, algorithms)</div>
+<div class="sub-step">Test case difficulty</div>
+<div class="sub-step">Compares with creator's assigned difficulty</div>
+</div>
+<div class="step">The system reports: <div class="system-message">"✓ Estimated difficulty matches assigned level (Intermediate)."</div></div>
+<div class="step"><strong>Step 5: Hint Quality Assessment</strong>
+<div class="sub-step">Validates that hints don't reveal complete solution</div>
+<div class="sub-step">Checks hint progression (conceptual → specific → implementation)</div>
+<div class="sub-step">Ensures hints are appropriate for difficulty level</div>
+</div>
+<div class="step">The system reports: <div class="system-message">"✓ Hints provide appropriate guidance without spoiling solution."</div></div>
+<div class="step"><strong>Step 6: Security and Fairness Check</strong>
+<div class="sub-step">Ensures no hardcoded test cases in problem description</div>
+<div class="sub-step">Validates that public test cases don't make hidden cases obvious</div>
+<div class="sub-step">Checks for potential exploitation methods</div>
+</div>
+<div class="step">The system reports: <div class="system-message">"✓ Exercise meets security and fairness standards."</div></div>
+<div class="step">The system compiles a comprehensive validation report showing all checks.</div>
+<div class="step">The system displays final status: <div class="system-message">"✓ Validation Complete: PASSED"</div></div>
+<div class="step">The content creator reviews the full validation report.</div>
+<div class="step">The system offers options:
+<div class="sub-step"><strong>Assign for Peer Review</strong> (proceed to step 20)</div>
+<div class="sub-step"><strong>Make Revisions</strong> (return to editing)</div>
+<div class="sub-step"><strong>Save for Later</strong> (keep in validated draft status)</div>
+</div>
+<div class="step">The content creator clicks "Assign for Peer Review."</div>
+<div class="step">The system displays peer reviewer selection interface.</div>
+<div class="step">The system recommends 1-3 qualified reviewers based on:
+<div class="sub-step">Expertise in relevant programming language</div>
+<div class="sub-step">Experience with similar difficulty levels</div>
+<div class="sub-step">Current review workload</div>
+<div class="sub-step">Reviewer ratings and reliability</div>
+</div>
+<div class="step">The content creator selects reviewers (1-3 reviewers).</div>
+<div class="step">The system sends notifications to selected reviewers:
+<div class="system-message">"You've been assigned to review exercise '[Title]'. Please complete within 3-5 business days."</div>
+</div>
+<div class="step">The exercise is added to each reviewer's review queue.</div>
+<div class="step">The system sets review deadline (5 business days from assignment).</div>
+<div class="step">The system displays to creator: <div class="system-message">"Exercise assigned for peer review. You'll be notified when reviews are complete."</div></div>
+<div class="step">The exercise status changes to "Under Peer Review."</div>
+<div class="step">The creator receives a confirmation summary:
+<div class="sub-step">Validation results</div>
+<div class="sub-step">Assigned reviewers</div>
+<div class="sub-step">Expected review completion date</div>
+</div>
+<div class="step">The system transitions to peer review workflow (not detailed in this use case).</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Model Solution Fails Test Cases</div>
+<div class="alt-description">At Step 4-5, if model solution fails any test:</div>
+<div class="system-message">"✗ Model solution failed test case #[X]"</div>
+<div class="alt-description">Shows: Input provided, Expected output, Actual output, Error message</div>
+<div class="alt-description">Validation status: <strong>FAILED</strong></div>
+<div class="alt-description">Creator options:</div>
+<div class="alt-description">
+<div class="sub-step">Fix model solution</div>
+<div class="sub-step">Modify test case</div>
+<div class="sub-step">Add explanation if intentional</div>
+</div>
+<div class="alt-description">Cannot proceed to peer review until resolved</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Missing Edge Cases</div>
+<div class="alt-description">At Step 6-7, if edge case coverage is insufficient:</div>
+<div class="system-message">"⚠ Test cases may not cover edge scenarios: [empty input, single element, maximum constraints]"</div>
+<div class="alt-description">Validation status: <strong>PASSED WITH WARNINGS</strong></div>
+<div class="alt-description">Creator can:</div>
+<div class="alt-description">
+<div class="sub-step">Add recommended edge cases</div>
+<div class="sub-step">Proceed to peer review with warning documented</div>
+</div>
+<div class="alt-description">Peer reviewers will see this warning</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Problem Statement Unclear</div>
+<div class="alt-description">At Step 8-9, if AI detects ambiguity:</div>
+<div class="system-message">"⚠ Problem statement may be unclear: '[specific phrase]' could be interpreted multiple ways."</div>
+<div class="alt-description">Provides revision suggestions with examples</div>
+<div class="alt-description">Validation status: <strong>PASSED WITH WARNINGS</strong></div>
+<div class="alt-description">Creator should clarify but can proceed</div>
+<div class="alt-description">Peer reviewers will be asked to verify clarity</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Difficulty Mismatch</div>
+<div class="alt-description">At Step 10-11, if estimated difficulty differs significantly:</div>
+<div class="system-message">"⚠ This exercise appears to be [Advanced] but is marked [Intermediate]. Consider adjusting."</div>
+<div class="alt-description">Shows difficulty scoring breakdown</div>
+<div class="alt-description">Validation status: <strong>PASSED WITH WARNINGS</strong></div>
+<div class="alt-description">Creator can:</div>
+<div class="alt-description">
+<div class="sub-step">Adjust difficulty level</div>
+<div class="sub-step">Provide justification for current level</div>
+<div class="sub-step">Proceed with warning (reviewers will validate)</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Execution Timeout</div>
+<div class="alt-description">At Step 4, if model solution exceeds time limit:</div>
+<div class="system-message">"✗ Model solution exceeded [N]-second time limit. Execution time: [X]s"</div>
+<div class="alt-description">Validation status: <strong>FAILED</strong></div>
+<div class="alt-description">Creator must:</div>
+<div class="alt-description">
+<div class="sub-step">Optimize solution</div>
+<div class="sub-step">Adjust time constraints</div>
+<div class="sub-step">Reconsider problem complexity</div>
+</div>
+<div class="alt-description">Cannot proceed until resolved</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. Test Cases Too Similar</div>
+<div class="alt-description">At Step 6, if hidden tests are predictable:</div>
+<div class="system-message">"⚠ Hidden test cases appear similar to public tests. Add more diverse scenarios."</div>
+<div class="alt-description">Suggests specific missing scenarios</div>
+<div class="alt-description">Validation status: <strong>PASSED WITH WARNINGS</strong></div>
+<div class="alt-description">Creator should improve diversity</div>
+<div class="alt-description">Reviewers will test with their own approaches</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A7. No Available Reviewers</div>
+<div class="alt-description">At Step 22-23, if no suitable reviewers available:</div>
+<div class="system-message">"No reviewers currently available with matching expertise. Options:"</div>
+<div class="alt-description">
+<div class="sub-step">Wait for reviewers to become available (estimated: X days)</div>
+<div class="sub-step">Expand reviewer criteria</div>
+<div class="sub-step">Request admin to assign reviewers</div>
+</div>
+<div class="alt-description">Exercise remains in validated draft status</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A8. Creator Cancels Review Assignment</div>
+<div class="alt-description">At Step 23, if creator changes mind:</div>
+<div class="alt-description">Creator clicks "Cancel Assignment"</div>
+<div class="alt-description">Exercise returns to validated draft status</div>
+<div class="alt-description">Can be edited or assigned later</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A9. Grammatical Errors</div>
+<div class="alt-description">At Step 8-9, if grammar issues detected:</div>
+<div class="alt-description">System highlights errors with suggestions</div>
+<div class="alt-description">Auto-correct offered for minor issues</div>
+<div class="alt-description">Validation status: <strong>PASSED WITH WARNINGS</strong></div>
+<div class="alt-description">Creator should review and fix</div>
+<div class="alt-description">Reviewers will verify corrections</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A10. Validation Service Unavailable</div>
+<div class="alt-description">At Step 3, if validation API fails:</div>
+<div class="system-message">"Validation service temporarily unavailable. Options:"</div>
+<div class="alt-description">
+<div class="sub-step">Retry now</div>
+<div class="sub-step">Save and retry later</div>
+<div class="sub-step">Contact support if issue persists</div>
+</div>
+<div class="alt-description">Exercise saved but not validated</div>
+<div class="alt-description">Creator notified when service resumes</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A11. Multiple Languages, Different Results</div>
+<div class="alt-description">At Step 4-5, if exercise supports Python and JavaScript:</div>
+<div class="alt-description">If Python solution passes but JavaScript fails:</div>
+<div class="alt-description">
+<div class="sub-step">System reports issues separately by language</div>
+<div class="sub-step">Validation status: <strong>PARTIALLY FAILED</strong></div>
+<div class="sub-step">Creator must fix failing language implementation</div>
+</div>
+<div class="alt-description">All language versions must pass before proceeding</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A12. Hints Reveal Too Much</div>
+<div class="alt-description">At Step 12-13, if hints are too specific:</div>
+<div class="system-message">"⚠ Hint level [X] may reveal too much of the solution. Consider making it more conceptual."</div>
+<div class="alt-description">Validation status: <strong>PASSED WITH WARNINGS</strong></div>
+<div class="alt-description">Shows which hints are problematic</div>
+<div class="alt-description">Reviewers will test hint effectiveness</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Automated Test Generation Suggestions</div>
+<div class="alt-description">After validation, system offers to generate additional test cases:</div>
+<div class="alt-description">
+<div class="sub-step">Creates random inputs within constraints</div>
+<div class="sub-step">Uses model solution to compute expected outputs</div>
+<div class="sub-step">Creator reviews and approves generated tests</div>
+<div class="sub-step">Re-validates with new tests</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Validation Report Export</div>
+<div class="alt-description">Creator can download detailed validation report as PDF</div>
+<div class="alt-description">Includes:</div>
+<div class="alt-description">
+<div class="sub-step">All validation checks and scores</div>
+<div class="sub-step">Recommendations for improvement</div>
+<div class="sub-step">Comparison with similar exercises</div>
+<div class="sub-step">Quality metrics</div>
+</div>
+<div class="alt-description">Useful for documentation or training</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Incremental Validation</div>
+<div class="alt-description">For large exercises with many test cases:</div>
+<div class="alt-description">
+<div class="sub-step">System validates in stages, showing progress</div>
+<div class="sub-step">Creator can cancel if early stages reveal issues</div>
+<div class="sub-step">Partial results saved for faster re-validation</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. A/B Testing Suggestion</div>
+<div class="alt-description">If exercise is similar to existing ones:</div>
+<div class="alt-description">
+<div class="sub-step">System suggests A/B testing with learners</div>
+<div class="sub-step">Tracks which version performs better</div>
+<div class="sub-step">Informs future exercise design</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E5. Reviewer Self-Selection</div>
+<div class="alt-description">Instead of creator assigning reviewers:</div>
+<div class="alt-description">
+<div class="sub-step">Creator can post exercise to "Review Marketplace"</div>
+<div class="sub-step">Qualified reviewers volunteer to review</div>
+<div class="sub-step">Creator selects from volunteers</div>
+<div class="sub-step">Faster assignment in active communities</div>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>Validation must complete within 60 seconds for standard exercises.</li>
+<li>All validation checks must be logged for quality assurance auditing.</li>
+<li>Validation must detect common anti-patterns (hardcoded solutions, trivial test cases).</li>
+<li>System should cache validation results; re-validation only needed if exercise changes.</li>
+<li>Validation API must handle concurrent requests from multiple creators.</li>
+<li>Failed validations must provide actionable guidance, not just error messages.</li>
+<li>Warnings must be clearly documented for peer reviewers.</li>
+<li>Reviewer recommendations must consider expertise, workload, and reliability.</li>
+<li>System must prevent assigning reviewers who have conflicts of interest.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+Every exercise must be validated before peer review (100% usage). Re-validation after any exercise modification. Estimated 50-100 validations per active content creator over platform lifetime.
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<div>Should we implement tiered validation (basic, standard, rigorous) based on difficulty?</div>
+<div>How do we handle edge cases where automated validation gives false positives?</div>
+<div>Should validation scores affect creator reputation?</div>
+<div>Can we use machine learning to improve validation accuracy over time?</div>
+<div>Should we allow creators to skip certain validation checks with justification?</div>
+<div>How do we balance validation thoroughness with creator experience?</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">17. Contribute to Learning Path</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Content Creator:</span> Wants clear requirements and reasonable deadlines for content creation.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Administrator:</span> Needs quality content delivered on time to complete the learning path.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learners:</span> Will benefit from well-crafted, cohesive content within the path.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<div>Content creator must be logged in and authorized.</div>
+<div>Administrator must have created a learning path and assigned the creator to a specific tier/module.</div>
+<div>Content creator must have received assignment notification.</div>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<div>Required content (lessons, exercises) is created within the assigned tier.</div>
+<div>Content meets quality standards and aligns with path objectives.</div>
+<div>Administrator can review and approve the content.</div>
+<div>Tier is marked as complete and ready for integration.</div>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator receives a notification: <div class="system-message">"You've been assigned to create content for '[Path Name]' - [Tier/Module Name]."</div></div>
+<div class="step">The content creator navigates to "My Assignments" in their dashboard.</div>
+<div class="step">The system displays the learning path assignment with details:
+<div class="sub-step">Path name and overall objectives</div>
+<div class="sub-step">Assigned tier/module name</div>
+<div class="sub-step">Content requirements:</div>
+<div class="sub-step">Number of lessons to create (e.g., 5 video lessons)</div>
+<div class="sub-step">Number of exercises to create (e.g., 10 coding challenges)</div>
+<div class="sub-step">Learning objectives for this tier</div>
+<div class="sub-step">Target audience and skill level</div>
+<div class="sub-step">Deadline for completion</div>
+<div class="sub-step">Guidelines and templates provided by administrator</div>
+<div class="sub-step">Contact information for coordination</div>
+</div>
+<div class="step">The content creator reviews the requirements and clicks "Accept Assignment."</div>
+<div class="step">The system creates a task board for the creator showing:
+<div class="sub-step">Checklist of required content items</div>
+<div class="sub-step">Progress tracker (0% complete)</div>
+<div class="sub-step">Deadline countdown</div>
+</div>
+<div class="step"><strong>Step 1: Plan Content Structure</strong>
+<div class="sub-step">The creator outlines topics to cover in each lesson</div>
+<div class="sub-step">Maps exercises to specific learning objectives</div>
+<div class="sub-step">Designs project requirements</div>
+</div>
+<div class="step">The creator can request clarification from the administrator if objectives are unclear.</div>
+<div class="step"><strong>Step 2: Create Lessons</strong>
+<div class="sub-step">The creator follows Use Case 8 (Create Lesson) for each required lesson</div>
+<div class="sub-step">Ensures lessons align with tier objectives</div>
+<div class="sub-step">Covers prerequisite knowledge appropriately</div>
+<div class="sub-step">Follows platform style guidelines</div>
+</div>
+<div class="step">The system tracks completed lessons and updates progress (e.g., 30% complete).</div>
+<div class="step"><strong>Step 3: Create Exercises</strong>
+<div class="sub-step">The creator follows Use Case 15-16 (Create and Validate Coding Exercise) for each exercise</div>
+<div class="sub-step">Ensures difficulty aligns with tier level</div>
+<div class="sub-step">Ties exercises to specific lesson concepts</div>
+<div class="sub-step">Creates diverse problem types</div>
+</div>
+<div class="step">The system tracks completed exercises and updates progress (e.g., 60% complete).</div>
+<div class="step"><strong>Step 5: Review Content Cohesion</strong>
+<div class="sub-step">The creator reviews all created content for the tier</div>
+<div class="sub-step">Ensures logical flow between lessons</div>
+<div class="sub-step">Verifies exercises progressively build skills</div>
+<div class="sub-step">Checks that project appropriately challenges learners</div>
+</div>
+<div class="step">The creator can preview the entire tier as a learner would experience it.</div>
+<div class="step"><strong>Step 6: Internal Quality Check</strong>
+<div class="sub-step">The creator runs through their own content:</div>
+<div class="sub-step">Tests all code examples</div>
+<div class="sub-step">Verifies exercise solutions</div>
+<div class="sub-step">Checks for typos or errors</div>
+<div class="sub-step">Ensures multimedia loads correctly</div>
+</div>
+<div class="step">The creator makes any necessary revisions.</div>
+<div class="step"><strong>Step 7: Mark as Ready for Review</strong>
+<div class="sub-step">The creator clicks "Submit for Administrator Review."</div>
+<div class="sub-step">The system prompts: <div class="system-message">"Are you sure all content is complete and meets quality standards?"</div></div>
+</div>
+<div class="step">The creator confirms submission.</div>
+<div class="step">The system notifies the administrator: <div class="system-message">"[Creator Name] has submitted content for '[Tier Name]' in '[Path Name]'. Ready for review."</div></div>
+<div class="step">The system changes the tier status to "Under Administrator Review."</div>
+<div class="step">The creator's task board shows "Awaiting Review" status.</div>
+<div class="step"><strong>Administrator Review Phase:</strong>
+<div class="sub-step">Administrator reviews all content (separate use case)</div>
+<div class="sub-step">Administrator can approve, request revisions, or reject</div>
+</div>
+<div class="step">If approved:
+<div class="sub-step">Creator receives notification: <div class="system-message">"Your content for '[Tier Name]' has been approved! Great work."</div></div>
+<div class="sub-step">Creator earns XP/badges for completing assignment</div>
+<div class="sub-step">Content is integrated into the learning path</div>
+</div>
+<div class="step">If revisions requested:
+<div class="sub-step">Creator receives detailed feedback with specific issues</div>
+<div class="sub-step">Creator makes requested changes</div>
+<div class="sub-step">Creator resubmits (returns to Step 17)</div>
+</div>
+<div class="step">The system tracks the creator's contribution for analytics and reputation.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Creator Declines Assignment</div>
+<div class="alt-description">At Step 4, if the creator cannot accept:</div>
+<div class="alt-description">Creator clicks "Decline Assignment"</div>
+<div class="alt-description">System prompts for reason (workload, expertise mismatch, timeline)</div>
+<div class="alt-description">System notifies administrator to reassign</div>
+<div class="alt-description">Creator is removed from assignment</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Deadline Extension Needed</div>
+<div class="alt-description">Before deadline, if creator needs more time:</div>
+<div class="alt-description">Creator clicks "Request Extension"</div>
+<div class="alt-description">Provides justification and proposed new deadline</div>
+<div class="alt-description">Administrator reviews and approves/denies</div>
+<div class="alt-description">If approved, deadline is updated</div>
+<div class="alt-description">If denied, creator must meet original deadline or decline</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Clarification Required</div>
+<div class="alt-description">At Step 7, if objectives are unclear:</div>
+<div class="alt-description">Creator clicks "Request Clarification"</div>
+<div class="alt-description">Sends specific questions to administrator</div>
+<div class="alt-description">Administrator responds with guidance</div>
+<div class="alt-description">Creator proceeds with clarified understanding</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Content Requirements Change</div>
+<div class="alt-description">During content creation, if administrator updates requirements:</div>
+<div class="alt-description">Creator receives notification of changes</div>
+<div class="alt-description">System highlights what changed</div>
+<div class="alt-description">Creator acknowledges changes</div>
+<div class="alt-description">Deadline may be adjusted if significant changes</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Missed Deadline</div>
+<div class="alt-description">If creator doesn't submit by deadline:</div>
+<div class="alt-description">System sends urgent reminder 3 days before deadline</div>
+<div class="alt-description">If still missed:</div>
+<div class="alt-description">
+<div class="sub-step">Administrator is notified</div>
+<div class="sub-step">Administrator can extend deadline or reassign</div>
+<div class="sub-step">Creator's reputation may be affected</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. Revisions Requested Multiple Times</div>
+<div class="alt-description">At Step 24, if content is rejected twice:</div>
+<div class="alt-description">Administrator and creator have a coordination meeting</div>
+<div class="alt-description">Discuss issues and expectations</div>
+<div class="alt-description">If third submission also fails:</div>
+<div class="alt-description">
+<div class="sub-step">Assignment may be reassigned</div>
+<div class="sub-step">Creator's compensation/reputation affected</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A7. Technical Issues During Creation</div>
+<div class="alt-description">If system errors prevent content creation:</div>
+<div class="alt-description">Creator reports issue to support</div>
+<div class="alt-description">System logs the issue</div>
+<div class="alt-description">Deadline may be extended if issue is system-wide</div>
+<div class="alt-description">Creator can save drafts to prevent data loss</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A8. Collaborating with Other Creators</div>
+<div class="alt-description">If multiple creators are assigned to the same tier:</div>
+<div class="alt-description">System provides shared workspace</div>
+<div class="alt-description">Creators can see each other's progress</div>
+<div class="alt-description">Chat/comment feature for coordination</div>
+<div class="alt-description">One creator designated as "lead" to avoid conflicts</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Early Completion Bonus</div>
+<div class="alt-description">If creator completes high-quality content ahead of schedule:</div>
+<div class="alt-description">
+<div class="sub-step">Creator earns "Early Bird" badge</div>
+<div class="sub-step">May receive bonus XP or recognition</div>
+<div class="sub-step">Reputation score increases</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Feedback and Iteration</div>
+<div class="alt-description">After path is published and learners use the content:</div>
+<div class="alt-description">Creator receives analytics on their tier:</div>
+<div class="alt-description">
+<div class="sub-step">Completion rates</div>
+<div class="sub-step">Average time spent</div>
+<div class="sub-step">Learner satisfaction ratings</div>
+<div class="sub-step">Common misconceptions</div>
+</div>
+<div class="alt-description">Creator can update content based on feedback</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Content Reuse Permission</div>
+<div class="alt-description">Creator can request to reuse tier content in personal courses:</div>
+<div class="alt-description">
+<div class="sub-step">Submits request to administrator</div>
+<div class="sub-step">If approved, content can be adapted for other uses</div>
+<div class="sub-step">Original path retains rights to the content</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Compensation Tracking</div>
+<div class="alt-description">For paid creators:</div>
+<div class="alt-description">
+<div class="sub-step">System tracks time spent on assignment</div>
+<div class="sub-step">Milestones trigger partial payments</div>
+<div class="sub-step">Final approval triggers full payment</div>
+<div class="sub-step">Invoicing generated automatically</div>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>The task board must clearly show progress and remaining work.</li>
+<li>Creators must be able to save work-in-progress at any time (auto-save every 2 minutes).</li>
+<li>System must support version history for all created content.</li>
+<li>Communication between creator and administrator must be logged.</li>
+<li>Deadline reminders must be sent at 7 days, 3 days, and 1 day before due date.</li>
+<li>Content submission must include a checklist confirmation (all requirements met).</li>
+<li>Administrator feedback must be clear, actionable, and specific.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+Moderate to high frequency depending on path creation activity. Each creator may have 2-5 active assignments at any time. Typically takes 2-6 weeks per tier assignment depending on complexity.
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<div>Should creators be able to collaborate in real-time on the same content?</div>
+<div>How do we handle disputes between creator and administrator on content direction?</div>
+<div>Should there be peer review before administrator review?</div>
+<div>Can AI assist in identifying content gaps or quality issues?</div>
+</div>
+</div>
+<hr class="usecase-separator">
 
 #### <div class="subsection">5.3.3 Learner Use Cases</div>
-
 **Brief Format Use Cases**
 
-**1. View Profile**
-
-The learner views their profile information including avatar, bio, learning goals, and XP progress.
-
----
-
-**2. Change Theme**
-
-The learner switches between dark and light mode in the editor settings (or using switch sun/moon icon).
-
----
-
-**3. View Badges**
-
-The learner views their earned badges and achievements in their profile gallery.
-
----
-
-**4. Check Streak**
-
-The learner checks their current daily learning streak and streak milestones.
-
----
-
-**5. View Leaderboard**
-
-The learner views global, weekly, or friend-based leaderboards showing XP rankings.
-
----
-
-**6. Update Avatar**
-
-The learner uploads or changes their profile picture.
-
----
+<div class="brief-usecase">
+<div class="title">1. View Profile</div>
+<div class="description">The learner views their profile information including avatar, bio, learning goals, and XP progress.</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="title">2. Change Theme</div>
+<div class="description">The learner switches between dark and light mode in the editor settings (or using switch sun/moon icon).</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="title">3. View Badges</div>
+<div class="description">The learner views their earned badges and achievements in their profile gallery.</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="title">4. Check Streak</div>
+<div class="description">The learner checks their current daily learning streak and streak milestones.</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="title">5. View Leaderboard</div>
+<div class="description">The learner views global, weekly, or friend-based leaderboards showing XP rankings.</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="title">6. Update Avatar</div>
+<div class="description">The learner uploads or changes their profile picture.</div>
+</div>
+<hr class="usecase-separator">
 
 **Casual Format Use Cases**
 
-**7. Register Account**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to the "Sign Up" page of the platform or app.
-2. The learner selects the "Learner" role from account type options.
-3. The learner provides required details:
-   - Full name
-   - Email address
-   - Password (with confirmation)
-   - Username
-4. The learner can register using social media accounts (Google, Github, LinkedIn) as an alternative.
-5. The learner agrees to Terms and Conditions and submits the form.
-6. The system validates input (email format, password strength, username uniqueness).
-7. The system sends a verification email to the provided address.
-8. The learner clicks the OTP in the email.
-9. The system activates the account and redirects to the login page.
-10. The learner logs in successfully and sees a welcome message.
-
-**Alternative Scenarios:**
-
-**A1. Email Already Exists**
-- At Step 5, if the email is already registered, the system displays:
-  *"An account with this email already exists. Please log in or use a different email."*
-
-**A2. Weak Password**
-- At Step 5, if the password doesn't meet security criteria (minimum 8 characters with uppercase, lowercase, numbers, special characters), the system displays:
-  *"Your password must be at least 8 characters long and include uppercase, lowercase, numbers, and symbols."*
-
-**A3. Username Taken**
-- At Step 5, if the username is already in use, the system displays:
-  *"This username is already taken. Please choose a different one."*
-
----
-
-**8. Login to System**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to the login page in the platform or app.
-2. The learner enters their email and password.
-3. The learner can choose to log in using social media accounts (Google, Github, LinkedIn) as an alternative.
-4. The learner clicks "Login."
-5. The system validates credentials.
-6. The system authenticates the learner and redirects to the dashboard.
-7. The learner sees their personalized dashboard with progress and recommendations.
-
-**Alternative Scenarios:**
-
-**A1. Incorrect Credentials**
-- At Step 4, if credentials are invalid, the system displays:
-  *"Incorrect email or password. Please try again."*
-
-**A2. Account Not Verified**
-- At Step 4, if the email is not verified, the system displays:
-  *"Please verify your email address before logging in. Check your inbox for the OTP."*
-
-**A3. Account Suspended**
-- At Step 4, if the account is suspended, the system displays:
-  *"Your account has been suspended. Please contact support for assistance."*
-
----
-
-**9. Recover Password**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner clicks "Forgot Password" on the login page.
-2. The learner enters their registered email address.
-3. The system validates the email.
-4. The system sends a password OTP to the email.
-5. The learner enters the OTP received.
-6. The learner enters and confirms a new password.
-7. The system updates the password.
-8. The learner sees confirmation: *"Password reset successfully. You can now log in."*
-
-**Alternative Scenarios:**
-
-**A1. Email Not Found**
-- At Step 3, if the email isn't registered, the system displays:
-  *"No account found with this email address."*
-
-**A2. Link Expired**
-- At Step 5, if the OTP expired, the system displays:
-  *"This link has expired. Please request a new password reset."*
-
----
-
-**10. Choose Learning Path**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner logs into the platform or app.
-2. The learner navigates to the "Learning Paths" section.
-3. The system displays available tracks (Fundamentals, Machine Learning, Cybersecurity, Full-Stack Development).
-4. The learner selects their preferred learning path.
-5. The system shows a detailed overview including modules, estimated time, and prerequisites.
-6. The learner confirms their selection by clicking "Start Path."
-7. The system updates the learner's dashboard with the selected path.
-8. The learner receives a confirmation message:
-   *"You've successfully enrolled in the [Path Name] learning path! Let's start coding."*
-
-**Alternative Scenarios:**
-
-**A1. Prerequisite Not Met**
-- At Step 6, if the learner lacks prerequisite skills, the system displays:
-  *"This path requires basic programming knowledge. We recommend starting with [Beginner Path]."*
-- The system offers to take a diagnostic quiz to determine the appropriate starting point.
-
-**A2. Already Enrolled in Path**
-- At Step 6, if the learner is already enrolled, the system displays:
-  *"You're already enrolled in this path. Continue learning from your dashboard."*
-
----
-
-**11. View Lesson Content**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to their enrolled course from the dashboard.
-2. The learner selects a module and clicks on a specific lesson.
-3. The system displays the lesson content including:
-   - Text explanation
-   - Video tutorial
-4. The learner reads/watches the content at their own pace.
-5. The learner can pause, rewind, or fast-forward video content.
-6. The system tracks time spent on the lesson.
-7. The lesson is marked as complete when finished.
-8. The system updates progress and unlocks the next lesson.
-
-**Alternative Scenarios:**
-
-**A1. Lesson Locked**
-- At Step 2, if prerequisites aren't completed, the system displays:
-  *"Complete the previous lessons to unlock this content."*
-
-**A2. Content Loading Error**
-- At Step 3, if content fails to load, the system displays:
-  *"We're having trouble loading this lesson. Please refresh or try again later."*
-
----
-
-**12. Complete Exercise**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to the exercises section of a lesson.
-2. The learner selects an available coding challenge.
-3. The system displays the problem statement, input/output examples, and starter code.
-4. The learner writes code in the Code Editor in platform.
-5. The learner drag/drop blocks of code in the blockly Editor in app.
-6. The learner clicks "Run Tests" to validate their solution.
-7. The system executes the code against test cases.
-8. The system displays results showing passed/failed test cases.
-9. If all tests pass, the learner clicks "Submit Solution."
-10. The system awards XP and updates skill mastery.
-11. The learner receives a success message with earned points.
-
-**Alternative Scenarios:**
-
-**A1. Tests Failed**
-- At Step 7, if some tests fail, the system displays:
-  *"Some test cases failed. Review the expected vs. actual output and try again."*
-- The learner can request hints or revise their code.
-
-**A2. Syntax Error**
-- At Step 6, if the code has syntax errors, the system displays:
-  *"Syntax Error: [Error Description]. Check line [X]."*
-
-**A3. Runtime Error**
-- At Step 6, if the code causes a runtime error, the system displays:
-  *"Runtime Error: [Error Description]. Your code crashed during execution."*
-
----
-
-**13. Track Progress and View Learning Analytics**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to the "Progress & Analytics" section from the dashboard.
-2. The system displays a comprehensive dashboard with two main views:
-   - **Progress Overview**
-   - **Detailed Analytics**
-3. **Progress Overview Section** displays:
-   - Completed modules and lessons
-   - Current XP and level
-   - Skill mastery percentages
-   - Time spent learning
-   - Streak information
-4. **Detailed Analytics Section** displays:
-   - Accuracy rates per skill
-   - Time-to-completion trends
-   - Learning velocity
-   - Performance metrics with charts and graphs
-5. The system highlights weak areas and recommends improvement exercises based on analytics.
-6. The learner can view predictions and insights:
-   - Estimated time to complete current path
-   - Suggested focus areas
-7. The system provides actionable recommendations based on combined progress and analytics data.
-
-**Alternative Scenarios:**
-
-**A1. No Progress Data**
-- At Step 2, if the learner hasn't completed any content:
-  - The system displays: *"Start your learning journey! Complete lessons to see your progress and analytics here."*
-  - Shows sample analytics dashboard with demo data
-
-**A2. Insufficient Data for Detailed Analytics**
-- At Step 4, if there's not enough activity for meaningful analytics:
-  - The system displays: *"Complete more lessons (at least 10) to unlock detailed analytics and insights."*
-  - Shows basic progress metrics only
-  - Detailed analytics sections are grayed out with unlock requirements
-
-**A3. Data Loading Delays**
-- At Step 2, if analytics take time to compile:
-  - The system displays progress indicator: *"Loading your analytics... This may take a moment."*
-  - Shows cached data with timestamp while fresh data loads
-
----
-
-**14. Earn XP and Level Up**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner completes a lesson, exercise, or challenge.
-2. The system calculates earned XP based on:
-   - Task difficulty
-   - Completion time
-   - Accuracy
-   - Streak bonuses
-3. The system adds XP to the learner's total.
-4. If the learner reaches a level threshold, the system triggers level-up animation.
-5. The learner sees a congratulatory message with new level badge.
-6. The system unlocks new content or features appropriate to the new level.
-
-**Alternative Scenarios:**
-
-**A1. Bonus XP Earned**
-- At Step 2, if the learner completes on the first attempt or maintains a streak, the system displays:
-  *"Bonus XP! You earned +[X] extra points for [reason]."*
-
----
-
-**15. Set Language Preferences**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner navigates to Settings.
-2. The learner selects "Language Preferences."
-3. The system displays options for:
-   - Interface language (Arabic/English)
-   - Primary programming language (Python/JavaScript) in platform.
-4. The learner makes selections and clicks "Save."
-5. The system updates preferences and refreshes the interface.
-6. The learner sees confirmation: *"Preferences updated successfully."*
-
-**Alternative Scenarios:**
-
-**A1. Save Error**
-- At Step 5, if saving fails, the system displays:
-  *"Unable to save preferences. Please try again."*
-
----
-
-**16. Bookmark Lesson**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner is viewing a lesson.
-2. The learner clicks the "Bookmark" icon.
-3. The system adds the lesson to the learner's bookmarks.
-4. The learner sees confirmation: *"Lesson bookmarked!"*
-5. The learner can access bookmarks from their profile.
-
-**Alternative Scenarios:**
-
-**A1. Already Bookmarked**
-- At Step 3, if the lesson is already bookmarked, the system removes it and displays:
-  *"Bookmark removed."*
-
----
-
-**17. Share Solution**
-
-**Actor:** Learner
-
-**Main Success Scenario:**
-1. The learner completes an exercise successfully.
-2. The learner navigates to the "Solution Gallery" section.
-3. The learner clicks "Share My Solution."
-4. The learner adds optional comments or explanations.
-5. The learner submits the solution for community viewing.
-6. The system publishes the solution with the learner's profile.
-7. Other learners can view, upvote, and comment.
-
-**Alternative Scenarios:**
-
-**A1. Solution Not Approved**
-- At Step 6, if the solution violates guidelines, moderators reject it with feedback.
-
----
+<div class="usecase-title">7. Register Account</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to the "Sign Up" page of the platform or app.</div>
+<div class="step">The learner selects the "Learner" role from account type options.</div>
+<div class="step">The learner provides required details:
+<div class="sub-step">Full name</div>
+<div class="sub-step">Email address</div>
+<div class="sub-step">Password (with confirmation)</div>
+<div class="sub-step">Username</div>
+</div>
+<div class="step">The learner can register using social media accounts (Google, Github, LinkedIn) as an alternative.</div>
+<div class="step">The learner agrees to Terms and Conditions and submits the form.</div>
+<div class="step">The system validates input (email format, password strength, username uniqueness).</div>
+<div class="step">The system sends a verification email to the provided address.</div>
+<div class="step">The learner clicks the OTP in the email.</div>
+<div class="step">The system activates the account and redirects to the login page.</div>
+<div class="step">The learner logs in successfully and sees a welcome message.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Email Already Exists</div>
+<div class="alt-description">At Step 5, if the email is already registered, the system displays:</div>
+<div class="system-message">"An account with this email already exists. Please log in or use a different email."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Weak Password</div>
+<div class="alt-description">At Step 5, if the password doesn't meet security criteria (minimum 8 characters with uppercase, lowercase, numbers, special characters), the system displays:</div>
+<div class="system-message">"Your password must be at least 8 characters long and include uppercase, lowercase, numbers, and symbols."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Username Taken</div>
+<div class="alt-description">At Step 5, if the username is already in use, the system displays:</div>
+<div class="system-message">"This username is already taken. Please choose a different one."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">8. Login to System</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to the login page in the platform or app.</div>
+<div class="step">The learner enters their email and password.</div>
+<div class="step">The learner can choose to log in using social media accounts (Google, Github, LinkedIn) as an alternative.</div>
+<div class="step">The learner clicks "Login."</div>
+<div class="step">The system validates credentials.</div>
+<div class="step">The system authenticates the learner and redirects to the dashboard.</div>
+<div class="step">The learner sees their personalized dashboard with progress and recommendations.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Incorrect Credentials</div>
+<div class="alt-description">At Step 4, if credentials are invalid, the system displays:</div>
+<div class="system-message">"Incorrect email or password. Please try again."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Account Not Verified</div>
+<div class="alt-description">At Step 4, if the email is not verified, the system displays:</div>
+<div class="system-message">"Please verify your email address before logging in. Check your inbox for the OTP."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Account Suspended</div>
+<div class="alt-description">At Step 4, if the account is suspended, the system displays:</div>
+<div class="system-message">"Your account has been suspended. Please contact support for assistance."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">9. Recover Password</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner clicks "Forgot Password" on the login page.</div>
+<div class="step">The learner enters their registered email address.</div>
+<div class="step">The system validates the email.</div>
+<div class="step">The system sends a password OTP to the email.</div>
+<div class="step">The learner enters the OTP received.</div>
+<div class="step">The learner enters and confirms a new password.</div>
+<div class="step">The system updates the password.</div>
+<div class="step">The learner sees confirmation: <div class="system-message">"Password reset successfully. You can now log in."</div></div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Email Not Found</div>
+<div class="alt-description">At Step 3, if the email isn't registered, the system displays:</div>
+<div class="system-message">"No account found with this email address."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Link Expired</div>
+<div class="alt-description">At Step 5, if the OTP expired, the system displays:</div>
+<div class="system-message">"This link has expired. Please request a new password reset."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">10. Choose Learning Path</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner logs into the platform or app.</div>
+<div class="step">The learner navigates to the "Learning Paths" section.</div>
+<div class="step">The system displays available tracks (Fundamentals, Machine Learning, Cybersecurity, Full-Stack Development).</div>
+<div class="step">The learner selects their preferred learning path.</div>
+<div class="step">The system shows a detailed overview including modules, estimated time, and prerequisites.</div>
+<div class="step">The learner confirms their selection by clicking "Start Path."</div>
+<div class="step">The system updates the learner's dashboard with the selected path.</div>
+<div class="step">The learner receives a confirmation message:
+<div class="system-message">"You've successfully enrolled in the [Path Name] learning path! Let's start coding."</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Prerequisite Not Met</div>
+<div class="alt-description">At Step 6, if the learner lacks prerequisite skills, the system displays:</div>
+<div class="system-message">"This path requires basic programming knowledge. We recommend starting with [Beginner Path]."</div>
+<div class="alt-description">The system offers to take a diagnostic quiz to determine the appropriate starting point.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Already Enrolled in Path</div>
+<div class="alt-description">At Step 6, if the learner is already enrolled, the system displays:</div>
+<div class="system-message">"You're already enrolled in this path. Continue learning from your dashboard."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">11. View Lesson Content</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to their enrolled course from the dashboard.</div>
+<div class="step">The learner selects a module and clicks on a specific lesson.</div>
+<div class="step">The system displays the lesson content including:
+<div class="sub-step">Text explanation</div>
+<div class="sub-step">Video tutorial</div>
+</div>
+<div class="step">The learner reads/watches the content at their own pace.</div>
+<div class="step">The learner can pause, rewind, or fast-forward video content.</div>
+<div class="step">The system tracks time spent on the lesson.</div>
+<div class="step">The lesson is marked as complete when finished.</div>
+<div class="step">The system updates progress and unlocks the next lesson.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Lesson Locked</div>
+<div class="alt-description">At Step 2, if prerequisites aren't completed, the system displays:</div>
+<div class="system-message">"Complete the previous lessons to unlock this content."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Content Loading Error</div>
+<div class="alt-description">At Step 3, if content fails to load, the system displays:</div>
+<div class="system-message">"We're having trouble loading this lesson. Please refresh or try again later."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">12. Complete Exercise</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to the exercises section of a lesson.</div>
+<div class="step">The learner selects an available coding challenge.</div>
+<div class="step">The system displays the problem statement, input/output examples, and starter code.</div>
+<div class="step">The learner writes code in the Code Editor in platform.</div>
+<div class="step">The learner drag/drop blocks of code in the blockly Editor in app.</div>
+<div class="step">The learner clicks "Run Tests" to validate their solution.</div>
+<div class="step">The system executes the code against test cases.</div>
+<div class="step">The system displays results showing passed/failed test cases.</div>
+<div class="step">If all tests pass, the learner clicks "Submit Solution."</div>
+<div class="step">The system awards XP and updates skill mastery.</div>
+<div class="step">The learner receives a success message with earned points.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Tests Failed</div>
+<div class="alt-description">At Step 7, if some tests fail, the system displays:</div>
+<div class="system-message">"Some test cases failed. Review the expected vs. actual output and try again."</div>
+<div class="alt-description">The learner can request hints or revise their code.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Syntax Error</div>
+<div class="alt-description">At Step 6, if the code has syntax errors, the system displays:</div>
+<div class="system-message">"Syntax Error: [Error Description]. Check line [X]."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Runtime Error</div>
+<div class="alt-description">At Step 6, if the code causes a runtime error, the system displays:</div>
+<div class="system-message">"Runtime Error: [Error Description]. Your code crashed during execution."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">13. Track Progress and View Learning Analytics</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to the "Progress & Analytics" section from the dashboard.</div>
+<div class="step">The system displays a comprehensive dashboard with two main views:
+<div class="sub-step">**Progress Overview**</div>
+<div class="sub-step">**Detailed Analytics**</div>
+</div>
+<div class="step">**Progress Overview Section** displays:
+<div class="sub-step">Completed modules and lessons</div>
+<div class="sub-step">Current XP and level</div>
+<div class="sub-step">Skill mastery percentages</div>
+<div class="sub-step">Time spent learning</div>
+<div class="sub-step">Streak information</div>
+</div>
+<div class="step">**Detailed Analytics Section** displays:
+<div class="sub-step">Accuracy rates per skill</div>
+<div class="sub-step">Time-to-completion trends</div>
+<div class="sub-step">Learning velocity</div>
+<div class="sub-step">Performance metrics with charts and graphs</div>
+</div>
+<div class="step">The system highlights weak areas and recommends improvement exercises based on analytics.</div>
+<div class="step">The learner can view predictions and insights:
+<div class="sub-step">Estimated time to complete current path</div>
+<div class="sub-step">Suggested focus areas</div>
+</div>
+<div class="step">The system provides actionable recommendations based on combined progress and analytics data.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. No Progress Data</div>
+<div class="alt-description">At Step 2, if the learner hasn't completed any content:
+<div class="sub-step">The system displays: <div class="system-message">"Start your learning journey! Complete lessons to see your progress and analytics here."</div></div>
+<div class="sub-step">Shows sample analytics dashboard with demo data</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Insufficient Data for Detailed Analytics</div>
+<div class="alt-description">At Step 4, if there's not enough activity for meaningful analytics:
+<div class="sub-step">The system displays: <div class="system-message">"Complete more lessons (at least 10) to unlock detailed analytics and insights."</div></div>
+<div class="sub-step">Shows basic progress metrics only</div>
+<div class="sub-step">Detailed analytics sections are grayed out with unlock requirements</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Data Loading Delays</div>
+<div class="alt-description">At Step 2, if analytics take time to compile:
+<div class="sub-step">The system displays progress indicator: <div class="system-message">"Loading your analytics... This may take a moment."</div></div>
+<div class="sub-step">Shows cached data with timestamp while fresh data loads</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">14. Earn XP and Level Up</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner completes a lesson, exercise, or challenge.</div>
+<div class="step">The system calculates earned XP based on:
+<div class="sub-step">Task difficulty</div>
+<div class="sub-step">Completion time</div>
+<div class="sub-step">Accuracy</div>
+<div class="sub-step">Streak bonuses</div>
+</div>
+<div class="step">The system adds XP to the learner's total.</div>
+<div class="step">If the learner reaches a level threshold, the system triggers level-up animation.</div>
+<div class="step">The learner sees a congratulatory message with new level badge.</div>
+<div class="step">The system unlocks new content or features appropriate to the new level.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Bonus XP Earned</div>
+<div class="alt-description">At Step 2, if the learner completes on the first attempt or maintains a streak, the system displays:</div>
+<div class="system-message">"Bonus XP! You earned +[X] extra points for [reason]."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">15. Set Language Preferences</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to Settings.</div>
+<div class="step">The learner selects "Language Preferences."</div>
+<div class="step">The system displays options for:
+<div class="sub-step">Interface language (Arabic/English)</div>
+<div class="sub-step">Primary programming language (Python/JavaScript) in platform.</div>
+</div>
+<div class="step">The learner makes selections and clicks "Save."</div>
+<div class="step">The system updates preferences and refreshes the interface.</div>
+<div class="step">The learner sees confirmation: <div class="system-message">"Preferences updated successfully."</div></div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Save Error</div>
+<div class="alt-description">At Step 5, if saving fails, the system displays:</div>
+<div class="system-message">"Unable to save preferences. Please try again."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">16. Bookmark Lesson</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner is viewing a lesson.</div>
+<div class="step">The learner clicks the "Bookmark" icon.</div>
+<div class="step">The system adds the lesson to the learner's bookmarks.</div>
+<div class="step">The learner sees confirmation: <div class="system-message">"Lesson bookmarked!"</div></div>
+<div class="step">The learner can access bookmarks from their profile.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Already Bookmarked</div>
+<div class="alt-description">At Step 3, if the lesson is already bookmarked, the system removes it and displays:</div>
+<div class="system-message">"Bookmark removed."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">17. Share Solution</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner completes an exercise successfully.</div>
+<div class="step">The learner navigates to the "Solution Gallery" section.</div>
+<div class="step">The learner clicks "Share My Solution."</div>
+<div class="step">The learner adds optional comments or explanations.</div>
+<div class="step">The learner submits the solution for community viewing.</div>
+<div class="step">The system publishes the solution with the learner's profile.</div>
+<div class="step">Other learners can view, upvote, and comment.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Solution Not Approved</div>
+<div class="alt-description">At Step 6, if the solution violates guidelines, moderators reject it with feedback.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
 
 **Fully Dressed Format Use Cases**
 
-**18. Enable Two-Factor Authentication**
-
-**Primary Actor:** Learner
-
-**Stakeholders and Interests:**
-- *Learner:* Wants enhanced account security to protect personal data and progress.
-- *Platform:* Needs to reduce account compromise and unauthorized access.
-- *Security Team:* Wants to enforce best practices for account protection.
-
-**Preconditions:**
-- Learner must be logged in.
-- Learner must have a verified email address.
-- Learner must have access to a mobile device or authenticator app.
-
-**Postconditions:**
-- 2FA is enabled on the learner's account.
-- Future logins require both password and verification code.
-- Backup codes are generated and stored securely.
-
-**Main Success Scenario:**
-1. The learner navigates to Account Settings.
-2. The learner selects "Security" tab.
-3. The learner clicks "Enable Two-Factor Authentication."
-4. The system displays 2FA setup options:
-   - Authenticator app (recommended)
-   - Email verification code
-5. The learner selects "Authenticator App."
-6. The system generates a QR code and secret key.
-7. The system displays instructions:
-   - "Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)"
-8. The learner opens their authenticator app and scans the QR code.
-9. The authenticator app adds the DuoCodo account and begins generating codes.
-10. The system prompts: "Enter the 6-digit code from your authenticator app to confirm setup."
-11. The learner enters the current code from their app.
-12. The system validates the code.
-13. The system generates 10 backup recovery codes.
-14. The system displays the recovery codes with instructions:
-    - "Save these codes securely. Each can be used once if you lose access to your authenticator."
-15. The learner downloads or copies the recovery codes.
-16. The learner confirms they've saved the codes by checking a box.
-17. The system enables 2FA on the account.
-18. The learner sees confirmation: "Two-Factor Authentication is now active. Your account is more secure!"
-19. The system logs out all other sessions for security.
-20. Future logins now require:
-    - Email/username + password
-    - 6-digit code from authenticator app
-
-**Alternative Scenarios:**
-
-**A1. Invalid Verification Code**
-- At Step 12, if the code is incorrect:
-  - The system displays: "Invalid code. Please ensure you're entering the current 6-digit code from your authenticator app."
-  - The learner can try again (up to 5 attempts).
-  - After 5 failed attempts, setup is cancelled and must restart.
-
-**A2. Backup Codes Not Saved**
-- At Step 16, if the learner tries to continue without confirming:
-  - The system displays: "Please confirm you've saved your backup codes. You won't be able to view them again."
-  - The "Continue" button remains disabled until confirmed.
-
-**A3. Learner Chooses Email Method**
-- At Step 5, if the learner selects email verification:
-  - The system uses the registered email address.
-  - The system sends a test verification code via email.
-  - The learner enters the code to confirm.
-  - Setup completes with email as the 2FA method.
-
-**A4. QR Code Won't Scan**
-  - At Step 8, if the learner can't scan the QR code:
-  - The learner clicks "Can't scan? Enter code manually."
-  - The system displays the secret key as text.
-  - The learner manually enters the key into their authenticator app.
-  - Setup continues from Step 10.
-
-**A5. Lost Authenticator Device**
-- After 2FA is enabled, if the learner loses access:
-  - During login, the learner clicks "Use backup code instead."
-  - The learner enters one of their saved recovery codes.
-  - The system validates the code and grants access.
-  - The system prompts the learner to reconfigure 2FA.
-  - The used recovery code is marked as consumed.
-
-**A6. All Backup Codes Used**
-- If all 10 backup codes are exhausted:
-  - The learner must contact support with identity verification.
-  - Support verifies identity through:
-    - Email verification
-    - Security questions
-    - Recent activity verification
-  - Support can temporarily disable 2FA or reset it.
-
-**A7. Technical Error During Setup**
-- At any step, if a system error occurs:
-  - The system displays: "We encountered an error during 2FA setup. Please try again or contact support."
-  - The setup is rolled back; 2FA is not enabled.
-  - The learner can retry after a few minutes.
-
-**Extensions:**
-
-**E1. Disable 2FA**
-- The learner navigates to Security settings.
-- The learner clicks "Disable Two-Factor Authentication."
-- The system requires current password + 2FA code for confirmation.
-- The system warns about reduced security.
-- If confirmed, 2FA is disabled and all backup codes are invalidated.
-
-**E2. Regenerate Backup Codes**
-- If the learner loses their backup codes:
-  - The learner navigates to Security settings.
-  - The learner authenticates with password + 2FA code.
-  - The learner clicks "Generate New Backup Codes."
-  - The system creates 10 new codes and invalidates old ones.
-  - The learner saves the new codes securely.
-
-**E3. Change 2FA Method**
-- The learner can switch from SMS to authenticator app (or vice versa):
-  - The learner navigates to Security settings.
-  - The learner selects "Change 2FA Method."
-  - The system requires current 2FA verification.
-  - Setup for new method proceeds as in main scenario.
-
-**E4. Trusted Devices**
-- After successful 2FA login:
-  - The system offers: "Trust this device for 30 days?"
-  - If accepted, 2FA is not required on this device for 30 days.
-  - Trusted devices can be managed in Security settings.
-
-**Special Requirements:**
-- 2FA codes must expire after 30 seconds (standard TOTP protocol).
-- Backup codes must be cryptographically secure random strings.
-- The system must support time-based one-time passwords (TOTP) standard.
-- SMS delivery must occur within 60 seconds.
-- Recovery codes must be hashed in the database, not stored in plain text.
-- The system must rate-limit 2FA verification attempts (max 5 per 15 minutes).
-- All 2FA setup and verification events must be logged for security auditing.
-
-**Frequency of Use:**
-- One-time setup for security-conscious learners.
-- Estimated adoption rate: 25-40% of active users.
-- Daily use during login for enrolled users.
-
-**Open Issues:**
-- Should 2FA be mandatory for learners with certification credentials?
-- Should we support hardware security keys (FIDO2/U2F)?
-- How do we handle learners in regions with poor SMS delivery?
+<div class="usecase-title">18. Enable Two-Factor Authentication</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learner:</span> Wants enhanced account security to protect personal data and progress.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs to reduce account compromise and unauthorized access.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Security Team:</span> Wants to enforce best practices for account protection.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<div class="sub-step">Learner must be logged in.</div>
+<div class="sub-step">Learner must have a verified email address.</div>
+<div class="sub-step">Learner must have access to a mobile device or authenticator app.</div>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<div class="sub-step">2FA is enabled on the learner's account.</div>
+<div class="sub-step">Future logins require both password and verification code.</div>
+<div class="sub-step">Backup codes are generated and stored securely.</div>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to Account Settings.</div>
+<div class="step">The learner selects "Security" tab.</div>
+<div class="step">The learner clicks "Enable Two-Factor Authentication."</div>
+<div class="step">The system displays 2FA setup options:
+<div class="sub-step">Authenticator app (recommended)</div>
+<div class="sub-step">Email verification code</div>
+</div>
+<div class="step">The learner selects "Authenticator App."</div>
+<div class="step">The system generates a QR code and secret key.</div>
+<div class="step">The system displays instructions:
+<div class="sub-step">"Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)"</div>
+</div>
+<div class="step">The learner opens their authenticator app and scans the QR code.</div>
+<div class="step">The authenticator app adds the DuoCodo account and begins generating codes.</div>
+<div class="step">The system prompts: "Enter the 6-digit code from your authenticator app to confirm setup."</div>
+<div class="step">The learner enters the current code from their app.</div>
+<div class="step">The system validates the code.</div>
+<div class="step">The system generates 10 backup recovery codes.</div>
+<div class="step">The system displays the recovery codes with instructions:
+<div class="sub-step">"Save these codes securely. Each can be used once if you lose access to your authenticator."</div>
+</div>
+<div class="step">The learner downloads or copies the recovery codes.</div>
+<div class="step">The learner confirms they've saved the codes by checking a box.</div>
+<div class="step">The system enables 2FA on the account.</div>
+<div class="step">The learner sees confirmation: <div class="system-message">"Two-Factor Authentication is now active. Your account is more secure!"</div></div>
+<div class="step">The system logs out all other sessions for security.</div>
+<div class="step">Future logins now require:
+<div class="sub-step">Email/username + password</div>
+<div class="sub-step">6-digit code from authenticator app</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Invalid Verification Code</div>
+<div class="alt-description">At Step 12, if the code is incorrect:</div>
+<div class="system-message">"Invalid code. Please ensure you're entering the current 6-digit code from your authenticator app."</div>
+<div class="alt-description">
+<div class="sub-step">The learner can try again (up to 5 attempts).</div>
+<div class="sub-step">After 5 failed attempts, setup is cancelled and must restart.</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Backup Codes Not Saved</div>
+<div class="alt-description">At Step 16, if the learner tries to continue without confirming:</div>
+<div class="system-message">"Please confirm you've saved your backup codes. You won't be able to view them again."</div>
+<div class="alt-description">The "Continue" button remains disabled until confirmed.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Learner Chooses Email Method</div>
+<div class="alt-description">At Step 5, if the learner selects email verification:
+<div class="sub-step">The system uses the registered email address.</div>
+<div class="sub-step">The system sends a test verification code via email.</div>
+<div class="sub-step">The learner enters the code to confirm.</div>
+<div class="sub-step">Setup completes with email as the 2FA method.</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. QR Code Won't Scan</div>
+<div class="alt-description">At Step 8, if the learner can't scan the QR code:
+<div class="sub-step">The learner clicks "Can't scan? Enter code manually."</div>
+<div class="sub-step">The system displays the secret key as text.</div>
+<div class="sub-step">The learner manually enters the key into their authenticator app.</div>
+<div class="sub-step">Setup continues from Step 10.</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Lost Authenticator Device</div>
+<div class="alt-description">After 2FA is enabled, if the learner loses access:
+<div class="sub-step">During login, the learner clicks "Use backup code instead."</div>
+<div class="sub-step">The learner enters one of their saved recovery codes.</div>
+<div class="sub-step">The system validates the code and grants access.</div>
+<div class="sub-step">The system prompts the learner to reconfigure 2FA.</div>
+<div class="sub-step">The used recovery code is marked as consumed.</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. All Backup Codes Used</div>
+<div class="alt-description">If all 10 backup codes are exhausted:
+<div class="sub-step">The learner must contact support with identity verification.</div>
+<div class="sub-step">Support verifies identity through:
+<div class="sub-step">Email verification</div>
+<div class="sub-step">Security questions</div>
+<div class="sub-step">Recent activity verification</div>
+</div>
+<div class="sub-step">Support can temporarily disable 2FA or reset it.</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A7. Technical Error During Setup</div>
+<div class="alt-description">At any step, if a system error occurs:</div>
+<div class="system-message">"We encountered an error during 2FA setup. Please try again or contact support."</div>
+<div class="alt-description">
+<div class="sub-step">The setup is rolled back; 2FA is not enabled.</div>
+<div class="sub-step">The learner can retry after a few minutes.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Disable 2FA</div>
+<div class="alt-description">
+<div class="sub-step">The learner navigates to Security settings.</div>
+<div class="sub-step">The learner clicks "Disable Two-Factor Authentication."</div>
+<div class="sub-step">The system requires current password + 2FA code for confirmation.</div>
+<div class="sub-step">The system warns about reduced security.</div>
+<div class="sub-step">If confirmed, 2FA is disabled and all backup codes are invalidated.</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Regenerate Backup Codes</div>
+<div class="alt-description">If the learner loses their backup codes:
+<div class="sub-step">The learner navigates to Security settings.</div>
+<div class="sub-step">The learner authenticates with password + 2FA code.</div>
+<div class="sub-step">The learner clicks "Generate New Backup Codes."</div>
+<div class="sub-step">The system creates 10 new codes and invalidates old ones.</div>
+<div class="sub-step">The learner saves the new codes securely.</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Change 2FA Method</div>
+<div class="alt-description">The learner can switch from SMS to authenticator app (or vice versa):
+<div class="sub-step">The learner navigates to Security settings.</div>
+<div class="sub-step">The learner selects "Change 2FA Method."</div>
+<div class="sub-step">The system requires current 2FA verification.</div>
+<div class="sub-step">Setup for new method proceeds as in main scenario.</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Trusted Devices</div>
+<div class="alt-description">After successful 2FA login:
+<div class="sub-step">The system offers: "Trust this device for 30 days?"</div>
+<div class="sub-step">If accepted, 2FA is not required on this device for 30 days.</div>
+<div class="sub-step">Trusted devices can be managed in Security settings.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>2FA codes must expire after 30 seconds (standard TOTP protocol).</li>
+<li>Backup codes must be cryptographically secure random strings.</li>
+<li>The system must support time-based one-time passwords (TOTP) standard.</li>
+<li>SMS delivery must occur within 60 seconds.</li>
+<li>Recovery codes must be hashed in the database, not stored in plain text.</li>
+<li>The system must rate-limit 2FA verification attempts (max 5 per 15 minutes).</li>
+<li>All 2FA setup and verification events must be logged for security auditing.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+<div class="sub-step">One-time setup for security-conscious learners.</div>
+<div class="sub-step">Estimated adoption rate: 25-40% of active users.</div>
+<div class="sub-step">Daily use during login for enrolled users.</div>
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<div class="sub-step">Should 2FA be mandatory for learners with certification credentials?</div>
+<div class="sub-step">Should we support hardware security keys (FIDO2/U2F)?</div>
+<div class="sub-step">How do we handle learners in regions with poor SMS delivery?</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">19. Practice Coding with Code Editor (Platform)</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learner:</span> Wants to write, execute, and debug code efficiently in a professional environment on web platform.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs to provide secure, real-time code execution with helpful feedback.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<div class="sub-step">Learner must be logged in to the web platform.</div>
+<div class="sub-step">Learner must have access to a lesson or exercise with a coding component.</div>
+<div class="sub-step">Code Editor and execution APIs must be operational.</div>
+<div class="sub-step">Learner must be using desktop or laptop computer with modern web browser.</div>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<div class="sub-step">Code is written, executed, and results are displayed.</div>
+<div class="sub-step">Progress is tracked and saved.</div>
+<div class="sub-step">Learner receives feedback on their solution.</div>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to a coding exercise or lesson on the web platform.</div>
+<div class="step">The system loads the Code Editor with syntax highlighting for the selected language (Python/JavaScript).</div>
+<div class="step">The system displays:
+<div class="sub-step">Problem statement on the left panel</div>
+<div class="sub-step">Code Editor in the center</div>
+<div class="sub-step">Output console at the bottom</div>
+<div class="sub-step">Starter code (if any) pre-loaded in the editor</div>
+</div>
+<div class="step">The learner writes their code in the Code Editor.</div>
+<div class="step">The editor provides professional IDE features:
+<div class="sub-step">**IntelliSense** auto-completion</div>
+<div class="sub-step">**Syntax highlighting** with color-coded keywords</div>
+<div class="sub-step">**Real-time error detection** with red underlines</div>
+<div class="sub-step">**Code folding** for functions and blocks</div>
+<div class="sub-step">**Multiple cursor editing**</div>
+<div class="sub-step">**Find and replace functionality**</div>
+<div class="sub-step">**Code formatting** (Ctrl+Shift+F)</div>
+<div class="sub-step">**Bracket matching**</div>
+</div>
+<div class="step">The learner can customize editor settings:
+<div class="sub-step">Font size adjustment</div>
+<div class="sub-step">Theme selection (dark/light mode)</div>
+<div class="sub-step">Tab size configuration</div>
+<div class="sub-step">Line numbers toggle</div>
+</div>
+<div class="step">The learner clicks "Run Code" to test their solution.</div>
+<div class="step">The system sends the code to the secure execution API via HTTPS.</div>
+<div class="step">The execution API runs the code in an isolated Docker sandbox environment.</div>
+<div class="step">The system returns execution results:
+<div class="sub-step">Standard output (console.log, print statements)</div>
+<div class="sub-step">Execution time (in milliseconds)</div>
+<div class="sub-step">Memory usage (in MB)</div>
+<div class="sub-step">Error messages with line numbers (if any)</div>
+<div class="sub-step">Return values</div>
+</div>
+<div class="step">The results are displayed in the output console below the editor with syntax highlighting.</div>
+<div class="step">The learner can view detailed execution metrics in an expandable panel.</div>
+<div class="step">If the output matches expected results, the learner clicks "Submit Solution."</div>
+<div class="step">The system validates the solution against all test cases (visible and hidden).</div>
+<div class="step">The system displays test results:
+<div class="sub-step">Passed test cases (✓ in green)</div>
+<div class="sub-step">Failed test cases (✗ in red) with input/output comparison</div>
+<div class="sub-step">Edge cases handled correctly</div>
+</div>
+<div class="step">If all tests pass:
+<div class="sub-step">The system awards XP based on:
+<div class="sub-step">First attempt bonus (+50 XP)</div>
+<div class="sub-step">Code efficiency score</div>
+<div class="sub-step">Time taken to solve</div>
+</div>
+<div class="sub-step">Updates skill mastery metrics</div>
+<div class="sub-step">Saves the code to learner's solution history</div>
+</div>
+<div class="step">The learner sees a success message with:
+<div class="sub-step">Earned XP and badges</div>
+<div class="sub-step">Performance comparison with other learners</div>
+<div class="sub-step">Suggestions for optimization (if applicable)</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Syntax Error Detected</div>
+<div class="alt-description">At Step 5, if the learner's code contains syntax errors:
+<div class="sub-step">Code Editor underlines the error in red with wavy line</div>
+<div class="sub-step">Hovering shows tooltip: <div class="system-message">"Syntax Error: [Description] at line [X], column [Y]"</div></div>
+<div class="sub-step">Error panel shows detailed message with suggested fixes</div>
+<div class="sub-step">The learner corrects the error and continues</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Runtime Error During Execution</div>
+<div class="alt-description">At Step 10, if the code crashes during execution:</div>
+<div class="system-message">
+✗ Runtime Error: IndexError
+Your code encountered an issue at line 15
+Stack Trace:
+File "main.py", line 15, in <module>
+print(arr[10])
+IndexError: list index out of range
+</div>
+<div class="alt-description">
+<div class="sub-step">The learner can view full stack trace</div>
+<div class="sub-step">System suggests debugging tips based on error type</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Execution Timeout</div>
+<div class="alt-description">At Step 9, if code execution exceeds 5 seconds:</div>
+<div class="system-message">
+Execution Timeout
+Your code took longer than 5 seconds to run.
+Possible issues:
+- Infinite loop detected
+- Inefficient algorithm (O(n²) or worse)
+Suggestion: Consider optimizing your approach
+</div>
+<div class="alt-description">The learner can review algorithm complexity</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Memory Limit Exceeded</div>
+<div class="alt-description">At Step 10, if memory usage exceeds 512MB:</div>
+<div class="system-message">
+Memory Limit Exceeded
+Your code used more than 512MB of memory.
+Consider:
+- Reducing data structure sizes
+- Using generators instead of lists
+- Implementing streaming solutions
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Test Cases Failed</div>
+<div class="alt-description">At Step 14-15, if some test cases fail:</div>
+<div class="system-message">
+Test Case 3: ✗ Failed
+Input: [1, 2, 3, 4, 5]
+Expected Output: 15
+Your Output: 14
+Difference: Off by 1 (check array indexing)
+</div>
+<div class="alt-description">
+<div class="sub-step">The learner can revise and resubmit</div>
+<div class="sub-step">Hint button becomes available after 2 failed attempts</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. Code Execution Service Unavailable</div>
+<div class="alt-description">At Step 8, if the execution API is down:</div>
+<div class="system-message">
+Execution Service Temporarily Unavailable
+The code execution service is currently down.
+Your code has been saved as a draft.
+Please try again in a few minutes.
+</div>
+<div class="alt-description">
+<div class="sub-step">Code is auto-saved every 30 seconds</div>
+<div class="sub-step">Learner can continue working offline</div>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A7. Browser Crash or Tab Closed</div>
+<div class="alt-description">If browser crashes or tab is accidentally closed:
+<div class="sub-step">On return, system displays:</div>
+</div>
+<div class="system-message">
+Restored from Auto-Save
+Last saved: 30 seconds ago
+Would you like to continue where you left off?
+[Restore Code] [Start Fresh]
+</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Code Snapshotting</div>
+<div class="alt-description">
+<div class="sub-step">The learner can save multiple versions of their solution</div>
+<div class="sub-step">Click "Save Snapshot" button (Ctrl+S)</div>
+<div class="sub-step">System stores code with timestamp: "Version 1 - 14:30:25"</div>
+<div class="sub-step">Learner can compare versions side-by-side</div>
+<div class="sub-step">Restore any previous version with one click</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Code Sharing</div>
+<div class="alt-description">
+<div class="sub-step">After successful submission, learner can share solution</div>
+<div class="sub-step">Click "Share Code" generates unique URL</div>
+<div class="sub-step">Other learners can view (not edit) the code</div>
+<div class="sub-step">Solution appears in "Community Solutions" gallery</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Accessing Model Solutions</div>
+<div class="alt-description">
+<div class="sub-step">After successful submission, "View Solutions" button appears</div>
+<div class="sub-step">System displays 3-5 model solutions:
+<div class="sub-step">**Optimal Solution** (best time/space complexity)</div>
+<div class="sub-step">**Beginner-Friendly** (easiest to understand)</div>
+<div class="sub-step">**Alternative Approaches** (different algorithms)</div>
+</div>
+<div class="sub-step">Each includes:
+<div class="sub-step">Big O complexity analysis</div>
+<div class="sub-step">Line-by-line explanations</div>
+<div class="sub-step">When to use this approach</div>
+</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Code Execution History</div>
+<div class="alt-description">Learner can view all previous runs:
+<div class="sub-step">Timestamp of execution</div>
+<div class="sub-step">Output results</div>
+<div class="sub-step">Performance metrics</div>
+<div class="sub-step">Can re-run any previous version</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E5. Split Screen View</div>
+<div class="alt-description">Learner can enable split-screen mode:
+<div class="sub-step">Problem description on left</div>
+<div class="sub-step">Code editor on right</div>
+<div class="sub-step">Resizable panels</div>
+<div class="sub-step">Useful for referencing requirements while coding</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E6. Keyboard Shortcuts</div>
+<div class="alt-description">Code Editor supports VS Code shortcuts:
+<div class="sub-step">`Ctrl+/` - Toggle line comment</div>
+<div class="sub-step">`Ctrl+D` - Select next occurrence</div>
+<div class="sub-step">`Alt+Up/Down` - Move line up/down</div>
+<div class="sub-step">`Ctrl+Shift+K` - Delete line</div>
+<div class="sub-step">`F12` - Go to definition</div>
+<div class="sub-step">Full shortcut reference available in help menu</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E7. Code Formatting</div>
+<div class="alt-description">
+<div class="sub-step">Learner clicks "Format Code" or presses `Ctrl+Shift+F`</div>
+<div class="sub-step">System auto-formats code following PEP 8 (Python) or StandardJS style</div>
+<div class="sub-step">Fixes indentation and spacing</div>
+<div class="sub-step">Improves code readability</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E8. Collaborative Coding (Future)</div>
+<div class="alt-description">
+<div class="sub-step">Multiple learners can work on same exercise together</div>
+<div class="sub-step">Real-time cursor positions visible</div>
+<div class="sub-step">Chat panel for discussion</div>
+<div class="sub-step">Useful for pair programming exercises</div>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>Code Editor must load within 2 seconds</li>
+<li>Editor must support Python 3.10+ and ES6+ JavaScript</li>
+<li>Code execution must complete within 5 seconds for standard exercises</li>
+<li>The sandbox environment must prevent:
+<ul>
+<li>File system access</li>
+<li>Network requests</li>
+<li>System command execution</li>
+<li>Resource exhaustion attacks</li>
+</ul>
+</li>
+<li>All code submissions must be encrypted during transmission (TLS 1.3)</li>
+<li>The editor must be fully keyboard-accessible (WCAG 2.1 AA compliant)</li>
+<li>Dark and light themes must both have sufficient contrast ratios</li>
+<li>Editor must work on screens as small as 1024x768</li>
+<li>Auto-save must occur every 30 seconds</li>
+<li>Maximum code file size: 10,000 lines</li>
+<li>Support for multiple programming languages must be extensible</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+<div class="sub-step">This is the most frequently used feature on web platform</div>
+<div class="sub-step">Average: 15-20 code executions per active session</div>
+<div class="sub-step">Daily active users spend 60% of their time in Code Editor</div>
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<div class="sub-step">Should we support additional languages (Java, C++, Ruby) in future releases?</div>
+<div class="sub-step">How do we handle collaborative coding exercises without real-time sync?</div>
+<div class="sub-step">Should we implement code review features for peer learning?</div>
+<div class="sub-step">What's the optimal balance between sandbox security and execution speed?</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">Practice Coding with Blockly Editor (Mobile App)</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learner:</span> Wants an intuitive, visual way to learn programming concepts on mobile devices without typing code.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs to make coding accessible to beginners and younger learners through mobile-friendly interface.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Educators:</span> Want a tool that teaches computational thinking before syntax complexity.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<ul>
+<li>Learner must be logged in to the mobile app (iOS/Android).</li>
+<li>Learner must have access to a lesson or exercise supporting block-based coding.</li>
+<li>Blockly library and execution engine must be operational.</li>
+<li>Device must have touchscreen capability.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<ul>
+<li>Visual block program is created and executed.</li>
+<li>Generated code (Python/JavaScript) is executed successfully.</li>
+<li>Progress is tracked and saved.</li>
+<li>Learner understands the underlying code structure.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to a coding exercise on the mobile app.</div>
+<div class="step">The system detects the device type and loads the Blockly visual editor.</div>
+<div class="step">The system displays:
+<div class="sub-step">Problem statement at the top (collapsible)</div>
+<div class="sub-step"><strong>Blockly workspace</strong> in the center (main area)</div>
+<div class="sub-step"><strong>Block toolbox</strong> on the left side (categorized blocks)</div>
+<div class="sub-step"><strong>Output console</strong> at the bottom (expandable)</div>
+<div class="sub-step"><strong>Block bin/trash</strong> for removing blocks</div>
+</div>
+<div class="step">The problem requires building a simple program (e.g., "Calculate sum of numbers in a list").</div>
+<div class="step">The learner taps the toolbox to browse available block categories:
+<div class="sub-step"><strong>Logic blocks</strong> (if/else, comparison, boolean)</div>
+<div class="sub-step"><strong>Loop blocks</strong> (for, while, repeat)</div>
+<div class="sub-step"><strong>Math blocks</strong> (arithmetic, random, functions)</div>
+<div class="sub-step"><strong>Text blocks</strong> (string operations, concatenation)</div>
+<div class="sub-step"><strong>List blocks</strong> (create, add, get, length)</div>
+<div class="sub-step"><strong>Variable blocks</strong> (create, set, get)</div>
+<div class="sub-step"><strong>Function blocks</strong> (define, call, return)</div>
+</div>
+<div class="step">The learner selects a "create variable" block and names it `sum`.</div>
+<div class="step">The learner drags a "set variable to" block to the workspace.</div>
+<div class="step">The learner adds a "for each item in list" loop block.</div>
+<div class="step">Inside the loop, learner adds a "set sum to sum + item" block.</div>
+<div class="step">Blocks automatically snap together when compatible (visual feedback):
+<div class="sub-step"><strong>Green outline</strong> when blocks can connect</div>
+<div class="sub-step"><strong>Red outline</strong> when blocks are incompatible</div>
+<div class="sub-step"><strong>Magnetic snap</strong> when released near compatible blocks</div>
+</div>
+<div class="step">The learner can:
+<div class="sub-step"><strong>Drag blocks</strong> with finger/stylus</div>
+<div class="sub-step"><strong>Pinch to zoom</strong> for better view</div>
+<div class="sub-step"><strong>Pan</strong> the workspace by dragging background</div>
+<div class="sub-step"><strong>Duplicate blocks</strong> by long-press</div>
+<div class="sub-step"><strong>Delete blocks</strong> by dragging to trash icon</div>
+</div>
+<div class="step">The system shows real-time validation:
+<div class="sub-step">Incomplete blocks highlighted in yellow</div>
+<div class="sub-step">Required connections shown with puzzle piece icons</div>
+<div class="sub-step">Error indicators if logic is invalid</div>
+</div>
+<div class="step">The learner taps "Run Code" button.</div>
+<div class="step">The system converts blocks to executable code (Python or JavaScript):
+<div class="sub-step">
+```python
+sum = 0
+list = [1, 2, 3, 4, 5]
+for item in list:
+sum = sum + item
+print(sum)
+```
+</div>
+</div>
+<div class="step">The generated code is displayed in a collapsible "View Code" panel.</div>
+<div class="step">The learner can switch between:
+<div class="sub-step"><strong>Block View</strong> (visual programming)</div>
+<div class="sub-step"><strong>Code View</strong> (text-based equivalent)</div>
+<div class="sub-step"><strong>Split View</strong> (both simultaneously)</div>
+</div>
+<div class="step">The system sends the generated code to the execution API.</div>
+<div class="step">The execution API runs the code in a secure sandbox.</div>
+<div class="step">The output console displays results:
+<div class="sub-step">Console output: `15`</div>
+<div class="sub-step">Execution time: `0.02s`</div>
+<div class="sub-step">Memory used: `12MB`</div>
+</div>
+<div class="step">If output is correct, the learner taps "Submit Solution."</div>
+<div class="step">The system validates against test cases:
+<div class="sub-step"><strong>Test 1:</strong> Input `[1, 2, 3]` → Expected `6` ✓</div>
+<div class="sub-step"><strong>Test 2:</strong> Input `[10, 20, 30]` → Expected `60` ✓</div>
+<div class="sub-step"><strong>Test 3:</strong> Input `[]` → Expected `0` ✓</div>
+</div>
+<div class="step">If all tests pass:
+<div class="sub-step">Confetti animation plays on mobile screen</div>
+<div class="sub-step">Success sound effect (optional, can be muted)</div>
+<div class="sub-step">XP points awarded with animation</div>
+<div class="sub-step">Badge earned (e.g., "Loop Master" for completing loop exercises)</div>
+</div>
+<div class="step">The learner sees a summary screen:
+<div class="system-message">Exercise Completed!</div>
+<div class="sub-step">XP earned: +30 XP</div>
+<div class="sub-step">Total XP: 450 XP</div>
+<div class="sub-step">Next exercise unlocked</div>
+</div>
+<div class="step">The block program is saved to the learner's solution history.</div>
+<div class="step">The learner can share their block solution as an image on social media.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Blocks Won't Connect (Type Mismatch)</div>
+<div class="alt-description">At Step 10, if learner tries to connect incompatible blocks:</div>
+<div class="alt-description">
+<ul>
+<li>Blocks shake and show red outline</li>
+<li>Tooltip displays: <em>"❌ Cannot connect: Expected NUMBER, got TEXT"</em></li>
+<li>Blocks bounce back to original position</li>
+<li>Learner must use correct block type</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Missing Required Blocks</div>
+<div class="alt-description">At Step 13, if program is incomplete:</div>
+<div class="system-message">⚠️ Your program is incomplete. Missing: output block</div>
+<div class="alt-description">
+<ul>
+<li>Incomplete blocks flash yellow</li>
+<li>"Run Code" button is disabled until complete</li>
+<li>Hint suggests which category has needed blocks</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Infinite Loop Detected</div>
+<div class="alt-description">At Step 18, if blocks create infinite loop:</div>
+<div class="alt-description">
+<ul>
+<li>Execution is terminated after 3 seconds</li>
+<li>System displays:
+<div class="system-message">
+Infinite Loop Detected<br>
+Your loop ran more than 1000 times.<br>
+Check your loop condition to ensure it can exit.
+</div>
+</li>
+<li>Problematic loop block is highlighted in red</li>
+<li>Learner can review loop logic</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Runtime Error in Generated Code</div>
+<div class="alt-description">At Step 18, if execution fails:</div>
+<div class="alt-description">
+<ul>
+<li>System displays error in simple terms:
+<div class="system-message">
+Error: Division by Zero<br>
+Your program tried to divide by 0 at this block:<br>
+[Highlights the specific block causing error]<br>
+Tip: Check if denominator can be zero
+</div>
+</li>
+<li>Problematic block glows red</li>
+<li>Learner can tap block for more details</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Test Cases Failed</div>
+<div class="alt-description">At Step 21, if some tests fail:</div>
+<div class="alt-description">
+<ul>
+<li>System shows which tests failed:
+<div class="system-message">
+Test 2: ❌ Failed<br>
+Input: [10, 20, 30]<br>
+Expected: 60<br>
+Your Output: 50<br>
+Issue: Check your addition logic
+</div>
+</li>
+<li>Learner can revise blocks and retry</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. Accidental Block Deletion</div>
+<div class="alt-description">At Step 11, if learner accidentally deletes important blocks:</div>
+<div class="alt-description">
+<ul>
+<li>"Undo" button appears for 5 seconds</li>
+<li>Tapping "Undo" restores deleted blocks</li>
+<li>After 5 seconds, deletion is permanent</li>
+<li>Learner can recreate blocks from toolbox</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A7. Device Orientation Change</div>
+<div class="alt-description">If device is rotated during exercise:</div>
+<div class="alt-description">
+<ul>
+<li>System saves current block positions</li>
+<li>Re-layouts workspace for new orientation</li>
+<li><strong>Portrait mode:</strong> Toolbox becomes bottom drawer</li>
+<li><strong>Landscape mode:</strong> Toolbox on left sidebar</li>
+<li>All blocks remain in same relative positions</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A8. App Crashes or Closed</div>
+<div class="alt-description">If app crashes or is closed:</div>
+<div class="alt-description">
+<ul>
+<li>On relaunch, system displays:
+<div class="system-message">
+Restore Previous Session?<br>
+You were working on: "Sum Calculator"<br>
+Last saved: 2 minutes ago<br>
+[Restore] [Start New]
+</div>
+</li>
+<li>Auto-save occurs every 20 seconds</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A9. Network Unavailable</div>
+<div class="alt-description">At Step 17, if no internet connection:</div>
+<div class="system-message">📡 No Internet - Code saved locally</div>
+<div class="alt-description">
+<ul>
+<li>Execution is queued</li>
+<li>When connection restores, code executes automatically</li>
+<li>Learner receives notification when results are ready</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Block Customization</div>
+<div class="alt-description">Learner can customize block colors:</div>
+<div class="alt-description">
+<ul>
+<li>Tap block settings icon</li>
+<li>Choose from color palette</li>
+<li>Useful for organizing complex programs</li>
+<li>Custom colors saved per learner</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Voice Input for Block Names</div>
+<div class="alt-description">Learner can name variables using voice:</div>
+<div class="alt-description">
+<ul>
+<li>Tap microphone icon</li>
+<li>Say variable name: "total score"</li>
+<li>System creates variable with that name</li>
+<li>Useful for accessibility</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Block Animation</div>
+<div class="alt-description">During execution, blocks light up sequentially:</div>
+<div class="alt-description">
+<ul>
+<li>Shows program flow in real-time</li>
+<li>Helps learners understand execution order</li>
+<li>Speed can be adjusted (slow/normal/fast)</li>
+<li>Can be paused at any block</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Tutorial Hints with Arrows</div>
+<div class="alt-description">For first-time users:</div>
+<div class="alt-description">
+<ul>
+<li>Animated arrows point to next action</li>
+<li>Speech bubbles explain each step</li>
+<li>"Try dragging this block here 👉"</li>
+<li>Tutorial can be skipped or replayed</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E5. Block Library Favorites</div>
+<div class="alt-description">Learner can mark frequently-used blocks as favorites:</div>
+<div class="alt-description">
+<ul>
+<li>Star icon on blocks</li>
+<li>Favorites appear in "My Blocks" category</li>
+<li>Speeds up program building</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E6. Convert to Text Code</div>
+<div class="alt-description">After mastering blocks, learner can transition:</div>
+<div class="alt-description">
+<ul>
+<li>Tap "Convert to Code" button</li>
+<li>System generates Python/JavaScript</li>
+<li>Opens in Code Editor (if on tablet/larger screen)</li>
+<li>Learner can edit and learn text-based syntax</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E7. Collaborative Block Coding</div>
+<div class="alt-description">Learner can invite friend to code together:</div>
+<div class="alt-description">
+<ul>
+<li>Share session code</li>
+<li>Both see blocks in real-time</li>
+<li>Each user's cursor shown with name</li>
+<li>Chat feature for discussion</li>
+<li>Useful for pair programming</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E8. Block Challenges with Timers</div>
+<div class="alt-description">Timed challenges for competitive learning:</div>
+<div class="alt-description">
+<ul>
+<li>Build program in 3 minutes</li>
+<li>Leaderboard for fastest correct solutions</li>
+<li>Bonus XP for speed</li>
+<li>Encourages efficiency</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E9. Parent/Teacher Monitoring</div>
+<div class="alt-description">Parents or teachers can view learner's block programs:</div>
+<div class="alt-description">
+<ul>
+<li>Dashboard shows completed exercises</li>
+<li>Can view block solutions</li>
+<li>Progress reports</li>
+<li>Useful for tracking learning at home/school</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E10. Block Export as Image</div>
+<div class="alt-description">Learner can export block program as PNG:</div>
+<div class="alt-description">
+<ul>
+<li>Tap "Share" button</li>
+<li>System generates image of blocks</li>
+<li>Can post to social media</li>
+<li>Useful for showcasing progress</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E11. Adaptive Block Difficulty</div>
+<div class="alt-description">System adjusts available blocks based on skill level:</div>
+<div class="alt-description">
+<ul>
+<li><strong>Beginner:</strong> Basic blocks only (print, variables, simple loops)</li>
+<li><strong>Intermediate:</strong> Add functions, lists, conditions</li>
+<li><strong>Advanced:</strong> Classes, recursion, advanced data structures</li>
+<li>Prevents overwhelming beginners with too many options</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>Blockly editor must load within 1.5 seconds on mobile devices</li>
+<li>Touch targets must be at least 44x44 pixels (Apple HIG standard)</li>
+<li>Blocks must have high contrast for visibility in sunlight</li>
+<li>Pinch-to-zoom must support 50% to 200% zoom range</li>
+<li>Drag operations must have 150ms delay to prevent accidental moves</li>
+<li>Block snapping must have haptic feedback (vibration) on compatible devices</li>
+<li>Workspace must support up to 100 blocks without performance degradation</li>
+<li>App must work offline with local execution for basic exercises</li>
+<li>All block actions must have undo/redo support (up to 50 steps)</li>
+<li>Block colors must be colorblind-friendly (use patterns/icons in addition to colors)</li>
+<li>Text on blocks must be readable at minimum 16px font size</li>
+<li>Auto-save must occur every 20 seconds</li>
+<li>Generated code must be syntactically correct and executable</li>
+<li>Block toolbox must be searchable for finding specific blocks quickly</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+<ul>
+<li>Very high frequency among mobile learners (ages 8-16 primary users)</li>
+<li>Average: 10-15 block exercises per active mobile session</li>
+<li>70% of mobile app users prefer Blockly over text-based coding initially</li>
+<li>Gateway to text-based programming (users transition after 3-6 months)</li>
+</ul>
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<ul>
+<li>Should we support custom block creation for advanced users?</li>
+<li>How do we handle very complex programs (100+ blocks) on small screens?</li>
+<li>Should we implement AR (Augmented Reality) mode for 3D block visualization?</li>
+<li>Can we integrate voice coding ("add a loop block") for hands-free operation?</li>
+<li>Should there be a "block marketplace" where users share custom block libraries?</li>
+<li>How do we transition users from Blockly to Code smoothly?</li>
+<li>Should we support multiple languages (Spanish, Arabic) for block text?</li>
+</ul>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">Receive AI-Powered Hints</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learner:</span> Wants contextual, progressive hints that guide without giving away the complete solution.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs to provide intelligent assistance that enhances learning without creating dependency.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">AI System (Gemini/OpenRouter/Custom model):</span> Provides adaptive hints based on code analysis.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<ul>
+<li>Learner must be working on an exercise.</li>
+<li>Learner must be logged in.</li>
+<li>AI API services (OpenRouter/Gemini/Custom model) must be operational.</li>
+<li>Learner must have made at least one attempt at the exercise.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<ul>
+<li>Appropriate hint is provided based on learner's current code and skill level.</li>
+<li>Hint usage is tracked for analytics.</li>
+<li>Learner can progress with better understanding.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner is working on a coding exercise and encounters difficulty.</div>
+<div class="step">The learner clicks the "Get Hint" button.</div>
+<div class="step">The system analyzes the learner's current code and attempt history.</div>
+<div class="step">The system determines the learner's skill level and hint count for this exercise.</div>
+<div class="step">The system sends a request to the AI API with:
+<div class="sub-step">Problem statement</div>
+<div class="sub-step">Learner's current code</div>
+<div class="sub-step">Skill level</div>
+<div class="sub-step">Previous hint history</div>
+<div class="sub-step">Requested hint level</div>
+</div>
+<div class="step">The AI API processes the request and generates an appropriate hint.</div>
+<div class="step">The AI returns a hint that:
+<div class="sub-step">Doesn't reveal the complete solution</div>
+<div class="sub-step">Addresses the learner's specific issue</div>
+<div class="sub-step">Matches the learner's comprehension level</div>
+</div>
+<div class="step">The system displays the hint in a panel below the editor.</div>
+<div class="step">The hint includes:
+<div class="sub-step">Conceptual guidance</div>
+<div class="sub-step">Suggested approach</div>
+<div class="sub-step">Relevant examples (if needed)</div>
+</div>
+<div class="step">The learner reads the hint and applies the guidance.</div>
+<div class="step">The system tracks the hint usage and adjusts XP rewards accordingly.</div>
+<div class="step">If the learner needs additional help, they can request more specific hints (progressive levels).</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. No Attempt Made Yet</div>
+<div class="alt-description">At Step 2, if the learner hasn't written any code:</div>
+<div class="system-message">Try writing some code first! Hints are most helpful after you've made an attempt.</div>
+<div class="alt-description">
+<ul>
+<li>The "Get Hint" button remains disabled until code is written.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Maximum Hints Reached</div>
+<div class="alt-description">At Step 4, if the learner has used all available hints for this exercise:</div>
+<div class="system-message">You've used all available hints. Try applying what you've learned or view the model solution.</div>
+<div class="alt-description">
+<ul>
+<li>The learner is offered the option to view the complete solution (with loss XP reward).</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. AI Service Unavailable</div>
+<div class="alt-description">At Step 6, if the AI API is down or unresponsive:</div>
+<div class="system-message">AI hints are temporarily unavailable. Here's a pre-generated hint for this problem.</div>
+<div class="alt-description">
+<ul>
+<li>The system provides a fallback hint from the database.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Request Timeout</div>
+<div class="alt-description">At Step 6, if the AI API doesn't respond within 10 seconds:</div>
+<div class="system-message">The hint service is taking longer than usual. Please try again.</div>
+<div class="alt-description">
+<ul>
+<li>The request is logged for admin review.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Inappropriate Code Detected</div>
+<div class="alt-description">At Step 5, if the learner's code contains inappropriate content:</div>
+<div class="system-message">Please ensure your code is appropriate before requesting hints.</div>
+<div class="alt-description">
+<ul>
+<li>The system doesn't send to AI and displays the message.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. Hint Too Advanced</div>
+<div class="alt-description">At Step 7, if the AI generates a hint beyond the learner's level:</div>
+<div class="alt-description">
+<ul>
+<li>The system uses natural language processing to simplify the hint.</li>
+<li>If simplification fails, a pre-generated hint is used instead.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Progressive Hint Levels</div>
+<div class="alt-description">
+<ul>
+<li>First hint: Conceptual guidance only</li>
+<li>Second hint: Specific approach suggestion</li>
+<li>Third hint: Pseudocode or example structure</li>
+<li>Fourth hint: Partial code implementation</li>
+<li>Fifth hint: Complete solution with explanation</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Code Analysis Insights</div>
+<div class="alt-description">The AI identifies specific issues in the learner's code:</div>
+<div class="alt-description">
+<ul>
+<li>Logic errors</li>
+<li>Incorrect algorithm choice</li>
+<li>Edge case handling</li>
+<li>The hint addresses these specific issues.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Hint History</div>
+<div class="alt-description">
+<ul>
+<li>The learner can view all previously received hints.</li>
+<li>The learner clicks "Previous Hints" to review earlier guidance.</li>
+<li>This helps reinforce learning without requesting duplicate hints.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Contextual Examples</div>
+<div class="alt-description">
+<ul>
+<li>If the hint references a concept, the system includes a link to relevant lesson content.</li>
+<li>The learner can click to review the concept before continuing.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>AI hints must not reveal complete solutions directly.</li>
+<li>Hint generation must complete within 10 seconds.</li>
+<li>The system must track hint usage for XP calculation (fewer hints = more XP).</li>
+<li>Hints must be appropriate for the learner's skill level.</li>
+<li>The AI API must be rate-limited to prevent abuse.</li>
+<li>All API communications must be encrypted.</li>
+<li>Fallback hints must be available for all exercises.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+<ul>
+<li>Moderate to high frequency, especially among beginner learners.</li>
+<li>Expected usage: 30-40% of learners per exercise.</li>
+</ul>
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<ul>
+<li>Should we implement a "hint cost" using virtual currency?</li>
+<li>How do we balance hint availability with learning independence?</li>
+<li>Should hints be personalized based on learning style preferences?</li>
+</ul>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">Complete Certification Track</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learner:</span> Wants to earn a credential that validates completion of their learning path and acquired programming skills.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs to ensure certification standards are maintained and verifiable.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Potential Employers/Institutions:</span> Want assurance that certifications represent genuine path completion and competency.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Content Creators:</span> Want their learning paths to offer valuable credentials that motivate completion.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<ul>
+<li>Learner must be logged in.</li>
+<li>Learner must be enrolled in a learning path (from Use Case 10: Choose Learning Path).</li>
+<li>Learner must have completed at least 95% of the learning path requirements.</li>
+<li>The final challenge of the learning path must be unlocked.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<ul>
+<li>Learning path is marked as 100% complete.</li>
+<li>Learner receives a digital certificate for the completed path.</li>
+<li>Certificate is added to learner's profile and portfolio.</li>
+<li>Certification data is recorded in the system with timestamp.</li>
+<li>Certificate can be verified and shared publicly.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner is enrolled in a learning path (e.g., "Python Full-Stack Developer" from Use Case 10).</div>
+<div class="step">The learner progresses through the path by completing courses, lessons, and exercises across all tiers:
+<div class="sub-step">Tier 1: Foundation modules completed</div>
+<div class="sub-step">Tier 2: Core concepts mastered</div>
+<div class="sub-step">Tier 3: Intermediate skills acquired</div>
+<div class="sub-step">Tier 4: Advanced topics finished</div>
+</div>
+<div class="step">The system tracks progress in the learner's dashboard:
+<div class="sub-step">Progress bar shows: 95% complete</div>
+<div class="sub-step">Status: "Final Challenge Unlocked"</div>
+</div>
+<div class="step">The learner navigates to the learning path dashboard.</div>
+<div class="step">The system displays:
+<div class="system-message">🎉 You're almost there! Complete the final challenge to earn your certification.</div>
+</div>
+<div class="step">The learner clicks "Start Final Challenge."</div>
+<div class="step">The system displays the final challenge details:
+<div class="sub-step">Challenge title: "Build a Full-Stack Task Management Application"</div>
+<div class="sub-step">Requirements:
+<ul>
+<li>Implement frontend interface</li>
+<li>Create backend API</li>
+<li>Database integration</li>
+<li>User authentication</li>
+<li>Deployment instructions</li>
+</ul>
+</div>
+<div class="sub-step">Time limit: 3-7 days (self-paced)</div>
+<div class="sub-step">Submission format: GitHub repository link + deployed app URL</div>
+</div>
+<div class="step">The learner works on the final challenge project using skills learned throughout the path.</div>
+<div class="step">The learner tests their application thoroughly.</div>
+<div class="step">The learner clicks "Submit Final Challenge."</div>
+<div class="step">The system prompts for submission details:
+<div class="sub-step">GitHub repository URL</div>
+<div class="sub-step">Live deployment URL</div>
+<div class="sub-step">Project description (optional)</div>
+<div class="sub-step">Technologies used</div>
+</div>
+<div class="step">The learner provides all required information and clicks "Confirm Submission."</div>
+<div class="step">The system validates submission:
+<div class="sub-step">Checks if URLs are accessible</div>
+<div class="sub-step">Verifies repository contains code</div>
+<div class="sub-step">Scans for plagiarism using code similarity detection</div>
+</div>
+<div class="step"><strong>Automated Evaluation Process:</strong>
+<div class="sub-step">The system runs automated tests on the submitted project:
+<ul>
+<li>Code quality analysis (linting, formatting)</li>
+<li>Functionality tests (API endpoints work correctly)</li>
+<li>Security checks (no obvious vulnerabilities)</li>
+<li>Performance benchmarks (response times acceptable)</li>
+</ul>
+</div>
+</div>
+<div class="step"><strong>Scoring System:</strong>
+<div class="sub-step">The system calculates a score based on:
+<ul>
+<li>Functionality: 40 points (all features work correctly)</li>
+<li>Code quality: 30 points (clean, well-documented code)</li>
+<li>Creativity: 15 points (innovative features, UI/UX)</li>
+<li>Best practices: 15 points (security, performance, structure)</li>
+</ul>
+</div>
+<div class="sub-step">Minimum passing score: 70/100</div>
+</div>
+<div class="step">If the learner achieves 70+ points:
+<div class="system-message">✅ Congratulations! Your project meets certification standards.</div>
+</div>
+<div class="step"><strong>Certificate Generation:</strong>
+<div class="sub-step">The system generates a digital certificate including:
+<ul>
+<li>Learner's full name</li>
+<li>Learning path title: "Python Full-Stack Developer"</li>
+<li>Completion date</li>
+<li>Unique certificate ID (e.g., DCD-PY-2025-12345)</li>
+<li>Platform logo and signature</li>
+<li>QR code for verification</li>
+<li>Path details (total hours, skills acquired)</li>
+</ul>
+</div>
+</div>
+<div class="step">The system displays certificate preview with animation:
+<div class="sub-step">Confetti effect</div>
+<div class="sub-step">Achievement sound</div>
+<div class="sub-step">Certificate appears with fade-in animation</div>
+</div>
+<div class="step">The system updates learner's profile:
+<div class="sub-step">Badge: "Python Full-Stack Developer Certified"</div>
+<div class="sub-step">Total XP bonus: +5000 XP</div>
+<div class="sub-step">New level unlocked (if applicable)</div>
+<div class="sub-step">Certificate added to "My Certificates" section</div>
+</div>
+<div class="step">The system sends congratulatory email with:
+<div class="sub-step">Certificate PDF attachment (high-resolution, printable)</div>
+<div class="sub-step">Certificate verification link</div>
+<div class="sub-step">Social sharing templates</div>
+<div class="sub-step">LinkedIn credential integration link</div>
+</div>
+<div class="step">The learner can now:
+<div class="sub-step">Download certificate as PDF</div>
+<div class="sub-step">Share on social media (LinkedIn, Twitter, Facebook)</div>
+<div class="sub-step">Add to digital portfolio</div>
+<div class="sub-step">Print for display</div>
+</div>
+<div class="step"><strong>Certificate Verification:</strong>
+<div class="sub-step">Each certificate has unique URL: `duocodo.com/verify/DCD-PY-2025-12345`</div>
+<div class="sub-step">Anyone can verify authenticity by:
+<ul>
+<li>Scanning QR code on certificate</li>
+<li>Entering certificate ID on verification page</li>
+</ul>
+</div>
+<div class="sub-step">Verification page displays:
+<ul>
+<li>Learner name</li>
+<li>Path completed</li>
+<li>Completion date</li>
+<li>" This certificate is authentic and verified by DuoCodo"</li>
+</ul>
+</div>
+</div>
+<div class="step">The learning path is marked as "Completed" in learner's dashboard.</div>
+<div class="step">The system recommends next learning paths:
+<div class="sub-step">"Advanced Python Development"</div>
+<div class="sub-step">"DevOps for Full-Stack Developers"</div>
+<div class="sub-step">"React Native Mobile Development"</div>
+</div>
+<div class="step">The learner's portfolio automatically showcases:
+<div class="sub-step">The certificate</div>
+<div class="sub-step">Final challenge project</div>
+<div class="sub-step">All portfolio projects from the path</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Final Challenge Score Below 70</div>
+<div class="alt-description">At Step 16, if score is 60-69 points:</div>
+<div class="system-message">Your project scored [X]/100. You need 70+ to pass. Review the feedback and resubmit.</div>
+<div class="alt-description">The system provides detailed feedback:
+<div class="system-message">
+Areas for improvement:<br>
+- Functionality: Missing user logout feature (-5 points)<br>
+- Code quality: Inconsistent naming conventions (-8 points)<br>
+- Security: API endpoints not protected (-7 points)<br>
+<br>
+Recommendations:<br>
+- Review authentication lessons in Tier 4<br>
+- Study API security best practices<br>
+- Fix identified issues and resubmit
+</div>
+</div>
+<div class="alt-description">
+<ul>
+<li>The learner can revise and resubmit (up to 3 attempts total).</li>
+<li>Each attempt must wait 48 hours for review.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Plagiarism Detected</div>
+<div class="alt-description">At Step 13, if code similarity exceeds 80% with existing projects:</div>
+<div class="alt-description">
+<ul>
+<li>The system flags submission for manual review.</li>
+<li>Admin investigates source of similarity.</li>
+<li>If confirmed plagiarism:
+<ul>
+<li>Submission is rejected.</li>
+<li>The system displays: <em>"Your submission contains plagiarized content. Certification requires original work."</em></li>
+<li>Learner receives warning.</li>
+<li>Must create new project from scratch.</li>
+<li>Serious violations may result in temporary suspension.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Submission URLs Invalid</div>
+<div class="alt-description">At Step 13, if provided URLs are broken or inaccessible:</div>
+<div class="system-message">Unable to access your project. Please ensure URLs are correct and publicly accessible.</div>
+<div class="alt-description">
+<ul>
+<li>Learner must fix URLs and resubmit.</li>
+<li>Submission is not counted as an attempt if URLs are invalid.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Technical Issues During Submission</div>
+<div class="alt-description">At Step 12, if submission fails due to system error:</div>
+<div class="system-message">Submission failed due to technical issues. Your work has been saved as draft.</div>
+<div class="alt-description">
+<ul>
+<li>Learner can retry submission.</li>
+<li>Support team is notified automatically.</li>
+<li>Deadline is extended by 24 hours if system was at fault.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A5. Maximum Attempts Reached (3 Failed Submissions)</div>
+<div class="alt-description">After 3rd failed submission:</div>
+<div class="system-message">You've reached the maximum submission attempts. To earn certification, you must:</div>
+<div class="alt-description">
+<ul>
+<li>Option 1: Retake specific path modules and retry after 30 days</li>
+<li>Option 2: Schedule mentorship session for guidance</li>
+<li>Option 3: Restart learning path from Tier 3</li>
+<li>The learner must choose an option to continue.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A6. Deadline Expired (If Path Has Time Limit)</div>
+<div class="alt-description">If learner doesn't submit within path deadline (e.g., 6 months):</div>
+<div class="system-message">Your enrollment period has ended. To earn certification, re-enroll in the next cohort.</div>
+<div class="alt-description">
+<ul>
+<li>Progress is saved but path must be re-enrolled.</li>
+<li>Learner can view what they completed.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A7. Learning Path Not Fully Completed</div>
+<div class="alt-description">At Step 6, if learner tries to start final challenge prematurely:</div>
+<div class="system-message">Complete all path requirements before attempting final challenge. Current progress: [X]%</div>
+<div class="alt-description">
+<ul>
+<li>Shows remaining incomplete modules/exercises.</li>
+<li>"Start Final Challenge" button remains disabled.</li>
+</ul>
+</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A8. Project Repository Private</div>
+<div class="alt-description">At Step 13, if GitHub repository is set to private:</div>
+<div class="system-message">Repository must be public for evaluation. Please change repository visibility settings.</div>
+<div class="alt-description">
+<ul>
+<li>Provides instructions on making repository public.</li>
+<li>Submission is not processed until accessible.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Certificate Levels Based on Performance</div>
+<div class="alt-description">Certificates are tiered by final challenge score:</div>
+<div class="alt-description">
+<ul>
+<li><strong>Bronze Certificate:</strong> 70-79 points (Pass)</li>
+<li><strong>Silver Certificate:</strong> 80-89 points (Merit)</li>
+<li><strong>Gold Certificate:</strong> 90-100 points (Distinction)</li>
+<li>Certificate design and badge reflect achievement level.</li>
+<li>Higher tiers may unlock additional benefits (e.g., featured portfolio, mentor access).</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. LinkedIn Integration</div>
+<div class="alt-description">After certificate issuance:</div>
+<div class="alt-description">
+<ul>
+<li>Learner clicks "Add to LinkedIn" button.</li>
+<li>System auto-populates LinkedIn credential form:
+<ul>
+<li>Credential name: "Python Full-Stack Developer"</li>
+<li>Issuing organization: DuoCodo</li>
+<li>Issue date: [Completion date]</li>
+<li>Credential ID: [Certificate ID]</li>
+<li>Credential URL: [Verification link]</li>
+</ul>
+</li>
+<li>Learner confirms and posts to LinkedIn profile.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Portfolio Project Showcase</div>
+<div class="alt-description">Final challenge project is featured prominently:</div>
+<div class="alt-description">
+<ul>
+<li>Public portfolio page displays:
+<ul>
+<li>Project demo video/screenshots</li>
+<li>Live project link</li>
+<li>GitHub repository</li>
+<li>Technologies used</li>
+<li>Project description</li>
+</ul>
+</li>
+<li>Other learners can view and learn from completed projects.</li>
+<li>Recruiters can discover learners through project showcase.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Peer Recognition</div>
+<div class="alt-description">Other learners can congratulate certificate earners:</div>
+<div class="alt-description">
+<ul>
+<li>"Congratulate" button sends encouragement message.</li>
+<li>Achievement appears in community feed.</li>
+<li>Builds motivational community culture.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E5. Multiple Learning Paths</div>
+<div class="alt-description">Learners can pursue multiple certifications:</div>
+<div class="alt-description">
+<ul>
+<li>Each completed path earns separate certificate.</li>
+<li>Dashboard shows all earned certificates.</li>
+<li>"Collection" badges for completing related paths:
+<ul>
+<li>"Web Development Master" (3 web paths completed)</li>
+<li>"Data Science Expert" (4 data science paths completed)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E6. Certificate Renewal/Updates</div>
+<div class="alt-description">For technology-focused paths that evolve:</div>
+<div class="alt-description">
+<ul>
+<li>Certificates remain valid but note version: "Python Full-Stack Developer (2025)"</li>
+<li>Learners notified when path is significantly updated.</li>
+<li>Optional: Complete update modules for refreshed certificate.</li>
+<li>Keeps certifications current with industry standards.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E7. Employer Verification Portal</div>
+<div class="alt-description">Employers can verify certificates in bulk:</div>
+<div class="alt-description">
+<ul>
+<li>Upload list of certificate IDs.</li>
+<li>System validates all certificates.</li>
+<li>Generates report of verified credentials.</li>
+<li>Useful for HR departments during hiring.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E8. Certificate Analytics</div>
+<div class="alt-description">Learner can view certificate statistics:</div>
+<div class="alt-description">
+<ul>
+<li>How many people completed this path</li>
+<li>Average completion time</li>
+<li>Most common career outcomes</li>
+<li>Salary ranges for certificate holders (if data available)</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E9. Blockchain Verification (Advanced)</div>
+<div class="alt-description">Certificate hash stored on blockchain:</div>
+<div class="alt-description">
+<ul>
+<li>Immutable proof of achievement.</li>
+<li>Cannot be forged or tampered with.</li>
+<li>Blockchain explorer link included.</li>
+<li>Future-proof credential verification.</li>
+</ul>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E10. Custom Certificate Frames</div>
+<div class="alt-description">Learners can choose certificate design themes:</div>
+<div class="alt-description">
+<ul>
+<li>Professional (formal design)</li>
+<li>Modern (colorful, vibrant)</li>
+<li>Minimalist (clean, simple)</li>
+<li>Personalization makes certificates more meaningful.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>Certificate generation must complete within 10 seconds of passing final challenge.</li>
+<li>Certificates must be high-resolution (300 DPI) for printing.</li>
+<li>PDF certificates must be accessible (screen reader compatible).</li>
+<li>Certificate IDs must be cryptographically unique (collision-resistant).</li>
+<li>Verification URLs must remain valid indefinitely (no expiration).</li>
+<li>All certificate data must be backed up securely.</li>
+<li>The system must handle concurrent certificate generation (100+ simultaneous).</li>
+<li>Certificate templates must support multiple languages (English/Arabic).</li>
+<li>Plagiarism detection must have &lt;5% false positive rate.</li>
+<li>Automated project evaluation must complete within 5 minutes.</li>
+<li>Manual review (if needed) must complete within 2 business days.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+<ul>
+<li>Moderate frequency (20-30% of enrolled learners complete paths).</li>
+<li>Peak certification periods: End of quarter, year-end, academic semesters.</li>
+<li>Average time from path enrollment to certification: 3-6 months.</li>
+<li>Completion rate varies by path difficulty and learner commitment.</li>
+</ul>
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<ul>
+<li>Should certificates expire after a certain period (e.g., 3 years)?</li>
+<li>How do we handle certificate revocation if plagiarism is discovered later?</li>
+<li>Should we offer physical printed certificates for premium users?</li>
+<li>Can certificates be transferable or sold (NFT certificates)?</li>
+<li>How do we price premium certifications vs. free learning paths?</li>
+<li>Should we partner with universities for academic credit recognition?</li>
+<li>What level of manual review is needed vs. automated evaluation?</li>
+<li>How do we keep certification standards consistent as platform scales?</li>
+</ul>
+</div>
+</div>
 
 ---
-
-**19. Practice Coding with Code Editor (Platform)**
-
-**Primary Actor:** Learner
-
-**Stakeholders and Interests:**
-- **Learner:** Wants to write, execute, and debug code efficiently in a professional environment on web platform.
-- **Platform:** Needs to provide secure, real-time code execution with helpful feedback.
-
-**Preconditions:**
-- Learner must be logged in to the web platform.
-- Learner must have access to a lesson or exercise with a coding component.
-- Code Editor and execution APIs must be operational.
-- Learner must be using desktop or laptop computer with modern web browser.
-
-**Postconditions:**
-- Code is written, executed, and results are displayed.
-- Progress is tracked and saved.
-- Learner receives feedback on their solution.
-
-**Main Success Scenario:**
-1. The learner navigates to a coding exercise or lesson on the web platform.
-2. The system loads the Code Editor with syntax highlighting for the selected language (Python/JavaScript).
-3. The system displays:
-   - Problem statement on the left panel
-   - Code Editor in the center
-   - Output console at the bottom
-   - Starter code (if any) pre-loaded in the editor
-4. The learner writes their code in the Code Editor.
-5. The editor provides professional IDE features:
-   - **IntelliSense** auto-completion
-   - **Syntax highlighting** with color-coded keywords
-   - **Real-time error detection** with red underlines
-   - **Code folding** for functions and blocks
-   - **Multiple cursor editing**
-   - **Find and replace functionality**
-   - **Code formatting** (Ctrl+Shift+F)
-   - **Bracket matching**
-6. The learner can customize editor settings:
-   - Font size adjustment
-   - Theme selection (dark/light mode)
-   - Tab size configuration
-   - Line numbers toggle
-7. The learner clicks "Run Code" to test their solution.
-8. The system sends the code to the secure execution API via HTTPS.
-9. The execution API runs the code in an isolated Docker sandbox environment.
-10. The system returns execution results:
-    - Standard output (console.log, print statements)
-    - Execution time (in milliseconds)
-    - Memory usage (in MB)
-    - Error messages with line numbers (if any)
-    - Return values
-11. The results are displayed in the output console below the editor with syntax highlighting.
-12. The learner can view detailed execution metrics in an expandable panel.
-13. If the output matches expected results, the learner clicks "Submit Solution."
-14. The system validates the solution against all test cases (visible and hidden).
-15. The system displays test results:
-    - Passed test cases (✓ in green)
-    - Failed test cases (✗ in red) with input/output comparison
-    - Edge cases handled correctly
-16. If all tests pass:
-    - The system awards XP based on:
-      - First attempt bonus (+50 XP)
-      - Code efficiency score
-      - Time taken to solve
-    - Updates skill mastery metrics
-    - Saves the code to learner's solution history
-17. The learner sees a success message with:
-    - Earned XP and badges
-    - Performance comparison with other learners
-    - Suggestions for optimization (if applicable)
-
-**Alternative Scenarios:**
-
-**A1. Syntax Error Detected**
-- At Step 5, if the learner's code contains syntax errors:
-  - Code Editor underlines the error in red with wavy line
-  - Hovering shows tooltip: *"Syntax Error: [Description] at line [X], column [Y]"*
-  - Error panel shows detailed message with suggested fixes
-  - The learner corrects the error and continues
-
-**A2. Runtime Error During Execution**
-- At Step 10, if the code crashes during execution:
-  - The system displays in output console:
-    ```
-    ✗ Runtime Error: IndexError
-    Your code encountered an issue at line 15
-    Stack Trace:
-    File "main.py", line 15, in <module>
-        print(arr[10])
-    IndexError: list index out of range
-    ```
-  - The learner can view full stack trace
-  - System suggests debugging tips based on error type
-
-**A3. Execution Timeout**
-- At Step 9, if code execution exceeds 5 seconds:
-  - The system terminates execution and displays:
-    ```
-    Execution Timeout
-    Your code took longer than 5 seconds to run.
-    Possible issues:
-    - Infinite loop detected
-    - Inefficient algorithm (O(n²) or worse)
-    Suggestion: Consider optimizing your approach
-    ```
-  - The learner can review algorithm complexity
-
-**A4. Memory Limit Exceeded**
-- At Step 10, if memory usage exceeds 512MB:
-  - The system displays:
-    ```
-    Memory Limit Exceeded
-    Your code used more than 512MB of memory.
-    Consider:
-    - Reducing data structure sizes
-    - Using generators instead of lists
-    - Implementing streaming solutions
-    ```
-
-**A5. Test Cases Failed**
-- At Step 14-15, if some test cases fail:
-  - The system displays detailed comparison:
-    ```
-    Test Case 3: ✗ Failed
-    Input: [1, 2, 3, 4, 5]
-    Expected Output: 15
-    Your Output: 14
-    Difference: Off by 1 (check array indexing)
-    ```
-  - The learner can revise and resubmit
-  - Hint button becomes available after 2 failed attempts
-
-**A6. Code Execution Service Unavailable**
-- At Step 8, if the execution API is down:
-  - The system displays:
-    ```
-    Execution Service Temporarily Unavailable
-    The code execution service is currently down.
-    Your code has been saved as a draft.
-    Please try again in a few minutes.
-    ```
-  - Code is auto-saved every 30 seconds
-  - Learner can continue working offline
-
-**A7. Browser Crash or Tab Closed**
-- If browser crashes or tab is accidentally closed:
-  - On return, system displays:
-    ```
-    Restored from Auto-Save
-    Last saved: 30 seconds ago
-    Would you like to continue where you left off?
-    [Restore Code] [Start Fresh]
-    ```
-
-**Extensions:**
-
-**E1. Code Snapshotting**
-- The learner can save multiple versions of their solution
-- Click "Save Snapshot" button (Ctrl+S)
-- System stores code with timestamp: "Version 1 - 14:30:25"
-- Learner can compare versions side-by-side
-- Restore any previous version with one click
-
-**E2. Code Sharing**
-- After successful submission, learner can share solution
-- Click "Share Code" generates unique URL
-- Other learners can view (not edit) the code
-- Solution appears in "Community Solutions" gallery
-
-**E3. Accessing Model Solutions**
-- After successful submission, "View Solutions" button appears
-- System displays 3-5 model solutions:
-  - **Optimal Solution** (best time/space complexity)
-  - **Beginner-Friendly** (easiest to understand)
-  - **Alternative Approaches** (different algorithms)
-- Each includes:
-  - Big O complexity analysis
-  - Line-by-line explanations
-  - When to use this approach
-
-**E4. Code Execution History**
-- Learner can view all previous runs:
-  - Timestamp of execution
-  - Output results
-  - Performance metrics
-  - Can re-run any previous version
-
-**E5. Split Screen View**
-- Learner can enable split-screen mode:
-  - Problem description on left
-  - Code editor on right
-  - Resizable panels
-  - Useful for referencing requirements while coding
-
-**E6. Keyboard Shortcuts**
-- Code Editor supports VS Code shortcuts:
-  - `Ctrl+/` - Toggle line comment
-  - `Ctrl+D` - Select next occurrence
-  - `Alt+Up/Down` - Move line up/down
-  - `Ctrl+Shift+K` - Delete line
-  - `F12` - Go to definition
-  - Full shortcut reference available in help menu
-
-**E7. Code Formatting**
-- Learner clicks "Format Code" or presses `Ctrl+Shift+F`
-- System auto-formats code following PEP 8 (Python) or StandardJS style
-- Fixes indentation and spacing
-- Improves code readability
-
-**E8. Collaborative Coding (Future)**
-- Multiple learners can work on same exercise together
-- Real-time cursor positions visible
-- Chat panel for discussion
-- Useful for pair programming exercises
-
-**Special Requirements:**
-- Code Editor must load within 2 seconds
-- Editor must support Python 3.10+ and ES6+ JavaScript
-- Code execution must complete within 5 seconds for standard exercises
-- The sandbox environment must prevent:
-  - File system access
-  - Network requests
-  - System command execution
-  - Resource exhaustion attacks
-- All code submissions must be encrypted during transmission (TLS 1.3)
-- The editor must be fully keyboard-accessible (WCAG 2.1 AA compliant)
-- Dark and light themes must both have sufficient contrast ratios
-- Editor must work on screens as small as 1024x768
-- Auto-save must occur every 30 seconds
-- Maximum code file size: 10,000 lines
-- Support for multiple programming languages must be extensible
-
-**Frequency of Use:**
-- This is the most frequently used feature on web platform
-- Average: 15-20 code executions per active session
-- Daily active users spend 60% of their time in Code Editor
-
-**Open Issues:**
-- Should we support additional languages (Java, C++, Ruby) in future releases?
-- How do we handle collaborative coding exercises without real-time sync?
-- Should we implement code review features for peer learning?
-- What's the optimal balance between sandbox security and execution speed?
-
----
-
-**20. Practice Coding with Blockly Editor (Mobile App)**
-
-**Primary Actor:** Learner
-
-**Stakeholders and Interests:**
-- **Learner:** Wants an intuitive, visual way to learn programming concepts on mobile devices without typing code.
-- **Platform:** Needs to make coding accessible to beginners and younger learners through mobile-friendly interface.
-- **Educators:** Want a tool that teaches computational thinking before syntax complexity.
-
-**Preconditions:**
-- Learner must be logged in to the mobile app (iOS/Android).
-- Learner must have access to a lesson or exercise supporting block-based coding.
-- Blockly library and execution engine must be operational.
-- Device must have touchscreen capability.
-
-**Postconditions:**
-- Visual block program is created and executed.
-- Generated code (Python/JavaScript) is executed successfully.
-- Progress is tracked and saved.
-- Learner understands the underlying code structure.
-
-**Main Success Scenario:**
-1. The learner navigates to a coding exercise on the mobile app.
-2. The system detects the device type and loads the Blockly visual editor.
-3. The system displays:
-   - Problem statement at the top (collapsible)
-   - **Blockly workspace** in the center (main area)
-   - **Block toolbox** on the left side (categorized blocks)
-   - **Output console** at the bottom (expandable)
-   - **Block bin/trash** for removing blocks
-4. The problem requires building a simple program (e.g., "Calculate sum of numbers in a list").
-5. The learner taps the toolbox to browse available block categories:
-   - **Logic blocks** (if/else, comparison, boolean)
-   - **Loop blocks** (for, while, repeat)
-   - **Math blocks** (arithmetic, random, functions)
-   - **Text blocks** (string operations, concatenation)
-   - **List blocks** (create, add, get, length)
-   - **Variable blocks** (create, set, get)
-   - **Function blocks** (define, call, return)
-6. The learner selects a "create variable" block and names it `sum`.
-7. The learner drags a "set variable to" block to the workspace.
-8. The learner adds a "for each item in list" loop block.
-9. Inside the loop, learner adds a "set sum to sum + item" block.
-10. Blocks automatically snap together when compatible (visual feedback):
-    - **Green outline** when blocks can connect
-    - **Red outline** when blocks are incompatible
-    - **Magnetic snap** when released near compatible blocks
-11. The learner can:
-    - **Drag blocks** with finger/stylus
-    - **Pinch to zoom** for better view
-    - **Pan** the workspace by dragging background
-    - **Duplicate blocks** by long-press
-    - **Delete blocks** by dragging to trash icon
-12. The system shows real-time validation:
-    - Incomplete blocks highlighted in yellow
-    - Required connections shown with puzzle piece icons
-    - Error indicators if logic is invalid
-13. The learner taps "Run Code" button.
-14. The system converts blocks to executable code (Python or JavaScript):
-    ```python
-    sum = 0
-    list = [1, 2, 3, 4, 5]
-    for item in list:
-        sum = sum + item
-    print(sum)
-    ```
-15. The generated code is displayed in a collapsible "View Code" panel.
-16. The learner can switch between:
-    - **Block View** (visual programming)
-    - **Code View** (text-based equivalent)
-    - **Split View** (both simultaneously)
-17. The system sends the generated code to the execution API.
-18. The execution API runs the code in a secure sandbox.
-19. The output console displays results:
-    - Console output: `15`
-    - Execution time: `0.02s`
-    - Memory used: `12MB`
-20. If output is correct, the learner taps "Submit Solution."
-21. The system validates against test cases:
-    - **Test 1:** Input `[1, 2, 3]` → Expected `6` ✓
-    - **Test 2:** Input `[10, 20, 30]` → Expected `60` ✓
-    - **Test 3:** Input `[]` → Expected `0` ✓
-22. If all tests pass:
-    - Confetti animation plays on mobile screen
-    - Success sound effect (optional, can be muted)
-    - XP points awarded with animation
-    - Badge earned (e.g., "Loop Master" for completing loop exercises)
-23. The learner sees a summary screen:
-    - " Exercise Completed!"
-    - XP earned: +30 XP
-    - Total XP: 450 XP
-    - Next exercise unlocked
-24. The block program is saved to the learner's solution history.
-25. The learner can share their block solution as an image on social media.
-
-**Alternative Scenarios:**
-
-**A1. Blocks Won't Connect (Type Mismatch)**
-- At Step 10, if learner tries to connect incompatible blocks:
-  - Blocks shake and show red outline
-  - Tooltip displays: *"❌ Cannot connect: Expected NUMBER, got TEXT"*
-  - Blocks bounce back to original position
-  - Learner must use correct block type
-
-**A2. Missing Required Blocks**
-- At Step 13, if program is incomplete:
-  - System displays: *"⚠️ Your program is incomplete. Missing: output block"*
-  - Incomplete blocks flash yellow
-  - "Run Code" button is disabled until complete
-  - Hint suggests which category has needed blocks
-
-**A3. Infinite Loop Detected**
-- At Step 18, if blocks create infinite loop:
-  - Execution is terminated after 3 seconds
-  - System displays:
-    ```
-    Infinite Loop Detected
-    Your loop ran more than 1000 times.
-    Check your loop condition to ensure it can exit.
-    ```
-  - Problematic loop block is highlighted in red
-  - Learner can review loop logic
-
-**A4. Runtime Error in Generated Code**
-- At Step 18, if execution fails:
-  - System displays error in simple terms:
-    ```
-    Error: Division by Zero
-    Your program tried to divide by 0 at this block:
-    [Highlights the specific block causing error]
-    Tip: Check if denominator can be zero
-    ```
-  - Problematic block glows red
-  - Learner can tap block for more details
-
-**A5. Test Cases Failed**
-- At Step 21, if some tests fail:
-  - System shows which tests failed:
-    ```
-    Test 2: ❌ Failed
-    Input: [10, 20, 30]
-    Expected: 60
-    Your Output: 50
-    Issue: Check your addition logic
-    ```
-  - Learner can revise blocks and retry
-
-**A6. Accidental Block Deletion**
-- At Step 11, if learner accidentally deletes important blocks:
-  - "Undo" button appears for 5 seconds
-  - Tapping "Undo" restores deleted blocks
-  - After 5 seconds, deletion is permanent
-  - Learner can recreate blocks from toolbox
-
-**A7. Device Orientation Change**
-- If device is rotated during exercise:
-  - System saves current block positions
-  - Re-layouts workspace for new orientation
-  - **Portrait mode:** Toolbox becomes bottom drawer
-  - **Landscape mode:** Toolbox on left sidebar
-  - All blocks remain in same relative positions
-
-**A8. App Crashes or Closed**
-- If app crashes or is closed:
-  - On relaunch, system displays:
-    ```
-    Restore Previous Session?
-    You were working on: "Sum Calculator"
-    Last saved: 2 minutes ago
-    [Restore] [Start New]
-    ```
-  - Auto-save occurs every 20 seconds
-
-**A9. Network Unavailable**
-- At Step 17, if no internet connection:
-  - System displays: *"📡 No Internet - Code saved locally"*
-  - Execution is queued
-  - When connection restores, code executes automatically
-  - Learner receives notification when results are ready
-
-**Extensions:**
-
-**E1. Block Customization**
-- Learner can customize block colors:
-  - Tap block settings icon
-  - Choose from color palette
-  - Useful for organizing complex programs
-  - Custom colors saved per learner
-
-**E2. Voice Input for Block Names**
-- Learner can name variables using voice:
-  - Tap microphone icon
-  - Say variable name: "total score"
-  - System creates variable with that name
-  - Useful for accessibility
-
-**E3. Block Animation**
-- During execution, blocks light up sequentially:
-  - Shows program flow in real-time
-  - Helps learners understand execution order
-  - Speed can be adjusted (slow/normal/fast)
-  - Can be paused at any block
-
-**E4. Tutorial Hints with Arrows**
-- For first-time users:
-  - Animated arrows point to next action
-  - Speech bubbles explain each step
-  - "Try dragging this block here 👉"
-  - Tutorial can be skipped or replayed
-
-**E5. Block Library Favorites**
-- Learner can mark frequently-used blocks as favorites:
-  - Star icon on blocks
-  - Favorites appear in "My Blocks" category
-  - Speeds up program building
-
-**E6. Convert to Text Code**
-- After mastering blocks, learner can transition:
-  - Tap "Convert to Code" button
-  - System generates Python/JavaScript
-  - Opens in Code Editor (if on tablet/larger screen)
-  - Learner can edit and learn text-based syntax
-
-**E7. Collaborative Block Coding**
-- Learner can invite friend to code together:
-  - Share session code
-  - Both see blocks in real-time
-  - Each user's cursor shown with name
-  - Chat feature for discussion
-  - Useful for pair programming
-
-**E8. Block Challenges with Timers**
-- Timed challenges for competitive learning:
-  - Build program in 3 minutes
-  - Leaderboard for fastest correct solutions
-  - Bonus XP for speed
-  - Encourages efficiency
-
-**E9. Parent/Teacher Monitoring**
-- Parents or teachers can view learner's block programs:
-  - Dashboard shows completed exercises
-  - Can view block solutions
-  - Progress reports
-  - Useful for tracking learning at home/school
-
-**E10. Block Export as Image**
-- Learner can export block program as PNG:
-  - Tap "Share" button
-  - System generates image of blocks
-  - Can post to social media
-  - Useful for showcasing progress
-
-**E11. Adaptive Block Difficulty**
-- System adjusts available blocks based on skill level:
-  - **Beginner:** Basic blocks only (print, variables, simple loops)
-  - **Intermediate:** Add functions, lists, conditions
-  - **Advanced:** Classes, recursion, advanced data structures
-  - Prevents overwhelming beginners with too many options
-
-**Special Requirements:**
-- Blockly editor must load within 1.5 seconds on mobile devices
-- Touch targets must be at least 44x44 pixels (Apple HIG standard)
-- Blocks must have high contrast for visibility in sunlight
-- Pinch-to-zoom must support 50% to 200% zoom range
-- Drag operations must have 150ms delay to prevent accidental moves
-- Block snapping must have haptic feedback (vibration) on compatible devices
-- Workspace must support up to 100 blocks without performance degradation
-- App must work offline with local execution for basic exercises
-- All block actions must have undo/redo support (up to 50 steps)
-- Block colors must be colorblind-friendly (use patterns/icons in addition to colors)
-- Text on blocks must be readable at minimum 16px font size
-- Auto-save must occur every 20 seconds
-- Generated code must be syntactically correct and executable
-- Block toolbox must be searchable for finding specific blocks quickly
-
-**Frequency of Use:**
-- Very high frequency among mobile learners (ages 8-16 primary users)
-- Average: 10-15 block exercises per active mobile session
-- 70% of mobile app users prefer Blockly over text-based coding initially
-- Gateway to text-based programming (users transition after 3-6 months)
-
-**Open Issues:**
-- Should we support custom block creation for advanced users?
-- How do we handle very complex programs (100+ blocks) on small screens?
-- Should we implement AR (Augmented Reality) mode for 3D block visualization?
-- Can we integrate voice coding ("add a loop block") for hands-free operation?
-- Should there be a "block marketplace" where users share custom block libraries?
-- How do we transition users from Blockly to Code smoothly?
-- Should we support multiple languages (Spanish, Arabic) for block text?
-
-**21. Receive AI-Powered Hints**
-
-**Primary Actor:** Learner
-
-**Stakeholders and Interests:**
-- **Learner:** Wants contextual, progressive hints that guide without giving away the complete solution.
-- **Platform:** Needs to provide intelligent assistance that enhances learning without creating dependency.
-- **AI System (Gemini/OpenRouter/Custom model):** Provides adaptive hints based on code analysis.
-
-**Preconditions:**
-- Learner must be working on an exercise.
-- Learner must be logged in.
-- AI API services (OpenRouter/Gemini/Custom model) must be operational.
-- Learner must have made at least one attempt at the exercise.
-
-**Postconditions:**
-- Appropriate hint is provided based on learner's current code and skill level.
-- Hint usage is tracked for analytics.
-- Learner can progress with better understanding.
-
-**Main Success Scenario:**
-1. The learner is working on a coding exercise and encounters difficulty.
-2. The learner clicks the "Get Hint" button.
-3. The system analyzes the learner's current code and attempt history.
-4. The system determines the learner's skill level and hint count for this exercise.
-5. The system sends a request to the AI API with:
-   - Problem statement
-   - Learner's current code
-   - Skill level
-   - Previous hint history
-   - Requested hint level
-6. The AI API processes the request and generates an appropriate hint.
-7. The AI returns a hint that:
-   - Doesn't reveal the complete solution
-   - Addresses the learner's specific issue
-   - Matches the learner's comprehension level
-8. The system displays the hint in a panel below the editor.
-9. The hint includes:
-   - Conceptual guidance
-   - Suggested approach
-   - Relevant examples (if needed)
-10. The learner reads the hint and applies the guidance.
-11. The system tracks the hint usage and adjusts XP rewards accordingly.
-12. If the learner needs additional help, they can request more specific hints (progressive levels).
-
-**Alternative Scenarios:**
-
-**A1. No Attempt Made Yet**
-- At Step 2, if the learner hasn't written any code:
-  - The system displays: *"Try writing some code first! Hints are most helpful after you've made an attempt."*
-  - The "Get Hint" button remains disabled until code is written.
-
-**A2. Maximum Hints Reached**
-- At Step 4, if the learner has used all available hints for this exercise:
-  - The system displays: *"You've used all available hints. Try applying what you've learned or view the model solution."*
-  - The learner is offered the option to view the complete solution (with loss XP reward).
-
-**A3. AI Service Unavailable**
-- At Step 6, if the AI API is down or unresponsive:
-  - The system displays: *"AI hints are temporarily unavailable. Here's a pre-generated hint for this problem."*
-  - The system provides a fallback hint from the database.
-
-**A4. Request Timeout**
-- At Step 6, if the AI API doesn't respond within 10 seconds:
-  - The system displays: *"The hint service is taking longer than usual. Please try again."*
-  - The request is logged for admin review.
-
-**A5. Inappropriate Code Detected**
-- At Step 5, if the learner's code contains inappropriate content:
-  - The system doesn't send to AI and displays: *"Please ensure your code is appropriate before requesting hints."*
-
-**A6. Hint Too Advanced**
-- At Step 7, if the AI generates a hint beyond the learner's level:
-  - The system uses natural language processing to simplify the hint.
-  - If simplification fails, a pre-generated hint is used instead.
-
-**Extensions:**
-
-**E1. Progressive Hint Levels**
-- First hint: Conceptual guidance only
-- Second hint: Specific approach suggestion
-- Third hint: Pseudocode or example structure
-- Fourth hint: Partial code implementation
-- Fifth hint: Complete solution with explanation
-
-**E2. Code Analysis Insights**
-- The AI identifies specific issues in the learner's code:
-  - Logic errors
-  - Incorrect algorithm choice
-  - Edge case handling
-- The hint addresses these specific issues.
-
-**E3. Hint History**
-- The learner can view all previously received hints.
-- The learner clicks "Previous Hints" to review earlier guidance.
-- This helps reinforce learning without requesting duplicate hints.
-
-**E4. Contextual Examples**
-- If the hint references a concept, the system includes a link to relevant lesson content.
-- The learner can click to review the concept before continuing.
-
-**Special Requirements:**
-- AI hints must not reveal complete solutions directly.
-- Hint generation must complete within 10 seconds.
-- The system must track hint usage for XP calculation (fewer hints = more XP).
-- Hints must be appropriate for the learner's skill level.
-- The AI API must be rate-limited to prevent abuse.
-- All API communications must be encrypted.
-- Fallback hints must be available for all exercises.
-
-**Frequency of Use:**
-- Moderate to high frequency, especially among beginner learners.
-- Expected usage: 30-40% of learners per exercise.
-
-**Open Issues:**
-- Should we implement a "hint cost" using virtual currency?
-- How do we balance hint availability with learning independence?
-- Should hints be personalized based on learning style preferences?
-
----
-
-**22. Complete Certification Track**
-
-**Primary Actor:** Learner
-
-**Stakeholders and Interests:**
-- **Learner:** Wants to earn a credential that validates completion of their learning path and acquired programming skills.
-- **Platform:** Needs to ensure certification standards are maintained and verifiable.
-- **Potential Employers/Institutions:** Want assurance that certifications represent genuine path completion and competency.
-- **Content Creators:** Want their learning paths to offer valuable credentials that motivate completion.
-
-**Preconditions:**
-- Learner must be logged in.
-- Learner must be enrolled in a learning path (from Use Case 10: Choose Learning Path).
-- Learner must have completed at least 95% of the learning path requirements.
-- The final challenge of the learning path must be unlocked.
-
-**Postconditions:**
-- Learning path is marked as 100% complete.
-- Learner receives a digital certificate for the completed path.
-- Certificate is added to learner's profile and portfolio.
-- Certification data is recorded in the system with timestamp.
-- Certificate can be verified and shared publicly.
-
-**Main Success Scenario:**
-1. The learner is enrolled in a learning path (e.g., "Python Full-Stack Developer" from Use Case 10).
-2. The learner progresses through the path by completing courses, lessons, and exercises across all tiers:
-   - Tier 1: Foundation modules completed
-   - Tier 2: Core concepts mastered
-   - Tier 3: Intermediate skills acquired
-   - Tier 4: Advanced topics finished
-3. The system tracks progress in the learner's dashboard:
-   - Progress bar shows: 95% complete
-   - Status: "Final Challenge Unlocked"
-4. The learner navigates to the learning path dashboard.
-5. The system displays: *"🎉 You're almost there! Complete the final challenge to earn your certification."*
-6. The learner clicks "Start Final Challenge."
-7. The system displays the final challenge details:
-   - Challenge title: "Build a Full-Stack Task Management Application"
-   - Requirements:
-     - Implement frontend interface
-     - Create backend API
-     - Database integration
-     - User authentication
-     - Deployment instructions
-   - Time limit: 3-7 days (self-paced)
-   - Submission format: GitHub repository link + deployed app URL
-8. The learner works on the final challenge project using skills learned throughout the path.
-9. The learner tests their application thoroughly.
-10. The learner clicks "Submit Final Challenge."
-11. The system prompts for submission details:
-    - GitHub repository URL
-    - Live deployment URL
-    - Project description (optional)
-    - Technologies used
-12. The learner provides all required information and clicks "Confirm Submission."
-13. The system validates submission:
-    - Checks if URLs are accessible
-    - Verifies repository contains code
-    - Scans for plagiarism using code similarity detection
-14. **Automated Evaluation Process:**
-    - The system runs automated tests on the submitted project:
-      - Code quality analysis (linting, formatting)
-      - Functionality tests (API endpoints work correctly)
-      - Security checks (no obvious vulnerabilities)
-      - Performance benchmarks (response times acceptable)
-15. **Scoring System:**
-    - The system calculates a score based on:
-      - Functionality: 40 points (all features work correctly)
-      - Code quality: 30 points (clean, well-documented code)
-      - Creativity: 15 points (innovative features, UI/UX)
-      - Best practices: 15 points (security, performance, structure)
-    - Minimum passing score: 70/100
-16. If the learner achieves 70+ points:
-    - The system displays: *"✅ Congratulations! Your project meets certification standards."*
-17. **Certificate Generation:**
-    - The system generates a digital certificate including:
-      - Learner's full name
-      - Learning path title: "Python Full-Stack Developer"
-      - Completion date
-      - Unique certificate ID (e.g., DCD-PY-2025-12345)
-      - Platform logo and signature
-      - QR code for verification
-      - Path details (total hours, skills acquired)
-18. The system displays certificate preview with animation:
-    - Confetti effect
-    - Achievement sound
-    - Certificate appears with fade-in animation
-19. The system updates learner's profile:
-    - Badge: "Python Full-Stack Developer Certified"
-    - Total XP bonus: +5000 XP
-    - New level unlocked (if applicable)
-    - Certificate added to "My Certificates" section
-20. The system sends congratulatory email with:
-    - Certificate PDF attachment (high-resolution, printable)
-    - Certificate verification link
-    - Social sharing templates
-    - LinkedIn credential integration link
-21. The learner can now:
-    - Download certificate as PDF
-    - Share on social media (LinkedIn, Twitter, Facebook)
-    - Add to digital portfolio
-    - Print for display
-22. **Certificate Verification:**
-    - Each certificate has unique URL: `duocodo.com/verify/DCD-PY-2025-12345`
-    - Anyone can verify authenticity by:
-      - Scanning QR code on certificate
-      - Entering certificate ID on verification page
-    - Verification page displays:
-      - Learner name
-      - Path completed
-      - Completion date
-      - " This certificate is authentic and verified by DuoCodo"
-23. The learning path is marked as "Completed" in learner's dashboard.
-24. The system recommends next learning paths:
-    - "Advanced Python Development"
-    - "DevOps for Full-Stack Developers"
-    - "React Native Mobile Development"
-25. The learner's portfolio automatically showcases:
-    - The certificate
-    - Final challenge project
-    - All portfolio projects from the path
-
-**Alternative Scenarios:**
-
-**A1. Final Challenge Score Below 70**
-- At Step 16, if score is 60-69 points:
-  - The system displays: *"Your project scored [X]/100. You need 70+ to pass. Review the feedback and resubmit."*
-  - The system provides detailed feedback:
-    ```
-    Areas for improvement:
-    - Functionality: Missing user logout feature (-5 points)
-    - Code quality: Inconsistent naming conventions (-8 points)
-    - Security: API endpoints not protected (-7 points)
-    
-    Recommendations:
-    - Review authentication lessons in Tier 4
-    - Study API security best practices
-    - Fix identified issues and resubmit
-    ```
-  - The learner can revise and resubmit (up to 3 attempts total).
-  - Each attempt must wait 48 hours for review.
-
-**A2. Plagiarism Detected**
-- At Step 13, if code similarity exceeds 80% with existing projects:
-  - The system flags submission for manual review.
-  - Admin investigates source of similarity.
-  - If confirmed plagiarism:
-    - Submission is rejected.
-    - The system displays: *"Your submission contains plagiarized content. Certification requires original work."*
-    - Learner receives warning.
-    - Must create new project from scratch.
-    - Serious violations may result in temporary suspension.
-
-**A3. Submission URLs Invalid**
-- At Step 13, if provided URLs are broken or inaccessible:
-  - The system displays: *"Unable to access your project. Please ensure URLs are correct and publicly accessible."*
-  - Learner must fix URLs and resubmit.
-  - Submission is not counted as an attempt if URLs are invalid.
-
-**A4. Technical Issues During Submission**
-- At Step 12, if submission fails due to system error:
-  - The system displays: *"Submission failed due to technical issues. Your work has been saved as draft."*
-  - Learner can retry submission.
-  - Support team is notified automatically.
-  - Deadline is extended by 24 hours if system was at fault.
-
-**A5. Maximum Attempts Reached (3 Failed Submissions)**
-- After 3rd failed submission:
-  - The system displays: *"You've reached the maximum submission attempts. To earn certification, you must:"*
-    - Option 1: Retake specific path modules and retry after 30 days
-    - Option 2: Schedule mentorship session for guidance
-    - Option 3: Restart learning path from Tier 3
-  - The learner must choose an option to continue.
-
-**A6. Deadline Expired (If Path Has Time Limit)**
-- If learner doesn't submit within path deadline (e.g., 6 months):
-  - The system displays: *"Your enrollment period has ended. To earn certification, re-enroll in the next cohort."*
-  - Progress is saved but path must be re-enrolled.
-  - Learner can view what they completed.
-
-**A7. Learning Path Not Fully Completed**
-- At Step 6, if learner tries to start final challenge prematurely:
-  - The system displays: *"Complete all path requirements before attempting final challenge. Current progress: [X]%"*
-  - Shows remaining incomplete modules/exercises.
-  - "Start Final Challenge" button remains disabled.
-
-**A8. Project Repository Private**
-- At Step 13, if GitHub repository is set to private:
-  - The system displays: *"Repository must be public for evaluation. Please change repository visibility settings."*
-  - Provides instructions on making repository public.
-  - Submission is not processed until accessible.
-
-**Extensions:**
-
-**E1. Certificate Levels Based on Performance**
-- Certificates are tiered by final challenge score:
-  - **Bronze Certificate:** 70-79 points (Pass)
-  - **Silver Certificate:** 80-89 points (Merit)
-  - **Gold Certificate:** 90-100 points (Distinction)
-- Certificate design and badge reflect achievement level.
-- Higher tiers may unlock additional benefits (e.g., featured portfolio, mentor access).
-
-**E2. LinkedIn Integration**
-- After certificate issuance:
-  - Learner clicks "Add to LinkedIn" button.
-  - System auto-populates LinkedIn credential form:
-    - Credential name: "Python Full-Stack Developer"
-    - Issuing organization: DuoCodo
-    - Issue date: [Completion date]
-    - Credential ID: [Certificate ID]
-    - Credential URL: [Verification link]
-  - Learner confirms and posts to LinkedIn profile.
-
-**E3. Portfolio Project Showcase**
-- Final challenge project is featured prominently:
-  - Public portfolio page displays:
-    - Project demo video/screenshots
-    - Live project link
-    - GitHub repository
-    - Technologies used
-    - Project description
-  - Other learners can view and learn from completed projects.
-  - Recruiters can discover learners through project showcase.
-
-**E4. Peer Recognition**
-- Other learners can congratulate certificate earners:
-  - "Congratulate" button sends encouragement message.
-  - Achievement appears in community feed.
-  - Builds motivational community culture.
-
-**E5. Multiple Learning Paths**
-- Learners can pursue multiple certifications:
-  - Each completed path earns separate certificate.
-  - Dashboard shows all earned certificates.
-  - "Collection" badges for completing related paths:
-    - "Web Development Master" (3 web paths completed)
-    - "Data Science Expert" (4 data science paths completed)
-
-**E6. Certificate Renewal/Updates**
-- For technology-focused paths that evolve:
-  - Certificates remain valid but note version: "Python Full-Stack Developer (2025)"
-  - Learners notified when path is significantly updated.
-  - Optional: Complete update modules for refreshed certificate.
-  - Keeps certifications current with industry standards.
-
-**E7. Employer Verification Portal**
-- Employers can verify certificates in bulk:
-  - Upload list of certificate IDs.
-  - System validates all certificates.
-  - Generates report of verified credentials.
-  - Useful for HR departments during hiring.
-
-**E8. Certificate Analytics**
-- Learner can view certificate statistics:
-  - How many people completed this path
-  - Average completion time
-  - Most common career outcomes
-  - Salary ranges for certificate holders (if data available)
-
-**E9. Blockchain Verification (Advanced)**
-- Certificate hash stored on blockchain:
-  - Immutable proof of achievement.
-  - Cannot be forged or tampered with.
-  - Blockchain explorer link included.
-  - Future-proof credential verification.
-
-**E10. Custom Certificate Frames**
-- Learners can choose certificate design themes:
-  - Professional (formal design)
-  - Modern (colorful, vibrant)
-  - Minimalist (clean, simple)
-- Personalization makes certificates more meaningful.
-
-**Special Requirements:**
-- Certificate generation must complete within 10 seconds of passing final challenge.
-- Certificates must be high-resolution (300 DPI) for printing.
-- PDF certificates must be accessible (screen reader compatible).
-- Certificate IDs must be cryptographically unique (collision-resistant).
-- Verification URLs must remain valid indefinitely (no expiration).
-- All certificate data must be backed up securely.
-- The system must handle concurrent certificate generation (100+ simultaneous).
-- Certificate templates must support multiple languages (English/Arabic).
-- Plagiarism detection must have <5% false positive rate.
-- Automated project evaluation must complete within 5 minutes.
-- Manual review (if needed) must complete within 2 business days.
-
-**Frequency of Use:**
-- Moderate frequency (20-30% of enrolled learners complete paths).
-- Peak certification periods: End of quarter, year-end, academic semesters.
-- Average time from path enrollment to certification: 3-6 months.
-- Completion rate varies by path difficulty and learner commitment.
-
-**Open Issues:**
-- Should certificates expire after a certain period (e.g., 3 years)?
-- How do we handle certificate revocation if plagiarism is discovered later?
-- Should we offer physical printed certificates for premium users?
-- Can certificates be transferable or sold (NFT certificates)?
-- How do we price premium certifications vs. free learning paths?
-- Should we partner with universities for academic credit recognition?
-- What level of manual review is needed vs. automated evaluation?
-- How do we keep certification standards consistent as platform scales?
-
----
-
 ### <div id="sequence-diagram" class="section">5.4 Sequence Diagram</div>
 
 Sequence diagrams were created only for casual and fully-dressed use cases, as these provide sufficient interaction detail to model system behavior. Brief use cases were excluded since they describe high-level functionality without internal system collaboration.
