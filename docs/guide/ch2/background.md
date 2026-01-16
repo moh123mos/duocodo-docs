@@ -307,7 +307,6 @@ Disadvantages:
 
 Reference: [https://checkio.org](https://checkio.org)
 
---
 
 ## Summary
 In this chapter, the tools that will be used in implementation like (Node.js, Nuxt.js, Figma, Gemini API, OpenRouter, Monaco Editor, and CloudFlare). were described.
