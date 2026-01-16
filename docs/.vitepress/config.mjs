@@ -25,7 +25,9 @@ export default withMermaid({
             // { text: 'API', link: '/api/' },
             {
                 text: 'Download PDF',
-                link: '/duocodo.pdf'
+                link: '/duocodo.pdf',
+                target: '_blank',
+                rel: 'noopener'
             }
         ],
         sidebar: {
@@ -134,7 +136,7 @@ export default withMermaid({
                             text: 'الفصل الثاني: الخلفية',
                             collapsed: true,
                             items: [
-                                { text: 'الخلفية', link: '/ar/guide/ch2' },
+                                { text: 'الخلفية', link: '/ar/guide/ch2/background' },
                             ]
                         },
                         {

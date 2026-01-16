@@ -891,7 +891,7 @@
 
 <div class="lof">
 
-#### <div class="lof-header">List of Tablse</div>
+#### <div class="lof-header">List of Tables</div>
 
 - [Table 2.1: Elzero Web School](#table1)
 - [Table 2.2: Codeforces](#table2)
