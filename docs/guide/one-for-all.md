@@ -460,7 +460,7 @@
   * [3.3 Project plan](#project-plan)
   * [3.4 Gantt Chart](#gantt-chart)
 - [Chapter 4: System Analysis](#chapter-4-system-analysis)
-  * [4.1 Function Requireements](#function-requireements)
+  * [4.1 Function Requirements](#function-requireements)
   * [4.2 Non-Function Requirements](#non-function-requirements)
   * [4.3 Functional Decomposition](#functional-decomposition)
 - [Chapter 5: System Architecture](#chapter-5-system-architecture)

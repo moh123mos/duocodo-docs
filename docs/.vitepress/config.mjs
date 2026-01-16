@@ -47,19 +47,23 @@ export default withMermaid({
                     ]
                 },
                 {
-                    text: 'CH3: Reqs Gathering',
+                    text: 'CH3: Feasibility and Project Planning',
                     collapsed: true,
                     items: [
-                        { text: 'Functional Requirements', link: '/guide/ch3/functional-requirements' },
-                        { text: 'Non-Functional Requirements', link: '/guide/ch3/non-functional' },
-                        { text: 'Functional Decomposition', link: '/guide/ch3/functional-decomposition' },
+                        { text: 'Overview', link: '/guide/ch3/requirement-analysis' },
+                        { text: 'Feasibility Study', link: '/guide/ch3/feasibility-study' },
+                        { text: 'Risk Management', link: '/guide/ch3/risk-management' },
+                        { text: 'Project Plan', link: '/guide/ch3/project-plan' },
+                        { text: 'Gantt Chart', link: '/guide/ch3/gantt-chart' },
                     ]
                 },
                 {
-                    text: 'CH4: Requirements',
+                    text: 'CH4: System Analysis',
                     collapsed: true,
                     items: [
-                        { text: 'Requirement Analysis', link: '/guide/ch4/requirement-analysis' },
+                        { text: 'Functional Requirements', link: '/guide/ch4/functional-requirements' },
+                        { text: 'Non-Functional Requirements', link: '/guide/ch4/non-functional' },
+                        { text: 'Functional Decomposition', link: '/guide/ch4/functional-decomposition' },
                     ]
                 },
                 {

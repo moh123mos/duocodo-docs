@@ -1,7 +1,8 @@
-# 3.1 Functional Requirements
+# Chapter 4: System Analysis
+# 4.1 Functional Requirements
 [[toc]]
 
-## 1. User Management System
+## 4.1.1. User Management System
 
 ### 1.1 User Registration and Authentication
 
@@ -36,9 +37,8 @@ Two-factor authentication (2FA).
 - **FR-1.11:** System shall implement role-based access control (RBAC).
 - **FR-1.12:** System shall allow role upgrades through application process.
 
----
 
-## 2. Learning Content Management
+## 4.1.2. Learning Content Management
 
 ### 2.1 Course Structure
 
@@ -52,7 +52,7 @@ Two-factor authentication (2FA).
 ### 2.2 Lesson Delivery
 
 - **FR-2.5:** System shall support multiple content types:
-  - Text-based explanations with code examples
+  - Interactive Chat Learning
   - Video tutorials (embedded or hosted)
   - Interactive coding exercises
   - Quizzes and assessments
@@ -66,13 +66,11 @@ Two-factor authentication (2FA).
 ### 2.3 Code Editor Integration
 
 - **FR-2.9:** System shall embed Monaco Editor for code writing.
-- **FR-2.10:** System shall support syntax highlighting for Python and JavaScript.
+- **FR-2.10:** System shall support syntax highlighting for Python, JavaScript and more.
 - **FR-2.11:** System shall provide auto-completion and error detection.
 - **FR-2.12:** System shall support code formatting and linting.
 
----
-
-## 3. Interactive Code Execution
+## 4.1.3. Interactive Code Execution
 
 ### 3.1 Sandbox Environment
 
@@ -95,9 +93,8 @@ Two-factor authentication (2FA).
 - **FR-3.7:** System shall show expected vs. actual output comparison.
 - **FR-3.8:** System shall support custom test cases for educators.
 
----
 
-## 4. Gamification System
+## 4.1.4. Gamification System
 
 ### 4.1 Progress Tracking
 
@@ -113,7 +110,7 @@ Two-factor authentication (2FA).
 - **FR-4.5:** System shall award XP for completed lessons, exercises, and achievements.
 - **FR-4.6:** System shall implement level system based on total XP.
 - **FR-4.7:** System shall provide XP bonuses for streak maintenance.
-- **FR-4.8:** System shall display XP leaderboards (global and friend-based).
+- **FR-4.8:** System shall display XP leaderboards (global).
 
 ---
 
@@ -137,9 +134,8 @@ Two-factor authentication (2FA).
 - **FR-4.14:** System shall send reminders for goal completion.
 - **FR-4.15:** System shall celebrate goal achievement.
 
----
 
-## 5. AI-Powered Features
+## 4.1.5. AI-Powered Features
 
 ### 5.1 Intelligent Hints
 
@@ -157,38 +153,17 @@ Two-factor authentication (2FA).
 - **FR-5.7:** System shall recommend review sessions for weak areas.
 - **FR-5.8:** System shall provide personalized learning paths.
 
----
 
-## 6. Social Features
+## 4.1.6. Social Features
 
-### 6.1 Community Interaction
-
-- **FR-6.1:** System shall allow users to add friends and follow other learners.
-- **FR-6.2:** System shall provide discussion forums for each course/lesson.
-- **FR-6.3:** System shall enable code sharing and peer review.
-- **FR-6.4:** System shall support commenting and voting on solutions.
-
----
-
-### 6.2 Mentoring System
-
-- **FR-6.5:** System shall connect learners with mentor volunteers.
-- **FR-6.6:** System shall provide messaging system for mentor-student communication.
-- **FR-6.7:** System shall allow mentors to track mentee progress.
-- **FR-6.8:** System shall facilitate code review sessions.
-
----
-
-### 6.3 Competitive Features
+### 6.1 Competitive Features
 
 - **FR-6.9:** System shall host coding competitions and challenges.
 - **FR-6.10:** System shall maintain various leaderboards (weekly, monthly, all-time).
-- **FR-6.11:** System shall organize team-based challenges.
 - **FR-6.12:** System shall provide achievement showcases.
 
----
 
-## 7. Assessment and Certification
+## 4.1.7. Assessment and Certification
 
 ### 7.1 Skill Assessment
 
@@ -206,9 +181,8 @@ Two-factor authentication (2FA).
 - **FR-7.7:** System shall maintain certificate verification system.
 - **FR-7.8:** System shall support certificate sharing on social platforms.
 
----
 
-## 8. Content Creation and Management
+## 4.1.8. Content Creation and Management
 
 ### 8.1 Educator Tools
 
@@ -226,9 +200,8 @@ Two-factor authentication (2FA).
 - **FR-8.7:** System shall provide content analytics for educators.
 - **FR-8.8:** System shall support content versioning and rollback.
 
----
 
-## 9. Mobile and Accessibility
+## 4.1.9. Mobile and Accessibility
 
 ### 9.1 Mobile Support
 
@@ -246,9 +219,8 @@ Two-factor authentication (2FA).
 - **FR-9.7:** System shall offer high contrast and color-blind friendly themes.
 - **FR-9.8:** System shall support text-to-speech for lesson content.
 
----
 
-## 10. Integration and API
+## 4.1.10. Integration and API
 
 ### 10.1 External Integrations
 
@@ -266,7 +238,6 @@ Two-factor authentication (2FA).
 - **FR-10.7:** System shall provide data export capabilities.
 - **FR-10.8:** System shall maintain API documentation and versioning.
 
----
 
 ## Summary
 

@@ -1,9 +1,9 @@
-# 3.2 Non-Functional Requirements
+# 4.2 Non-Functional Requirements
 
 ## Table of Contents
 [[toc]]
 
-## 3.2.1 Performance
+## 4.2.1 Performance
 
 ---
 
@@ -36,7 +36,7 @@
 - Animation frame rate: **60 FPS**
 - Roadmap rendering (100 nodes): **1.5 seconds**
 
-## 3.2.2 Availability
+## 4.2.2 Availability
 
 ---
 
@@ -62,7 +62,7 @@
 - AI unavailable → pre-generated hints available
 - Execution service down → lessons & content accessible
 
-## 3.2.3 Scalability
+## 4.2.3 Scalability
 
 ---
 
@@ -89,7 +89,7 @@
 - PostgreSQL with read replicas
 - Quarterly query plan reviews
 
-## 3.2.4 Reliability
+## 4.2.4 Reliability
 
 ---
 
@@ -116,7 +116,7 @@
 - User profiles: immediate consistency
 - Cache invalidation: **30 seconds**
 
-## 3.2.5 Interoperability
+## 4.2.5 Interoperability
 
 ---
 
@@ -149,7 +149,7 @@
 - Responsive: **320px–2560px**
 - Native notifications (FCM/APNs)
 
-## 3.2.6 Usability
+## 4.2.6 Usability
 
 ---
 
@@ -191,7 +191,7 @@
 - Immediate visual feedback
 - Progress indicators for operations > **1 second**
 
-## 3.2.7 Maintainability
+## 4.2.7 Maintainability
 
 ---
 
@@ -224,7 +224,7 @@
 - Automated CI/CD pipelines
 - Rollback capability: **10 minutes**
 
-## 3.2.8 Recovery
+## 4.2.8 Recovery
 
 ---
 
