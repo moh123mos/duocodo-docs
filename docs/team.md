@@ -21,6 +21,15 @@ const members = [
       { icon: 'linkedin', link: 'https://www.linkedin.com/in/mohammed-mostafa-b72804320/' }
     ]
   },
+   {
+    avatar: '/assets/imgs/alaa.png',
+    name: 'Alaa Mohamed',
+    title: 'UI/UX Designer | Graphic Designer',
+    links: [
+      { icon: 'behance', link: 'https://www.behance.net/alaamohamed417' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/in/alaa-mohamed-315154317/' }
+    ]
+  },
   {
     avatar: '/assets/imgs/mohamed-ragab.png',
     name: 'Mohamed Ragab',
@@ -55,15 +64,6 @@ const members = [
     links: [
       { icon: 'github', link: 'https://github.com/marwafarid33' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/in/marwa-farid-003079384/' }
-    ]
-  },
-  {
-    avatar: '/assets/imgs/alaa.png',
-    name: 'Alaa Mohamed',
-    title: 'UI/UX Designer | Graphic Designer',
-    links: [
-      // { icon: 'github', link: 'https://github.com/AmmarEmad-2004' },
-      { icon: 'linkedin', link: 'https://www.linkedin.com/in/alaa-mohamed-315154317/' }
     ]
   },
   {
