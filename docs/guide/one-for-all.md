@@ -957,8 +957,6 @@ By combining structured curriculum, instant feedback, and social accountability,
 
 ### <div id="project-scope" class="section">1.2 Project Scope</div>
 
-## Extended Project Scope  
-
 #### <div class="subsection">1. Comprehensive Curriculum & Content  </div>
    - Structured Learning Path:  
      - Tiered modules from absolute fundamentals (variables, loops) to advanced domains (OOP, algorithms, web frameworks, databases).  
