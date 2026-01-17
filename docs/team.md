@@ -13,7 +13,7 @@ import {
 
 const members = [
   {
-    avatar: 'https://media.licdn.com/dms/image/v2/D4E03AQGhKaxL60Sh8w/profile-displayphoto-shrink_200_200/B4EZXQeBTqGwAY-/0/1742959287361?e=1762387200&v=beta&t=HpINvcdZDkDVA3SdBT1MjbdBuZ21L2DgtRBPQ6evH7U',
+    avatar: '/assets/imgs/mohamed-mostafa.png',
     name: 'Mohamed Mostafa',
     title: 'Team Lead | Frontend Developer',
     links: [
@@ -22,7 +22,7 @@ const members = [
     ]
   },
   {
-    avatar: 'https://www.github.com/Mohamed5289.png',
+    avatar: '/assets/imgs/mohamed-ragab.png',
     name: 'Mohamed Ragab',
     title: 'Backend Developer | .NET Specialist',
     links: [
@@ -31,7 +31,7 @@ const members = [
     ]
   },
   {
-    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQFT4b2WU-X9kg/profile-displayphoto-scale_200_200/B56ZkLPKuCG4Ac-/0/1756830150981?e=1762387200&v=beta&t=luxyiYoZ06NbhCbIv2EW2LkmPY82Ih0aPnNPuQtw5Rk',
+    avatar: '/assets/imgs/ammar.png',
     name: 'Ammar Emad',
     title: 'Flutter Developer | Mobile Specialist',
     links: [
@@ -40,7 +40,7 @@ const members = [
     ]
   },
   {
-    avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQETy5Fkc4_gnQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731538278215?e=1762387200&v=beta&t=6uLvF6o7gph_5N86vnfHHNHgRDBhazg5P_nBxQGw3gM',
+    avatar: '/assets/imgs/yasso.png',
     name: 'Yassen Khaled',
     title: 'Backend Developer | .NET Specialist',
     links: [
@@ -49,7 +49,7 @@ const members = [
     ]
   },
   {
-    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQFWsWKAxEgK_w/profile-displayphoto-crop_800_800/B56Zk9fTANG4AI-/0/1757673241017?e=1762387200&v=beta&t=T-qkcBVF-m70bRpgVjxHHGKxLHOAorSvR1zOtNXN2iE',
+    avatar: '/assets/imgs/marwa.png',
     name: 'Marwa Farid',
     title: 'ML Engineer | AI Specialist',
     links: [
@@ -58,7 +58,7 @@ const members = [
     ]
   },
   {
-    avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQFQ-TVjo2bcBg/profile-displayphoto-scale_200_200/B4DZeuOVa6HkAY-/0/1750974687361?e=1762387200&v=beta&t=pIdZhGTDWI4wVWhamwXAKpOXCGKqz4oKwU3ESxxzYkM',
+    avatar: '/assets/imgs/alaa.png',
     name: 'Alaa Mohamed',
     title: 'UI/UX Designer | Graphic Designer',
     links: [
@@ -67,7 +67,7 @@ const members = [
     ]
   },
   {
-    avatar: 'https://www.github.com/BasharMKhalaf.png',
+    avatar: '/assets/imgs/bashar.png',
     name: 'Bashar Khalaf',
     title: 'Backend Developer | .NET Specialist',
     links: [
@@ -84,15 +84,6 @@ const managers = [
     title: 'Project Advisor | Computer Science Professor',
     links: [
       { icon: 'gmail', link: 'mailto:engrehab992@gmail.com' }
-    ]
-  },
-  {
-    avatar: 'https://media.licdn.com/dms/image/v2/C4E03AQE9cI03uN_7Yw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1639762684546?e=1762387200&v=beta&t=aouT9RHFIQWbN7SChDw5uX51qzGiQZDNhS2X5K9UcRU',
-    name: 'Eng. Mohamed Farag',
-    title: 'Project Manager | Founder CIBS Soft',
-    links: [
-      { icon: 'linkedin', link: 'https://www.linkedin.com/in/mohamed-faraj-1b5091123/' },
-      { icon: 'gmail', link: 'mailto:CIBSSoft@gmail.com' },
     ]
   },
 ]

@@ -1361,8 +1361,6 @@ Then the related work was described, (Which is listed in the previous table), an
 
 - **Project Advisor:** Dr. Rehab Emad El-Dein
 
-- **Project Manager:** Eng. Mohamed Farag
-
 - **Champion:** The development team and supervisors provide time and effort for the system.
 
 - **System Users:**  

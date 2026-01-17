@@ -22,8 +22,6 @@
 
 - **Project Advisor:** Dr. Rehab Emad El-Dein
 
-- **Project Manager:** Eng. Mohamed Farag
-
 - **Champion:** The development team and supervisors provide time and effort for the system.
 
 - **System Users:**  
