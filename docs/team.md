@@ -49,7 +49,7 @@ const members = [
     ]
   },
   {
-    avatar: '/assets/imgs/yasso.png',
+    avatar: '/assets/imgs/yasso.jpg',
     name: 'Yassen Khaled',
     title: 'Backend Developer | .NET Specialist',
     links: [
