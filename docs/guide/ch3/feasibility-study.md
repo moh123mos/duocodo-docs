@@ -34,7 +34,7 @@
   - **Back-end Developers (2):**  
     Build and maintain the server-side logic in .NET, manage the SQL Server database, and implement APIs. One of the back-end developers will also take on DevOps responsibilities, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs. 
 
-  - **Front-end Developers (2):**  
+  - **Front-end Developers (1):**  
     Develop the user interface using Nuxt.js, ensuring a responsive and intuitive design across desktop and mobile browsers. They will integrate the Monaco editor, implement gamification features (XP, badges, leaderboards), and collaborate closely with the mobile developer to keep design consistent.  
 
   - **Mobile Developer (1):**  
