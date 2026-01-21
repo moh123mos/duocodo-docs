@@ -1311,10 +1311,9 @@
 - [Chapter 7: User Interface](#Chapter-7-User-Interface)
   * [7.1 Authentication Screens](#Authentication-Screens)
   * [7.2 Main Dashboard](#Main-Dashboard)
-  * [7.3 Learning Features](#Learning-Features) 
+  * [7.3 Learning Paths](#Learning-Paths)
   * [7.4 Progress Tracking & Analytics](#Progress-Tracking-Analytics)
-  * [7.5 Communication & Settings](#Communication-Settings)
-  * [7.6 Theme Options](#Theme-Options) 
+  * [7.5 Theme Options](#Theme-Options) 
 
 <!-- tocstop -->
 
@@ -1390,18 +1389,18 @@
 - [Figure 7.3: OTP Verification Screen](#Figure73)
 - [Figure 7.4: Password Entry Screen](#Figure74)
 - [Figure 7.5: New Password Creation Screen](#Figure75)
-- [Figure 7.6: Main Dashboard](#Figure76)
-- [Figure 7.7: Dashboard Details View](#Figure77)
-- [Figure 7.8: Dashboard with Filtration Options](#Figure78)
-- [Figure 7.9: Learning Path Interface](#Figure79)
+- [Figure 7.6: Set Username](#Figure76)
+- [Figure 7.7: Learning Path Interface](#Figure77)
+- [Figure 7.8: Interface with Collapsed Sidebar](#Figure78)
+- [Figure 7.9: Chat Interface](#Figure79)
 - [Figure 7.10: Video Player Screen](#Figure710)
 - [Figure 7.11: Multiple Choice Quiz](#Figure711)
 - [Figure 7.12: Code Quiz Interface](#Figure712)
 - [Figure 7.13: Quiz Completion Screen](#Figure713)
-- [Figure 7.14: Progress & Analysis Dashboard](#Figure714)
-- [Figure 7.15: Chat Interface](#Figure715)
-- [Figure 7.16: User Profile Screen](#Figure716)
-- [Figure 7.17: Interface with Collapsed Sidebar](#Figure717)
+- [Figure 7.14: Main Dashboard](#Figure714)
+- [Figure 7.15: Dashboard Details View](#Figure715)
+- [Figure 7.16: Dashboard with Filtration Options](#Figure716)
+- [Figure 7.17: Progress & Analysis Dashboard](#Figure717)
 - [Figure 7.18: Dark Mode Interface](#Figure718)
 
 </div>
@@ -7540,31 +7539,28 @@ This detailed schema provides the implementation blueprint for the DuoCodo platf
     <img src="../public/assets/CH07/Figure_7.5_Desktop-New-Password.png" alt="New Password Screen">
     <figcaption>Figure 7.5: New Password Creation Screen</figcaption>
 </figure>
+
+<figure id="Figure76">
+    <img src="../public/assets/CH07/Figure_7.6_Desktop-User-name.png" alt="Set Username">
+    <figcaption>Figure 7.6: Set Username</figcaption>
+</figure>
 </div>
 
 ### <div id="Main-Dashboard" class="section">7.2 Main Dashboard</div>
 <div class="ui-container">
-<figure id="Figure76">
-    <img src="../public/assets/CH07/Figure_7.6_Desktop-Dashboard.png" alt="Main Dashboard">
-    <figcaption>Figure 7.6: Main Dashboard</figcaption>
-</figure>
-    
 <figure id="Figure77">
-    <img src="../public/assets/CH07/Figure_7.7_Desktop-Dashboard-Details.png" alt="Dashboard Details">
-    <figcaption>Figure 7.7: Dashboard Details View</figcaption>
+    <img src="../public/assets/CH07/Figure_7.7_Desktop-Learning-Path.png" alt="Learning Path">
+    <figcaption>Figure 7.7: Learning Path Interface</figcaption>
 </figure>
 
 <figure id="Figure78">
-    <img src="../public/assets/CH07/Figure_7.8_Desktop-Dashboard-with-filtration.png" alt="Dashboard with Filtration">
-    <figcaption>Figure 7.8: Dashboard with Filtration Options</figcaption>
+    <img src="../public/assets/CH07/Figure_7.8_Desktop-close-side-bar.png" alt="Collapsed Sidebar">
+    <figcaption>Figure 7.8: Interface with Collapsed Sidebar</figcaption>
 </figure>
-</div>
 
-<div id="Learning-Features" class="section">7.3 Learning Features</div>
-<div class="ui-container">
 <figure id="Figure79">
-    <img src="../public/assets/CH07/Figure_7.9_Desktop-Learning-Path.png" alt="Learning Path">
-    <figcaption>Figure 7.9: Learning Path Interface</figcaption>
+    <img src="../public/assets/CH07/Figure_7.9_Desktop-chat.png" alt="Chat Interface">
+    <figcaption>Figure 7.9: Chat Interface</figcaption>
 </figure>
     
 <figure id="Figure710">
@@ -7588,33 +7584,33 @@ This detailed schema provides the implementation blueprint for the DuoCodo platf
 </figure>
 </div>
 
+<div id="Learning-Paths" class="section">7.3 Learning Paths</div>
+<div class="ui-container">
+<figure id="Figure714">
+    <img src="../public/assets/CH07/Figure_7.14_Desktop-Dashboard.png" alt="Main Dashboard">
+    <figcaption>Figure 7.14: Main Dashboard</figcaption>
+</figure>
+    
+<figure id="Figure715">
+    <img src="../public/assets/CH07/Figure_7.15_Desktop-Dashboard-Details.png" alt="Dashboard Details">
+    <figcaption>Figure 7.15: Dashboard Details View</figcaption>
+</figure>
+
+<figure id="Figure716">
+    <img src="../public/assets/CH07/Figure_7.16_Desktop-Dashboard-with-filtration.png" alt="Dashboard with Filtration">
+    <figcaption>Figure 7.16: Dashboard with Filtration Options</figcaption>
+</figure>
+</div>
+
 <div id="Progress-Tracking-Analytics" class="section">7.4 Progress Tracking & Analytics</div>
 <div class="ui-container">
-    <figure id="Figure714">
-        <img src="../public/assets/CH07/Figure_7.14_Desktop-Progress-Analysis.png" alt="Progress and Analysis">
-        <figcaption>Figure 7.14: Progress & Analysis Dashboard</figcaption>
+    <figure id="Figure717">
+        <img src="../public/assets/CH07/Figure_7.17_Desktop-Progress-Analysis.png" alt="Progress and Analysis">
+        <figcaption>Figure 7.17: Progress & Analysis Dashboard</figcaption>
     </figure>
 </div>
 
-<div id="Communication-Settings" class="section">7.5 Communication & Settings</div>
-<div class="ui-container">
-<figure id="Figure715">
-    <img src="../public/assets/CH07/Figure_7.15_Desktop-chat.png" alt="Chat Interface">
-    <figcaption>Figure 7.15: Chat Interface</figcaption>
-</figure>
-    
-<figure id="Figure716">
-    <img src="../public/assets/CH07/Figure_7.16_Desktop-User-name.png" alt="User Profile">
-    <figcaption>Figure 7.16: User Profile Screen</figcaption>
-</figure>
-
-<figure id="Figure717">
-    <img src="../public/assets/CH07/Figure_7.17_Desktop-close-side-bar.png" alt="Collapsed Sidebar">
-    <figcaption>Figure 7.17: Interface with Collapsed Sidebar</figcaption>
-</figure>
-</div>
-
-<div id="Theme-Options" class="section">7.6 Theme Options</div>
+<div id="Theme-Options" class="section">7.5 Theme Options</div>
 <div class="ui-container">
     <figure id="Figure718">
         <img src="../public/assets/CH07/Figure_7.18_Desktop-Dark-Mode.png" alt="Dark Mode">
