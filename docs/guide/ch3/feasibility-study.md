@@ -26,18 +26,18 @@
 
 - **System Users:**  
   1. **Learners:** Arabic-speaking students and self-learners who use the platform to learn programming through structured courses, interactive exercises, and real-time code challenges. They earn XP, badges, and streaks as they progress.  
-  2. **Mentors/Instructors:** More experienced developers or educators who contribute by answering questions, reviewing user code, curating content, and moderating the community. Mentors help ensure quality and provide additional support (similar to Duolingo "language mentors").  
-  3. **Administrators/Content Creators:** A small team of admins who upload new course material, monitor the system, and handle technical support.
+  2. **Content Creators:** More experienced developers or educators who contribute by reviewing user code, and curating content. Content creators help ensure quality(similar to Duolingo "language mentors").
+  3. **Administrators:** A small team of admins who upload new course material, monitor the system, and handle technical support.
 
 - **Development Team Breakdown:** The team is organized into specialized roles with overlapping collaboration to ensure flexibility:
 
-| Role | Description | No. Members |
-|------|-------------|-------------|
-| **Back-end Developers** | Build and maintain the server-side logic in .NET, manage the SQL Server database, and implement APIs. One of the back-end developers will also take on DevOps responsibilities, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs. | 2 |
-| **Front-end Developer** | Develops the user interface using Nuxt.js, ensuring a responsive and intuitive design across desktop and mobile browsers. Integrates the Monaco editor, implements gamification features (XP, badges, leaderboards), and collaborates closely with the mobile developer to keep design consistent. | 1 |
-| **Mobile Developer** | Focuses on building and optimizing the mobile application version of the platform, ensuring a smooth experience on iOS and Android. Works with front-end and back-end teams for synchronization and performance. | 1 |
-| **AI Engineer** | Specializes in integrating AI features, including intelligent hints and personalized feedback, through APIs like OpenRouter/Gemini. This role also explores adaptive learning models to tailor exercises to each learner's progress. | 1 |
-| **Content & Instructional Design** | Instead of dedicated content creators, all team members will collaborate on producing and localizing course material in Arabic. This includes designing structured lessons, writing exercises, and embedding gamification mechanics. Team members' technical expertise ensures content is accurate, while shared responsibility distributes workload evenly. | Shared |
+| Role                    | Description                                                                                                                                                                                                                                                                                                                             | No. Members |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **Back-end Developers** | Build and maintain the server-side logic in .NET, manage the SQL Server database, and implement APIs. One of the back-end developers will also take on DevOps responsibilities, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs. | 2           |
+| **Front-end Developer** | Develops the user interface using Nuxt.js, ensuring a responsive and intuitive design across desktop and mobile browsers. Integrates the Monaco editor, implements gamification features (XP, badges, leaderboards), and collaborates closely with the mobile developer to keep design consistent.                                      | 1           |
+| **Mobile Developer**    | Focuses on building and optimizing the mobile application version of the platform, ensuring a smooth experience on iOS and Android. Works with front-end and back-end teams for synchronization and performance.                                                                                                                        | 1           |
+| **AI Engineer**         | Specializes in integrating AI features, including intelligent hints and personalized feedback, through APIs like OpenRouter/Gemini. This role also explores adaptive learning models to tailor exercises to each learner's progress.                                                                                                    | 1           |
+| **UI/UX Designer**      | Designs the user experience and interface, ensuring the platform is intuitive, accessible, and engaging. Collaborates with front-end and mobile developers to maintain consistent design language and usability across devices.                                                                                                         | 1      |
 
 ## 3.1.3 Economic Feasibility
 
