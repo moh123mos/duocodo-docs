@@ -118,6 +118,7 @@
       margin: 20px auto;
       text-align: center;
       padding: 10px;
+      max-height: 200mm;
       border: 1px solid #dee2e6;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -125,7 +126,7 @@
 
     figure img {
       max-width: 100%;
-      height: auto;
+      max-height: 160mm;
       border-radius: 5px;
       break-after: avoid;
     }
@@ -135,6 +136,13 @@
       font-size: 0.9em;
       font-style: italic;
       break-before: avoid;
+    }
+
+    .ui-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
 
     .highlight-box {
@@ -189,8 +197,12 @@
       break-before: page;
     }
 
-    .section, .subsection, .figure, .highlight-box, table, ul {
+    .section, .subsection, .highlight-box, table, ul {
       break-inside: avoid;
+    }
+
+    .section, .subsection {
+      break-after: avoid;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -321,9 +333,9 @@
 
   .scenario-steps {
     background: white;
-    border: 2px solid var(--primary);
-    border-top: none;
-    border-radius: 0 0 5px 5px;
+    /* border: 2px solid var(--primary); */
+    /* border-top: none; */
+    /* border-radius: 0 0 5px 5px; */
     padding: 20px 25px;
     counter-reset: step-counter;
   }
@@ -395,9 +407,9 @@
 
   .alt-scenarios-container {
     background: #fffbf0;
-    border: 2px solid var(--warning);
-    border-top: none;
-    border-radius: 0 0 5px 5px;
+    /* border: 2px solid var(--warning); */
+    /* border-top: none; */
+    /* border-radius: 0 0 5px 5px; */
     padding: 20px 25px;
   }
 
@@ -438,9 +450,9 @@
 
   .extensions-container {
     background: #f0f9f4;
-    border: 2px solid var(--success);
-    border-top: none;
-    border-radius: 0 0 5px 5px;
+    /* border: 2px solid var(--success); */
+    /* border-top: none; */
+    /* border-radius: 0 0 5px 5px; */
     padding: 20px 25px;
   }
 
@@ -568,14 +580,6 @@
     background: var(--vp-c-bg);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-
-    .section {
-      color: var(--primary);
-    }
-
-    .subsection {
-      color: var(--dark);
-    }
   }
 
   @counter-style three-digit {
@@ -781,7 +785,494 @@
   .lof a:hover {
     color: #3498db;
   }
+
+  .cover-page {
+    page: cover;
+  }
+  
+  @page cover {
+    all: unset;
+    size: A4;
+    margin: 0;
+    padding: 0;
+    border: none;
+    @bottom-left {
+      all: unset;
+    }
+    @bottom-right {
+      all: unset;
+    }
+  }
+
+  .cover-page {
+            page: cover;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            width: 210mm;
+            height: 297mm;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Formal Hero Header */
+        .hero-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            padding: 1.2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Circles - Subtle for formal design */
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 2px solid rgba(255,255,255,0.08);
+            bottom: -50px;
+            left: -50px;
+            border-radius: 50%;
+        }
+
+        /* Dot Pattern Overlay */
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        /* Logos Section */
+        .header-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            gap: 1.5rem;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 0 2px rgba(255,255,255,0.5);
+            overflow: hidden;
+        }
+        
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* University Details in Header */
+        .uni-details-header {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .uni-details-header h2 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .uni-details-header p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.4;
+            font-weight: 500;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Title Section - Combined with Logo */
+        .title-logo-section {
+            text-align: center;
+            position: relative;
+        }
+
+        .title-logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.3rem 1.5rem;
+            background: linear-gradient(135deg, rgba(30,58,138,0.03) 0%, rgba(30,64,175,0.05) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30,58,138,0.1);
+            box-shadow: 0 8px 32px rgba(30,58,138,0.08);
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #374151;
+            font-weight: 600;
+            line-height: 1.4;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: white;
+            padding: 1.2rem 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-logo-large {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 40px rgba(30,58,138,0.2), 0 0 0 4px #1e3a8a, 0 0 0 8px rgba(30,58,138,0.1);
+            position: relative;
+        }
+
+        /* Team Section */
+        .team-container {
+            width: 100%;
+            margin: 1rem 0 0.8rem 0;
+        }
+
+        .section-header {
+            font-size: 1.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a8a, #1e40af, #1e3a8a);
+            border-radius: 10px;
+        }
+
+        .team-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.72rem;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-table thead {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+
+        .team-table th {
+            padding: 0.65rem 0.6rem;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.65rem;
+            border: none;
+        }
+
+        .team-table tbody tr {
+            background-color: white;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        .team-table tbody tr:nth-child(even) {
+            background: linear-gradient(90deg, #f9fafb 0%, white 100%);
+        }
+
+        .team-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .team-table td {
+            padding: 0.6rem 0.6rem;
+            color: #333;
+            border: none;
+        }
+
+        .team-table td:first-child {
+            text-align: center;
+            width: 50px;
+            font-weight: 900;
+            color: #1e3a8a;
+            font-size: 0.95rem;
+        }
+
+        .team-table td:nth-child(2) {
+            font-weight: 600;
+            color: #222;
+        }
+
+        .team-table td:nth-child(3) {
+            text-align: center;
+            color: #666;
+            font-weight: 500;
+            width: 60px;
+        }
+
+        .team-table td:nth-child(4) {
+            font-size: 0.68rem;
+        }
+
+        .team-table a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Supervisors Section */
+        .supervisors-section {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 1.3rem 2rem;
+            position: relative;
+            border-top: 4px solid #1e3a8a;
+        }
+
+        .section-header-light {
+            font-size: 1.05rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .supervisors-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.3rem;
+        }
+
+        .supervisor-card {
+            text-align: center;
+            padding: 1.1rem 1.2rem;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 2px solid #1e3a8a;
+        }
+        
+        .role-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            color: white;
+            font-weight: 800;
+            display: inline-block;
+            padding: 0.35rem 1.1rem;
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            border-radius: 30px;
+            margin-bottom: 0.6rem;
+            box-shadow: 0 3px 12px rgba(30,58,138,0.3);
+        }
+
+        .supervisor-name {
+            font-size: 0.95rem;
+            color: #222;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .supervisor-dept {
+            font-size: 0.72rem;
+            color: #555;
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .supervisor-email {
+            font-size: 0.66rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .supervisor-email a {
+            color: inherit;
+            text-decoration: none;
+        }
 </style>
+
+<div class="cover-page">
+  <!-- Vibrant Hero Header -->
+  <div class="hero-header">
+  <div class="pattern-overlay"></div>
+  <!-- Logos -->
+  <div class="header-logos">
+    <div class="logo-wrapper">
+        <div class="logo-placeholder">
+          <img width="100" src="../public/fci_logo.png" alt="University Logo">
+        </div>
+      </div>
+      <div class="uni-details-header">
+        <h2>Faculty of Computers and Information</h2>
+          <p>Minia University</p>
+          <p>Academic Year: 2025 / 2026</p>
+        </div>
+        <div class="logo-wrapper">
+          <div class="logo-placeholder">
+            <img src="../public/Logo minia.jpg" alt="FCI Logo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content Section -->
+    <div class="content-section">
+      <!-- Title & Project Logo Combined -->
+      <div class="title-logo-section">
+        <div class="title-logo-wrapper">
+          <div class="project-logo-large">
+            <img src="../public/project-logo.svg" alt="Project Logo" width="200">
+          </div>
+          <div>
+            <h1 class="main-title">DuoCodo</h1>
+            <div class="subtitle">Gamified, Arabic-Centered Programming Learning Platform and Application</div>
+          </div>
+        </div>
+      </div>
+      <!-- Team Table -->
+      <section class="team-container">
+        <div class="section-header">Project Team Members</div>
+        <table class="team-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Dept</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mohamed Mostafa Amer Abdelkader</td>
+              <td>CS</td>
+              <td><a href="mailto:muhammed.mustafa.work@gmail.com">muhammed.mustafa.work@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Mohamed Ragab Abdelhafez Mehran</td>
+              <td>CS</td>
+              <td><a href="mailto:ragab.168926@gmail.com">ragab.168926@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+                <td>Alaa Mohamed Abdelhakeem Ahmed</td>
+                <td>CS</td>
+                <td><a href="mailto:alaahakeem58@gmail.com">alaahakeem58@gmail.com</a></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Ammar Emad Ahmed Azmy Zewain</td>
+                <td>IS</td>
+                <td><a href="mailto:za0663008@gmail.com">za0663008@gmail.com</a></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Yassin Khaled Khalaf</td>
+                <td>IS</td>
+                <td><a href="mailto:yassenkhaled927@gmail.com">yassenkhaled927@gmail.com</a></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Marwa Farid Mohamed</td>
+                <td>IS</td>
+                <td><a href="mailto:marwafarid366@gmail.com">marwafarid366@gmail.com</a></td>
+              </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <!-- Supervisors Section -->
+    <section class="supervisors-section">
+      <div class="section-header-light">Under Supervision of</div>
+        <div class="supervisors-grid">
+          <div class="supervisor-card">
+            <div class="role-label">Supervisor</div>
+            <div class="supervisor-name">Dr. Rehab Emad El-Dein</div>
+            <div class="supervisor-dept">CS Department</div>
+            <div class="supervisor-email"><a href="mailto:engrehab992@gmail.com">engrehab992@gmail.com</a></div>
+          </div>
+          <div class="supervisor-card">
+            <div class="role-label">Teaching Assistant</div>
+            <div class="supervisor-name">T.A. Mohammed Shaaban</div>
+            <div class="supervisor-dept">CS Department</div>
+            <div class="supervisor-email"><a href="mailto:mohamed.shaaban@gmail.com">mohamed.shaaban@gmail.com</a></div>
+        </div>
+    </div>
+  </section>
+</div>
 
 <div class="toc">
 
@@ -817,6 +1308,13 @@
 - [Chapter 6: Database Design](#chapter-6-database-design)
   * [6.1 Entity Relationship Diagram](#entity-relationship-diagram)
   * [6.2 Database Schema](#database-schema)
+- [Chapter 7: User Interface](#Chapter-7-User-Interface)
+  * [7.1 Authentication Screens](#Authentication-Screens)
+  * [7.2 Main Dashboard](#Main-Dashboard)
+  * [7.3 Learning Features](#Learning-Features) 
+  * [7.4 Progress Tracking & Analytics](#Progress-Tracking-Analytics)
+  * [7.5 Communication & Settings](#Communication-Settings)
+  * [7.6 Theme Options](#Theme-Options) 
 
 <!-- tocstop -->
 
@@ -886,6 +1384,25 @@
 - [Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis](#Figure610)
 - [Figure 6.11: Database Schema - Certification and Gamification](#Figure611)
 - [Figure 6.12: Database Schema - Administration and System Management](#Figure612)
+
+- [Figure 7.1: Login Screen](#Figure71)
+- [Figure 7.2: Registration Screen](#Figure72)
+- [Figure 7.3: OTP Verification Screen](#Figure73)
+- [Figure 7.4: Password Entry Screen](#Figure74)
+- [Figure 7.5: New Password Creation Screen](#Figure75)
+- [Figure 7.6: Main Dashboard](#Figure76)
+- [Figure 7.7: Dashboard Details View](#Figure77)
+- [Figure 7.8: Dashboard with Filtration Options](#Figure78)
+- [Figure 7.9: Learning Path Interface](#Figure79)
+- [Figure 7.10: Video Player Screen](#Figure710)
+- [Figure 7.11: Multiple Choice Quiz](#Figure711)
+- [Figure 7.12: Code Quiz Interface](#Figure712)
+- [Figure 7.13: Quiz Completion Screen](#Figure713)
+- [Figure 7.14: Progress & Analysis Dashboard](#Figure714)
+- [Figure 7.15: Chat Interface](#Figure715)
+- [Figure 7.16: User Profile Screen](#Figure716)
+- [Figure 7.17: Interface with Collapsed Sidebar](#Figure717)
+- [Figure 7.18: Dark Mode Interface](#Figure718)
 
 </div>
 
@@ -6993,6 +7510,116 @@ The database schema implementation follows these key specifications:
 
 This detailed schema provides the implementation blueprint for the DuoCodo platform's database, ensuring robust data management and optimal query performance across all system components.
 
+---
 
+## <div id="Chapter-7-User-Interface" class="chapter">Chapter 7: User Interface</div>
+   
+### <div id="Authentication-Screens" class="section">7.1 Authentication Screens</div>
+<div class="ui-container">
+<figure id="Figure71">
+    <img src="../public/assets/CH07/Figure_7.1_Desktop-login.png" alt="Login Screen">
+    <figcaption>Figure 7.1: Login Screen</figcaption>
+</figure>
+
+<figure id="Figure72">
+    <img src="../public/assets/CH07/Figure_7.2_Desktop-register.png" alt="Register Screen">
+    <figcaption>Figure 7.2: Registration Screen</figcaption>
+</figure>
+
+<figure id="Figure73">
+    <img src="../public/assets/CH07/Figure_7.3_Desktop-OTP.png" alt="OTP Verification">
+    <figcaption>Figure 7.3: OTP Verification Screen</figcaption>
+</figure>
+
+<figure id="Figure74">
+    <img src="../public/assets/CH07/Figure_7.4_Desktop-Password.png" alt="Password Screen">
+    <figcaption>Figure 7.4: Password Entry Screen</figcaption>
+</figure>
+
+<figure id="Figure75">
+    <img src="../public/assets/CH07/Figure_7.5_Desktop-New-Password.png" alt="New Password Screen">
+    <figcaption>Figure 7.5: New Password Creation Screen</figcaption>
+</figure>
+</div>
+
+### <div id="Main-Dashboard" class="section">7.2 Main Dashboard</div>
+<div class="ui-container">
+<figure id="Figure76">
+    <img src="../public/assets/CH07/Figure_7.6_Desktop-Dashboard.png" alt="Main Dashboard">
+    <figcaption>Figure 7.6: Main Dashboard</figcaption>
+</figure>
+    
+<figure id="Figure77">
+    <img src="../public/assets/CH07/Figure_7.7_Desktop-Dashboard-Details.png" alt="Dashboard Details">
+    <figcaption>Figure 7.7: Dashboard Details View</figcaption>
+</figure>
+
+<figure id="Figure78">
+    <img src="../public/assets/CH07/Figure_7.8_Desktop-Dashboard-with-filtration.png" alt="Dashboard with Filtration">
+    <figcaption>Figure 7.8: Dashboard with Filtration Options</figcaption>
+</figure>
+</div>
+
+<div id="Learning-Features" class="section">7.3 Learning Features</div>
+<div class="ui-container">
+<figure id="Figure79">
+    <img src="../public/assets/CH07/Figure_7.9_Desktop-Learning-Path.png" alt="Learning Path">
+    <figcaption>Figure 7.9: Learning Path Interface</figcaption>
+</figure>
+    
+<figure id="Figure710">
+    <img src="../public/assets/CH07/Figure_7.10_Desktop-Video.png" alt="Video Player">
+    <figcaption>Figure 7.10: Video Player Screen</figcaption>
+</figure>
+    
+<figure id="Figure711">
+    <img src="../public/assets/CH07/Figure_7.11_Desktop-Quiz-mcq.png" alt="Quiz MCQ">
+    <figcaption>Figure 7.11: Multiple Choice Quiz</figcaption>
+</figure>
+    
+<figure id="Figure712">
+    <img src="../public/assets/CH07/Figure_7.12_Desktop-Quiz-Code.png" alt="Quiz Code">
+    <figcaption>Figure 7.12: Code Quiz Interface</figcaption>
+</figure>
+    
+<figure id="Figure713">
+    <img src="../public/assets/CH07/Figure_7.13_Desktop-Quiz-Completed.png" alt="Quiz Completed">
+    <figcaption>Figure 7.13: Quiz Completion Screen</figcaption>
+</figure>
+</div>
+
+<div id="Progress-Tracking-Analytics" class="section">7.4 Progress Tracking & Analytics</div>
+<div class="ui-container">
+    <figure id="Figure714">
+        <img src="../public/assets/CH07/Figure_7.14_Desktop-Progress-Analysis.png" alt="Progress and Analysis">
+        <figcaption>Figure 7.14: Progress & Analysis Dashboard</figcaption>
+    </figure>
+</div>
+
+<div id="Communication-Settings" class="section">7.5 Communication & Settings</div>
+<div class="ui-container">
+<figure id="Figure715">
+    <img src="../public/assets/CH07/Figure_7.15_Desktop-chat.png" alt="Chat Interface">
+    <figcaption>Figure 7.15: Chat Interface</figcaption>
+</figure>
+    
+<figure id="Figure716">
+    <img src="../public/assets/CH07/Figure_7.16_Desktop-User-name.png" alt="User Profile">
+    <figcaption>Figure 7.16: User Profile Screen</figcaption>
+</figure>
+
+<figure id="Figure717">
+    <img src="../public/assets/CH07/Figure_7.17_Desktop-close-side-bar.png" alt="Collapsed Sidebar">
+    <figcaption>Figure 7.17: Interface with Collapsed Sidebar</figcaption>
+</figure>
+</div>
+
+<div id="Theme-Options" class="section">7.6 Theme Options</div>
+<div class="ui-container">
+    <figure id="Figure718">
+        <img src="../public/assets/CH07/Figure_7.18_Desktop-Dark-Mode.png" alt="Dark Mode">
+        <figcaption>Figure 7.18: Dark Mode Interface</figcaption>
+    </figure>
+</div>
 
 </div>
