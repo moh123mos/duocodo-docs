@@ -1162,6 +1162,53 @@
             color: inherit;
             text-decoration: none;
         }
+
+    .blank-page {
+      page: blank;
+      break-after: page;
+      break-before: page;
+    }
+
+    @page blank {
+      all: unset;
+      border: none;
+      padding: 0;
+      margin: 0;
+      @bottom-left {
+        content: none;
+        all: unset;
+      }
+      @bottom-right {
+        content: none;
+        all: unset;
+      }
+    }
+
+    .abstract {
+  page: abstract;
+  background: #f5f5f5;
+  padding: 30px;
+  border: 2px solid #3398da;
+  margin: 20px 0;
+  break-inside: avoid;
+}
+
+.abstract h2 {
+  text-align: center;
+  color: #1a5490;
+  border: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.abstract p {
+  text-indent: 0;
+  margin-bottom: 10px;
+}
+
+@page abstract {
+  border: none;
+}
 </style>
 
 <div class="cover-page">
@@ -1193,7 +1240,7 @@
       <div class="title-logo-section">
         <div class="title-logo-wrapper">
           <div class="project-logo-large">
-            <img src="../public/project-logo.svg" alt="Project Logo" width="200">
+            <img src="../public/project-logo.png" alt="Project Logo" width="200">
           </div>
           <div>
             <h1 class="main-title">DuoCodo</h1>
@@ -1272,6 +1319,13 @@
         </div>
     </div>
   </section>
+</div>
+
+<div class="blank-page"></div>
+
+<div class="abstract">
+<h2>bstract</h2>
+<p>Learning programming remains a significant challenge for beginners, particularly within Arabic-speaking communities, due to fragmented learning resources, limited interactivity, delayed feedback, and declining learner motivation. This project presents DuoCodo, a gamified, Arabic-centered programming learning platform inspired by Duolingo’s engagement model and designed to provide a structured, interactive, and motivating educational experience. The platform delivers a progressive curriculum covering programming fundamentals through advanced topics such as object-oriented programming, algorithms, and web development. It integrates multi-format learning content, including articles, videos, and guided walkthroughs, alongside an in-browser code editor that supports real-time code execution, instant feedback, and intelligent error analysis. Gamification elements—such as experience points, badges, levels, leaderboards, and daily streaks—are employed to enhance learner motivation and retention. Additionally, AI-powered assistance offers contextual hints, personalized recommendations, and adaptive difficulty based on learner performance. By combining structured learning paths, continuous practice, immediate feedback, and motivational mechanics within an Arabic-first environment, DuoCodo aims to reduce learning barriers, improve engagement, and enable learners to build practical programming skills effectively and confidently.</p>
 </div>
 
 <div class="toc">
