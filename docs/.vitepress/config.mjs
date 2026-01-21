@@ -87,10 +87,10 @@ export default withMermaid({
                         { text: 'Schema Diagrams', link: '/guide/ch6/schema' },
                     ]
                 },
-                // {
-                //     text: 'All Chapters',
-                //     link: '/guide/one-for-all'
-                // }
+                {
+                    text: 'All Chapters',
+                    link: '/guide/one-for-all'
+                }
             ]
         },
         socialLinks: [
