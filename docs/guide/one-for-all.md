@@ -1209,6 +1209,208 @@
 @page abstract {
   border: none;
 }
+
+            .chapter-page {
+                page: chapter;
+                break-after: page;
+                break-before: page;
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+                background: white;
+                position: relative;
+                overflow: hidden;
+                box-sizing: border-box;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                font-family: 'Montserrat', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Decorative Elements */
+            .ch-decoration-top {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 150px;
+                background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+                clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+            }
+
+            .ch-decoration-bottom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 120px;
+                background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+                clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+            }
+
+            /* Geometric Shapes */
+            .ch-circle-decoration {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                border-radius: 50%;
+                border: 40px solid rgba(30,58,138,0.08);
+                top: -150px;
+                right: -150px;
+            }
+
+            .ch-square-decoration {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background: rgba(30,58,138,0.05);
+                bottom: 100px;
+                left: -80px;
+                transform: rotate(45deg);
+                border-radius: 20px;
+            }
+
+            /* Content Wrapper */
+            .content-wrapper {
+                position: relative;
+                z-index: 10;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 4rem;
+            }
+
+            /* Chapter Number Badge */
+            .chapter-badge {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 12px 40px rgba(30,58,138,0.3);
+                margin-bottom: 3rem;
+                position: relative;
+            }
+
+            .chapter-badge::before {
+                content: '';
+                position: absolute;
+                inset: -15px;
+                border-radius: 50%;
+                border: 3px solid rgba(30,58,138,0.15);
+            }
+
+            .chapter-number {
+                font-size: 4rem;
+                font-weight: 900;
+                color: white;
+                font-family: 'Montserrat Display', serif;
+            }
+
+            /* Chapter Label */
+            .chapter-label {
+                font-size: 0.9rem;
+                font-weight: 600;
+                letter-spacing: 6px;
+                color: #1e3a8a;
+                text-transform: uppercase;
+                margin-bottom: 1.5rem;
+                position: relative;
+            }
+
+            .chapter-label::before,
+            .chapter-label::after {
+                content: '';
+                position: absolute;
+                width: 50px;
+                height: 2px;
+                background: #1e3a8a;
+                top: 50%;
+            }
+
+            .chapter-label::before {
+                right: 110%;
+            }
+
+            .chapter-label::after {
+                left: 110%;
+            }
+
+            /* Main Title */
+            .chapter-title {
+                font-size: 2.5rem;
+                max-width: 700px;
+                font-weight: 900;
+                color: #2c3e50;
+                font-family: 'Playfair Display', serif;
+                line-height: 1.2;
+                text-align: center;
+                margin-bottom: 2rem;
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            /* Subtitle */
+            .chapter-subtitle {
+                font-size: 1.1rem;
+                color: #666;
+                font-weight: 400;
+                text-align: center;
+                max-width: 600px;
+                line-height: 1.8;
+            }
+
+            /* Decorative Line */
+            .ch-decorative-line {
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(90deg, #1e3a8a, #1e40af);
+                margin: 2rem auto;
+                border-radius: 2px;
+            }
+
+    /* Bottom Pattern */
+    .ch-pattern-ch-dots {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 5;
+    }
+
+    .ch-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #1e3a8a;
+    }
+
+    @page chapter {
+      all: unset;
+      size: A4;
+      border: none;
+      padding: 0;
+      margin: 0;
+      @bottom-left {
+        all: unset;
+        content: none;
+      }
+      @bottom-right {
+        all: unset;
+        content: none;
+      }
+    }
 </style>
 
 <div class="cover-page">
@@ -1265,37 +1467,37 @@
               <td>1</td>
               <td>Mohamed Mostafa Amer Abdelkader</td>
               <td>CS</td>
-              <td><a href="mailto:muhammed.mustafa.work@gmail.com">muhammed.mustafa.work@gmail.com</a></td>
+              <td><a href="81457191@fci.s-mu.edu.eg">81457191@fci.s-mu.edu.eg</a></td>
             </tr>
             <tr>
               <td>2</td>
               <td>Mohamed Ragab Abdelhafez Mehran</td>
               <td>CS</td>
-              <td><a href="mailto:ragab.168926@gmail.com">ragab.168926@gmail.com</a></td>
+              <td><a href="81457191@fci.s-mu.edu.eg">81457191@fci.s-mu.edu.eg</a></td>
             </tr>
             <tr>
               <td>3</td>
                 <td>Alaa Mohamed Abdelhakeem Ahmed</td>
                 <td>CS</td>
-                <td><a href="mailto:alaahakeem58@gmail.com">alaahakeem58@gmail.com</a></td>
+                <td><a href="81438405@fci.s-mu.edu.eg">81438405@fci.s-mu.edu.eg</a></td>
               </tr>
               <tr>
                 <td>4</td>
                 <td>Ammar Emad Ahmed Azmy Zewain</td>
                 <td>IS</td>
-                <td><a href="mailto:za0663008@gmail.com">za0663008@gmail.com</a></td>
+                <td><a href="81451636@fci.s-mu.edu.eg">81451636@fci.s-mu.edu.eg</a></td>
               </tr>
               <tr>
                 <td>5</td>
                 <td>Yassin Khaled Khalaf</td>
                 <td>IS</td>
-                <td><a href="mailto:yassenkhaled927@gmail.com">yassenkhaled927@gmail.com</a></td>
+                <td><a href="81797831@fci.s-mu.edu.eg">81797831@fci.s-mu.edu.eg</a></td>
               </tr>
               <tr>
                 <td>6</td>
                 <td>Marwa Farid Mohamed</td>
                 <td>IS</td>
-                <td><a href="mailto:marwafarid366@gmail.com">marwafarid366@gmail.com</a></td>
+                <td><a href="81145783@fci.s-mu.edu.eg">81145783@fci.s-mu.edu.eg</a></td>
               </tr>
           </tbody>
         </table>
@@ -1309,7 +1511,7 @@
             <div class="role-label">Supervisor</div>
             <div class="supervisor-name">Dr. Rehab Emad El-Dein</div>
             <div class="supervisor-dept">CS Department</div>
-            <div class="supervisor-email"><a href="mailto:engrehab992@gmail.com">engrehab992@gmail.com</a></div>
+            <div class="supervisor-email"><a href="rehab.mohamed@mu.edu.eg">rehab.mohamed@mu.edu.eg</a></div>
           </div>
           <div class="supervisor-card">
             <div class="role-label">Teaching Assistant</div>
@@ -1324,7 +1526,7 @@
 <div class="blank-page"></div>
 
 <div class="abstract">
-<h2>bstract</h2>
+<h2>Abstract</h2>
 <p>Learning programming remains a significant challenge for beginners, particularly within Arabic-speaking communities, due to fragmented learning resources, limited interactivity, delayed feedback, and declining learner motivation. This project presents DuoCodo, a gamified, Arabic-centered programming learning platform inspired by Duolingo’s engagement model and designed to provide a structured, interactive, and motivating educational experience. The platform delivers a progressive curriculum covering programming fundamentals through advanced topics such as object-oriented programming, algorithms, and web development. It integrates multi-format learning content, including articles, videos, and guided walkthroughs, alongside an in-browser code editor that supports real-time code execution, instant feedback, and intelligent error analysis. Gamification elements—such as experience points, badges, levels, leaderboards, and daily streaks—are employed to enhance learner motivation and retention. Additionally, AI-powered assistance offers contextual hints, personalized recommendations, and adaptive difficulty based on learner performance. By combining structured learning paths, continuous practice, immediate feedback, and motivational mechanics within an Arabic-first environment, DuoCodo aims to reduce learning barriers, improve engagement, and enable learners to build practical programming skills effectively and confidently.</p>
 </div>
 
@@ -1368,6 +1570,7 @@
   * [7.3 Learning Paths](#Learning-Paths)
   * [7.4 Progress Tracking & Analytics](#Progress-Tracking-Analytics)
   * [7.5 Theme Options](#Theme-Options) 
+- [Chapter 8: References](#Chapter-8-References)
 
 <!-- tocstop -->
 
@@ -1485,7 +1688,41 @@
 
 <div class="one-for-all">
 
-## <div id="chapter-1-project-overview" class="chapter">Chapter 1: Project Overview</div>
+<div class="blank-page"></div>
+
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-1-project-overview" class="chapter-number">01</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER ONE</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 4rem;">Introduction</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An overview of the project and its key objectives
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+
 
 ### <div id="main-idea" class="section">1.1 Main Idea</div>
 
@@ -1698,7 +1935,38 @@ To bridge these gaps, the platform leverages Duolingo’s engagement model fused
 
 ---
 
-## <div id="chapter-2-project-background" class="chapter">Chapter 2: Project Background</div>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-2-project-background" class="chapter-number">02</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER TWO</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3rem;">Project Background</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An overview of the project context and related work
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
 
 ### <div id="project-background" class="section">2.1 Project Background</div>
 
@@ -1905,7 +2173,38 @@ Then the related work was described, (Which is listed in the previous table), an
 ---
 
 
-## <div id="chapter-3-feasibility-and-project-planning" class="chapter">Chapter 3: Feasibility and Project Planning</div>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-3-feasibility-and-project-planning" class="chapter-number">03</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER THREE</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 2.7rem;">Feasibility And Project Planning</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An evaluation of the project’s feasibility and planning approach
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
 
 ### <div id="feasibility-study" class="section">3.1 Feasibility Study</div>
 
@@ -2084,7 +2383,38 @@ This section identifies key risks for the coding education platform across techn
 
 ---
 
-## <div id="chapter-4-system-analysis" class="chapter">Chapter 4: System Analysis</div>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-4-system-analysis" class="chapter-number">04</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER FOUR</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 4rem;">System Analysis</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An analysis of system functionality and requirements
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
 
 ### <div id="function-requireements" class="section">4.1 Function Requireements</div>
 
@@ -2681,7 +3011,38 @@ This section identifies key risks for the coding education platform across techn
 
 ---
 
-## <div id="chapter-5-system-architecture" class="chapter">Chapter 5: System Architecture</div>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-5-system-architecture" class="chapter-number">05</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER FIVE</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3.5rem;">System Architecture</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An An examination of the system’s architectural structure
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
 
 ### <div id="actor-goal-list" class="section">5.1 Actor-goal List</div>
 
@@ -7387,7 +7748,38 @@ These diagrams provide a comprehensive view of the DuoCodo platform's architectu
 
 ---
 
-## <div id="chapter-6-database-design" class="chapter">Chapter 6: Database Design</div>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-6-database-design" class="chapter-number">06</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER SIX</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3.7rem;">Database Design</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An overview of the ER diagrams and database schema
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
 
 ### <div id="entity-relationship-diagram" class="section">6.1 Entity Relationship Diagram</div>
 
@@ -7565,8 +7957,39 @@ This detailed schema provides the implementation blueprint for the DuoCodo platf
 
 ---
 
-## <div id="Chapter-7-User-Interface" class="chapter">Chapter 7: User Interface</div>
-   
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="Chapter-7-User-Interface" class="chapter-number">07</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER SEVEN</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3.7rem;">User Interface</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An examination of the user interface design and user experience
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>   
+
 ### <div id="Authentication-Screens" class="section">7.1 Authentication Screens</div>
 <div class="ui-container">
 <figure id="Figure71">
@@ -7671,5 +8094,97 @@ This detailed schema provides the implementation blueprint for the DuoCodo platf
         <figcaption>Figure 7.18: Dark Mode Interface</figcaption>
     </figure>
 </div>
+
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="Chapter-8-References" class="chapter-number">08</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER EIGHT</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 4rem;">References</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            Links and addresses for references
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+
+**Feasibility References**
+
+**1. Online Course Pricing Range**
+- **Used value:** $20–$50 per course (average $30).  
+- **Sources:**
+  - [https://www.classcentral.com/report/udemy-vs-coursera/?utm_source=chatgpt.com](https://www.classcentral.com/report/udemy-vs-coursera/?utm_source=chatgpt.com) – Udemy courses typically range **$19.99–$199.99**, with most under $50.
+  - [https://www.open2study.com/coursera/pricing/?utm_source=chatgpt.com](https://www.open2study.com/coursera/pricing/?utm_source=chatgpt.com) – Many individual courses are in the **$39–$79** range.
+  - Based on these ranges, an average of **$30 per course** is realistic for a pay-per-course platform.
+
+---
+
+**2. Target of 5,000 Paid Users in Year 1**
+- **Used value:** 5,000 users × $30 = $150,000 revenue in Year 1.  
+- **Sources:**
+  - [https://elearningindustry.com/elearning-statistics-and-facts](https://elearningindustry.com/elearning-statistics-and-facts) – Confirms steady growth in eLearning markets, especially localized platforms.
+  - [https://www.businessofapps.com/data/duolingo-statistics/](https://www.businessofapps.com/data/duolingo-statistics/) – Duolingo reached millions within its first years; **5K initial users** is realistic for a regional launch.
+
+---
+
+**3. Development Cost Estimate: $180,000**
+- **Used value:** $180,000 (small full-stack team for ~9 months).  
+- **Sources:**
+  - [https://topflightapps.com/ideas/app-development-costs/?utm_source=chatgpt.com](https://topflightapps.com/ideas/app-development-costs/?utm_source=chatgpt.com) – Typical range **$50K–$150K** for mid-scale web projects.  
+  - [https://www.goodfirms.co/resources/software-development-cost](https://www.goodfirms.co/resources/software-development-cost) – Confirms similar ranges for small-to-medium web applications.
+
+---
+
+**4. Content Creation (10 Courses): $100,000**
+- **Used value:** $10,000 per course × 10 = $100,000 total.  
+- **Sources:**
+  - [https://pinlearn.com/how-much-does-it-cost-to-develop-an-online-course/?utm_source=chatgpt.com](https://pinlearn.com/how-much-does-it-cost-to-develop-an-online-course/?utm_source=chatgpt.com) – Simple interactive courses cost **$5.9K–$50K** each.  
+  - With Arabic localization and interactivity, **$10K per course** is an accurate midpoint.
+
+---
+
+**5. Hosting, AI, and Maintenance: $20,000/year**
+- **Used value:** $20,000 annually.  
+- **Sources:**
+  - [https://calculator.aws/#/](https://calculator.aws/#/) and [Google Cloud Estimate](https://cloud.google.com/pricing) – Small SaaS hosting averages **$1K–$2K/month**.  
+  - AI usage (Gemini/OpenRouter) adds roughly **$300–$500/month**.  
+  - Combined yearly estimate ≈ **$20K** including DevOps.
+
+---
+
+**6. Marketing Budget: $50,000/year**
+- **Used value:** $50,000 annually.  
+- **Sources:**
+  - [https://upgrowth.in/how-much-does-edtech-marketing-cost-how-much-to-spend-without-breaking-the-bank/](https://upgrowth.in/how-much-does-edtech-marketing-cost-how-much-to-spend-without-breaking-the-bank/) – Small EdTech startups spend **8.3%** of revenue on marketing.  
+  - $50K aligns with an active but cost-conscious launch plan.
+
+---
+
+**7. Arabic eLearning Market Context**
+- **Sources:**
+  - [https://www.unesco.org/en/digital-education](https://www.unesco.org/en/digital-education) – Highlights rapid adoption of Arabic eLearning.  
+  - [https://www.researchandmarkets.com/reports/5731047/middle-east-e-learning-market-growth-trends](https://www.researchandmarkets.com/reports/5731047/middle-east-e-learning-market-growth-trends) – Predicts **>10% annual growth** in Arabic/MENA EdTech.
+
+---
 
 </div>
