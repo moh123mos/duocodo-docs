@@ -12,3 +12,7 @@
 ## مخطط التحليل - الجزء 2
 
 ![الشكل 4.2: مخطط التحليل الجزء 2](../../../public/assets/CH04/Figure_4.2_decomposition_diagram.svg)
+
+## مخطط التحليل - الجزء 3
+
+![الشكل 4.3: مخطط التحليل الجزء 3](../../../public/assets/CH04/Figure_4.3_decomposition_diagram.svg)

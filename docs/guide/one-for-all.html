@@ -1,0 +1,4771 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>one-for-all.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- <meta charset="utf-8"> -->
+<!--  -->
+<!-- <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script> -->
+<style>
+  :root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --success: #28a745;
+    --warning: #ffc107;
+    --info: #17a2b8;
+  }
+    
+  .one-for-all {
+    position: relative;
+    font-family: 'Times New Roman', Times, serif !important;
+
+    ul, ul ul, ul ul ul {
+      list-style-type: none;
+    }
+
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 30px;
+    }
+
+    ul li {
+      margin: 8px 0;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "▸";
+      color: var(--secondary);
+      font-weight: bold;
+      position: absolute;
+      left: -20px;
+    }
+
+    ul ul li::before {
+      content: "\25Aa";
+      color: var(--secondary);
+      font-weight: bold;
+      position: absolute;
+      left: -20px;
+    }
+
+    ul ul ul li::before {
+      content: "\25AB";
+      color: var(--secondary);
+      font-weight: bold;
+      position: absolute;
+      left: -20px;
+    }
+
+    ol li::before {
+      color: var(--secondary);
+      font-weight: bold;
+      position: absolute;
+      left: -25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 10px 15px;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    tr:nth-child(even) {
+      background: var(--light);
+        color: var(--dark);
+    }
+
+    code {
+      background: #f8f9fa;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      border: 1px solid #e9ecef;
+    }
+
+    strong {
+      font-weight: 700;
+      padding: 2px 4px;
+    }
+
+    p, strong, li {
+      word-spacing: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    li::marker {
+      word-spacing: normal;
+      letter-spacing: normal;
+    }
+
+    figure {
+      margin: 20px auto;
+      text-align: center;
+      padding: 10px;
+      max-height: 200mm;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    figure img {
+      max-width: 100%;
+      max-height: 160mm;
+      border-radius: 5px;
+      break-after: avoid;
+    }
+
+    figure figcaption {
+      margin-top: 10px;
+      font-size: 0.9em;
+      font-style: italic;
+      break-before: avoid;
+    }
+
+    .ui-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .highlight-box {
+      background: #e8f4fc;
+      border-left: 4px solid var(--secondary);
+      padding: 15px 20px;
+      margin: 20px 0;
+      color: #333;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .chapter {
+      background: var(--primary);
+      color: white;
+      padding: 12px 20px;
+      /* margin: 40px 0 20px 0; */
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .chapter::before {
+      content: "Chapter";
+      background: var(--secondary);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .section {
+      color: var(--primary);
+      border-left: 4px solid var(--secondary);
+      padding: 8px 15px;
+      margin: 25px 0 15px 0;
+      background: var(--light);
+      font-size: 18px;
+      font-weight: 600;
+      border-start-end-radius: 5px;
+      border-end-end-radius: 5px;
+    }
+
+    .subsection {
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 8px;
+      margin: 20px 0 12px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .chapter {
+      break-before: page;
+    }
+
+    .section, .subsection, .highlight-box, table, ul {
+      break-inside: avoid;
+    }
+
+    .section, .subsection {
+      break-after: avoid;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      page-break-after: avoid;
+    }
+
+    h2 {
+      border-top: none;
+    }
+  }
+
+  /* Use Case Title Styling */
+  .usecase-title {
+    color: var(--primary);
+    padding: 12px 20px;
+    margin: 30px 0 20px 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    border: 2px solid var(--secondary);
+    border-left: 6px solid var(--secondary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  .usecase-title::before {
+    content: "UC";
+    background: var(--secondary);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 12px;
+    font-weight: 600;
+  }
+
+  /* Brief Format - Minimal styling */
+  .brief-usecase {
+    background: var(--light);
+    border-left: 4px solid var(--info);
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .brief-usecase .title {
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .brief-usecase .description {
+    color: #555;
+    font-size: 14px;
+  }
+
+  /* Casual & Fully Dressed Format Metadata */
+  .usecase-meta {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .usecase-meta .meta-item {
+    margin: 8px 0;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .usecase-meta .meta-label {
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 180px;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .usecase-meta .meta-label::before {
+    content: "▸";
+    color: var(--secondary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .usecase-meta .meta-value {
+    color: var(--dark);
+    flex: 1;
+  }
+
+  /* Stakeholders section */
+  .stakeholders {
+    background: #f8f9fa;
+    border-left: 3px solid var(--info);
+    padding: 12px 18px;
+    margin: 12px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .stakeholders .stakeholder-item {
+    margin: 8px 0;
+  }
+
+  .stakeholders .stakeholder-role {
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  /* Main Success Scenario */
+  .main-scenario {
+    margin: 20px 0;
+  }
+
+  .scenario-header {
+    background: var(--primary);
+    color: white;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+  }
+
+  .scenario-steps {
+    background: white;
+    /* border: 2px solid var(--primary); */
+    /* border-top: none; */
+    /* border-radius: 0 0 5px 5px; */
+    padding: 20px 25px;
+    counter-reset: step-counter;
+  }
+
+  .scenario-steps .step {
+    margin: 12px 0;
+    padding-left: 35px;
+    position: relative;
+    counter-increment: step-counter;
+  }
+
+  .scenario-steps .step::before {
+    content: counter(step-counter) ".";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--secondary);
+    font-size: 15px;
+  }
+
+  /* Sub-steps */
+  .scenario-steps .sub-step {
+    margin: 8px 0 8px 25px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .scenario-steps .sub-step::before {
+    content: "◦";
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: bold;
+  }
+
+  /* System messages */
+  .system-message {
+    background: #e8f4fc;
+    border-left: 3px solid var(--info);
+    padding: 8px 15px;
+    margin: 8px 0 8px 35px;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+    color: #2c3e50;
+    font-size: 14px;
+  }
+
+  .system-message::before {
+    content: "💬 ";
+    margin-right: 5px;
+  }
+
+  /* Alternative Scenarios */
+  .alternative-scenarios {
+    margin: 25px 0;
+  }
+
+  .alt-scenario-header {
+    background: var(--warning);
+    color: var(--dark);
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+  }
+
+  .alt-scenarios-container {
+    background: #fffbf0;
+    /* border: 2px solid var(--warning); */
+    /* border-top: none; */
+    /* border-radius: 0 0 5px 5px; */
+    padding: 20px 25px;
+  }
+
+  .alt-scenario-item {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-left: 4px solid var(--warning);
+    border-radius: 0 5px 5px 0;
+  }
+
+  .alt-scenario-item .alt-title {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .alt-scenario-item .alt-description {
+    margin: 5px 0 5px 15px;
+    color: #555;
+  }
+
+  /* Extensions */
+  .extensions {
+    margin: 25px 0;
+  }
+
+  .extensions-header {
+    background: var(--success);
+    color: white;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+  }
+
+  .extensions-container {
+    background: #f0f9f4;
+    /* border: 2px solid var(--success); */
+    /* border-top: none; */
+    /* border-radius: 0 0 5px 5px; */
+    padding: 20px 25px;
+  }
+
+  .extension-item {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-left: 4px solid var(--success);
+    border-radius: 0 5px 5px 0;
+  }
+
+  .extension-item .ext-title {
+    font-weight: 700;
+    color: var(--success);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  /* Special Requirements */
+  .special-requirements {
+    background: #fff3e0;
+    border: 2px solid var(--warning);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .special-requirements .req-header {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--warning);
+  }
+
+  .special-requirements ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .special-requirements li {
+    margin: 8px 0;
+    padding-left: 25px;
+    position: relative;
+  }
+
+  .special-requirements li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    color: var(--warning);
+  }
+
+  /* Frequency & Open Issues */
+  .metadata-section {
+    background: var(--light);
+    border-left: 4px solid var(--secondary);
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .metadata-section .section-label {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .metadata-section .section-content {
+    color: #555;
+    margin-left: 15px;
+  }
+
+  /* Horizontal separator */
+  .usecase-separator {
+    border: none;
+    border-top: 3px double var(--secondary);
+    margin: 40px 0;
+  }
+
+  /* General list styling within use cases */
+  .scenario-steps ul,
+  .alt-scenarios-container ul,
+  .extensions-container ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+  }
+
+  .scenario-steps ul li,
+  .alt-scenarios-container ul li,
+  .extensions-container ul li {
+    margin: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .scenario-steps ul li::before,
+  .alt-scenarios-container ul li::before,
+  .extensions-container ul li::before {
+    content: "▸";
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Page break rules for use cases */
+  .usecase-title,
+  .scenario-header,
+  .alt-scenario-header,
+  .extensions-header,
+  .req-header {
+    break-after: avoid;
+  }
+
+  @page {
+    border: 4px double #3398da;
+    margin: 2cm 1.5cm;
+    padding: 25px 25px;
+    color: var(--vp-c-text-1);
+    background: var(--vp-c-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+
+  @counter-style three-digit {
+    system: extends decimal;
+    pad: 3 "0";
+  }
+
+ @page:right {
+    @bottom-right {
+      content: counter(page, three-digit);
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 8pt;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #1f3f73;
+
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+
+      width: 30px;
+      height: 18px;
+
+      background: linear-gradient(180deg, #f7faff 0%, #e8f1ff 100%);
+
+      border: 1px solid #b8cdee;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+        0 1px 2px rgba(31, 63, 115, 0.14);
+      margin-top: 8px;
+      margin-left: -12px;
+      padding-bottom: 1px;
+    }
+  }
+
+  @page:left {
+    @bottom-left {
+      content: counter(page, three-digit);
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 8pt;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #1f3f73;
+
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+
+      width: 30px;
+      height: 18px;
+
+      background: linear-gradient(180deg, #f7faff 0%, #e8f1ff 100%);
+      border: 1px solid #b8cdee;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+        0 1px 2px rgba(31, 63, 115, 0.14);
+      margin-top: 8px;
+      margin-left: 12px;
+      padding-bottom: 1px;
+    }
+  }
+  
+  .toc {
+    page-break-after: always;
+    padding: 20px;
+    margin: 40px 0;
+    border: 1px solid #e0e0e0;
+    background-color: #fafafa;
+  }
+
+  .toc-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+  }
+
+  .toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .toc > ul > li {
+    margin-bottom: 15px;
+  }
+
+  .toc ul ul {
+    padding-left: 30px;
+    margin-top: 8px;
+  }
+
+  .toc ul ul li {
+    margin-bottom: 8px;
+  }
+
+  .toc a {
+    text-decoration: none;
+    color: #2c3e50;
+    display: block;
+    position: relative;
+    padding-right: 40px;
+    line-height: 1.8;
+    padding-bottom: 8px;
+  }
+
+  .toc a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 40px;
+    border-bottom: 1px dotted #bdc3c7;
+  }
+
+  .toc a::after {
+    content: target-counter(attr(href), page);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: normal;
+    color: black;
+    background-color: #fafafa;
+    padding-left: 5px;
+    padding-bottom: 6px;
+  }
+
+  .toc > ul > li > a {
+    font-weight: bold;
+    font-size: 16px;
+    color: #2c3e50;
+  }
+
+  .toc ul ul a {
+    font-size: 14px;
+    font-weight: normal;
+    color: #555;
+  }
+
+  .toc a:hover {
+    color: #3498db;
+  }
+
+  .lof {
+    page-break-after: always;
+    padding: 20px;
+    margin: 40px 0;
+    border: 1px solid #e0e0e0;
+    background-color: #fafafa;
+  }
+
+  .lof-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+  }
+
+  .lof ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .lof > ul > li {
+    margin-bottom: 15px;
+  }
+
+  .lof a {
+    text-decoration: none;
+    color: #2c3e50;
+    display: block;
+    position: relative;
+    padding-right: 40px;
+    line-height: 1.8;
+    padding-bottom: 18px;
+  }
+
+  .lof a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 40px;
+    border-bottom: 1px dotted #bdc3c7;
+  }
+
+  .lof a::after {
+    content: target-counter(attr(href), page);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-weight: bold;
+    color: black;
+    background-color: #fafafa;
+    padding-left: 5px;
+    padding-bottom: 15px;
+  }
+
+  .lof > ul > li > a {
+    font-weight: normal;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .lof a:hover {
+    color: #3498db;
+  }
+
+  .cover-page {
+    page: cover;
+  }
+  
+  @page cover {
+    all: unset;
+    size: A4;
+    margin: 0;
+    padding: 0;
+    border: none;
+    @bottom-left {
+      all: unset;
+    }
+    @bottom-right {
+      all: unset;
+    }
+  }
+
+  .cover-page {
+            page: cover;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            width: 210mm;
+            height: 297mm;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Formal Hero Header */
+        .hero-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            padding: 1.2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Circles - Subtle for formal design */
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 2px solid rgba(255,255,255,0.08);
+            bottom: -50px;
+            left: -50px;
+            border-radius: 50%;
+        }
+
+        /* Dot Pattern Overlay */
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        /* Logos Section */
+        .header-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            gap: 1.5rem;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 0 0 2px rgba(255,255,255,0.5);
+            overflow: hidden;
+        }
+        
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* University Details in Header */
+        .uni-details-header {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .uni-details-header h2 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .uni-details-header p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.4;
+            font-weight: 500;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Title Section - Combined with Logo */
+        .title-logo-section {
+            text-align: center;
+            position: relative;
+        }
+
+        .title-logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.3rem 1.5rem;
+            background: linear-gradient(135deg, rgba(30,58,138,0.03) 0%, rgba(30,64,175,0.05) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(30,58,138,0.1);
+            box-shadow: 0 8px 32px rgba(30,58,138,0.08);
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #374151;
+            font-weight: 600;
+            line-height: 1.4;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: white;
+            padding: 1.2rem 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-logo-large {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 40px rgba(30,58,138,0.2), 0 0 0 4px #1e3a8a, 0 0 0 8px rgba(30,58,138,0.1);
+            position: relative;
+        }
+
+        /* Team Section */
+        .team-container {
+            width: 100%;
+            margin: 1rem 0 0.8rem 0;
+        }
+
+        .section-header {
+            font-size: 1.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a8a, #1e40af, #1e3a8a);
+            border-radius: 10px;
+        }
+
+        .team-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.72rem;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-table thead {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+
+        .team-table th {
+            padding: 0.65rem 0.6rem;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.65rem;
+            border: none;
+        }
+
+        .team-table tbody tr {
+            background-color: white;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        .team-table tbody tr:nth-child(even) {
+            background: linear-gradient(90deg, #f9fafb 0%, white 100%);
+        }
+
+        .team-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .team-table td {
+            padding: 0.6rem 0.6rem;
+            color: #333;
+            border: none;
+        }
+
+        .team-table td:first-child {
+            text-align: center;
+            width: 50px;
+            font-weight: 900;
+            color: #1e3a8a;
+            font-size: 0.95rem;
+        }
+
+        .team-table td:nth-child(2) {
+            font-weight: 600;
+            color: #222;
+        }
+
+        .team-table td:nth-child(3) {
+            text-align: center;
+            color: #666;
+            font-weight: 500;
+            width: 60px;
+        }
+
+        .team-table td:nth-child(4) {
+            font-size: 0.68rem;
+        }
+
+        .team-table a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Supervisors Section */
+        .supervisors-section {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 1.3rem 2rem;
+            position: relative;
+            border-top: 4px solid #1e3a8a;
+        }
+
+        .section-header-light {
+            font-size: 1.05rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .supervisors-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.3rem;
+        }
+
+        .supervisor-card {
+            text-align: center;
+            padding: 1.1rem 1.2rem;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 2px solid #1e3a8a;
+        }
+        
+        .role-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            color: white;
+            font-weight: 800;
+            display: inline-block;
+            padding: 0.35rem 1.1rem;
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            border-radius: 30px;
+            margin-bottom: 0.6rem;
+            box-shadow: 0 3px 12px rgba(30,58,138,0.3);
+        }
+
+        .supervisor-name {
+            font-size: 0.95rem;
+            color: #222;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .supervisor-dept {
+            font-size: 0.72rem;
+            color: #555;
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .supervisor-email {
+            font-size: 0.66rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .supervisor-email a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+    .blank-page {
+      page: blank;
+      break-after: page;
+      break-before: page;
+    }
+
+    @page blank {
+      all: unset;
+      border: none;
+      padding: 0;
+      margin: 0;
+      @bottom-left {
+        content: none;
+        all: unset;
+      }
+      @bottom-right {
+        content: none;
+        all: unset;
+      }
+    }
+
+    .abstract {
+  page: abstract;
+  background: #f5f5f5;
+  padding: 30px;
+  border: 2px solid #3398da;
+  margin: 20px 0;
+  break-inside: avoid;
+}
+
+.abstract h2 {
+  text-align: center;
+  color: #1a5490;
+  border: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.abstract p {
+  text-indent: 0;
+  margin-bottom: 10px;
+}
+
+@page abstract {
+  border: none;
+}
+
+            .chapter-page {
+                page: chapter;
+                break-after: page;
+                break-before: page;
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+                background: white;
+                position: relative;
+                overflow: hidden;
+                box-sizing: border-box;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                font-family: 'Montserrat', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Decorative Elements */
+            .ch-decoration-top {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 150px;
+                background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+                clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+            }
+
+            .ch-decoration-bottom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 120px;
+                background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+                clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+            }
+
+            /* Geometric Shapes */
+            .ch-circle-decoration {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                border-radius: 50%;
+                border: 40px solid rgba(30,58,138,0.08);
+                top: -150px;
+                right: -150px;
+            }
+
+            .ch-square-decoration {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background: rgba(30,58,138,0.05);
+                bottom: 100px;
+                left: -80px;
+                transform: rotate(45deg);
+                border-radius: 20px;
+            }
+
+            /* Content Wrapper */
+            .content-wrapper {
+                position: relative;
+                z-index: 10;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 4rem;
+            }
+
+            /* Chapter Number Badge */
+            .chapter-badge {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 12px 40px rgba(30,58,138,0.3);
+                margin-bottom: 3rem;
+                position: relative;
+            }
+
+            .chapter-badge::before {
+                content: '';
+                position: absolute;
+                inset: -15px;
+                border-radius: 50%;
+                border: 3px solid rgba(30,58,138,0.15);
+            }
+
+            .chapter-number {
+                font-size: 4rem;
+                font-weight: 900;
+                color: white;
+                font-family: 'Montserrat Display', serif;
+            }
+
+            /* Chapter Label */
+            .chapter-label {
+                font-size: 0.9rem;
+                font-weight: 600;
+                letter-spacing: 6px;
+                color: #1e3a8a;
+                text-transform: uppercase;
+                margin-bottom: 1.5rem;
+                position: relative;
+            }
+
+            .chapter-label::before,
+            .chapter-label::after {
+                content: '';
+                position: absolute;
+                width: 50px;
+                height: 2px;
+                background: #1e3a8a;
+                top: 50%;
+            }
+
+            .chapter-label::before {
+                right: 110%;
+            }
+
+            .chapter-label::after {
+                left: 110%;
+            }
+
+            /* Main Title */
+            .chapter-title {
+                font-size: 2.5rem;
+                max-width: 700px;
+                font-weight: 900;
+                color: #2c3e50;
+                font-family: 'Playfair Display', serif;
+                line-height: 1.2;
+                text-align: center;
+                margin-bottom: 2rem;
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            /* Subtitle */
+            .chapter-subtitle {
+                font-size: 1.1rem;
+                color: #666;
+                font-weight: 400;
+                text-align: center;
+                max-width: 600px;
+                line-height: 1.8;
+            }
+
+            /* Decorative Line */
+            .ch-decorative-line {
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(90deg, #1e3a8a, #1e40af);
+                margin: 2rem auto;
+                border-radius: 2px;
+            }
+
+    /* Bottom Pattern */
+    .ch-pattern-ch-dots {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 5;
+    }
+
+    .ch-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #1e3a8a;
+    }
+
+    @page chapter {
+      all: unset;
+      size: A4;
+      border: none;
+      padding: 0;
+      margin: 0;
+      @bottom-left {
+        all: unset;
+        content: none;
+      }
+      @bottom-right {
+        all: unset;
+        content: none;
+      }
+    }
+</style>
+<div class="cover-page">
+  <!-- Vibrant Hero Header -->
+  <div class="hero-header">
+  <div class="pattern-overlay"></div>
+  <!-- Logos -->
+  <div class="header-logos">
+    <div class="logo-wrapper">
+        <div class="logo-placeholder">
+          <img width="100" src="../public/fci_logo.png" alt="University Logo">
+        </div>
+      </div>
+      <div class="uni-details-header">
+        <h2>Faculty of Computers and Information</h2>
+          <p>Minia University</p>
+          <p>Academic Year: 2025 / 2026</p>
+        </div>
+        <div class="logo-wrapper">
+          <div class="logo-placeholder">
+            <img src="../public/Logo minia.jpg" alt="FCI Logo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content Section -->
+    <div class="content-section">
+      <!-- Title & Project Logo Combined -->
+      <div class="title-logo-section">
+        <div class="title-logo-wrapper">
+          <div class="project-logo-large">
+            <img src="../public/project-logo.png" alt="Project Logo" width="200">
+          </div>
+          <div>
+            <h1 class="main-title">DuoCodo</h1>
+            <div class="subtitle">Gamified, Arabic-Centered Programming Learning Platform and Application</div>
+          </div>
+        </div>
+      </div>
+      <!-- Team Table -->
+      <section class="team-container">
+        <div class="section-header">Project Team Members</div>
+        <table class="team-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Dept</th>
+              <th>Email</th>
+              <!-- <th>LinkedIn</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mohamed Mostafa Amer Abdelkader</td>
+              <td>CS</td>
+              <td><a href="81457191@fci.s-mu.edu.eg">81457191@fci.s-mu.edu.eg</a></td>
+              <!-- <td><a href="https://www.linkedin.com/in/mohamed-mostafa-abdelkader" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" version="1.1" id="Layer_1" viewBox="0 0 382 382" xml:space="preserve">
+                <path style="fill:#0077B7;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889  C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056  H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806  c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1  s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73  c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079  c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426  c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472  L341.91,330.654L341.91,330.654z"/>
+                  </svg>
+                </a>
+              </td> -->
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Mohamed Ragab Abdelhafez Mehran</td>
+              <td>CS</td>
+              <td><a href="81457191@fci.s-mu.edu.eg">81457191@fci.s-mu.edu.eg</a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+                <td>Alaa Mohamed Abdelhakeem Ahmed</td>
+                <td>CS</td>
+                <td><a href="81438405@fci.s-mu.edu.eg">81438405@fci.s-mu.edu.eg</a></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Ammar Emad Ahmed Azmy Zewain</td>
+                <td>IS</td>
+                <td><a href="81451636@fci.s-mu.edu.eg">81451636@fci.s-mu.edu.eg</a></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Yassin Khaled Khalaf</td>
+                <td>IS</td>
+                <td><a href="81797831@fci.s-mu.edu.eg">81797831@fci.s-mu.edu.eg</a></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Marwa Farid Mohamed</td>
+                <td>IS</td>
+                <td><a href="81145783@fci.s-mu.edu.eg">81145783@fci.s-mu.edu.eg</a></td>
+              </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <!-- Supervisors Section -->
+    <section class="supervisors-section">
+      <div class="section-header-light">Under Supervision of</div>
+        <div class="supervisors-grid">
+          <div class="supervisor-card">
+            <div class="role-label">Supervisor</div>
+            <div class="supervisor-name">Dr. Rehab Emad El-Dein</div>
+            <div class="supervisor-dept">CS Department</div>
+            <div class="supervisor-email"><a href="rehab.mohamed@mu.edu.eg">rehab.mohamed@mu.edu.eg</a></div>
+          </div>
+          <div class="supervisor-card">
+            <div class="role-label">Teaching Assistant</div>
+            <div class="supervisor-name">T.A. Mohammed Shaaban</div>
+            <div class="supervisor-dept">CS Department</div>
+            <div class="supervisor-email"><a href="mailto:mohamed.shaban@mu.edu.eg">mohamed.shaban@mu.edu.eg</a></div>
+        </div>
+    </div>
+  </section>
+</div>
+<div class="blank-page"></div>
+<div class="abstract">
+<h2>Abstract</h2>
+<p>Learning programming remains a significant challenge for beginners, particularly within Arabic-speaking communities, due to fragmented learning resources, limited interactivity, delayed feedback, and declining learner motivation. This project presents DuoCodo, a gamified, Arabic-centered programming learning platform inspired by Duolingo’s engagement model and designed to provide a structured, interactive, and motivating educational experience. The platform delivers a progressive curriculum covering programming fundamentals through advanced topics such as object-oriented programming, algorithms, and web development. It integrates multi-format learning content, including articles, videos, and guided walkthroughs, alongside an in-browser code editor that supports real-time code execution, instant feedback, and intelligent error analysis. Gamification elements—such as experience points, badges, levels, leaderboards, and daily streaks—are employed to enhance learner motivation and retention. Additionally, AI-powered assistance offers contextual hints, personalized recommendations, and adaptive difficulty based on learner performance. By combining structured learning paths, continuous practice, immediate feedback, and motivational mechanics within an Arabic-first environment, DuoCodo aims to reduce learning barriers, improve engagement, and enable learners to build practical programming skills effectively and confidently.</p>
+</div>
+<div class="toc">
+<h4 id="table-of-contents"><div class="toc-header">Table of Contents</div></h4>
+<!-- toc -->
+<ul>
+<li><a href="#chapter-1-project-overview">Chapter 1: Project Overview</a>
+<ul>
+<li><a href="#main-idea">1.1 Main Idea</a></li>
+<li><a href="#project-scope">1.2 Project Scope</a></li>
+<li><a href="#problem-statement">1.3 Problem Statement</a></li>
+<li><a href="#solution-approach">1.4 Solution Approach</a></li>
+<li><a href="#project-objectives">1.5 Project Objectives</a></li>
+</ul>
+</li>
+<li><a href="#chapter-2-project-background">Chapter 2: Project Background</a>
+<ul>
+<li><a href="#project-background">2.1 Project Background</a></li>
+<li><a href="#related-work">2.2 Related Work</a></li>
+<li><a href="#summary">2.3 Summary</a></li>
+</ul>
+</li>
+<li><a href="#chapter-3-feasibility-and-project-planning">Chapter 3: Feasibility and Project Planning</a>
+<ul>
+<li><a href="#feasibility-study">3.1 Feasibility Study</a></li>
+<li><a href="#risk-management">3.2 Risk Management</a></li>
+</ul>
+</li>
+<li><a href="#chapter-4-system-analysis">Chapter 4: System Analysis</a>
+<ul>
+<li><a href="#function-requireements">4.1 Function Requirements</a></li>
+<li><a href="#non-function-requirements">4.2 Non-Function Requirements</a></li>
+<li><a href="#functional-decomposition">4.3 Functional Decomposition</a></li>
+</ul>
+</li>
+<li><a href="#chapter-5-system-architecture">Chapter 5: System Architecture</a>
+<ul>
+<li><a href="#actor-goal-list">5.1 Actor-goal List</a></li>
+<li><a href="#use-cases-diagram">5.2 Use Cases Diagram</a></li>
+<li><a href="#use-cases-format">5.3 Use Cases Format</a></li>
+<li><a href="#sequence-diagram">5.4 Sequence Diagram</a></li>
+<li><a href="#class-diagram">5.5 Class Diagram</a></li>
+</ul>
+</li>
+<li><a href="#chapter-6-database-design">Chapter 6: Database Design</a>
+<ul>
+<li><a href="#entity-relationship-diagram">6.1 Entity Relationship Diagram</a></li>
+<li><a href="#database-schema">6.2 Database Schema</a></li>
+</ul>
+</li>
+<li><a href="#Chapter-7-User-Interface">Chapter 7: User Interface</a>
+<ul>
+<li><a href="#Authentication-Screens">7.1 Authentication Screens</a></li>
+<li><a href="#Main-Dashboard">7.2 Main Dashboard</a></li>
+<li><a href="#Learning-Paths">7.3 Learning Paths</a></li>
+<li><a href="#Progress-Tracking-Analytics">7.4 Progress Tracking &amp; Analytics</a></li>
+<li><a href="#Theme-Options">7.5 Theme Options</a></li>
+</ul>
+</li>
+<li><a href="#Chapter-8-References">Chapter 8: References</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+<div class="lof">
+<h4 id="list-of-figures"><div class="lof-header">List of Figures</div></h4>
+<ul>
+<li>
+<p><a href="#Figure31">Figure 3.1: Development Team Roles</a></p>
+</li>
+<li>
+<p><a href="#Figure32">Figure 3.2: Net Profit per Year</a></p>
+</li>
+<li>
+<p><a href="#Figure33">Figure 3.3: Cumulative Revenue vs Cumulative Cost</a></p>
+</li>
+<li>
+<p><a href="#Figure41">Figure 4.1: Decomposition Diagram Part 1</a></p>
+</li>
+<li>
+<p><a href="#Figure42">Figure 4.2: Decomposition Diagram Part 2</a></p>
+</li>
+<li>
+<p><a href="#Figure51">Figure 5.1: Use Cases Diagram</a></p>
+</li>
+<li>
+<p><a href="#Figure53">Figure 5.3: Assign User Role</a></p>
+</li>
+<li>
+<p><a href="#Figure519">Figure 5.19: Create Coding Exercise</a></p>
+</li>
+<li>
+<p><a href="#Figure528">Figure 5.28: Track Progress</a></p>
+</li>
+<li>
+<p><a href="#Figure529">Figure 5.29: Learn XP and Level Up</a></p>
+</li>
+<li>
+<p><a href="#Figure530">Figure 5.30: Class Diagram - Core User and Authentication System</a></p>
+</li>
+<li>
+<p><a href="#Figure531">Figure 5.31: Class Diagram - Learning Content Management</a></p>
+</li>
+<li>
+<p><a href="#Figure532">Figure 5.32: Class Diagram - Submissions and Code Execution</a></p>
+</li>
+<li>
+<p><a href="#Figure533">Figure 5.33: Class Diagram - Exercises, Attempts and Code Analysis</a></p>
+</li>
+<li>
+<p><a href="#Figure534">Figure 5.34: Class Diagram - Certification and Gamification</a></p>
+</li>
+<li>
+<p><a href="#Figure535">Figure 5.35: Class Diagram - Administration and Platform Management</a></p>
+</li>
+<li>
+<p><a href="#Figure61">Figure 6.1: Entity Relationship Diagram - User Management and Authentication</a></p>
+</li>
+<li>
+<p><a href="#Figure62">Figure 6.2: Entity Relationship Diagram - Learning Content and Course Structure</a></p>
+</li>
+<li>
+<p><a href="#Figure63">Figure 6.3: Entity Relationship Diagram - Submissions and Code Execution</a></p>
+</li>
+<li>
+<p><a href="#Figure64">Figure 6.4: Entity Relationship Diagram - Exercises, Attempts and Code Analysis</a></p>
+</li>
+<li>
+<p><a href="#Figure65">Figure 6.5: Entity Relationship Diagram - Certification and Gamification</a></p>
+</li>
+<li>
+<p><a href="#Figure66">Figure 6.6: Entity Relationship Diagram - Administration and System Management</a></p>
+</li>
+<li>
+<p><a href="#Figure67">Figure 6.7: Database Schema - User Management and Authentication</a></p>
+</li>
+<li>
+<p><a href="#Figure68">Figure 6.8: Database Schema - Learning Content and Course Structure</a></p>
+</li>
+<li>
+<p><a href="#Figure69">Figure 6.9: Database Schema - Submissions and COde Execution</a></p>
+</li>
+<li>
+<p><a href="#Figure610">Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis</a></p>
+</li>
+<li>
+<p><a href="#Figure611">Figure 6.11: Database Schema - Certification and Gamification</a></p>
+</li>
+<li>
+<p><a href="#Figure612">Figure 6.12: Database Schema - Administration and System Management</a></p>
+</li>
+<li>
+<p><a href="#Figure71">Figure 7.1: Login Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure72">Figure 7.2: Registration Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure73">Figure 7.3: OTP Verification Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure74">Figure 7.4: Password Entry Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure75">Figure 7.5: New Password Creation Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure76">Figure 7.6: Set Username</a></p>
+</li>
+<li>
+<p><a href="#Figure77">Figure 7.7: Learning Path Interface</a></p>
+</li>
+<li>
+<p><a href="#Figure78">Figure 7.8: Interface with Collapsed Sidebar</a></p>
+</li>
+<li>
+<p><a href="#Figure79">Figure 7.9: Chat Interface</a></p>
+</li>
+<li>
+<p><a href="#Figure710">Figure 7.10: Video Player Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure711">Figure 7.11: Multiple Choice Quiz</a></p>
+</li>
+<li>
+<p><a href="#Figure712">Figure 7.12: Code Quiz Interface</a></p>
+</li>
+<li>
+<p><a href="#Figure713">Figure 7.13: Quiz Completion Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure714">Figure 7.14: Main Dashboard</a></p>
+</li>
+<li>
+<p><a href="#Figure715">Figure 7.15: Dashboard Details View</a></p>
+</li>
+<li>
+<p><a href="#Figure716">Figure 7.16: Dashboard with Filtration Options</a></p>
+</li>
+<li>
+<p><a href="#Figure717">Figure 7.17: Progress &amp; Analysis Dashboard</a></p>
+</li>
+<li>
+<p><a href="#Figure718">Figure 7.18: Dark Mode Interface</a></p>
+</li>
+</ul>
+</div>
+<div class="lof">
+<h4 id="list-of-tables"><div class="lof-header">List of Tables</div></h4>
+<ul>
+<li><a href="#table1">Table 2.1: Elzero Web School</a></li>
+<li><a href="#table2">Table 2.2: Codeforces</a></li>
+<li><a href="#table3">Table 2.3: CodeChef</a></li>
+<li><a href="#table4">Table 2.4: HackerRank</a></li>
+<li><a href="#table5">Table 2.5: LeetCode</a></li>
+<li><a href="#table6">Table 2.6: TopCoder</a></li>
+<li><a href="#table7">Table 2.7: AtCoder</a></li>
+<li><a href="#table8">Table 2.8: CodinGame</a></li>
+<li><a href="#table9">Table 2.9: CodeCombat</a></li>
+<li><a href="#table10">Table 2.10: Codewars</a></li>
+<li><a href="#table11">Table 2.11: CheckiO</a></li>
+<li><a href="#table12">Table 3.1: Development and Operational Costs</a></li>
+<li><a href="#table13">Table 3.2: Financial Projections</a></li>
+<li><a href="#table14">Table 3.3: Technical Risks</a></li>
+<li><a href="#table15">Table 3.4: Project Management Risks</a></li>
+<li><a href="#table16">Table 3.5: Legal and Compliance Risks</a></li>
+<li><a href="#table17">Table 5.1: Actors and Goals List</a></li>
+</ul>
+</div>
+<div class="one-for-all">
+<div class="blank-page"></div>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-1-project-overview" class="chapter-number">01</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER ONE</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 4rem;">Introduction</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An overview of the project and its key objectives
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<h3 id="11-main-idea"><div id="main-idea" class="section">1.1 Main Idea</div></h3>
+<p>We aim to create a Duolingo-inspired programming education platform that transforms how beginners learn to code by eliminating overwhelm through structured, gamified micro-lessons. Unlike fragmented resources, this platform provides a clear, progressive learning path—from core programming fundamentals to advanced topics like OOP, algorithms, and web development—all delivered via multi-format explanations (articles, videos, and guided walkthroughs).</p>
+<p>At its core, the platform seamlessly integrates:</p>
+<ol>
+  <div class="highlight-box">
+    <li>
+      <bold>Interactive Practice & Feedback:</bold>
+      <ul>
+        <li>An in-browser code editor (supporting Python and JavaScript) with real-time execution, syntax highlighting, and instant error diagnostics.</li>
+        <li>Hands-on exercises featuring model solutions and optional complexity analysis to deepen understanding of code efficiency.</li>
+      </ul>
+    </li>
+  </div>
+  <div class="highlight-box">
+    <li>
+      <bold>Motivational Gamification:</bold>
+      <ul>
+        <li>XP systems, unlockable levels, daily streaks, and skill badges to reward consistency.</li>
+        <li>Global leaderboards competitions to fuel engagement.</li>
+      </ul>
+    </li>
+  </div>
+  <div class="highlight-box">
+    <li>
+      <bold>Personalized Progress Tracking:</bold>
+      <ul>
+        <li>Visual roadmaps highlighting completed, active, and upcoming modules.</li>
+        <li>Mastery dashboards quantifying skill growth and retention.</li>
+      </ul>
+    </li>
+  </div>
+</ol>
+<p>By combining structured curriculum, instant feedback, and social accountability, the platform turns programming education into an addictive, confidence-building journey—making learning feel like play while ensuring tangible skill development.</p>
+<h3 id="12-project-scope"><div id="project-scope" class="section">1.2 Project Scope</div></h3>
+<h4 id="1-comprehensive-curriculum--content"><div class="subsection">1. Comprehensive Curriculum &amp; Content </div></h4>
+<ul>
+<li>Structured Learning Path:
+<ul>
+<li>Tiered modules from absolute fundamentals (variables, loops) to advanced domains (OOP, algorithms, web frameworks, databases).</li>
+<li>Specialized tracks for Python, JavaScript, and full-stack development.</li>
+</ul>
+</li>
+<li>Multi-Format Delivery:
+<ul>
+<li>Concept primers: Short videos + annotated articles.</li>
+<li>Interactive Chat Learning: AI mascot chatbot for conversational explanations.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-intelligent-code-editor"><div class="subsection">2. Intelligent Code Editor </div></h4>
+<ul>
+<li>Multi-Language Support:
+<ul>
+<li>Browser-based execution for Python, JavaScript, HTML/CSS, and more.</li>
+</ul>
+</li>
+<li>Enhanced Developer Experience:
+<ul>
+<li>Real-time syntax + error highlighting, auto-completion, and debugging hints.</li>
+</ul>
+</li>
+<li>Accessibility:
+<ul>
+<li>Dark/light mode, keyboard shortcuts.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-dynamic-interactive-exercises"><div class="subsection">3. Dynamic Interactive Exercises </div></h4>
+<ul>
+<li>Adaptive Challenges:
+<ul>
+<li>Exercises auto-adjust difficulty based on user performance.</li>
+<li>&quot;Fix-the-Bug&quot; tasks: Debug pre-written flawed code.</li>
+</ul>
+</li>
+<li>Deep-Dive Analysis:
+<ul>
+<li>Runtime complexity breakdowns (Big O notation).</li>
+<li>Memory/performance metrics for optimization practice.</li>
+</ul>
+</li>
+<li>Solution Libraries:
+<ul>
+<li>Model answers + multiple approach comparisons (e.g., iterative vs. recursive).</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-advanced-gamification-system"><div class="subsection">4. Advanced Gamification System </div></h4>
+<ul>
+<li>Engagement Mechanics:
+<ul>
+<li>Daily streaks, skill-specific badges (e.g., &quot;Algorithm Ace&quot;), and XP bonuses for consistency.</li>
+<li>Unlockable content: Secret lessons or tools for high achievers.</li>
+</ul>
+</li>
+<li>Competitive Elements:
+<ul>
+<li>Global/weekly leaderboards (XP-based).</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-personalized-progress-ecosystem"><div class="subsection">5. Personalized Progress Ecosystem </div></h4>
+<ul>
+<li>Learning Analytics:
+<ul>
+<li>Mastery dashboards showing skill proficiency (e.g., &quot;Data Structures: 85%&quot;).</li>
+<li>Time-tracking: Session duration, concepts revisited.</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-accessibility--scalability"><div class="subsection">6. Accessibility &amp; Scalability </div></h4>
+<ul>
+<li>Mobile-responsive design: Seamless tablet/phone access.</li>
+<li>Offline mode: Download lessons/exercises for practice without internet.</li>
+</ul>
+<hr>
+<h3 id="13-problem-statement"><div id="problem-statement" class="section">1.3 Problem Statement</div></h3>
+<p>Learning programming remains a daunting barrier for beginners, exacerbated by <em>four core gaps</em> in existing solutions:</p>
+<ol>
+<li>
+<p>Structural Deficiency:</p>
+<ul>
+<li>Resources are fragmented (video tutorials, disjointed exercises) with no coherent progression, leaving learners adrift.</li>
+<li><em>Advanced topics</em> (OOP, algorithms) feel inaccessible without scaffolded skill-building.</li>
+</ul>
+</li>
+<li>
+<p>Practice-Explanation Misalignment:</p>
+<ul>
+<li>Passive video/article consumption fails to translate to coding competence.</li>
+<li>Feedback is delayed or absent, leading to reinforcement of errors and frustration.</li>
+</ul>
+</li>
+<li>
+<p>Motivation Erosion:</p>
+<ul>
+<li>Isolated learning lacks psychological hooks (rewards, social accountability) to sustain consistency.</li>
+<li><em>80% of beginners quit within 3 months</em> due to diminishing confidence.</li>
+</ul>
+</li>
+</ol>
+<h3 id="14-solution-approach"><div id="solution-approach" class="section">1.4 Solution Approach</div></h3>
+<p>To bridge these gaps, the platform leverages Duolingo’s engagement model fused with developer-centric depth:</p>
+<h4 id="a-structured-yet-adaptive-onboarding"><div class="subsection">A. Structured Yet Adaptive Onboarding </div></h4>
+<div class="highlight-box">
+  <ul>
+    <li>Skill Tree Curriculum:</li>  
+    <ul>
+      <li><i>Tiered modules</i> map concepts from syntax basics → real-world stacks (e.g., Flask/React).</li>
+      <li>Diagnostic quizzes auto-route learners to optimal starting points.</li>
+    </ul>
+    <li>Bite-Sized, Multi-Modal Lessons:</li> 
+    <ul>
+      <li>Concepts taught via &lt 5-min videos, annotated snippets, and interactive sandboxes—all in one flow.</li>
+    </ul>
+  </ul>
+</div>
+<h4 id="b-contextual-practice-engine"><div class="subsection">B. Contextual Practice Engine </div></h4>
+<div class="highlight-box">
+  <ul>
+    <li>AI-Assisted Feedback:</li>
+    <ul>
+      <li>
+          Real-time error explanations + debugging hints (e.g., “Your loop exits early: check conditionals!”).
+      </li>
+    </ul>
+    <li>Exercise Evolution:</li>
+    <ul>
+      <li>Adaptive difficulty: Problems scale complexity based on user mastery.</li>
+      <li>Project Sprints: Build <i>portfolio-ready micro-apps</i> (e.g., API-driven weather dashboard).</li>
+    </ul>
+  </ul>
+</div>
+<h4 id="c-gamification--depth"><div class="subsection">C. Gamification × Depth </div></h4>
+<div class="highlight-box">
+  <ul>
+    <li>Progressive Unlock System:</li>
+    <ul>
+      <li>Earn XP/badges for <i>accuracy</i>, <i>efficiency</i> (e.g., “O(1) Solver”), and <i>streaks</i>.</li>
+    </ul>
+    <li>Competitive Depth:</li>
+    <ul>
+      <li>Leaderboards rank speed (solved in 30s) vs. elegance (least code lines).</li>
+    </ul>
+    <li>Complexity Playgrounds:</li>
+    <ul>
+      <li>Visualize Big O trade-offs via interactive graph comparisons (e.g., O(n²) vs. O(n log n)).</li>
+    </ul>
+  </ul>
+</div>
+<h4 id="d-personalized-reinforcement"><div class="subsection">D. Personalized Reinforcement </div></h4>
+<div class="highlight-box">
+  <ul>
+    <li>Predictive Roadmaps:</li>
+    <ul>
+      <li>Weakness-targeted challenges (e.g., “Struggling with callbacks? Try these 3 exercises!”).</li>
+    </ul>
+    <li>Mastery Analytics:</li>
+    <ul>
+      <li>Heatmaps track concept retention + time-to-proficiency across skills.</li>
+    </ul>
+  </ul>
+</div>
+<hr>
+<h3 id="15-project-objectives"><div id="project-objectives" class="section">1.5 Project Objectives</div></h3>
+<h4 id="1-deliver-a-progressive-mastery-based-curriculum"><div class="subsection">1. Deliver a Progressive, Mastery-Based Curriculum </div></h4>
+<ul>
+<li>Modular Skill Tiers: Implement 10+ competency levels (Novice → Architect) with checkpoint assessments for each tier.</li>
+<li>Cross-Language Tracks: Offer specialized paths for Python (Data Science/Backend), JavaScript (Frontend/Full-Stack), and Algorithms.</li>
+<li>Real-World Alignment: Integrate industry frameworks (e.g., React, Flask) and tools (Git, APIs) into advanced modules.</li>
+</ul>
+<h4 id="2-build-an-intelligent-adaptive-practice-ecosystem"><div class="subsection">2. Build an Intelligent, Adaptive Practice Ecosystem </div></h4>
+<ul>
+<li>AI-Driven Exercise Engine:
+<ul>
+<li>Generate personalized problem sets targeting weak areas (e.g., &quot;80% accuracy on recursion? Try these 5 challenges!&quot;).</li>
+<li>Auto-graded projects with rubrics for code quality, efficiency, and creativity.</li>
+</ul>
+</li>
+<li>Multi-Layer Feedback:
+<ul>
+<li>Provide instant syntax corrections, runtime error diagnostics, and performance benchmarks (CPU/memory usage).</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-gamify-learning-with-depth--nuance"><div class="subsection">3. Gamify Learning with Depth &amp; Nuance </div></h4>
+<ul>
+<li>Tiered Reward System:
+<ul>
+<li>Award skill-specific badges (e.g., &quot;Memory Optimizer&quot;) + rarity tiers (Bronze → Platinum).</li>
+<li>&quot;Double-or-Quit&quot; streaks: Bonus XP for consecutive days, reset on skip.</li>
+</ul>
+</li>
+<li>Competitive Arenas:
+<ul>
+<li>Host weekly efficiency leagues (lowest Big O wins) and speed sprints (fastest debugger).</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-enable-hyper-personalized-tracking"><div class="subsection">4. Enable Hyper-Personalized Tracking </div></h4>
+<ul>
+<li>Predictive Analytics Dashboard:
+<ul>
+<li>Visualize skill decay (e.g., &quot;Arrays mastery ↓15% in 2 weeks&quot;) and recommend refreshers.</li>
+<li>Track efficiency gains (e.g., &quot;Reduced solution time by 40% this month&quot;).</li>
+</ul>
+</li>
+<li>Custom Roadmapping:
+<ul>
+<li>Let users build goal-oriented playlists (&quot;Prep for FAANG Interviews&quot; → auto-adds relevant exercises).</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-ensure-accessibility--scalability"><div class="subsection">5. Ensure Accessibility &amp; Scalability </div></h4>
+<ul>
+<li>
+<p>Inclusive Design:</p>
+<ul>
+<li>Support screen readers, keyboard navigation, and color-blind modes.</li>
+<li>Offer text-to-speech explanations for complex concepts.</li>
+</ul>
+</li>
+<li>
+<p>Infrastructure Goals:</p>
+<ul>
+<li>Offline-first capability: Download modules + editor for remote learning.</li>
+<li>API extensibility: Integrate with GitHub/LMS platforms for portfolio syncing.</li>
+</ul>
+<p>By achieving these objectives, the platform will not only demystify programming for beginners but also cultivate a motivated, skilled community ready to tackle real-world coding challenges.</p>
+</li>
+</ul>
+<hr>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-2-project-background" class="chapter-number">02</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER TWO</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3rem;">Project Background</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An overview of the project context and related work
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<h3 id="21-project-background"><div id="project-background" class="section">2.1 Project Background</div></h3>
+<div class="highlight-box">
+  <p>
+    <strong>Figma</strong> is a versatile, cloud‑based design platform widely used for crafting user interfaces, wireframes, and interactive prototypes. It enables designers and stakeholders to collaborate in real time, streamlining the design process from ideation to final output. Figma’s rich feature set — including vector editing, component‑based design, version history, and a robust plugin ecosystem — makes it central to modern UI/UX workflows. As a browser‑based tool, it removes installation barriers and ensures cross‑device accessibility.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://www.figma.com/">Figma</a>.</p>
+</div>
+<div class="highlight-box">
+  <p>
+    <strong>Nuxt.js</strong> is a high-level framework built on Vue.js, optimized for developing server-rendered applications and static websites. It offers features like automatic routing, server-side rendering (SSR), static site generation, and a modular architecture. With built-in support for SEO, performance optimizations, and a rich community-driven ecosystem, Nuxt simplifies the development of scalable, high‑performance web apps.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://nuxt.com/">Nuxt.js</a>.</p>
+</div>
+<div class="highlight-box">
+  <p>
+    <strong>.NET</strong> is a powerful, open-source development platform created by Microsoft for building modern, scalable, and high-performance applications. It supports multiple languages such as C#, F#, and VB.NET, and enables developers to create applications across web, desktop, mobile, cloud, and IoT environments. Known for its strong type system, robust security features, and extensive class libraries, .NET streamlines development while ensuring reliability and maintainability. With the introduction of .NET Core and now .NET 8, it offers cross-platform support and exceptional performance.
+  </p>
+  <p>
+    For more detailed information, you can refer to <a href="https://dotnet.microsoft.com/">.NET</a>.
+  </p>
+</div>
+<div class="highlight-box">
+  <p>
+    <strong>Microsoft SQL Server</strong> is a robust, enterprise-grade relational database management system (RDBMS) developed by Microsoft. It is designed to store, manage, and retrieve data efficiently while ensuring high performance, security, and reliability. SQL Server supports both structured query language (SQL) for relational data and JSON for semi-structured data, making it suitable for diverse modern applications. It offers advanced features such as ACID compliance, indexing, views, triggers, stored procedures, and built-in analytics through SQL Server Analysis Services (SSAS). With strong support for scalability, data integrity, and transaction management, SQL Server is widely used in enterprise environments for web applications, business intelligence, and large-scale data solutions.
+  </p>
+  <p>
+      For more detailed information, you can refer to <a href="https://www.microsoft.com/en-us/sql-server">Microsoft SQL Server</a>.
+  </p>
+</div>
+<div class="highlight-box">
+  <p>
+    <strong>OpenRouter</strong> is an open‑source API platform that offers a unified interface to multiple large language models (LLMs). It enables developers to seamlessly integrate AI features—such as natural language processing, chat interfaces, and content generation—while managing authentication, fallback strategies, and cost efficiency. OpenRouter simplifies switching between or combining models from different providers.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://openrouter.ai/">OpenRouter</a>.</p>
+</div>
+<div class="highlight-box">
+  <p>
+    <strong>Gemini API</strong> is a developer-friendly interface provided by Google to access the capabilities of its Gemini family of large language models (LLMs). It allows developers to integrate advanced AI features into their applications, including natural language understanding, code generation, content summarization, and multi-modal reasoning (text, image, and more). The Gemini API is accessible through Google AI Studio and is designed to support rapid prototyping and scalable deployment of generative AI solutions. With robust security, comprehensive documentation, and seamless integration with Google Cloud, the Gemini API enables powerful, flexible AI experiences across a wide range of use cases.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://ai.google.dev/gemini-api/docs">Gemini API documentation</a>.</p>
+</div>
+<div class="highlight-box">
+  <p>
+    <strong>Monaco Editor</strong> is the highly customizable, in‑browser code editor that powers Visual Studio Code. It supports syntax highlighting, IntelliSense, code folding, and more. Lightweight yet powerful, Monaco is perfect for embedding code editing experiences within web applications such as educational platforms, developer tools, or live coding playgrounds.</p>
+    <p>For more detailed imformation. you can refer to <a href="https://microsoft.github.io/monaco-editor/">Monaco Editor</a>.</p>
+</div>
+<div class="highlight-box">
+  <p>
+    <strong>Cloudflare</strong> is a leading web performance and security platform that provides a wide range of services to protect and accelerate websites, APIs, and applications. It acts as a reverse proxy between users and web servers, offering features such as DDoS protection, content delivery network (CDN), SSL/TLS encryption, firewall rules, and performance optimization. By caching content at global edge locations and filtering malicious traffic, Cloudflare helps improve loading speeds, reduce server load, and enhance overall security. It also offers developer tools like Cloudflare Pages and Workers for deploying scalable, serverless applications.</p>
+    <p>For more detailed imformation. you can refer to: <a href="https://www.cloudflare.com/">CloudFlare</a>.</p>
+</div>
+<h3 id="22-related-work"><div id="related-work" class="section">2.2 Related Work</div></h3>
+<h4 id="elzero-web-school"><div class="subsection">Elzero Web School</div></h4>
+<div id="table1">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elzero Web School is an excellent free resource for Arabic-speaking beginners and intermediate learners who want to build strong web development skills through structured, practical learning.</td>
+<td>- External resources and useful tool recommendations included<br>- A Q&amp;A section to ask questions and receive community support</td>
+<td>- Step-by-step structured study plans for better learning flow<br>- Dedicated learning paths for Frontend, Backend, and Full Stack</td>
+<td>- No built-in progress tracking to monitor course completion<br>- Users cannot rate or review courses or lessons</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://elzero.org</p>
+<h4 id="codeforces"><div class="subsection">Codeforces</div></h4>
+<div id="table2">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A well-known platform that hosts regular contests like Div 1 and Div 2. It includes a robust rating system and editorial support to develop algorithmic thinking.</td>
+<td>- Mathematical algorithms<br>- Rating system<br>- Editorial learning</td>
+<td>- Regular contests with large community participation<br>- Detailed editorial explanations<br>- Transparent and active rating system</td>
+<td>- Interface can be intimidating for beginners<br>- Problems often require deep mathematical insight</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://codeforces.com</p>
+<h4 id="codechef"><div class="subsection">CodeChef</div></h4>
+<div id="table3">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An Indian educational platform hosting contests like Long Challenge and Lunchtime, with a vast problem archive and community engagement.</td>
+<td>- Long format contests (Long Challenge)<br>- Short contests (Lunchtime)<br>- Tutorial-based learning</td>
+<td>- Great for long-term learning with multiple contest formats<br>- Offers tutorials and mentorship programs</td>
+<td>- Sometimes suffers from server lags during contests<br>- Problems can be less curated compared to Codeforces or LeetCode</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://www.codechef.com</p>
+<h4 id="hackerrank"><div class="subsection">HackerRank</div></h4>
+<div id="table4">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Focuses on algorithms, SQL, and data structures with a live coding environment, widely used for tech interviews.</td>
+<td>- Structured learning paths<br>- Auto-grading system<br>- Skill-specific tracks (SQL, AI, etc.)<br>- Live coding interface</td>
+<td>- Beginner-friendly interface and structured learning paths<br>- Great for practicing specific skills (e.g. SQL, AI)<br>- Instant feedback and auto-grading</td>
+<td>- Contest competitiveness is relatively low<br>- Less challenging for advanced users</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://www.hackerrank.com</p>
+<h4 id="leetcode"><div class="subsection">LeetCode</div></h4>
+<div id="table5">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A premier platform for coding interview prep with 2,500+ problems and company-specific questions.</td>
+<td>- Interview prep questions<br>- Company-tagged problems<br>- Weekly contests<br>- Solution discussions</td>
+<td>- Focused on technical interview preparation<br>- Community solutions and tutorials<br>- Weekly contests to benchmark skills</td>
+<td>- Some premium features are behind a paywall<br>- Less emphasis on advanced algorithms</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://leetcode.com</p>
+<h4 id="topcoder"><div class="subsection">TopCoder</div></h4>
+<div id="table6">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One of the oldest platforms, known for SRM (Single Round Matches) and Marathon Matches focusing on complex, long-term problems.</td>
+<td>- SRM (Single Round Match)<br>- Marathon Match<br>- High-difficulty algorithm challenges<br>- Real-world modeling problems</td>
+<td>- Highly competitive and professional-grade problems<br>- Real-world challenges and big prizes<br>- Community of expert coders</td>
+<td>- Interface feels outdated<br>- Steeper learning curve for newcomers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://www.topcoder.com</p>
+<h4 id="atcoder"><div class="subsection">AtCoder</div></h4>
+<div id="table7">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A Japanese platform offering well-structured contests (ABC, ARC, AGC) with a focus on clean problem statements and difficulty progression.</td>
+<td>- ABC, ARC, AGC contests<br>- Clean and structured problems<br>- Difficulty progression<br>- On-time weekly contests</td>
+<td>- High-quality problems and fair difficulty curve<br>- Regular, punctual contests<br>- Structured for serious learners</td>
+<td>- Japanese-first interface; some translations may be rough<br>- Smaller international community than others</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://atcoder.jp</p>
+<h4 id="codingame"><div class="subsection">CodinGame</div></h4>
+<div id="table8">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gamifies coding challenges with multiplayer and story-based games like Clash of Code and Code vs Zombies.</td>
+<td>- Game-based problem solving<br>- Real-time multiplayer coding<br>- Visual programming challenges<br>- Language flexibility (25+)</td>
+<td>- Fun and visual way to learn coding<br>- Supports 25+ programming languages<br>- Great for casual or team play</td>
+<td>- Not focused on algorithm depth<br>- Less suitable for serious competitive programming</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://www.codingame.com</p>
+<h4 id="codecombat"><div class="subsection">CodeCombat</div></h4>
+<div id="table9">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An RPG-style platform that teaches Python, JavaScript, and HTML through story-driven games and challenges.</td>
+<td>- RPG-style game interface<br>- Code-to-play mechanics<br>- Curriculum-based learning<br>- Beginner visual feedback</td>
+<td>- Ideal for children and beginners<br>- Game-based engagement with rewards<br>- Offers structured curriculum</td>
+<td>- Too basic for experienced developers<br>- Some content requires a subscription</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://codecombat.com</p>
+<h4 id="codewars"><div class="subsection">Codewars</div></h4>
+<div id="table10">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uses &quot;Kata&quot; - short coding exercises - to improve coding progressively with ranking and community feedback.</td>
+<td>- Community challenge creation<br>- Rank-based progression<br>- Peer-reviewed solutions</td>
+<td>- Unique ranking and progression system<br>- Community-driven challenges and solutions<br>- Good for practicing idiomatic code</td>
+<td>- Lacks formal contest system<br>- Quality of community challenges can vary</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://www.codewars.com</p>
+<h4 id="checkio"><div class="subsection">CheckiO</div></h4>
+<div id="table11">
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Techniques Used</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Offers gamified learning of Python and JavaScript through short, interactive problem-solving challenges.</td>
+<td>- Gamified challenges<br>- Code review mechanism<br>- Puzzle solving<br>- Interactive feedback</td>
+<td>- Fun and visual interface<br>- Encourages reviewing others' code<br>- Python-focused challenges are especially polished</td>
+<td>- Less suitable for advanced algorithm training<br>- Limited language support</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Reference:</strong> https://checkio.org</p>
+<h3 id="23-summary"><div id="summary" class="section">2.3 Summary</div></h3>
+<p>In this chapter, the tools that will be used in implementation like (Node.js, Nuxt.js, Figma, Gemini API, OpenRouter, Monaco Editor, and CloudFlare). were described.
+Then the related work was described, (Which is listed in the previous table), and the advantages, disadvantages, and benefits of each one, then compared with the project.</p>
+<hr>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-3-feasibility-and-project-planning" class="chapter-number">03</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER THREE</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 2.7rem;">Feasibility And Project Planning</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An evaluation of the project’s feasibility and planning approach
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<h3 id="31-feasibility-study"><div id="feasibility-study" class="section">3.1 Feasibility Study</div></h3>
+<h4 id="311-technical-feasibility"><div class="subsection">3.1.1 Technical Feasibility</div></h4>
+<ul>
+<li>
+<p><strong>Familiarity with Applications:</strong></p>
+<ul>
+<li>The target learners and educators in our region are already familiar with mobile educational apps and interactive tutorials (e.g. Duolingo, Code.org) in Arabic. Using a gamified, Arabic-language interface makes the platform intuitive; users require no extra training to log in, practice coding, or track progress.</li>
+<li>Core team members have experience building web/mobile learning tools, so we understand typical user workflows (account setup, interactive lessons).</li>
+<li>Because the UI and content are in Arabic, language barriers are eliminated, further smoothing the learning curve for beginners.</li>
+</ul>
+</li>
+<li>
+<p><strong>Familiarity with Technology:</strong></p>
+<ul>
+<li>Our team has strong expertise in the chosen tech stack: we have built Vue/Nuxt.js and .NET applications before and are proficient with SQL Server databases. This means we can efficiently develop the front-end UI and the back-end server.</li>
+<li>We have experience with embedding real-time code editors (the platform will use Microsoft’s Monaco Editor, the same engine as VS Code) and handling Python and JavaScript code execution on the server.</li>
+<li>We are comfortable working with AI APIs; in past projects we have integrated services (e.g. OpenAI APIs) and we can similarly use OpenRouter to connect to the Gemini API for intelligent hints. Overall, <strong>our familiarity is high</strong> and we have confidence that we have the coding, design, and integration skills needed to implement all planned features.</li>
+</ul>
+</li>
+<li>
+<p><strong>Project Size:</strong></p>
+<ul>
+<li>The core team will include about 6 members (detailed below), which is appropriate for a mid-size project.</li>
+<li>The platform’s scope involves a moderate variety of features: a real-time code editor (supporting Python and JS), gamification mechanics (XP, badges, streaks, daily goals), AI-driven hints. This is a mid-level complexity for an experienced team.</li>
+<li>The development timeline is relatively tight: with a target launch by May 2026 (about 6 months from planning start), the schedule is ambitious. However, by assigning parallel sprints for front-end, back-end, and content creation, and by leveraging reusable components (Nuxt/Vue libraries, Monaco Editor, etc.), we believe the team can meet this deadline.</li>
+</ul>
+</li>
+</ul>
+<h4 id="312-organizational-feasibility"><div class="section">3.1.2 Organizational Feasibility</div></h4>
+<ul>
+<li>
+<p><strong>Project Advisor:</strong> Dr. Rehab Emad El-Dein</p>
+</li>
+<li>
+<p><strong>Champion:</strong> The development team and supervisors provide time and effort for the system.</p>
+</li>
+<li>
+<p><strong>System Users:</strong></p>
+<ol>
+<li><strong>Learners:</strong> Arabic-speaking students and self-learners who use the platform to learn programming through structured courses, interactive exercises, and real-time code challenges. They earn XP, badges, and streaks as they progress.</li>
+<li><strong>Mentors/Instructors:</strong> More experienced developers or educators who contribute by answering questions, reviewing user code, curating content, and moderating the community. Mentors help ensure quality and provide additional support (similar to Duolingo “language mentors”).</li>
+<li><strong>Administrators/Content Creators:</strong> A small team of admins who upload new course material, monitor the system, and handle technical support.</li>
+</ol>
+</li>
+<li>
+<p><strong>Development Team Breakdown:</strong> The team is organized into specialized roles with overlapping collaboration to ensure flexibility:</p>
+<ul>
+<li>
+<p><strong>Back-end Developers (2):</strong><br>
+Build and maintain the server-side logic in .NET, manage the SQL Server database, and implement APIs. One of the back-end developers will also take on DevOps responsibilities, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs.</p>
+</li>
+<li>
+<p><strong>Front-end Developers (2):</strong><br>
+Develop the user interface using Nuxt.js, ensuring a responsive and intuitive design across desktop and mobile browsers. They will integrate the Monaco editor, implement gamification features (XP, badges, leaderboards), and collaborate closely with the mobile developer to keep design consistent.</p>
+</li>
+<li>
+<p><strong>Mobile Developer (1):</strong><br>
+Focuses on building and optimizing the mobile application version of the platform, ensuring a smooth experience on iOS and Android. Works with front-end and back-end teams for synchronization and performance.</p>
+</li>
+<li>
+<p><strong>AI Engineer (1):</strong><br>
+Specializes in integrating AI features, including intelligent hints and personalized feedback, through APIs like OpenRouter/Gemini. This role also explores adaptive learning models to tailor exercises to each learner’s progress.</p>
+</li>
+<li>
+<p><strong>Content &amp; Instructional Design (shared responsibility):</strong><br>
+Instead of dedicated content creators, <strong>all team members will collaborate</strong> on producing and localizing course material in Arabic. This includes designing structured lessons, writing exercises, and embedding gamification mechanics. Team members’ technical expertise ensures content is accurate, while shared responsibility distributes workload evenly.</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure id="Figure31">
+  <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
+  <figcaption>Figure 3.1: Development Team Roles</figcaption>
+</figure>
+<h4 id="313-economic-feasibility"><div class="section">3.1.3 Economic Feasibility</div></h4>
+<ul>
+<li>
+<p><strong>Tangible Benefits:</strong></p>
+<ul>
+<li><strong>Course Revenue:</strong> With a pay-per-course model at an average price of $30 per course, enrolling 5,000 users in Year 1 (our target) would generate roughly $150,000 in Year-1 sales. As user growth continues, Year 2 and 3 revenues could be, for example, $225,000 and $300,000 (assuming 50% year-over-year user growth).</li>
+<li><strong>Additional Revenue Streams:</strong> We can develop premium content or certification services in later years (e.g. advanced courses, official completion certificates) to create new revenue. Partnerships or bulk licenses with schools or companies could also add income.</li>
+<li><strong>Economies of Scale:</strong> Because hosting and maintenance costs (see below) are largely fixed per year, each additional user above Year 1 yields mostly profit. For instance, once we cover the $20,000/year hosting expense and $50,000/year marketing, further enrollments significantly improve margins.</li>
+</ul>
+</li>
+<li>
+<p><strong>Intangible Benefits:</strong></p>
+<ul>
+<li><strong>Learner Engagement:</strong> The gamified, Duolingo-style approach will keep students motivated. Studies show gamification (points, streaks, badges) significantly boosts user engagement and retention. By making coding fun and rewarding, we help learners persist.</li>
+<li><strong>Education Impact:</strong> Providing coding education in Arabic removes language barriers and makes computer science more accessible. This can broaden participation in tech education and help develop local talent in programming.</li>
+<li><strong>Brand and Market Position:</strong> Successfully launching this platform will position our team as innovators in Arabic EdTech. Positive reputation and user testimonials will attract future investments, partnerships, and possibly expansion into new topics or markets.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>Development and Operational Costs (Years 0–3):</strong></p>
+<div id="table12">
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Year 0</th>
+<th>Year 1</th>
+<th>Year 2</th>
+<th>Year 3</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Development (one-time)</strong></td>
+<td>$280,000</td>
+<td>$0</td>
+<td>$0</td>
+<td>$0</td>
+<td>$280,000</td>
+</tr>
+<tr>
+<td>Dev team salaries</td>
+<td>$180,000</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>$180,000</td>
+</tr>
+<tr>
+<td>Content creation</td>
+<td>$100,000</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>$100,000</td>
+</tr>
+<tr>
+<td><strong>Hosting/AI/maint.</strong></td>
+<td>$0</td>
+<td>$20,000</td>
+<td>$20,000</td>
+<td>$20,000</td>
+<td>$60,000</td>
+</tr>
+<tr>
+<td><strong>Marketing</strong></td>
+<td>$0</td>
+<td>$50,000</td>
+<td>$50,000</td>
+<td>$50,000</td>
+<td>$150,000</td>
+</tr>
+<tr>
+<td><strong>Total Cost</strong></td>
+<td><strong>$280,000</strong></td>
+<td><strong>$70,000</strong></td>
+<td><strong>$70,000</strong></td>
+<td><strong>$70,000</strong></td>
+<td><strong>$490,000</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>ROI and Cumulative Net:</strong></p>
+<div id="table13">
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Year 0</th>
+<th>Year 1</th>
+<th>Year 2</th>
+<th>Year 3</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Revenue</strong></td>
+<td>$0</td>
+<td>$150,000</td>
+<td>$225,000</td>
+<td>$300,000</td>
+<td>$675,000</td>
+</tr>
+<tr>
+<td><strong>Total Cost</strong></td>
+<td>$280,000</td>
+<td>$70,000</td>
+<td>$70,000</td>
+<td>$70,000</td>
+<td>$490,000</td>
+</tr>
+<tr>
+<td><strong>Net Profit</strong></td>
+<td>-$280,000</td>
+<td>$80,000</td>
+<td>$155,000</td>
+<td>$230,000</td>
+<td>$185,000</td>
+</tr>
+<tr>
+<td><strong>Cumulative Net</strong></td>
+<td>-$280,000</td>
+<td>-$200,000</td>
+<td>-$45,000</td>
+<td>$185,000</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>3-Year ROI:</strong> $185,000 ÷ $490,000 ≈ <strong>37.8%</strong></p>
+</blockquote>
+<figure id="Figure32">
+  <img src="../public/assets/CH03/Figure_3.2_Net_Profit_per_Year.svg" alt="Figure 3.2: Net Profit per Year">
+  <figcaption>Figure 3.2: Net Profit per Year</figcaption>
+</figure>
+<hr>
+<p><strong>Break-even Analysis</strong></p>
+<p>The <strong>break-even point</strong> occurs when cumulative revenue surpasses cumulative costs:</p>
+<ul>
+<li><strong>Year 1:</strong> Cumulative revenue = $150,000, cumulative cost = $350,000 → still negative (-$200,000).</li>
+<li><strong>Year 2:</strong> Cumulative revenue = $375,000, cumulative cost = $420,000 → still negative (-$45,000).</li>
+<li><strong>Year 3:</strong> Cumulative revenue = $675,000, cumulative cost = $490,000 → <strong>positive cumulative net ($185,000)</strong>.</li>
+</ul>
+<p>Therefore, the project is expected to <strong>break even during Year 3</strong>, after which all additional revenue contributes to profit.</p>
+<p>To illustrate:</p>
+<ul>
+<li><strong>Break-even revenue threshold:</strong> $490,000 (total 3-year cost).</li>
+<li>Achieved at ~<strong>16,333 paid enrollments</strong> (490,000 ÷ $30).</li>
+<li>Based on projected growth, this milestone will be reached in the <strong>third year of operation</strong>.</li>
+</ul>
+<figure id="Figure33">
+  <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="Figure 3.3: Cumulative Revenue vs Cumulative Cost - Chart showing break-even point analysis over a 3-year period">
+  <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
+</figure>
+<h3 id="32-risk-management"><div id="risk-management" class="section">3.2 Risk Management</div></h3>
+<p>This section identifies key risks for the coding education platform across technical, operational, and legal domains. Each risk is assessed with a likelihood (Low/Medium/High), impact (Low/Medium/High), and mitigation strategies. Where appropriate, a qualitative risk matrix is used to emphasize prioritization.</p>
+<h4 id="321-technical-risks"><div class="subsection">3.2.1 Technical Risks</div></h4>
+<div id="table14">
+<table>
+<thead>
+<tr>
+<th><strong>Risk</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Likelihood</strong></th>
+<th><strong>Impact</strong></th>
+<th><strong>Mitigation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scalability &amp; Uptime</strong></td>
+<td>High traffic or data growth could overwhelm the platform. Without modular architecture and robust testing, performance bottlenecks and downtime can occur.</td>
+<td>High</td>
+<td>High</td>
+<td>Design a scalable, microservices-based architecture; use horizontal scaling (load balancing, CDN, caching); implement automated testing and monitoring to detect and prevent bottlenecks.</td>
+</tr>
+<tr>
+<td><strong>External API Integration</strong></td>
+<td>Reliance on third-party APIs (e.g. Gemini, OpenRouter) can introduce outages or unpredictable behavior. Third-party services may have downtime or breaking changes.</td>
+<td>Medium</td>
+<td>High</td>
+<td>Vet and monitor external APIs closely (uptime/SLA checks); implement timeouts and retries; use circuit breakers to protect against surges; prepare fallback or degraded modes if an API fails.</td>
+</tr>
+<tr>
+<td><strong>Real-time Code Execution</strong></td>
+<td>Running user-submitted code in real time is error-prone. Sandbox failures, resource exhaustion, or vulnerabilities could crash the executor, harming reliability.</td>
+<td>Medium</td>
+<td>High</td>
+<td>Isolate execution in secure sandboxes or containers; enforce resource limits (memory/time); continuously test with diverse workloads; scale the execution engine separately; monitor and auto-recover.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="322-operational-risks"><div class="subsection">3.2.2 Operational Risks</div></h4>
+<div id="table15">
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Description</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Timeline Delays</strong></td>
+<td>Requirement changes, scope creep, or underestimation can derail schedules. Over-optimistic estimates may lead to extended deadlines.</td>
+<td>High</td>
+<td>High</td>
+<td>Use thorough upfront planning and clear requirements; apply realistic time estimates with contingency; use agile sprints for incremental delivery and reviews.</td>
+</tr>
+<tr>
+<td><strong>Resource Constraints</strong></td>
+<td>Limited team size or skill shortages create bottlenecks.</td>
+<td>Medium</td>
+<td>High</td>
+<td>Cross-train staff and onboard talent early; use contingent resources; maintain a pipeline of developers; forecast and reallocate workloads proactively.</td>
+</tr>
+<tr>
+<td><strong>Content Development Bottlenecks</strong></td>
+<td>Creating high-quality, engaging coding lessons and exercises is time-consuming, which can delay releases or reduce quality.</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Develop content iteratively with SMEs; reuse or adapt existing materials; employ instructional designers; prioritize high-impact modules first.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="323-legal--compliance-risks"><div class="subsection">3.2.3 Legal &amp; Compliance Risks</div></h4>
+<div id="table16">
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Description</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data Privacy (Minors)</strong></td>
+<td>Collecting data on children raises strict legal requirements (e.g., COPPA, GDPR). Failure to comply can cause severe penalties.</td>
+<td>Medium</td>
+<td>High</td>
+<td>Apply &quot;privacy by design&quot;: minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits.</td>
+</tr>
+<tr>
+<td><strong>Copyright &amp; Licensing</strong></td>
+<td>Using third-party or community code/assets risks license infringement. Even one noncompliant license could result in legal or financial penalties.</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Enforce strict review of all content/code; use license scanners; prefer permissive or original content; educate users on plagiarism; remediate infringing material.</td>
+</tr>
+<tr>
+<td><strong>Terms-of-Service Violations</strong></td>
+<td>Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform's ToS.</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Publish comprehensive ToS; implement moderation and reporting tools; enforce rules via filters and manual review; respond promptly and revise policies regularly.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-4-system-analysis" class="chapter-number">04</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER FOUR</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 4rem;">System Analysis</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An analysis of system functionality and requirements
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<h3 id="41-function-requirements"><div id="function-requireements" class="section">4.1 Function Requirements</div></h3>
+<h4 id="411-user-management-system"><div class="subsection">4.1.1 User Management System</div></h4>
+<p><strong>User Registration and Authentication</strong></p>
+<ul>
+<li><strong>FR-1.1:</strong> System shall allow users to create accounts using email, username, and password.</li>
+<li><strong>FR-1.2:</strong> System shall support social login (Google, GitHub, LinkedIn) for quick registration.</li>
+<li><strong>FR-1.3:</strong> System shall implement email verification for new accounts.</li>
+<li><strong>FR-1.4:</strong> System shall provide secure password reset functionality via email.</li>
+<li><strong>FR-1.5:</strong> System shall enforce strong password policies (minimum 8 characters, special characters).</li>
+</ul>
+<p><strong>User Profiles and Settings</strong></p>
+<ul>
+<li><strong>FR-1.7:</strong> System shall allow users to create and edit personal profiles with avatar, bio, and learning goals.</li>
+<li><strong>FR-1.9:</strong> System shall support multiple language interface options (Arabic, English).</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Language interface options.
+</div>
+<p><strong>User Roles and Permissions</strong></p>
+<ul>
+<li><strong>FR-1.10:</strong> System shall support multiple user roles: Learner, Administrator, Content Creator.</li>
+<li><strong>FR-1.11:</strong> System shall implement role-based access control for different platform features.</li>
+</ul>
+<hr>
+<h4 id="412-learning-management-system"><div class="subsection">4.1.2 Learning Management System</div></h4>
+<p><strong>Course Structure and Navigation</strong></p>
+<ul>
+<li><strong>FR-2.1:</strong> System shall organize content into structured learning paths from fundamentals to advanced topics.</li>
+<li><strong>FR-2.2:</strong> System shall implement prerequisite-based lesson unlocking mechanisms.</li>
+<li><strong>FR-2.3:</strong> System shall provide a visual learning roadmap showing completed, current, and locked modules.</li>
+<li><strong>FR-2.4:</strong> System shall support multiple learning tracks (Python, JavaScript, Web Development, OOP, Algorithms).</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Lesson bookmarking.
+</div>
+<p><strong>Lesson Content Delivery</strong></p>
+<ul>
+<li><strong>FR-2.5:</strong> System shall support multi-format lesson content (text, videos, interactive demos).</li>
+<li><strong>FR-2.6:</strong> System shall provide step-by-step coding walkthroughs with highlighted code segments.</li>
+<li><strong>FR-2.7:</strong> System shall include conceptual explanations before practical exercises.</li>
+<li><strong>FR-2.8:</strong> System shall support rich text formatting, code syntax highlighting, and embedded media.</li>
+<li><strong>FR-2.9:</strong> System shall display estimated completion time for each lesson.</li>
+</ul>
+<p><strong>Adaptive Learning Features</strong></p>
+<ul>
+<li><strong>FR-2.10:</strong> System shall track user performance and recommend personalized learning paths.</li>
+<li><strong>FR-2.11:</strong> System shall provide spaced repetition reminders for previously learned concepts.</li>
+</ul>
+<hr>
+<h4 id="413-code-editor-and-execution-environment"><div class="subsection">4.1.3 Code Editor and Execution Environment</div></h4>
+<p><strong>In-Browser Code Editor</strong></p>
+<ul>
+<li><strong>FR-3.1:</strong> System shall embed Monaco Editor for in-browser code editing.</li>
+<li><strong>FR-3.2:</strong> System shall support syntax highlighting for Python, JavaScript, etc.</li>
+<li><strong>FR-3.3:</strong> System shall provide auto-completion and IntelliSense features.</li>
+<li><strong>FR-3.4:</strong> System shall include line numbering, code folding, and bracket matching.</li>
+<li><strong>FR-3.5:</strong> System shall support multiple editor themes (dark/light mode).</li>
+<li><strong>FR-3.6:</strong> System shall provide keyboard shortcuts for common coding operations.</li>
+</ul>
+<p><strong>Code Execution and Testing</strong></p>
+<ul>
+<li><strong>FR-3.7:</strong> System shall execute user code securely using APIs.</li>
+<li><strong>FR-3.8:</strong> System shall display real-time output and error messages.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Test case validation, execution performance metrics.
+</div>
+<p><strong>Code Analysis and Feedback</strong></p>
+<ul>
+<li><strong>FR-3.9:</strong> System shall provide instant syntax error detection and suggestions.</li>
+<li><strong>FR-3.10:</strong> System shall offer code optimization suggestions and best practices.</li>
+<li><strong>FR-3.11:</strong> System shall compare user solutions with model answers.</li>
+<li><strong>FR-3.12:</strong> System shall highlight potential bugs or logical errors using LLM.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Code complexity analysis with Big O insights.
+</div>
+<p><strong>Blockly Integration</strong></p>
+<ul>
+<li><strong>FR-3.13:</strong> System shall provide a block-based workspace with customizable categories (Logic, Math, Control, Events, etc.).</li>
+<li><strong>FR-3.14:</strong> System shall allow users to generate source code (JavaScript/Python) from block structures.</li>
+<li><strong>FR-3.15:</strong> System shall enable code execution within the application environment.</li>
+<li><strong>FR-3.16:</strong> System shall support saving and loading block configurations in XML/JSON format.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Custom block expansion.
+</div>
+<hr>
+<h4 id="414-interactive-exercise-system"><div class="subsection">4.1.4 Interactive Exercise System</div></h4>
+<p><strong>Exercise Types and Structure</strong></p>
+<ul>
+<li><strong>FR-4.1:</strong> System shall support coding challenges, bug fixing, code completion, and multiple-choice exercises.</li>
+<li><strong>FR-4.2:</strong> System shall provide clear problem statements with input/output examples.</li>
+<li><strong>FR-4.3:</strong> System shall include starter code templates when appropriate.</li>
+<li><strong>FR-4.4:</strong> System shall support progressive difficulty within exercise sets.</li>
+<li><strong>FR-4.5:</strong> System shall offer optional hints and explanations.</li>
+</ul>
+<p><strong>Validation and Grading</strong></p>
+<ul>
+<li><strong>FR-4.6:</strong> System shall automatically validate solutions against test cases.</li>
+<li><strong>FR-4.7:</strong> System shall track solution attempts and provide retry mechanisms.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Immediate feedback, partial credit.
+</div>
+<p><strong>Solution Management</strong></p>
+<ul>
+<li><strong>FR-4.8:</strong> System shall provide &quot;section of solutions&quot; after successful completion.</li>
+<li><strong>FR-4.9:</strong> System shall allow users to submit multiple approaches to the same problem.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Save and version solutions.
+</div>
+<hr>
+<h4 id="415-gamification-system"><div class="subsection">4.1.5 Gamification System</div></h4>
+<p><strong>Points and Experience (XP)</strong></p>
+<ul>
+<li><strong>FR-5.1:</strong> System shall award XP for completed lessons, exercises, and achievements.</li>
+<li><strong>FR-5.2:</strong> System shall implement progressive XP requirements for level advancement.</li>
+<li><strong>FR-5.3:</strong> System shall provide XP bonuses for consecutive learning streaks.</li>
+<li><strong>FR-5.4:</strong> System shall award bonus points for first attempts.</li>
+<li><strong>FR-5.5:</strong> System shall display XP progress bars and level indicators.</li>
+</ul>
+<p><strong>Achievement System</strong></p>
+<ul>
+<li><strong>FR-5.6:</strong> System shall implement badge categories (completion, mastery, collaboration).</li>
+<li><strong>FR-5.7:</strong> System shall provide rare and legendary badges for exceptional achievements.</li>
+<li><strong>FR-5.8:</strong> System shall display badge galleries on user profiles.</li>
+<li><strong>FR-5.9:</strong> System shall notify users upon earning new achievements.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Skill-specific badges.
+</div>
+<p><strong>Leaderboards and Competition</strong></p>
+<ul>
+<li><strong>FR-5.10:</strong> System shall maintain global and weekly leaderboards.</li>
+<li><strong>FR-5.11:</strong> System shall support friend-based leaderboards and challenges.</li>
+<li><strong>FR-5.12:</strong> System shall provide leaderboard filtering by time, skill level, or language.</li>
+</ul>
+<p><strong>Streaks and Daily Goals</strong></p>
+<ul>
+<li><strong>FR-5.13:</strong> System shall track daily learning streaks with visual indicators.</li>
+<li><strong>FR-5.14:</strong> System shall send streak reminder notifications.</li>
+<li><strong>FR-5.15:</strong> System shall provide streak recovery options.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Personalized daily goals.
+</div>
+<p><strong>Certification Management</strong></p>
+<ul>
+<li><strong>FR-5.16:</strong> System shall display all available certifications with details.</li>
+<li><strong>FR-5.17:</strong> System shall allow eligible users to enroll in certification tracks.</li>
+<li><strong>FR-5.18:</strong> System shall create a certification dashboard showing progress and deadlines.</li>
+</ul>
+<hr>
+<h4 id="416-progress-tracking-and-analytics"><div class="subsection">4.1.6 Progress Tracking and Analytics</div></h4>
+<p><strong>Individual Progress Monitoring</strong></p>
+<ul>
+<li><strong>FR-6.1:</strong> System shall maintain comprehensive learning history per user.</li>
+<li><strong>FR-6.2:</strong> System shall calculate and display skill mastery percentages.</li>
+<li><strong>FR-6.3:</strong> System shall track time spent on topics and exercises.</li>
+<li><strong>FR-6.4:</strong> System shall identify strengths and weaknesses.</li>
+</ul>
+<p><strong>Performance Analytics</strong></p>
+<ul>
+<li><strong>FR-6.5:</strong> System shall track accuracy rates and improvement trends.</li>
+<li><strong>FR-6.6:</strong> System shall monitor learning velocity.</li>
+<li><strong>FR-6.7:</strong> System shall calculate estimated completion time for coursework.</li>
+</ul>
+<p><strong>Visual Progress Representation</strong></p>
+<ul>
+<li><strong>FR-6.8:</strong> System shall provide interactive progress roadmaps.</li>
+<li><strong>FR-6.9:</strong> System shall display skill trees showing mastered and locked concepts.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Charts and graphs for analytics.
+</div>
+<hr>
+<h4 id="417-ai-powered-features"><div class="subsection">4.1.7 AI-Powered Features</div></h4>
+<p><strong>Intelligent Hints and Assistance</strong></p>
+<ul>
+<li><strong>FR-7.1:</strong> System shall integrate AI APIs (Gemini via OpenRouter) for contextual hints.</li>
+<li><strong>FR-7.2:</strong> System shall provide progressive hint levels.</li>
+<li><strong>FR-7.3:</strong> System shall analyze user code and suggest improvements.</li>
+<li><strong>FR-7.4:</strong> System shall generate explanations for complex programming concepts.</li>
+<li><strong>FR-7.5:</strong> System shall adapt hint complexity based on user skill.</li>
+</ul>
+<p><strong>Personalized Learning Recommendations</strong></p>
+<ul>
+<li><strong>FR-7.6:</strong> System shall suggest relevant exercises when users struggle.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Learning schedules, AI practice problems.
+</div>
+<p><strong>Automated Content Generation</strong></p>
+<ul>
+<li><strong>FR-7.7:</strong> System shall generate variations of exercises for extra practice.</li>
+<li><strong>FR-7.8:</strong> System shall generate code examples for abstract concepts.</li>
+</ul>
+<hr>
+<h4 id="418-content-management-system"><div class="subsection">4.1.8 Content Management System</div></h4>
+<p><strong>Course and Lesson Administration</strong></p>
+<ul>
+<li><strong>FR-8.1:</strong> System shall provide a content creation interface for authorized users.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Content scheduling, review workflows.
+</div>
+<p><strong>Exercise and Assessment Management</strong></p>
+<ul>
+<li><strong>FR-8.2:</strong> System shall allow creation of coding exercises with test cases.</li>
+<li><strong>FR-8.3:</strong> System shall support exercise difficulty categorization.</li>
+<li><strong>FR-8.4:</strong> System shall validate exercises before publication.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Exercise cloning and templates.
+</div>
+<p><strong>Multimedia Content Support</strong></p>
+<ul>
+<li><strong>FR-8.5:</strong> System shall support video upload or embedding.</li>
+<li><strong>FR-8.6:</strong> System shall support content localization for multiple languages.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Image embedding and interactive content creation.
+</div>
+<hr>
+<h4 id="419-system-administration"><div class="subsection">4.1.9 System Administration</div></h4>
+<p><strong>User Management</strong></p>
+<ul>
+<li><strong>FR-9.1:</strong> System shall provide an administrative dashboard for managing user accounts.</li>
+<li><strong>FR-9.2:</strong> System shall support user role assignment and permission management.</li>
+</ul>
+<p><strong>Platform Monitoring and Analytics</strong></p>
+<ul>
+<li><strong>FR-9.3:</strong> System shall maintain system logs and audit trails.</li>
+<li><strong>FR-9.4:</strong> System shall provide usage statistics and dashboards.</li>
+</ul>
+<p><strong>Content Moderation</strong></p>
+<ul>
+<li><strong>FR-9.5:</strong> System shall support manual content review and moderation workflows.</li>
+<li><strong>FR-9.6:</strong> System shall maintain content removal and user warning systems.</li>
+</ul>
+<hr>
+<h4 id="4110-integration-and-api-features"><div class="subsection">4.1.10 Integration and API Features</div></h4>
+<p><strong>Third-Party Integrations</strong></p>
+<ul>
+<li><strong>FR-10.1:</strong> System shall integrate with external authentication providers (OAuth or BetterAuth).</li>
+<li><strong>FR-10.2:</strong> System shall connect with AI services (OpenRouter, Gemini API).</li>
+</ul>
+<p><strong>Platform APIs</strong></p>
+<ul>
+<li><strong>FR-10.3:</strong> System shall provide RESTful APIs for web and mobile apps.</li>
+<li><strong>FR-10.4:</strong> System shall support webhook integrations.</li>
+</ul>
+<p><strong>Mobile and Cross-Platform Support</strong></p>
+<ul>
+<li><strong>FR-10.5:</strong> System shall deliver a responsive web interface optimized for mobile.</li>
+<li><strong>FR-10.6:</strong> System shall provide mobile-specific features (push notifications).</li>
+<li><strong>FR-10.7:</strong> System shall ensure cross-browser compatibility.</li>
+</ul>
+<div class="highlight-box">
+  <strong>Optional Feature:</strong> Offline content caching.
+</div>
+<hr>
+<h4 id="4111-security-and-privacy"><div class="subsection">4.1.11 Security and Privacy</div></h4>
+<p><strong>Data Protection</strong></p>
+<ul>
+<li><strong>FR-11.1:</strong> System shall encrypt sensitive user data at rest and in transit.</li>
+<li><strong>FR-11.2:</strong> System shall implement secure session management and timeouts.</li>
+<li><strong>FR-11.3:</strong> System shall provide privacy controls and data deletion options.</li>
+<li><strong>FR-11.4:</strong> System shall comply with GDPR and COPPA standards.</li>
+</ul>
+<p><strong>Platform Security</strong></p>
+<ul>
+<li><strong>FR-11.5:</strong> System shall implement input validation and sanitization.</li>
+<li><strong>FR-11.6:</strong> System shall protect against XSS, CSRF, and SQL injection.</li>
+<li><strong>FR-11.7:</strong> System shall secure API endpoints with authentication and authorization.</li>
+<li><strong>FR-11.8:</strong> System shall implement rate limiting and DDoS protection.</li>
+</ul>
+<h3 id="42-non-function-requirements"><div id="non-function-requirements" class="section">4.2 Non-Function Requirements</div></h3>
+<h4 id="421-performance"><div class="subsection">4.2.1 Performance</div></h4>
+<p><strong>NFR-1.1:</strong> Response Time</p>
+<ul>
+<li>Landing page load: <strong>2 seconds</strong> (3G or better)</li>
+<li>Monaco editor initialization: <strong>3 seconds</strong></li>
+<li>Code execution results: <strong>5 seconds</strong> (standard exercises)</li>
+<li>API responses: <strong>1 second</strong> (login, save, submit)</li>
+<li>Search/filtering: <strong>2 seconds</strong></li>
+</ul>
+<hr>
+<p><strong>NFR-1.2:</strong> Throughput</p>
+<ul>
+<li>Concurrent users: <strong>1,000+</strong> without degradation</li>
+<li>Simultaneous code executions: <strong>500+</strong></li>
+<li>Peak submissions: <strong>10,000/hour</strong></li>
+</ul>
+<hr>
+<p><strong>NFR-1.3:</strong> Resource Utilization</p>
+<ul>
+<li>Client memory: ≤ <strong>500MB</strong></li>
+<li>Monaco editor: ≤ <strong>200MB</strong></li>
+<li>Database queries: <strong>100ms</strong> (95% of operations)</li>
+<li>CDN cache hit rate: <strong>90%+</strong></li>
+</ul>
+<hr>
+<p><strong>NFR-1.4:</strong> Rendering Performance</p>
+<ul>
+<li>Interactive elements response: <strong>100ms</strong></li>
+<li>Animation frame rate: <strong>60 FPS</strong></li>
+<li>Roadmap rendering (100 nodes): <strong>1.5 seconds</strong></li>
+</ul>
+<h4 id="422-availability"><div class="subsection">4.2.2 Availability</div></h4>
+<p><strong>NFR-2.1:</strong> System Uptime</p>
+<ul>
+<li>Annual uptime: <strong>99.5%</strong> (~43.8 hours downtime)</li>
+<li>Maintenance windows: ≤ <strong>4 hours/month</strong> (low-usage periods)</li>
+</ul>
+<hr>
+<p><strong>NFR-2.2:</strong> Service Availability</p>
+<ul>
+<li>Core features: <strong>24/7</strong> availability</li>
+<li>AI hints: <strong>95%</strong> uptime</li>
+<li>Leaderboards: <strong>98%</strong> uptime</li>
+</ul>
+<hr>
+<p><strong>NFR-2.3:</strong> Geographic Availability</p>
+<ul>
+<li>Global accessibility with focus on Arabic-speaking regions</li>
+</ul>
+<hr>
+<p><strong>NFR-2.4:</strong> Graceful Degradation</p>
+<ul>
+<li>AI unavailable → pre-generated hints available</li>
+<li>Execution service down → lessons &amp; content accessible</li>
+</ul>
+<h4 id="423-scalability"><div class="subsection">4.2.3 Scalability</div></h4>
+<p><strong>NFR-3.1:</strong> Horizontal Scalability</p>
+<ul>
+<li>Stateless architecture for seamless load balancing</li>
+<li>Connection pooling for efficient resource management</li>
+</ul>
+<hr>
+<p><strong>NFR-3.2:</strong> User Growth</p>
+<ul>
+<li>Year 1: <strong>50,000</strong> users</li>
+<li>Year 3: <strong>200,000</strong> users (without major changes)</li>
+</ul>
+<hr>
+<p><strong>NFR-3.3:</strong> Content Scalability</p>
+<ul>
+<li>Launch: <strong>500 lessons</strong>, <strong>5,000 exercises</strong></li>
+<li>Future: <strong>2,000 lessons</strong>, <strong>20,000 exercises</strong></li>
+<li>Support new languages without refactoring</li>
+</ul>
+<hr>
+<p><strong>NFR-3.4:</strong> Database Scalability</p>
+<ul>
+<li>PostgreSQL with read replicas</li>
+<li>Quarterly query plan reviews</li>
+</ul>
+<h4 id="424-reliability"><div class="subsection">4.2.4 Reliability</div></h4>
+<p><strong>NFR-4.1:</strong> Error Rate</p>
+<ul>
+<li>System error rate: <strong>&amp;lt0.5%</strong></li>
+<li>Code execution failures: <strong>&amp;lt1%</strong> (system errors only)</li>
+</ul>
+<hr>
+<p><strong>NFR-4.2:</strong> Data Integrity</p>
+<ul>
+<li>ACID compliance for progress data (Atomicity, Consistency, Isolation, Durability)</li>
+<li>Daily backups with 30-day point-in-time recovery</li>
+</ul>
+<hr>
+<p><strong>NFR-4.3:</strong> Fault Tolerance</p>
+<ul>
+<li>No single point of failure</li>
+<li>Database failover: <strong>60 seconds</strong> automatic</li>
+</ul>
+<hr>
+<p><strong>NFR-4.4:</strong> Data Consistency</p>
+<ul>
+<li>Leaderboards: eventual consistency within <strong>5 minutes</strong></li>
+<li>User profiles: immediate consistency</li>
+<li>Cache invalidation: <strong>30 seconds</strong></li>
+</ul>
+<h4 id="425-interoperability"><div class="subsection">4.2.5 Interoperability</div></h4>
+<p><strong>NFR-5.1:</strong> API Standards</p>
+<ul>
+<li>RESTful design with standard HTTP methods</li>
+<li>JSON responses with consistent structure</li>
+<li>OpenAPI/Swagger documentation</li>
+</ul>
+<hr>
+<p><strong>NFR-5.2:</strong> Third-Party Integration</p>
+<ul>
+<li>OAuth 2.0 (Google, GitHubو LinkedIn)</li>
+<li>Webhook support with JSON payloads</li>
+</ul>
+<hr>
+<p><strong>NFR-5.3:</strong> Data Exchange</p>
+<ul>
+<li>Export formats: JSON, CSV</li>
+<li>Version-control compatible storage</li>
+</ul>
+<hr>
+<p><strong>NFR-5.4:</strong> Browser Compatibility</p>
+<ul>
+<li>Chrome, Firefox, Safari, Edge (latest versions)</li>
+<li>Browsers released within <strong>2 years</strong></li>
+</ul>
+<hr>
+<p><strong>NFR-5.5:</strong> Mobile Compatibility</p>
+<ul>
+<li>Responsive: <strong>320px–2560px</strong></li>
+<li>Native notifications (FCM/APNs)</li>
+</ul>
+<h4 id="426-usability"><div class="subsection">4.2.6 Usability</div></h4>
+<p><strong>NFR-6.1:</strong> Learnability</p>
+<ul>
+<li>Account setup → first lesson: <strong>5 minutes</strong></li>
+<li>Interactive tutorial: <strong>&amp;lt10 minutes</strong></li>
+</ul>
+<hr>
+<p><strong>NFR-6.2:</strong> UI Design</p>
+<ul>
+<li>Material Design principles</li>
+<li>Arabic (RTL) and English (LTR) support</li>
+<li>3 font size options</li>
+</ul>
+<hr>
+<p><strong>NFR-6.3:</strong> Accessibility</p>
+<ul>
+<li>Keyboard navigation (tab, arrows, enter)</li>
+<li>ARIA labels and semantic HTML</li>
+<li>Color-blind modes with alternative indicators</li>
+</ul>
+<hr>
+<p><strong>NFR-6.4:</strong> Error Handling</p>
+<ul>
+<li>User-friendly messages (Arabic/English)</li>
+<li>Contextual help tooltips</li>
+<li>Searchable help center accessible from all pages</li>
+</ul>
+<hr>
+<p><strong>NFR-6.5:</strong> Localization</p>
+<ul>
+<li>Full Arabic/English localization</li>
+<li>Language switching without progress loss</li>
+<li>Regional date, time, and number formatting</li>
+</ul>
+<hr>
+<p><strong>NFR-6.6:</strong> Responsiveness</p>
+<ul>
+<li>Immediate visual feedback</li>
+<li>Progress indicators for operations &gt; <strong>1 second</strong></li>
+</ul>
+<h4 id="427-maintainability"><div class="subsection">4.2.7 Maintainability</div></h4>
+<p><strong>NFR-7.1:</strong> Code Quality</p>
+<ul>
+<li>Test coverage: <strong>≥ 80%</strong> (critical components)</li>
+<li>Peer review required before merge</li>
+</ul>
+<hr>
+<p><strong>NFR-7.2:</strong> Documentation</p>
+<ul>
+<li>API docs with examples and schemas</li>
+<li>Architecture diagrams (system, database, data flow)</li>
+<li>Code comments for complex logic</li>
+</ul>
+<hr>
+<p><strong>NFR-7.3:</strong> Modularity</p>
+<ul>
+<li>Reusable, independently testable components</li>
+<li>Versioned migration scripts</li>
+</ul>
+<hr>
+<p><strong>NFR-7.4:</strong> Logging &amp; Monitoring</p>
+<ul>
+<li>Centralized logs with <strong>90-day</strong> retention</li>
+<li>Automated alerts for critical errors</li>
+</ul>
+<hr>
+<p><strong>NFR-7.5:</strong> Deployment</p>
+<ul>
+<li>Automated CI/CD pipelines</li>
+<li>Rollback capability: <strong>10 minutes</strong></li>
+</ul>
+<h4 id="428-recovery"><div class="subsection">4.2.8 Recovery</div></h4>
+<p><strong>NFR-8.1:</strong> Backup &amp; Restore</p>
+<ul>
+<li>Daily full + 6-hour incremental backups</li>
+<li>30-day point-in-time recovery</li>
+<li>Weekly integrity verification</li>
+</ul>
+<hr>
+<p><strong>NFR-8.2:</strong> Disaster Recovery</p>
+<ul>
+<li>Semi-annual testing</li>
+<li><strong>RTO</strong>: 4 hours</li>
+<li><strong>RPO</strong>: ≤ 1 hour data loss</li>
+</ul>
+<hr>
+<p><strong>NFR-8.3:</strong> Failure Detection</p>
+<ul>
+<li>Alert within <strong>2 minutes</strong> of critical failure</li>
+</ul>
+<hr>
+<p><strong>NFR-8.4:</strong> Data Recovery</p>
+<ul>
+<li>Individual account restoration</li>
+<li>Checksum validation with automatic rollback</li>
+</ul>
+<hr>
+<p><strong>NFR-8.5:</strong> Service Recovery</p>
+<ul>
+<li>Resume after maintenance: <strong>5 minutes</strong></li>
+<li>Automatic session restoration</li>
+<li>Clear incident messaging</li>
+</ul>
+<hr>
+<p><strong>NFR-8.6:</strong> Transaction Recovery</p>
+<ul>
+<li>Automatic completion or manual review</li>
+<li>Transaction log maintenance</li>
+</ul>
+<hr>
+<h3 id="43-functional-decomposition"><div id="functional-decomposition" class="section">4.3 Functional Decomposition</div></h3>
+<p><strong>Decomposition Diagram - Part 1</strong></p>
+<figure id="Figure41">
+  <img src="../public/assets/CH04/Figure_4.1_decomposition_diagram.svg" alt="Figure 4.1: Decomposition Diagram Part 1 - User Learning">
+  <figcaption>Figure 4.1: Decomposition Diagram Part 1 - User Learning</figcaption>
+</figure>
+<p><strong>Decomposition Diagram - Part 2</strong></p>
+<figure id="Figure42">
+  <img src="../public/assets/CH04/Figure_4.2_decomposition_diagram.svg" alt="Figure 4.2: Decomposition Diagram Part 2 - Code Exercises">
+  <figcaption>Figure 4.2: Decomposition Diagram Part 2 - Code Exercises</figcaption>
+</figure>
+<p><strong>Decomposition Diagram - Part 3</strong></p>
+<figure id="Figure43">
+  <img src="../public/assets/CH04/Figure_4.3_decomposition_diagram.svg" alt="Figure 4.3: Decomposition Diagram Part 3 - Gamification & Admin">
+  <figcaption>Figure 4.3: Decomposition Diagram Part 3 - Gamification & Admin</figcaption>
+</figure>
+<hr>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-5-system-architecture" class="chapter-number">05</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER FIVE</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3.5rem;">System Architecture</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An An examination of the system’s architectural structure
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<h3 id="51-actor-goal-list"><div id="actor-goal-list" class="section">5.1 Actor-goal List</div></h3>
+<div id="table17">
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Goals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Learner</strong></td>
+<td>1. Register, log in, and manage their own profiles.<br>2. Choose preferred programming languages and interface languages.<br>3. Follow structured learning paths and unlock lessons progressively.<br>4. Learn via text, videos, and interactive demos.<br>5. Practice coding using Monaco Editor with syntax highlighting, auto-completion, and real-time feedback.<br>6. Receive AI-powered hints, explanations, and recommendations.<br>7. Complete exercises, earn XP, badges, and certifications.<br>8. Track progress, mastery, and performance analytics.<br>9. Participate in leaderboards, streaks, and challenges.</td>
+</tr>
+<tr>
+<td><strong>Content Creator / Instructor</strong></td>
+<td>1. Create and manage courses, lessons, and coding exercises.<br>2. Categorize exercises by difficulty and validate before publishing.<br>3. Add multimedia (videos, images) and localized content.<br>4. Review and update educational materials.<br>5. Generate content in different formats (text, code, interactive demos).</td>
+</tr>
+<tr>
+<td><strong>Administrator</strong></td>
+<td>1. Manage user accounts and assign roles/permissions.<br>2. Monitor platform analytics and logs.<br>3. Moderate content and enforce warnings or removals.<br>4. Oversee data security, backups, and system performance. <strong>&quot;<em>-</em>&quot;</strong><br>5. Configure integrations and APIs for external services. <strong>&quot;<em>-</em>&quot;</strong></td>
+</tr>
+<tr>
+<td><strong>AI System<br>(Gemini / OpenRouter)</strong></td>
+<td>1. Provide contextual hints and adaptive learning recommendations.<br>2. Analyze learner code to detect errors and suggest improvements.<br>3. Generate additional exercises and code examples. <strong>&quot;<em>-</em>&quot;</strong><br>4. Adjust hint complexity based on user skill level. <strong>&quot;<em>-</em>&quot;</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="52-use-cases-diagram"><div id="use-cases-diagram" class="section">5.2 Use Cases Diagram</div></h3>
+<figure id="Figure51">
+  <img src="../public/assets/CH05/Figure_5.1_use_case_diagram.svg" alt="Figure 5.1: Use Cases Diagram">
+  <figcaption>Figure 5.1: Use Cases Diagram</figcaption>
+</figure>
+<hr>
+<h3 id="53-use-case-formats"><div id="use-cases-format" class="section">5.3 Use Case Formats</div></h3>
+<p>This section presents use cases for the DuoCodo platform organized by user role. The cases progress from administrative functions through content creation to learner interactions, using three format levels: Brief (one-line), Casual (structured scenarios), and Fully Dressed (comprehensive specifications).</p>
+<h4 id="531-administrator-use-cases"><div class="subsection">5.3.1 Administrator Use Cases</div></h4>
+<p><strong>Brief Format Use Cases</strong></p>
+<div class="brief-usecase">
+<div class="usecase-title">1. Check Platform Statistics</div>
+<div class="description">
+The administrator views key metrics including total users, active learners, course enrollments, and system performance indicators.
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">2. View User List</div>
+<div class="description">
+The administrator displays a searchable list of all registered users with basic information and account status.
+</div>
+</div>
+<hr class="usecase-separator">
+<p><strong>Casual Format Use Cases</strong></p>
+<div class="usecase-title">3. Assign User Roles</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Administrator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The administrator navigates to "Role Management" in the admin panel.</div>
+<div class="step">The system displays available roles:
+<div class="sub-step">Learner (default)</div>
+<div class="sub-step">Content Creator</div>
+<div class="sub-step">Administrator</div>
+</div>
+<div class="step">The administrator searches for a specific user.</div>
+<div class="step">The administrator selects the user and clicks "Change Role."</div>
+<div class="step">The system displays current role and available role options.</div>
+<div class="step">The administrator selects the new role from the dropdown.</div>
+<div class="step">If promoting to Content Creator or higher, the system prompts:
+<div class="sub-step"><div class="system-message">"This role grants elevated permissions. Confirm you want to proceed?"</div></div>
+</div>
+<div class="step">The administrator confirms the role change.</div>
+<div class="step">The system updates the user's role and permissions.</div>
+<div class="step">The system sends notification to the user:
+<div class="sub-step"><div class="system-message">"Your account role has been updated to [New Role]. You now have access to [features]."</div></div>
+</div>
+<div class="step">The system logs the role change with timestamp and admin identifier.</div>
+<div class="step">The user's interface updates to reflect new capabilities on next login.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Insufficient Permissions</div>
+<div class="alt-description">At Step 6, if the admin lacks authority to assign certain roles:</div>
+<div class="system-message">"You cannot assign [Role Name]. Only Super Administrators can grant this role."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. User Already Has Role</div>
+<div class="alt-description">At Step 6, if attempting to assign the current role:</div>
+<div class="system-message">"This user already has the [Role Name] role."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Content Creator Requirements Not Met</div>
+<div class="alt-description">At Step 8, if promoting to Content Creator but the user hasn't met criteria:</div>
+<div class="system-message">"This user hasn't completed Content Creator training. Assign role anyway?"</div>
+<div class="alt-description">Admin can proceed with override or require training first.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A4. Demoting Active Content Creator</div>
+<div class="alt-description">At Step 8, if demoting a creator with published content:</div>
+<div class="system-message">"This user has [X] published courses. Demoting will affect content management. Reassign content?"</div>
+<div class="alt-description">Admin must decide how to handle existing content.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<h4 id="532-content-creator-use-cases"><div class="subsection">5.3.2 Content Creator Use Cases</div></h4>
+<hr>
+<p><strong>Brief Format Use Cases</strong></p>
+<div class="brief-usecase">
+<div class="usecase-title">1. View Created Content</div>
+<div class="description">
+The content creator views a list of all courses, lessons, and exercises they have authored.
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">2. Preview Lesson</div>
+<div class="description">
+The content creator previews how learners will see and interact with a lesson before publishing.
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">3. Delete Draft</div>
+<div class="description">
+The content creator removes unpublished course materials or exercises from their drafts.
+</div>
+</div>
+<hr class="usecase-separator">
+<p><strong>Casual Format Use Cases</strong></p>
+<div class="usecase-title">4. Create Path</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator logs into the platform.</div>
+<div class="step">The content creator navigates to "My Paths" section.</div>
+<div class="step">The content creator clicks "Create New Path."</div>
+<div class="step">The system displays a Path creation form with fields:
+<div class="sub-step">Path title</div>
+<div class="sub-step">Path description</div>
+<div class="sub-step">Difficulty level (Beginner/Intermediate/Advanced)</div>
+<div class="sub-step">Path category (e.g., Programming, Data analysis)</div>
+<div class="sub-step">Path thumbnail image</div>
+<div class="sub-step">Estimated duration</div>
+</div>
+<div class="step">The content creator fills in all required information.</div>
+<div class="step">The content creator organizes the Path into modules:
+<div class="sub-step">Adds module titles</div>
+<div class="sub-step">Orders modules sequentially</div>
+<div class="sub-step">Assigns estimated time per module</div>
+</div>
+<div class="step">The content creator clicks "Create Path."</div>
+<div class="step">The system validates all inputs and generates a unique Path ID.</div>
+<div class="step">The system creates the Path structure and saves it as a draft.</div>
+<div class="step">The system displays: <div class="system-message">"Path created successfully! Now you can add lessons and exercises."</div></div>
+<div class="step">The content creator is redirected to the Path dashboard to begin adding content.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Missing Required Fields</div>
+<div class="alt-description">At Step 7, if required fields are empty:</div>
+<div class="system-message">"Please complete all required fields: [Field Names]."</div>
+<div class="alt-description">Incomplete fields are highlighted in red.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Duplicate Path Title</div>
+<div class="alt-description">At Step 8, if a path with the same title exists:</div>
+<div class="system-message">"A path with this title already exists. Please choose a different title or modify the existing path."</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Path Creation Limit Reached</div>
+<div class="alt-description">At Step 3, if the creator has reached their path limit:</div>
+<div class="system-message">"You've reached the maximum number of draft paths (5). Please publish or delete existing drafts."</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">5. Create Lesson Node</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator selects an existing path from their dashboard.</div>
+<div class="step">The content creator selects a module within the path.</div>
+<div class="step">The content creator clicks "Add New Node."</div>
+<div class="step">The system displays the Node creation interface with sections:
+<div class="sub-step">Node title</div>
+<div class="sub-step">Node Description</div>
+<div class="sub-step">Node type selection (Lesson/Quiz/Challenge)</div>
+<div class="sub-step">Content type selection (Text/Video)</div>
+<div class="sub-step">Prerequisite Node selection</div>
+</div>
+<div class="step">The content creator enters the Node title and description.</div>
+<div class="step">The content creator selects multi-format content:
+<div class="sub-step">Uploads or embeds video tutorial</div>
+<div class="sub-step">Interactive conversation with AI tutor</div>
+<div class="sub-step">Writes explanatory text with rich formatting (Articles)</div>
+</div>
+<div class="step">The content creator adds code snippets with syntax highlighting.</div>
+<div class="step">The content creator previews the Node to see how it will appear to learners.</div>
+<div class="step">The content creator sets Node order within the module.</div>
+<div class="step">The content creator clicks "Save Node."</div>
+<div class="step">The system validates content and saves the Node.</div>
+<div class="step">The system displays: <div class="system-message">"Node saved successfully!"</div></div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Video Upload Fails</div>
+<div class="alt-description">At Step 6, if video upload encounters an error:</div>
+<div class="system-message">"Video upload failed. Please ensure the file is under 500MB and in MP4 format."</div>
+<div class="alt-description">Text content is saved as draft automatically.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Content Too Short</div>
+<div class="alt-description">At Step 11, if the lesson content is minimal:</div>
+<div class="system-message">"This lesson appears brief. Consider adding more detail to help learners understand the concept."</div>
+<div class="alt-description">The creator can proceed or add more content.</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<p><strong>Fully Dressed Format Use Cases</strong></p>
+<div class="usecase-title">6. Create Coding Exercise</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Primary Actor</div>
+<div class="meta-value">Content Creator</div>
+</div>
+</div>
+<div class="stakeholders">
+<div class="stakeholder-item">
+<span class="stakeholder-role">Content Creator:</span> Wants to design effective, fair exercises that test specific skills.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Learners:</span> Need clear instructions, fair test cases, and appropriate difficulty.
+</div>
+<div class="stakeholder-item">
+<span class="stakeholder-role">Platform:</span> Needs quality-controlled exercises that can be auto-graded reliably.
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Preconditions</div>
+<div class="meta-value">
+<div>Content creator must be logged in and authorized.</div>
+<div>Content creator must have at least one path created.</div>
+</div>
+</div>
+</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Postconditions</div>
+<div class="meta-value">
+<div>Exercise is created with complete problem statement, test cases, and model solution.</div>
+<div>Exercise is saved as draft and ready for validation.</div>
+<div>Exercise metadata is stored in the database.</div>
+</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The content creator navigates to a path module.</div>
+<div class="step">The content creator clicks "+ Add Node."</div>
+<div class="step">The content creator selects "Challenge" as the node type.</div>
+<div class="step">The content creator clicks "Add Challenge."</div>
+<div class="step">The system displays the exercise creation wizard:
+<div class="sub-step">Problem Details</div>
+<div class="sub-step">Test Cases</div>
+<div class="sub-step">Model Solution</div>
+<div class="sub-step">Hints</div>
+<div class="sub-step">Metadata</div>
+</div>
+<div class="step"><strong>Problem Details:</strong> The content creator enters:
+<div class="sub-step">Exercise title (clear, concise)</div>
+<div class="sub-step">Problem statement with context</div>
+<div class="sub-step">Constraints (time limits, input ranges)</div>
+</div>
+<div class="step">The content creator writes starter code template (optional).</div>
+<div class="step"><strong>Test Cases:</strong> The content creator creates test cases:
+<div class="sub-step">At least 3 test cases (minimum requirement)</div>
+<div class="sub-step">Mix of edge cases, typical cases, and boundary cases</div>
+<div class="sub-step">For each test case: input data, expected output, visibility (public/hidden)</div>
+<div class="sub-step">Test case descriptions explaining what is being tested</div>
+</div>
+<div class="step">The content creator marks 2-3 test cases as public (visible to learners).</div>
+<div class="step">The content creator marks remaining cases as hidden (for final validation).</div>
+<div class="step"><strong>Model Solution:</strong> The content creator writes a reference solution:
+<div class="sub-step">Correct, efficient code in the target language</div>
+<div class="sub-step">Well-commented for educational value</div>
+<div class="sub-step">Multiple approaches (optimal, brute-force, alternative methods)</div>
+</div>
+<div class="step">The content creator runs the model solution against all test cases.</div>
+<div class="step">The system validates that the model solution passes all test cases.</div>
+<div class="step"><strong>Hints:</strong> The content creator creates progressive hints:
+<div class="sub-step">Level 1: Conceptual hint (approach suggestion)</div>
+<div class="sub-step">Level 2: Algorithmic hint (specific strategy)</div>
+<div class="sub-step">Level 3: Implementation hint (code structure)</div>
+</div>
+<div class="step"><strong>Metadata:</strong> The content creator sets:
+<div class="sub-step">Difficulty level (Beginner/Intermediate/Advanced)</div>
+<div class="sub-step">Estimated time to complete</div>
+<div class="sub-step">Skill tags (e.g., "arrays", "sorting", "dynamic-programming")</div>
+<div class="sub-step">XP reward value</div>
+</div>
+<div class="step">The content creator clicks "Save as Draft."</div>
+<div class="step">The system saves the exercise in draft status.</div>
+<div class="step">The system displays: <div class="system-message">"Exercise saved successfully! Proceed to validation when ready."</div></div>
+<div class="step">The content creator can:
+<div class="sub-step">Continue editing</div>
+<div class="sub-step">Submit for validation</div>
+<div class="sub-step">Delete draft</div>
+</div>
+<div class="step">The content creator clicks "Submit for Validation."</div>
+<div class="step">The system transitions to Use Case 16 (Validate Exercise Before Publishing).</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Insufficient Test Cases</div>
+<div class="alt-description">At Step 16, if fewer than 3 test cases exist:</div>
+<div class="system-message">"Add at least 3 test cases before saving."</div>
+<div class="alt-description">Save is blocked until minimum requirement is met.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Model Solution Fails Test Cases</div>
+<div class="alt-description">At Step 13, if the model solution doesn't pass all tests:</div>
+<div class="system-message">"Your model solution failed test case [X]. Expected: [Y], Got: [Z]."</div>
+<div class="alt-description">The creator must fix either the solution or the test case before saving.</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A3. Missing Required Fields</div>
+<div class="alt-description">At Step 16, if mandatory fields are empty:</div>
+<div class="system-message">"Complete all required fields: [List]"</div>
+<div class="alt-description">Incomplete sections are highlighted in red.</div>
+</div>
+</div>
+</div>
+<div class="extensions">
+<div class="extensions-header">Extensions</div>
+<div class="extensions-container">
+<div class="extension-item">
+<div class="ext-title">E1. Complexity Analysis Addition</div>
+<div class="alt-description">Creator adds Big O notation explanations:</div>
+<div class="alt-description">
+<div class="sub-step">Time complexity of optimal solution</div>
+<div class="sub-step">Space complexity analysis</div>
+<div class="sub-step">Comparison with alternative approaches</div>
+</div>
+<div class="alt-description">This enhances educational value.</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E2. Interactive Test Case Builder</div>
+<div class="alt-description">System provides GUI to build test cases:</div>
+<div class="alt-description">
+<div class="sub-step">Generate random inputs within constraints</div>
+<div class="sub-step">Automatically compute expected outputs using model solution</div>
+<div class="sub-step">Visualize test coverage</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E3. Import from External Sources</div>
+<div class="alt-description">Creator can import exercise templates from:</div>
+<div class="alt-description">
+<div class="sub-step">Other platforms (with proper attribution)</div>
+<div class="sub-step">Previous exercises (as starting point)</div>
+<div class="sub-step">Community-contributed templates</div>
+</div>
+</div>
+<div class="extension-item">
+<div class="ext-title">E4. Multiple Programming Languages</div>
+<div class="alt-description">If the exercise supports multiple languages:</div>
+<div class="alt-description">
+<div class="sub-step">Creator must provide model solutions in each language.</div>
+<div class="sub-step">Each solution is validated independently before saving.</div>
+<div class="sub-step">Language-specific hints may be needed.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="special-requirements">
+<div class="req-header">Special Requirements</div>
+<ul>
+<li>All data must be auto-saved every 2 minutes to prevent loss.</li>
+<li>Draft exercises are only visible to the creator.</li>
+<li>Model solutions must be encrypted in the database.</li>
+<li>System must support Python, JavaScript, and eventually Java/C++.</li>
+<li>Problem statements must pass basic grammar check before saving.</li>
+<li>Exercise creation interface must be accessible via keyboard navigation.</li>
+</ul>
+</div>
+<div class="metadata-section">
+<div class="section-label">Frequency of Use</div>
+<div class="section-content">
+High frequency during initial course development. Moderate ongoing use as creators add content. Estimated 10-20 exercises created per active content creator per month.
+</div>
+</div>
+<div class="metadata-section">
+<div class="section-label">Open Issues</div>
+<div class="section-content">
+<div>Should we allow saving incomplete exercises with warnings?</div>
+<div>How long should drafts be retained before auto-deletion?</div>
+<div>Should creators earn points for creating quality exercises?</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<h4 id="533-learner-use-cases"><div class="subsection">5.3.3 Learner Use Cases</div></h4>
+<hr>
+<p><strong>Brief Format Use Cases</strong></p>
+<div class="brief-usecase">
+<div class="usecase-title">1. View Profile</div>
+<div class="description">
+The learner views their profile information including avatar, bio, learning goals, and XP progress.
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">2. Change Theme</div>
+<div class="description">
+The learner switches between dark and light mode in the editor settings (or using switch sun/moon icon).
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">3. View Badges</div>
+<div class="description">
+The learner views their earned badges and achievements in their profile gallery.
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">4. Check Streak</div>
+<div class="description">
+The learner checks their current daily learning streak and streak milestones.
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="brief-usecase">
+<div class="usecase-title">5. View Leaderboard</div>
+<div class="description">
+The learner views global, weekly, or friend-based leaderboards showing XP rankings.
+</div>
+</div>
+<hr class="usecase-separator">
+<p><strong>Casual Format Use Cases</strong></p>
+<div class="usecase-title">6. Track Progress and View Learning Analytics</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner navigates to the "Progress & Analytics" section from the dashboard.</div>
+<div class="step">The system displays a comprehensive dashboard with two main views:
+<div class="sub-step"><strong>Progress Overview</strong></div>
+<div class="sub-step"><strong>Detailed Analytics</strong></div>
+</div>
+<div class="step"><strong>Progress Overview Section</strong> displays:
+<div class="sub-step">Completed modules and lessons</div>
+<div class="sub-step">Current XP and level</div>
+<div class="sub-step">Skill mastery percentages</div>
+<div class="sub-step">Time spent learning</div>
+<div class="sub-step">Streak information</div>
+</div>
+<div class="step"><strong>Detailed Analytics Section</strong> displays:
+<div class="sub-step">Accuracy rates per skill</div>
+<div class="sub-step">Time-to-completion trends</div>
+<div class="sub-step">Learning velocity</div>
+<div class="sub-step">Performance metrics with charts and graphs</div>
+</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. No Progress Data</div>
+<div class="alt-description">At Step 2, if the learner hasn't completed any content:</div>
+<div class="sub-step">The system displays: <div class="system-message">"Start your learning journey! Complete lessons to see your progress and analytics here."</div></div>
+<div class="sub-step">Shows sample analytics dashboard with demo data</div>
+</div>
+<div class="alt-scenario-item">
+<div class="alt-title">A2. Data Loading Delays</div>
+<div class="alt-description">At Step 2, if analytics take time to compile:</div>
+<div class="sub-step">The system displays progress indicator: <div class="system-message">"Loading your analytics... This may take a moment."</div></div>
+<div class="sub-step">Shows cached data with timestamp while fresh data loads</div>
+</div>
+</div>
+</div>
+<hr class="usecase-separator">
+<div class="usecase-title">7. Earn XP and Level Up</div>
+<div class="usecase-meta">
+<div class="meta-item">
+<div class="meta-label">Actor</div>
+<div class="meta-value">Learner</div>
+</div>
+</div>
+<div class="main-scenario">
+<div class="scenario-header">Main Success Scenario</div>
+<div class="scenario-steps">
+<div class="step">The learner completes a lesson, quiz, or challenge.</div>
+<div class="step">The system calculates earned XP based on:
+<div class="sub-step">Task difficulty</div>
+<div class="sub-step">Completion time</div>
+<div class="sub-step">Accuracy</div>
+<div class="sub-step">Streak bonuses</div>
+</div>
+<div class="step">The system adds XP to the learner's total.</div>
+<div class="step">If the learner reaches a level threshold, the system triggers level-up animation.</div>
+<div class="step">The learner sees a congratulatory message with new level badge.</div>
+<div class="step">The system unlocks new content or features appropriate to the new level.</div>
+</div>
+</div>
+<div class="alternative-scenarios">
+<div class="alt-scenario-header">Alternative Scenarios</div>
+<div class="alt-scenarios-container">
+<div class="alt-scenario-item">
+<div class="alt-title">A1. Bonus XP Earned</div>
+<div class="alt-description">At Step 2, if the learner completes on the first attempt or maintains a streak, the system displays:</div>
+<div class="system-message">"Bonus XP! You earned +[X] extra points for [reason]."</div>
+</div>
+</div>
+</div>
+<h3 id="54-sequence-diagram"><div id="sequence-diagram" class="section">5.4 Sequence Diagram</div></h3>
+<p>Sequence diagrams were created only for casual and fully-dressed use cases, as these provide sufficient interaction detail to model system behavior. Brief use cases were excluded since they describe high-level functionality without internal system collaboration.</p>
+<figure id="Figure53">
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.3_Assign_User_Role.svg" alt="Figure 5.3: Assign User Role">
+  <figcaption>Figure 5.3: Assign User Role</figcaption>
+</figure>
+<hr>
+<figure id="Figure519">
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.19_Create_Coding_Exercise.svg" alt="Figure 5.19: Create Coding Exercise">
+  <figcaption>Figure 5.19: Create Coding Exercise</figcaption>
+</figure>
+<hr>
+<figure id="Figure528">
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.28_Track_Progress.svg" alt="Figure 5.28: Track Progress">
+  <figcaption>Figure 5.28: Track Progress</figcaption>
+</figure>
+<hr>
+<figure id="Figure529">
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.29_Learn_XP_and_Level_Up.svg" alt="Figure 5.29: Learn XP and Level Up">
+  <figcaption>Figure 5.29: Learn XP and Level Up</figcaption>
+</figure>
+<hr>
+<h3 id="55-class-diagram"><div id="class-diagram" class="section">5.5 Class Diagram</div></h3>
+<p>Class diagrams are structural diagrams that show the static structure of the system, including its classes, attributes, operations, and the relationships among objects. They provide a detailed view of the system's architecture and design.</p>
+<hr>
+<p><strong>Part 1:</strong> Core User and Authentication System</p>
+<p>This section presents the foundational classes for user management, authentication, and authorization within the DuoCodo platform. It includes user roles, profile management, and security features.</p>
+<figure id="Figure538">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.38_Class-part1.svg" alt="Figure 5.38: Core User and Authentication System">
+    <figcaption>Figure 5.38: Class Diagram - Core User and Authentication System</figcaption>
+</figure>
+<hr>
+<p><strong>Part 2:</strong> Learning Content Management</p>
+<p>This section illustrates the classes responsible for managing educational content, including courses, lessons, exercises, and learning paths. It shows how content is structured and organized within the platform.</p>
+<figure id="Figure539">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.39_Class-part2.svg" alt="Figure 5.39: Learning Content Management">
+    <figcaption>Figure 5.39: Class Diagram - Learning Content Management</figcaption>
+</figure>
+<hr>
+<p><strong>Part 3:</strong> Submissions and Code Execution</p>
+<p>This section demonstrates the classes that handle submission and code execution. It shows how the platform motivates and engages learners.</p>
+<figure id="Figure540">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.40_Class-part3.svg" alt="Figure 5.40: Progress Tracking and Gamification">
+    <figcaption>Figure 5.40: Class Diagram - Submissions and Code Execution</figcaption>
+</figure>
+<hr>
+<p><strong>Part 4:</strong> Exercises, Attempts and Code Analysis</p>
+<p>This section presents the classes that enable exercises, attempts and code analysis, including comments, discussions, friend connections, sharing capabilities, and community engagement features.</p>
+<figure id="Figure541">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.41_Class-part4.svg" alt="Figure 5.41: Social and Community Features">
+    <figcaption>Figure 5.41: Class Diagram - Exercises, Attempts and Code Analysis</figcaption>
+</figure>
+<hr>
+<p><strong>Part 5:</strong> Certification and Gamification</p>
+<p>This section shows the classes related to certification and gamification, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.</p>
+<figure id="Figure542">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.42_Class-part5.svg" alt="Figure 5.42: Assessment and Certification">
+    <figcaption>Figure 5.42: Class Diagram - Certification and Gamification</figcaption>
+</figure>
+<hr>
+<p><strong>Part 6:</strong> Administration and Platform Management</p>
+<p>This section illustrates the classes responsible for platform administration, including system monitoring, analytics, content moderation, user management, and reporting capabilities.</p>
+<figure id="Figure543">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.43_Class-part6.svg" alt="Figure 5.43: Administration and Platform Management">
+    <figcaption>Figure 5.43: Class Diagram - Administration and Platform Management</figcaption>
+</figure>
+<hr>
+<p><strong>Key Design Patterns and Relationships</strong></p>
+<p>The class diagrams above illustrate several important design patterns and relationships:</p>
+<ul>
+<li><strong>Inheritance</strong>: User roles (Administrator, Content Creator, Learner) inherit from a base User class</li>
+<li><strong>Composition</strong>: Courses are composed of Lessons, which contain Exercises</li>
+<li><strong>Association</strong>: Many-to-many relationships between Learners and Courses through enrollment</li>
+<li><strong>Aggregation</strong>: Learning Paths aggregate multiple Courses</li>
+<li><strong>Dependency</strong>: Classes depend on authentication and authorization services</li>
+</ul>
+<p>These diagrams provide a comprehensive view of the DuoCodo platform's architecture, showing how different components interact to deliver a complete learning experience.</p>
+<hr>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="chapter-6-database-design" class="chapter-number">06</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER SIX</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3.7rem;">Database Design</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An overview of the ER diagrams and database schema
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<h3 id="61-entity-relationship-diagram"><div id="entity-relationship-diagram" class="section">6.1 Entity Relationship Diagram</div></h3>
+<p>Entity Relationship Diagrams (ERD) represent the data model of the DuoCodo platform, showing the entities, their attributes, and the relationships between them. This comprehensive database design ensures data integrity, efficient querying, and scalability.</p>
+<hr>
+<p><strong>Part 1: User Management and Authentication</strong></p>
+<p>This section presents the core entities for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control.</p>
+<figure id="Figure61">
+    <img src="../public/assets/CH06/ERD/Figure_6.1_ERD-Part1.svg" alt="Figure 6.1: User Management and Authentication ERD">
+    <figcaption>Figure 6.1: Entity Relationship Diagram - User Management and Authentication</figcaption>
+</figure>
+<hr>
+<p><strong>Part 2: Learning Content and Course Structure</strong></p>
+<p>This section illustrates the entities related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and interconnected within the platform.</p>
+<figure id="Figure62">
+    <img src="../public/assets/CH06/ERD/Figure_6.2_ERD-Part2.svg" alt="Figure 6.2: Learning Content and Course Structure ERD">
+    <figcaption>Figure 6.2: Entity Relationship Diagram - Learning Content and Course Structure</figcaption>
+</figure>
+<hr>
+<p><strong>Part 3: Submissions and Code Execution</strong></p>
+<p>This section demonstrates the entities that track submission and code execution. It shows how the platform motivates learners through gamification elements.</p>
+<figure id="Figure63">
+    <img src="../public/assets/CH06/ERD/Figure_6.3_ERD-part3.svg" alt="Figure 6.3: Progress Tracking and Gamification ERD">
+    <figcaption>Figure 6.3: Entity Relationship Diagram - Submissions and Code Execution</figcaption>
+</figure>
+<hr>
+<p><strong>Part 4: Exercises, Attempts and Code Analysis</strong></p>
+<p>This section shows the entities for exercises, attempts and code analysis. It demonstrates how the platform evaluates learner competency and issues credentials.</p>
+<figure id="Figure64">
+    <img src="../public/assets/CH06/ERD/Figure_6.4_ERD-part4.svg" alt="Figure 6.4: Assessment and Certification ERD">
+    <figcaption>Figure 6.4: Entity Relationship Diagram - Exercises, Attempts and Code Analysis</figcaption>
+</figure>
+<hr>
+<p><strong>Part 5: Certification and Gamification</strong></p>
+<p>This section presents the entities that enable certification and gamification, including comments, discussions, friend connections, notifications, sharing, and community engagement features.</p>
+<figure id="Figure65">
+    <img src="../public/assets/CH06/ERD/Figure_6.5_ERD-part5.svg" alt="Figure 6.5: Social Features and Community ERD">
+    <figcaption>Figure 6.5: Entity Relationship Diagram - Certification and Gamification</figcaption>
+</figure>
+<hr>
+<p><strong>Part 6: Administration and System Management</strong></p>
+<p>This section illustrates the entities for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities.</p>
+<figure id="Figure66">
+    <img src="../public/assets/CH06/ERD/Figure_6.6_ERD-part6.svg" alt="Figure 6.6: Administration and System Management ERD">
+    <figcaption>Figure 6.6: Entity Relationship Diagram - Administration and System Management</figcaption>
+</figure>
+<hr>
+<p><strong>Database Design Principles</strong></p>
+<p>The ERD design follows these key principles:</p>
+<ul>
+<li><strong>Normalization</strong>: Entities are normalized to reduce data redundancy and improve data integrity</li>
+<li><strong>Referential Integrity</strong>: Foreign key relationships ensure data consistency across tables</li>
+<li><strong>Scalability</strong>: Design supports horizontal and vertical scaling for growing user base</li>
+<li><strong>Performance</strong>: Indexed fields and optimized relationships for efficient queries</li>
+<li><strong>Flexibility</strong>: Schema allows for future extensions and feature additions</li>
+<li><strong>Security</strong>: Sensitive data fields include encryption and access control mechanisms</li>
+</ul>
+<p>These diagrams provide a comprehensive view of the DuoCodo platform's data architecture, showing how information is stored, organized, and related to support all system functionalities.</p>
+<hr>
+<h3 id="62-database-schema"><div id="database-schema" class="section">6.2 Database Schema</div></h3>
+<p>Database Schema represents the logical structure of the DuoCodo platform database, showing tables, columns, data types, constraints, and relationships. This detailed schema design ensures optimal performance, data integrity, and supports all platform functionalities.</p>
+<hr>
+<p><strong>Part 1: User Management and Authentication</strong></p>
+<p>This section presents the database tables for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control with detailed field specifications.</p>
+<figure id="Figure67">
+    <img src="../public/assets/CH06/Schema/Figure_6.7_schema-part1.svg" alt="Figure 6.7: User Management and Authentication Schema">
+    <figcaption>Figure 6.7: Database Schema - User Management and Authentication</figcaption>
+</figure>
+<hr>
+<p><strong>Part 2: Learning Content and Course Structure</strong></p>
+<p>This section illustrates the database tables related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and stored within the database with proper data types and constraints.</p>
+<figure id="Figure68">
+    <img src="../public/assets/CH06/Schema/Figure_6.8_schema-part2.svg" alt="Figure 6.8: Learning Content and Course Structure Schema">
+    <figcaption>Figure 6.8: Database Schema - Learning Content and Course Structure</figcaption>
+</figure>
+<hr>
+<p><strong>Part 3: Submissions and Code Execution</strong></p>
+<p>This section demonstrates the database tables that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform stores and manages gamification elements with appropriate indexing.</p>
+<figure id="Figure69">
+    <img src="../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Progress Tracking and Gamification Schema">
+    <figcaption>Figure 6.9: Database Schema - Submissions and Code Execution</figcaption>
+</figure>
+<hr>
+<p><strong>Part 4: Exercises, Attempts and Code Analysis</strong></p>
+<p>This section shows the database tables for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.</p>
+<figure id="Figure610">
+    <img src="../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Assessment and Certification Schema">
+    <figcaption>Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis</figcaption>
+</figure>
+<hr>
+<p><strong>Part 5: Certification and Gamification</strong></p>
+<p>This section presents the database tables that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.</p>
+<figure id="Figure611">
+    <img src="../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Social Features and Community Schema">
+    <figcaption>Figure 6.11: Database Schema - Certification and Gamification</figcaption>
+</figure>
+<hr>
+<p><strong>Part 6: Administration and System Management</strong></p>
+<p>This section illustrates the database tables for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities with appropriate data retention policies.</p>
+<figure id="Figure612">
+    <img src="../public/assets/CH06/Schema/Figure_6.12_schema-part6.svg" alt="Figure 6.12: Administration and System Management Schema">
+    <figcaption>Figure 6.12: Database Schema - Administration and System Management</figcaption>
+</figure>
+<hr>
+<p><strong>Database Schema Specifications</strong></p>
+<p>The database schema implementation follows these key specifications:</p>
+<ul>
+<li><strong>Data Types</strong>: Appropriate data types chosen for optimal storage and performance</li>
+<li><strong>Constraints</strong>: Primary keys, foreign keys, unique constraints, and check constraints ensure data integrity</li>
+<li><strong>Indexing</strong>: Strategic indexes on frequently queried columns for optimal performance</li>
+<li><strong>Normalization</strong>: Tables normalized to 3NF (Third Normal Form) to eliminate redundancy</li>
+<li><strong>Referential Integrity</strong>: Foreign key relationships maintain consistency across related tables</li>
+<li><strong>Security</strong>: Sensitive fields include encryption specifications and access control measures</li>
+<li><strong>Scalability</strong>: Schema design supports partitioning and sharding for future growth</li>
+<li><strong>Backup Strategy</strong>: Tables include timestamp fields for incremental backup operations</li>
+</ul>
+<p>This detailed schema provides the implementation blueprint for the DuoCodo platform's database, ensuring robust data management and optimal query performance across all system components.</p>
+<hr>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="Chapter-7-User-Interface" class="chapter-number">07</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER SEVEN</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3.7rem;">User Interface</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            An examination of the user interface design and user experience
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<h3 id="71-authentication-screens"><div id="Authentication-Screens" class="section">7.1 Authentication Screens</div></h3>
+<div class="ui-container">
+<figure id="Figure71">
+    <img src="../public/assets/CH07/Figure_7.1_Desktop-login.png" alt="Login Screen">
+    <figcaption>Figure 7.1: Login Screen</figcaption>
+</figure>
+<figure id="Figure72">
+    <img src="../public/assets/CH07/Figure_7.2_Desktop-register.png" alt="Register Screen">
+    <figcaption>Figure 7.2: Registration Screen</figcaption>
+</figure>
+<figure id="Figure73">
+    <img src="../public/assets/CH07/Figure_7.3_Desktop-OTP.png" alt="OTP Verification">
+    <figcaption>Figure 7.3: OTP Verification Screen</figcaption>
+</figure>
+<figure id="Figure74">
+    <img src="../public/assets/CH07/Figure_7.4_Desktop-Password.png" alt="Password Screen">
+    <figcaption>Figure 7.4: Password Entry Screen</figcaption>
+</figure>
+<figure id="Figure75">
+    <img src="../public/assets/CH07/Figure_7.5_Desktop-New-Password.png" alt="New Password Screen">
+    <figcaption>Figure 7.5: New Password Creation Screen</figcaption>
+</figure>
+<figure id="Figure76">
+    <img src="../public/assets/CH07/Figure_7.6_Desktop-User-name.png" alt="Set Username">
+    <figcaption>Figure 7.6: Set Username</figcaption>
+</figure>
+</div>
+<h3 id="72-main-dashboard"><div id="Main-Dashboard" class="section">7.2 Main Dashboard</div></h3>
+<div class="ui-container">
+<figure id="Figure77">
+    <img src="../public/assets/CH07/Figure_7.7_Desktop-Learning-Path.png" alt="Learning Path">
+    <figcaption>Figure 7.7: Learning Path Interface</figcaption>
+</figure>
+<figure id="Figure78">
+    <img src="../public/assets/CH07/Figure_7.8_Desktop-close-side-bar.png" alt="Collapsed Sidebar">
+    <figcaption>Figure 7.8: Interface with Collapsed Sidebar</figcaption>
+</figure>
+<figure id="Figure79">
+    <img src="../public/assets/CH07/Figure_7.9_Desktop-chat.png" alt="Chat Interface">
+    <figcaption>Figure 7.9: Chat Interface</figcaption>
+</figure>
+<figure id="Figure710">
+    <img src="../public/assets/CH07/Figure_7.10_Desktop-Video.png" alt="Video Player">
+    <figcaption>Figure 7.10: Video Player Screen</figcaption>
+</figure>
+<figure id="Figure711">
+    <img src="../public/assets/CH07/Figure_7.11_Desktop-Quiz-mcq.png" alt="Quiz MCQ">
+    <figcaption>Figure 7.11: Multiple Choice Quiz</figcaption>
+</figure>
+<figure id="Figure712">
+    <img src="../public/assets/CH07/Figure_7.12_Desktop-Quiz-Code.png" alt="Quiz Code">
+    <figcaption>Figure 7.12: Code Quiz Interface</figcaption>
+</figure>
+<figure id="Figure713">
+    <img src="../public/assets/CH07/Figure_7.13_Desktop-Quiz-Completed.png" alt="Quiz Completed">
+    <figcaption>Figure 7.13: Quiz Completion Screen</figcaption>
+</figure>
+</div>
+<div id="Learning-Paths" class="section">7.3 Learning Paths</div>
+<div class="ui-container">
+<figure id="Figure714">
+    <img src="../public/assets/CH07/Figure_7.14_Desktop-Dashboard.png" alt="Main Dashboard">
+    <figcaption>Figure 7.14: Main Dashboard</figcaption>
+</figure>
+<figure id="Figure715">
+    <img src="../public/assets/CH07/Figure_7.15_Desktop-Dashboard-Details.png" alt="Dashboard Details">
+    <figcaption>Figure 7.15: Dashboard Details View</figcaption>
+</figure>
+<figure id="Figure716">
+    <img src="../public/assets/CH07/Figure_7.16_Desktop-Dashboard-with-filtration.png" alt="Dashboard with Filtration">
+    <figcaption>Figure 7.16: Dashboard with Filtration Options</figcaption>
+</figure>
+</div>
+<div id="Progress-Tracking-Analytics" class="section">7.4 Progress Tracking & Analytics</div>
+<div class="ui-container">
+    <figure id="Figure717">
+        <img src="../public/assets/CH07/Figure_7.17_Desktop-Progress-Analysis.png" alt="Progress and Analysis">
+        <figcaption>Figure 7.17: Progress & Analysis Dashboard</figcaption>
+    </figure>
+</div>
+<div id="Theme-Options" class="section">7.5 Theme Options</div>
+<div class="ui-container">
+    <figure id="Figure718">
+        <img src="../public/assets/CH07/Figure_7.18_Desktop-Dark-Mode.png" alt="Dark Mode">
+        <figcaption>Figure 7.18: Dark Mode Interface</figcaption>
+    </figure>
+</div>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="Chapter-8-References" class="chapter-number">08</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER EIGHT</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 4rem;">References</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            Links and addresses for references
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<p><strong>Feasibility References</strong></p>
+<p><strong>1. Online Course Pricing Range</strong></p>
+<ul>
+<li><strong>Used value:</strong> $20–$50 per course (average $30).</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://www.classcentral.com/report/udemy-vs-coursera/?utm_source=chatgpt.com">https://www.classcentral.com/report/udemy-vs-coursera/?utm_source=chatgpt.com</a> – Udemy courses typically range <strong>$19.99–$199.99</strong>, with most under $50.</li>
+<li><a href="https://www.open2study.com/coursera/pricing/?utm_source=chatgpt.com">https://www.open2study.com/coursera/pricing/?utm_source=chatgpt.com</a> – Many individual courses are in the <strong>$39–$79</strong> range.</li>
+<li>Based on these ranges, an average of <strong>$30 per course</strong> is realistic for a pay-per-course platform.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>2. Target of 5,000 Paid Users in Year 1</strong></p>
+<ul>
+<li><strong>Used value:</strong> 5,000 users × $30 = $150,000 revenue in Year 1.</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://elearningindustry.com/elearning-statistics-and-facts">https://elearningindustry.com/elearning-statistics-and-facts</a> – Confirms steady growth in eLearning markets, especially localized platforms.</li>
+<li><a href="https://www.businessofapps.com/data/duolingo-statistics/">https://www.businessofapps.com/data/duolingo-statistics/</a> – Duolingo reached millions within its first years; <strong>5K initial users</strong> is realistic for a regional launch.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>3. Development Cost Estimate: $180,000</strong></p>
+<ul>
+<li><strong>Used value:</strong> $180,000 (small full-stack team for ~9 months).</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://topflightapps.com/ideas/app-development-costs/?utm_source=chatgpt.com">https://topflightapps.com/ideas/app-development-costs/?utm_source=chatgpt.com</a> – Typical range <strong>$50K–$150K</strong> for mid-scale web projects.</li>
+<li><a href="https://www.goodfirms.co/resources/software-development-cost">https://www.goodfirms.co/resources/software-development-cost</a> – Confirms similar ranges for small-to-medium web applications.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>4. Content Creation (10 Courses): $100,000</strong></p>
+<ul>
+<li><strong>Used value:</strong> $10,000 per course × 10 = $100,000 total.</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://pinlearn.com/how-much-does-it-cost-to-develop-an-online-course/?utm_source=chatgpt.com">https://pinlearn.com/how-much-does-it-cost-to-develop-an-online-course/?utm_source=chatgpt.com</a> – Simple interactive courses cost <strong>$5.9K–$50K</strong> each.</li>
+<li>With Arabic localization and interactivity, <strong>$10K per course</strong> is an accurate midpoint.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>5. Hosting, AI, and Maintenance: $20,000/year</strong></p>
+<ul>
+<li><strong>Used value:</strong> $20,000 annually.</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://calculator.aws/#/">https://calculator.aws/#/</a> and <a href="https://cloud.google.com/pricing">Google Cloud Estimate</a> – Small SaaS hosting averages <strong>$1K–$2K/month</strong>.</li>
+<li>AI usage (Gemini/OpenRouter) adds roughly <strong>$300–$500/month</strong>.</li>
+<li>Combined yearly estimate ≈ <strong>$20K</strong> including DevOps.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>6. Marketing Budget: $50,000/year</strong></p>
+<ul>
+<li><strong>Used value:</strong> $50,000 annually.</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://upgrowth.in/how-much-does-edtech-marketing-cost-how-much-to-spend-without-breaking-the-bank/">https://upgrowth.in/how-much-does-edtech-marketing-cost-how-much-to-spend-without-breaking-the-bank/</a> – Small EdTech startups spend <strong>8.3%</strong> of revenue on marketing.</li>
+<li>$50K aligns with an active but cost-conscious launch plan.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>7. Arabic eLearning Market Context</strong></p>
+<ul>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://www.unesco.org/en/digital-education">https://www.unesco.org/en/digital-education</a> – Highlights rapid adoption of Arabic eLearning.</li>
+<li><a href="https://www.researchandmarkets.com/reports/5731047/middle-east-e-learning-market-growth-trends">https://www.researchandmarkets.com/reports/5731047/middle-east-e-learning-market-growth-trends</a> – Predicts <strong>&gt;10% annual growth</strong> in Arabic/MENA EdTech.</li>
+</ul>
+</li>
+</ul>
+<hr>
+</div>
+
+</body>
+</html>

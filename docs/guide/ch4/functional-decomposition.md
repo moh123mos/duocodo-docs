@@ -18,3 +18,7 @@ This document presents the functional decomposition diagrams for the system, bre
 ## Decomposition Diagram - Part 2
 
 <img src="./../../public/assets/CH04/Figure_4.2_decomposition_diagram.svg" alt="Figure 3.2: Decomposition Diagram Part 2" style="transform: scaleY(1.7)"/>
+
+## Decomposition Diagram - Part 3
+
+<img src="./../../public/assets/CH04/Figure_4.3_decomposition_diagram.svg" alt="Figure 3.3: Decomposition Diagram Part 3" style="transform: scaleY(1.7)"/>

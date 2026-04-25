@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Learning Platform Use Case Diagram" id="learning-platform-ucd">
-        <mxGraphModel dx="1206" dy="1609" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="429" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -388,7 +388,7 @@
                 <mxCell id="uc-remove-content" value="Remove Content" style="ellipse;whiteSpace=wrap;html=1;fillColor=#99FF99;strokeColor=#00CC00;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="system-boundary" vertex="1">
                     <mxGeometry x="365" y="340" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="uc-data-security" value="Manage Data&lt;br&gt;Security" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="system-boundary" vertex="1">
+                <mxCell id="uc-data-security" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Issue Warnings&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="system-boundary" vertex="1">
                     <mxGeometry x="700" y="630" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="uc-configure-backups" value="Configure&lt;br&gt;Backups" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="system-boundary" vertex="1">
@@ -397,7 +397,7 @@
                 <mxCell id="uc-monitor-performance" value="Monitor&lt;br&gt;Performance" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="system-boundary" vertex="1">
                     <mxGeometry x="630" y="700" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="uc-issue-warnings" value="Issue Warnings" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="system-boundary" vertex="1">
+                <mxCell id="uc-issue-warnings" value="Design Learning Paths" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="system-boundary" vertex="1">
                     <mxGeometry x="700" y="540" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="uc-complete-exercises" value="Complete&lt;br&gt;Exercises" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="system-boundary" vertex="1">
@@ -439,7 +439,7 @@
                 <mxCell id="2" value="AI System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="120" y="830" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="100" value="" style="group" vertex="1" connectable="0" parent="1">
+                <mxCell id="100" value="" style="group" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="370" y="910" width="730" height="110" as="geometry"/>
                 </mxCell>
                 <mxCell id="legend" value="" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" parent="100" vertex="1">
@@ -457,13 +457,13 @@
                 <mxCell id="legend-admin" value="Admin Use Cases" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="100" vertex="1">
                     <mxGeometry x="260" y="50" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="97" value="AI/Support Use Cases" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="100">
+                <mxCell id="97" value="AI/Support Use Cases" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="100" vertex="1">
                     <mxGeometry x="380" y="50" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="98" value="Extend/Future Features" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="100">
+                <mxCell id="98" value="Extend/Future Features" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="100" vertex="1">
                     <mxGeometry x="500" y="50" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="99" value="Shared Use Cases" style="ellipse;whiteSpace=wrap;html=1;fillColor=#99FF99;strokeColor=#00CC00;fontSize=10;" vertex="1" parent="100">
+                <mxCell id="99" value="Shared Use Cases" style="ellipse;whiteSpace=wrap;html=1;fillColor=#99FF99;strokeColor=#00CC00;fontSize=10;" parent="100" vertex="1">
                     <mxGeometry x="620" y="50" width="100" height="40" as="geometry"/>
                 </mxCell>
             </root>
