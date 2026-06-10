@@ -241,7 +241,7 @@ Two-factor authentication (2FA).
 
 ## Summary
 
-This functional requirements specification defines the core features and capabilities needed for the DuoCodo programming education platform. These requirements address:
+This functional requirements specification defines the core features and capabilities needed for the DuoCode programming education platform. These requirements address:
 
 - **User Management:** Comprehensive user system with roles and permissions
 - **Learning Delivery:** Multi-format content with interactive code execution

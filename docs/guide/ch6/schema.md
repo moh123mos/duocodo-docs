@@ -8,7 +8,7 @@ figure {
 
 ## 6.2 Database Schema
 
-Database Schema represents the logical structure of the DuoCodo platform database, showing tables, columns, data types, constraints, and relationships. This detailed schema design ensures optimal performance, data integrity, and supports all platform functionalities.
+Database Schema represents the logical structure of the DuoCode platform database, showing tables, columns, data types, constraints, and relationships. This detailed schema design ensures optimal performance, data integrity, and supports all platform functionalities.
 
 [[toc]]
 
@@ -93,4 +93,4 @@ The database schema implementation follows these key specifications:
 - **Scalability**: Schema design supports partitioning and sharding for future growth
 - **Backup Strategy**: Tables include timestamp fields for incremental backup operations
 
-This detailed schema provides the implementation blueprint for the DuoCodo platform's database, ensuring robust data management and optimal query performance across all system components.
+This detailed schema provides the implementation blueprint for the DuoCode platform's database, ensuring robust data management and optimal query performance across all system components.

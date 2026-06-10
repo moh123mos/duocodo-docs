@@ -1,6 +1,6 @@
 
 # 2.2 Related Work
-In this section, we review existing educational platforms that focus on programming and competitive coding. Each platform is analyzed based on its description, techniques used, advantages, disadvantages, and how DuoCodo addresses gaps in their offerings.
+In this section, we review existing educational platforms that focus on programming and competitive coding. Each platform is analyzed based on its description, techniques used, advantages, disadvantages, and how DuoCode addresses gaps in their offerings.
 [[toc]]
 
 ## Elzero Web School
@@ -239,7 +239,7 @@ Disadvantages:
 Reference: [https://checkio.org](https://checkio.org)
 
 ## Comparison Table
-| Platform              | Focus                                                             | Strength                                                                | Gap Addressed by DuoCodo                                                                                                                          |
+| Platform              | Focus                                                             | Strength                                                                | Gap Addressed by DuoCode                                                                                                                          |
 | --------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Elzero Web School** | Arabic web development education with structured study plans      | Step-by-step learning paths for Frontend, Backend, and Full Stack       | Adds comprehensive progress tracking dashboards, personalized mastery analytics, and gamification (XP, badges, streaks) to sustain motivation     |
 | **Codeforces**        | Competitive programming contests (Div 1/2) with rating system     | Regular contests, detailed editorials, transparent rating system        | Provides scaffolded learning path from fundamentals to advanced topics with adaptive difficulty, eliminating the intimidating jump for beginners  |
@@ -255,9 +255,9 @@ Reference: [https://checkio.org](https://checkio.org)
 
 ## Key Differentiation
 
-DuoCodo uniquely addresses three critical gaps identified in existing platforms:
+DuoCode uniquely addresses three critical gaps identified in existing platforms:
 
-1. **Structural Coherence**: Unlike fragmented contest/exercise platforms, DuoCodo provides a progressive skill tree from fundamentals to advanced topics (OOP, algorithms, web frameworks) with clear prerequisites.
+1. **Structural Coherence**: Unlike fragmented contest/exercise platforms, DuoCode provides a progressive skill tree from fundamentals to advanced topics (OOP, algorithms, web frameworks) with clear prerequisites.
 
 2. **Practice-Feedback Integration**: Combines instant AI-assisted feedback, runtime complexity analysis, and model solutions—bridging the gap between passive tutorials and isolated practice.
 

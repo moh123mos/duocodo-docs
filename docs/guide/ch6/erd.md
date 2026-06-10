@@ -8,7 +8,7 @@ figure {
 
 ## 6.1 Entity Relationship Diagram
 
-Entity Relationship Diagrams (ERD) represent the data model of the DuoCodo platform, showing the entities, their attributes, and the relationships between them. This comprehensive database design ensures data integrity, efficient querying, and scalability.
+Entity Relationship Diagrams (ERD) represent the data model of the DuoCode platform, showing the entities, their attributes, and the relationships between them. This comprehensive database design ensures data integrity, efficient querying, and scalability.
 
 [[toc]]
 
@@ -91,4 +91,4 @@ The ERD design follows these key principles:
 - **Flexibility**: Schema allows for future extensions and feature additions
 - **Security**: Sensitive data fields include encryption and access control mechanisms
 
-These diagrams provide a comprehensive view of the DuoCodo platform's data architecture, showing how information is stored, organized, and related to support all system functionalities.
+These diagrams provide a comprehensive view of the DuoCode platform's data architecture, showing how information is stored, organized, and related to support all system functionalities.

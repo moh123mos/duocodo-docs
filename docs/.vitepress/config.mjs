@@ -5,7 +5,7 @@ export default withMermaid({
     theme: "neutral", // أو 'dark' أو 'default'
     securityLevel: "loose", // للسماح بروابط داخل الرسومات
   },
-  title: "DuoCodo",
+  title: "DuoCode",
   description: "Documentation for my awesome graduation project",
   lastUpdated: true,
   head: [
@@ -48,7 +48,7 @@ export default withMermaid({
       // { text: 'API', link: '/api/' },
       {
         text: "Download PDF",
-        link: "/duocodo.pdf",
+        link: "/duocode.pdf",
         target: "_blank",
         rel: "noopener",
       },
@@ -135,7 +135,7 @@ export default withMermaid({
       ],
     },
     socialLinks: [
-      { icon: "github", link: "https://github.com/moh123mos/duocodo-docs" },
+      { icon: "github", link: "https://github.com/moh123mos/duocode-docs" },
     ],
   },
   locales: {
@@ -144,7 +144,7 @@ export default withMermaid({
       lang: "en",
       link: "/",
       dir: "ltr",
-      title: "DuoCodo",
+      title: "DuoCode",
       description: "Documentation for my awesome graduation project",
     },
     ar: {
@@ -160,7 +160,7 @@ export default withMermaid({
           { text: "الدليل", link: "/ar/guide/ch1" },
           // { text: 'واجهة برمجة التطبيقات', link: '/api/' },
           { text: "الفريق", link: "/ar/team" },
-          { text: "تحميل PDF", link: "/duocodo.pdf" },
+          { text: "تحميل PDF", link: "/duocode.pdf" },
         ],
         sidebar: {
           // This sidebar gets displayed when a user
@@ -216,7 +216,7 @@ export default withMermaid({
         socialLinks: [
           {
             icon: "github",
-            link: " https://github.com/moh123mos/duocodo-docs",
+            link: " https://github.com/moh123mos/duocode-docs",
           },
         ],
         outline: {

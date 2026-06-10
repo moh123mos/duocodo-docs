@@ -13,7 +13,7 @@ The platform integrates a variety of technologies to ensure a seamless user expe
 - **[Monaco Editor](#monaco-editor)**: Delivers an in-browser coding experience with features like syntax highlighting and IntelliSense.
 - **[Cloudflare](#cloudflare)**: Ensures platform security, performance optimization, and global content delivery.
 
-This chapter explores the tools and technologies that form the foundation of the "DuoCodo" platform, highlighting their roles and contributions to the project's overall objectives.
+This chapter explores the tools and technologies that form the foundation of the "DuoCode" platform, highlighting their roles and contributions to the project's overall objectives.
 
 ## Figma
 
@@ -33,21 +33,12 @@ For more detailed imformation. you can refer to ([Nuxt.js](https://nuxt.com/)).
 
 For more detailed information, you can refer to ([Flutter](https://flutter.dev/)).
 
-## .NET
 
-**.NET** is a powerful, open-source development platform created by Microsoft for building modern, scalable, and high-performance applications. It supports multiple languages such as C#, F#, and VB.NET, and enables developers to create applications across web, desktop, mobile, cloud, and IoT environments. Known for its strong type system, robust security features, and extensive class libraries, .NET streamlines development while ensuring reliability and maintainability. With the introduction of .NET Core and now .NET 8, it offers cross-platform support and exceptional performance.
-For more detailed information, you can refer to ([.NET](https://dotnet.microsoft.com/)).
+## PostgreSQL
 
-## Microsoft SQL Server
+**PostgreSQL** is a powerful, open‑source relational database management system (RDBMS) known for its robustness, extensibility, and standards compliance. It supports advanced data types, complex queries, and ACID transactions, making it suitable for a wide range of applications from small projects to large enterprise systems. PostgreSQL’s rich feature set includes support for JSON, geospatial data, full-text search, and custom functions, allowing developers to build sophisticated data-driven applications with ease.
+For more detailed information, you can refer to ([PostgreSQL](https://www.postgresql.org/)).
 
-**Microsoft SQL Server** is a robust, enterprise-grade relational database management system (RDBMS) developed by Microsoft. It is designed to store, manage, and retrieve data efficiently while ensuring high performance, security, and reliability. SQL Server supports both structured query language (SQL) for relational data and JSON for semi-structured data, making it suitable for diverse modern applications. It offers advanced features such as ACID compliance, indexing, views, triggers, stored procedures, and built-in analytics through SQL Server Analysis Services (SSAS). With strong support for scalability, data integrity, and transaction management, SQL Server is widely used in enterprise environments for web applications, business intelligence, and large-scale data solutions.
-For more detailed information, you can refer to ([Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server)).
-
-## OpenRouter
-
-**OpenRouter** is an open‑source API platform that offers a unified interface to multiple large language models (LLMs). It enables developers to seamlessly integrate AI features—such as natural language processing, chat interfaces, and content generation—while managing authentication, fallback strategies, and cost efficiency. OpenRouter simplifies switching between or combining models from different providers.
-
-For more detailed imformation. you can refer to ([OpenRouter](https://openrouter.ai/)).
 
 ## Gemini API
 
@@ -61,8 +52,8 @@ For more detailed imformation. you can refer to [Gemini API documentation](https
 
 For more detailed imformation. you can refer to ([Monaco Editor](https://microsoft.github.io/monaco-editor/)).
 
-## Cloudflare
+## Google Cloud
 
-**Cloudflare** is a leading web performance and security platform that provides a wide range of services to protect and accelerate websites, APIs, and applications. It acts as a reverse proxy between users and web servers, offering features such as DDoS protection, content delivery network (CDN), SSL/TLS encryption, firewall rules, and performance optimization. By caching content at global edge locations and filtering malicious traffic, Cloudflare helps improve loading speeds, reduce server load, and enhance overall security. It also offers developer tools like Cloudflare Pages and Workers for deploying scalable, serverless applications.
+**Google Cloud** is a comprehensive suite of cloud computing services offered by Google, providing infrastructure, platform, and software solutions for businesses of all sizes. It includes services for computing, storage, databases, machine learning, and AI, as well as tools for data analytics, security, and application development. Google Cloud's global network infrastructure ensures high performance and reliability, while its commitment to sustainability and innovation makes it a leading choice for organizations looking to leverage the power of the cloud.
 
-For more detailed imformation. you can refer to: ([CloudFlare](https://www.cloudflare.com/)).
+For more detailed imformation. you can refer to: ([Google Cloud](https://cloud.google.com/)).

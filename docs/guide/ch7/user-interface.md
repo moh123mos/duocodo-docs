@@ -1,10 +1,10 @@
 # Chapter 7: User Interface
 
-This chapter presents the comprehensive user interface design for the DuoCodo platform, showcasing the visual design and user experience across different functional areas of the application.
+This chapter presents the comprehensive user interface design for the DuoCode platform, showcasing the visual design and user experience across different functional areas of the application.
 
 ## Overview
 
-The DuoCodo platform features a modern, intuitive interface designed to enhance the learning experience. The interface is organized into several key sections:
+The DuoCode platform features a modern, intuitive interface designed to enhance the learning experience. The interface is organized into several key sections:
 
 - **Authentication Screens**: Login, registration, and account setup flows
 - **Main Dashboard**: Central hub for accessing learning materials, videos, quizzes, and chat

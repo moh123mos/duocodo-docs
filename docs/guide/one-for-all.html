@@ -1,370 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>one-for-all.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One For All</title>
 </head>
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
 <!-- <meta charset="utf-8"> -->
 <!--  -->
 <!-- <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script> -->
@@ -484,26 +125,37 @@ code {
       margin: 20px auto;
       text-align: center;
       padding: 10px;
-      max-height: 200mm;
       border: 1px solid #dee2e6;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     figure img {
       max-width: 100%;
-      max-height: 160mm;
+      max-height: 100%;
       border-radius: 5px;
-      break-after: avoid;
     }
 
     figure figcaption {
       margin-top: 10px;
       font-size: 0.9em;
       font-style: italic;
-      break-before: avoid;
+    }
+
+    @media print {
+      figure img {
+        max-height: 16cm;
+        width: auto;
+        object-fit: contain;
+      }
+      figure {
+        page-break-inside: auto;
+        break-inside: auto;
+      }
     }
 
     .ui-container {
@@ -1310,7 +962,6 @@ code {
             align-items: center;
             gap: 1rem;
             padding: 1.3rem 1.5rem;
-            background: linear-gradient(135deg, rgba(30,58,138,0.03) 0%, rgba(30,64,175,0.05) 100%);
             border-radius: 20px;
             border: 2px solid rgba(30,58,138,0.1);
             box-shadow: 0 8px 32px rgba(30,58,138,0.08);
@@ -1350,13 +1001,16 @@ code {
             width: 110px;
             height: 110px;
             margin: 0 auto;
-            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 12px 40px rgba(30,58,138,0.2), 0 0 0 4px #1e3a8a, 0 0 0 8px rgba(30,58,138,0.1);
             position: relative;
+        }
+
+        .project-logo-img {
+          width: 120px;
+          height: 120px;
         }
 
         /* Team Section */
@@ -1407,6 +1061,7 @@ code {
         }
 
         .team-table th {
+            background:  #1e40af;
             padding: 0.65rem 0.6rem;
             color: white;
             font-weight: 700;
@@ -1561,14 +1216,17 @@ code {
       }
     }
 
-    .abstract {
-  page: abstract;
-  background: #f5f5f5;
-  padding: 30px;
-  border: 2px solid #3398da;
-  margin: 20px 0;
-  break-inside: avoid;
-}
+  .abstract {
+    page: abstract;
+    background: #f5f5f5;
+    padding: 30px;
+    border: 2px solid #3398da;
+    margin: 0;
+    break-inside: avoid;
+    border-radius: 15px;
+    min-height: 100%;
+    box-sizing: border-box;
+  }
 
 .abstract h2 {
   text-align: center;
@@ -1584,7 +1242,19 @@ code {
 }
 
 @page abstract {
+  all: unset;
+  size: A4;
+  margin: 2cm;
+  padding: 0;
   border: none;
+  @bottom-left {
+    all: unset;
+    content: none;
+  }
+  @bottom-right {
+    all: unset;
+    content: none;
+  }
 }
 
             .chapter-page {
@@ -1818,10 +1488,9 @@ code {
       <div class="title-logo-section">
         <div class="title-logo-wrapper">
           <div class="project-logo-large">
-            <img src="../public/project-logo.png" alt="Project Logo" width="200">
+            <img src="../public/project-logo.png" alt="Project Logo" width="200" class="project-logo-img">
           </div>
           <div>
-            <h1 class="main-title">DuoCodo</h1>
             <div class="subtitle">Gamified, Arabic-Centered Programming Learning Platform and Application</div>
           </div>
         </div>
@@ -1844,7 +1513,7 @@ code {
               <td>1</td>
               <td>Mohamed Mostafa Amer Abdelkader</td>
               <td>CS</td>
-              <td><a href="81457191@fci.s-mu.edu.eg">81457191@fci.s-mu.edu.eg</a></td>
+              <td><a href="mailto:81457191@fci.s-mu.edu.eg">81459817@fci.s-mu.edu.eg</a></td>
               <!-- <td><a href="https://www.linkedin.com/in/mohamed-mostafa-abdelkader" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" version="1.1" id="Layer_1" viewBox="0 0 382 382" xml:space="preserve">
                 <path style="fill:#0077B7;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889  C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056  H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806  c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1  s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73  c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079  c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426  c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472  L341.91,330.654L341.91,330.654z"/>
@@ -1856,31 +1525,31 @@ code {
               <td>2</td>
               <td>Mohamed Ragab Abdelhafez Mehran</td>
               <td>CS</td>
-              <td><a href="81457191@fci.s-mu.edu.eg">81457191@fci.s-mu.edu.eg</a></td>
+              <td><a href="mailto:81457191@fci.s-mu.edu.eg">81457191@fci.s-mu.edu.eg</a></td>
             </tr>
             <tr>
               <td>3</td>
                 <td>Alaa Mohamed Abdelhakeem Ahmed</td>
                 <td>CS</td>
-                <td><a href="81438405@fci.s-mu.edu.eg">81438405@fci.s-mu.edu.eg</a></td>
+                <td><a href="mailto:81438405@fci.s-mu.edu.eg">81438405@fci.s-mu.edu.eg</a></td>
               </tr>
               <tr>
                 <td>4</td>
                 <td>Ammar Emad Ahmed Azmy Zewain</td>
                 <td>IS</td>
-                <td><a href="81451636@fci.s-mu.edu.eg">81451636@fci.s-mu.edu.eg</a></td>
+                <td><a href="mailto:81451636@fci.s-mu.edu.eg">81451636@fci.s-mu.edu.eg</a></td>
               </tr>
               <tr>
                 <td>5</td>
                 <td>Yassin Khaled Khalaf</td>
                 <td>IS</td>
-                <td><a href="81797831@fci.s-mu.edu.eg">81797831@fci.s-mu.edu.eg</a></td>
+                <td><a href="mailto:81797831@fci.s-mu.edu.eg">81797831@fci.s-mu.edu.eg</a></td>
               </tr>
               <tr>
                 <td>6</td>
                 <td>Marwa Farid Mohamed</td>
                 <td>IS</td>
-                <td><a href="81145783@fci.s-mu.edu.eg">81145783@fci.s-mu.edu.eg</a></td>
+                <td><a href="mailto:81145783@fci.s-mu.edu.eg">81145783@fci.s-mu.edu.eg</a></td>
               </tr>
           </tbody>
         </table>
@@ -1894,7 +1563,7 @@ code {
             <div class="role-label">Supervisor</div>
             <div class="supervisor-name">Dr. Rehab Emad El-Dein</div>
             <div class="supervisor-dept">CS Department</div>
-            <div class="supervisor-email"><a href="rehab.mohamed@mu.edu.eg">rehab.mohamed@mu.edu.eg</a></div>
+            <div class="supervisor-email"><a href="mailto:rehab.mohamed@mu.edu.eg">rehab.mohamed@mu.edu.eg</a></div>
           </div>
           <div class="supervisor-card">
             <div class="role-label">Teaching Assistant</div>
@@ -1908,10 +1577,10 @@ code {
 <div class="blank-page"></div>
 <div class="abstract">
 <h2>Abstract</h2>
-<p>Learning programming remains a significant challenge for beginners, particularly within Arabic-speaking communities, due to fragmented learning resources, limited interactivity, delayed feedback, and declining learner motivation. This project presents DuoCodo, a gamified, Arabic-centered programming learning platform inspired by Duolingo’s engagement model and designed to provide a structured, interactive, and motivating educational experience. The platform delivers a progressive curriculum covering programming fundamentals through advanced topics such as object-oriented programming, algorithms, and web development. It integrates multi-format learning content, including articles, videos, and guided walkthroughs, alongside an in-browser code editor that supports real-time code execution, instant feedback, and intelligent error analysis. Gamification elements—such as experience points, badges, levels, leaderboards, and daily streaks—are employed to enhance learner motivation and retention. Additionally, AI-powered assistance offers contextual hints, personalized recommendations, and adaptive difficulty based on learner performance. By combining structured learning paths, continuous practice, immediate feedback, and motivational mechanics within an Arabic-first environment, DuoCodo aims to reduce learning barriers, improve engagement, and enable learners to build practical programming skills effectively and confidently.</p>
+<p>Learning programming remains a significant challenge for beginners, particularly within Arabic-speaking communities, due to fragmented learning resources, limited interactivity, delayed feedback, and declining learner motivation. This project presents DuoCode, a gamified, Arabic-centered programming learning platform inspired by Duolingo’s engagement model and designed to provide a structured, interactive, and motivating educational experience. The platform delivers a progressive curriculum covering programming fundamentals through advanced topics such as object-oriented programming, algorithms, and web development. It integrates multi-format learning content, including articles, videos, and guided walkthroughs, alongside an in-browser code editor that supports real-time code execution, instant feedback, and intelligent error analysis. Gamification elements—such as experience points, badges, levels, leaderboards, and daily streaks—are employed to enhance learner motivation and retention. Additionally, AI-powered assistance offers contextual hints, personalized recommendations, and adaptive difficulty based on learner performance. By combining structured learning paths, continuous practice, immediate feedback, and motivational mechanics within an Arabic-first environment, DuoCode aims to reduce learning barriers, improve engagement, and enable learners to build practical programming skills effectively and confidently.</p>
 </div>
 <div class="toc">
-<h4 id="table-of-contents"><div class="toc-header">Table of Contents</div></h4>
+<h4><div class="toc-header">Table of Contents</div></h4>
 <!-- toc -->
 <ul>
 <li><a href="#chapter-1-project-overview">Chapter 1: Project Overview</a>
@@ -1967,12 +1636,22 @@ code {
 <li><a href="#Theme-Options">7.5 Theme Options</a></li>
 </ul>
 </li>
-<li><a href="#Chapter-8-References">Chapter 8: References</a></li>
+<li><a href="#Chapter-8-Implementation">Chapter 8: Implementation</a>
+<ul>
+<li><a href="#Desktop-Screens">8.1 Desktop Screens</a></li>
+<li><a href="#Mobile-Screens">8.2 Mobile Screens</a></li>
+<li><a href="#Admin-Panel">8.3 Admin Panel</a></li>
+<li><a href="#Creator-Dashboard">8.4 Creator Dashboard</a></li>
+<li><a href="#Mobile-Architecture">8.5 Mobile Architecture</a></li>
+<li><a href="#Platform-Code-Structure">8.6 Platform Code Structure</a></li>
+</ul>
+</li>
+<li><a href="#Chapter-9-References">Chapter 9: References</a></li>
 </ul>
 <!-- tocstop -->
 </div>
 <div class="lof">
-<h4 id="list-of-figures"><div class="lof-header">List of Figures</div></h4>
+<h4><div class="lof-header">List of Figures</div></h4>
 <ul>
 <li>
 <p><a href="#Figure31">Figure 3.1: Development Team Roles</a></p>
@@ -1990,73 +1669,37 @@ code {
 <p><a href="#Figure42">Figure 4.2: Decomposition Diagram Part 2</a></p>
 </li>
 <li>
+<p><a href="#Figure43">Figure 4.3: Decomposition Diagram Part 3</a></p>
+</li>
+<li>
 <p><a href="#Figure51">Figure 5.1: Use Cases Diagram</a></p>
 </li>
 <li>
-<p><a href="#Figure53">Figure 5.3: Assign User Role</a></p>
+<p><a href="#Figure52">Figure 5.2: Assign User Role</a></p>
 </li>
 <li>
-<p><a href="#Figure519">Figure 5.19: Create Coding Exercise</a></p>
+<p><a href="#Figure53">Figure 5.3: Create Coding Exercise</a></p>
 </li>
 <li>
-<p><a href="#Figure528">Figure 5.28: Track Progress</a></p>
+<p><a href="#Figure54">Figure 5.4: Track Progress</a></p>
 </li>
 <li>
-<p><a href="#Figure529">Figure 5.29: Learn XP and Level Up</a></p>
+<p><a href="#Figure55">Figure 5.5: Learn XP and Level Up</a></p>
 </li>
 <li>
-<p><a href="#Figure530">Figure 5.30: Class Diagram - Core User and Authentication System</a></p>
+<p><a href="#Figure56">Figure 5.6: Class Diagram - Learning Paths, User Roles, and Enrollment</a></p>
 </li>
 <li>
-<p><a href="#Figure531">Figure 5.31: Class Diagram - Learning Content Management</a></p>
+<p><a href="#Figure57">Figure 5.7: Class Diagram - Submissions, Code Exercises, and XP Events</a></p>
 </li>
 <li>
-<p><a href="#Figure532">Figure 5.32: Class Diagram - Submissions and Code Execution</a></p>
+<p><a href="#Figure61">Figure 6.1: Entity Relationship Diagram - Learning Paths, User Roles, and Submissions</a></p>
 </li>
 <li>
-<p><a href="#Figure533">Figure 5.33: Class Diagram - Exercises, Attempts and Code Analysis</a></p>
+<p><a href="#Figure67">Figure 6.7: Database Schema - Learning Paths and Progress</a></p>
 </li>
 <li>
-<p><a href="#Figure534">Figure 5.34: Class Diagram - Certification and Gamification</a></p>
-</li>
-<li>
-<p><a href="#Figure535">Figure 5.35: Class Diagram - Administration and Platform Management</a></p>
-</li>
-<li>
-<p><a href="#Figure61">Figure 6.1: Entity Relationship Diagram - User Management and Authentication</a></p>
-</li>
-<li>
-<p><a href="#Figure62">Figure 6.2: Entity Relationship Diagram - Learning Content and Course Structure</a></p>
-</li>
-<li>
-<p><a href="#Figure63">Figure 6.3: Entity Relationship Diagram - Submissions and Code Execution</a></p>
-</li>
-<li>
-<p><a href="#Figure64">Figure 6.4: Entity Relationship Diagram - Exercises, Attempts and Code Analysis</a></p>
-</li>
-<li>
-<p><a href="#Figure65">Figure 6.5: Entity Relationship Diagram - Certification and Gamification</a></p>
-</li>
-<li>
-<p><a href="#Figure66">Figure 6.6: Entity Relationship Diagram - Administration and System Management</a></p>
-</li>
-<li>
-<p><a href="#Figure67">Figure 6.7: Database Schema - User Management and Authentication</a></p>
-</li>
-<li>
-<p><a href="#Figure68">Figure 6.8: Database Schema - Learning Content and Course Structure</a></p>
-</li>
-<li>
-<p><a href="#Figure69">Figure 6.9: Database Schema - Submissions and COde Execution</a></p>
-</li>
-<li>
-<p><a href="#Figure610">Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis</a></p>
-</li>
-<li>
-<p><a href="#Figure611">Figure 6.11: Database Schema - Certification and Gamification</a></p>
-</li>
-<li>
-<p><a href="#Figure612">Figure 6.12: Database Schema - Administration and System Management</a></p>
+<p><a href="#Figure68">Figure 6.8: Database Schema - Submissions and Code Exercises</a></p>
 </li>
 <li>
 <p><a href="#Figure71">Figure 7.1: Login Screen</a></p>
@@ -2112,10 +1755,145 @@ code {
 <li>
 <p><a href="#Figure718">Figure 7.18: Dark Mode Interface</a></p>
 </li>
+<li>
+<p><a href="#Figure81">Figure 8.1: Desktop Landing Page</a></p>
+</li>
+<li>
+<p><a href="#Figure82">Figure 8.2: Desktop Login Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure83">Figure 8.3: Desktop Registration Screen</a></p>
+</li>
+<li>
+<p><a href="#Figure84">Figure 8.4: Desktop Dashboard</a></p>
+</li>
+<li>
+<p><a href="#Figure85">Figure 8.5: Mobile Dashboard</a></p>
+</li>
+<li>
+<p><a href="#Figure86">Figure 8.6: Desktop Dashboard Video Player</a></p>
+</li>
+<li>
+<p><a href="#Figure87">Figure 8.7: Mobile Dashboard Video Player</a></p>
+</li>
+<li>
+<p><a href="#Figure88">Figure 8.8: Mobile Dashboard Chat Interface</a></p>
+</li>
+<li>
+<p><a href="#Figure89">Figure 8.9: Mobile Dashboard Article View</a></p>
+</li>
+<li>
+<p><a href="#Figure810">Figure 8.10: Mobile Leaderboard</a></p>
+</li>
+<li>
+<p><a href="#Figure811">Figure 8.11: Mobile Learning Paths</a></p>
+</li>
+<li>
+<p><a href="#Figure812">Figure 8.12: Desktop Learning Paths</a></p>
+</li>
+<li>
+<p><a href="#Figure813">Figure 8.13: Desktop Dashboard Chat</a></p>
+</li>
+<li>
+<p><a href="#Figure814">Figure 8.14: Desktop Dashboard Article</a></p>
+</li>
+<li>
+<p><a href="#Figure815">Figure 8.15: Desktop Leaderboard</a></p>
+</li>
+<li>
+<p><a href="#Figure816">Figure 8.16: Desktop Analysis Dashboard</a></p>
+</li>
+<li>
+<p><a href="#Figure817">Figure 8.17: Desktop Profile</a></p>
+</li>
+<li>
+<p><a href="#Figure818">Figure 8.18: Admin AI Key Management</a></p>
+</li>
+<li>
+<p><a href="#Figure819">Figure 8.19: Admin Creator Applications</a></p>
+</li>
+<li>
+<p><a href="#Figure820">Figure 8.20: Admin Path Management</a></p>
+</li>
+<li>
+<p><a href="#Figure821">Figure 8.21: Admin Platform Analytics</a></p>
+</li>
+<li>
+<p><a href="#Figure822">Figure 8.22: Admin User Management</a></p>
+</li>
+<li>
+<p><a href="#Figure823">Figure 8.23: Creator Analytics</a></p>
+</li>
+<li>
+<p><a href="#Figure824">Figure 8.24: Creator Article Editor</a></p>
+</li>
+<li>
+<p><a href="#Figure825">Figure 8.25: Creator Challenge Editor</a></p>
+</li>
+<li>
+<p><a href="#Figure826">Figure 8.26: Creator Chat Editor</a></p>
+</li>
+<li>
+<p><a href="#Figure827">Figure 8.27: Creator Dashboard</a></p>
+</li>
+<li>
+<p><a href="#Figure828">Figure 8.28: Creator Path Architect</a></p>
+</li>
+<li>
+<p><a href="#Figure829">Figure 8.29: Creator Quiz Editor</a></p>
+</li>
+<li>
+<p><a href="#Figure830">Figure 8.30: Creator Video Editor</a></p>
+</li>
+<li>
+<p><a href="#Figure831">Figure 8.31: Mobile Auth Repository 1</a></p>
+</li>
+<li>
+<p><a href="#Figure832">Figure 8.32: Mobile Auth Repository 2</a></p>
+</li>
+<li>
+<p><a href="#Figure833">Figure 8.33: Mobile Auth Service 1</a></p>
+</li>
+<li>
+<p><a href="#Figure834">Figure 8.34: Mobile Auth Service 2</a></p>
+</li>
+<li>
+<p><a href="#Figure835">Figure 8.35: Mobile User Model</a></p>
+</li>
+<li>
+<p><a href="#Figure836">Figure 8.36: Mobile Profile Repository</a></p>
+</li>
+<li>
+<p><a href="#Figure837">Figure 8.37: Mobile Learning Path Repository 1</a></p>
+</li>
+<li>
+<p><a href="#Figure838">Figure 8.38: Mobile Learning Path Repository 2</a></p>
+</li>
+<li>
+<p><a href="#Figure839">Figure 8.39: Frontend Student Dashboard Code</a></p>
+</li>
+<li>
+<p><a href="#Figure840">Figure 8.40: Frontend Creator Dashboard Code</a></p>
+</li>
+<li>
+<p><a href="#Figure841">Figure 8.41: Frontend Admin Dashboard Code</a></p>
+</li>
+<li>
+<p><a href="#Figure842">Figure 8.42: Backend API - Skill Tree</a></p>
+</li>
+<li>
+<p><a href="#Figure843">Figure 8.43: Backend API - Code Submission</a></p>
+</li>
+<li>
+<p><a href="#Figure844">Figure 8.44: Backend API - Generate Chat Script by AI</a></p>
+</li>
+<li>
+<p><a href="#Figure845">Figure 8.45: Backend API - Manage Creator Applications by Admin</a></p>
+</li>
 </ul>
 </div>
 <div class="lof">
-<h4 id="list-of-tables"><div class="lof-header">List of Tables</div></h4>
+<h4><div class="lof-header">List of Tables</div></h4>
 <ul>
 <li><a href="#table1">Table 2.1: Elzero Web School</a></li>
 <li><a href="#table2">Table 2.2: Codeforces</a></li>
@@ -2170,7 +1948,7 @@ code {
         <div class="ch-dot"></div>
     </div>
 </div>
-<h3 id="11-main-idea"><div id="main-idea" class="section">1.1 Main Idea</div></h3>
+<h3><div id="main-idea" class="section">1.1 Main Idea</div></h3>
 <p>We aim to create a Duolingo-inspired programming education platform that transforms how beginners learn to code by eliminating overwhelm through structured, gamified micro-lessons. Unlike fragmented resources, this platform provides a clear, progressive learning path—from core programming fundamentals to advanced topics like OOP, algorithms, and web development—all delivered via multi-format explanations (articles, videos, and guided walkthroughs).</p>
 <p>At its core, the platform seamlessly integrates:</p>
 <ol>
@@ -2203,8 +1981,8 @@ code {
   </div>
 </ol>
 <p>By combining structured curriculum, instant feedback, and social accountability, the platform turns programming education into an addictive, confidence-building journey—making learning feel like play while ensuring tangible skill development.</p>
-<h3 id="12-project-scope"><div id="project-scope" class="section">1.2 Project Scope</div></h3>
-<h4 id="1-comprehensive-curriculum--content"><div class="subsection">1. Comprehensive Curriculum &amp; Content </div></h4>
+<h3><div id="project-scope" class="section">1.2 Project Scope</div></h3>
+<h4><div class="subsection">1. Comprehensive Curriculum &amp; Content </div></h4>
 <ul>
 <li>Structured Learning Path:
 <ul>
@@ -2219,7 +1997,7 @@ code {
 </ul>
 </li>
 </ul>
-<h4 id="2-intelligent-code-editor"><div class="subsection">2. Intelligent Code Editor </div></h4>
+<h4><div class="subsection">2. Intelligent Code Editor </div></h4>
 <ul>
 <li>Multi-Language Support:
 <ul>
@@ -2237,12 +2015,12 @@ code {
 </ul>
 </li>
 </ul>
-<h4 id="3-dynamic-interactive-exercises"><div class="subsection">3. Dynamic Interactive Exercises </div></h4>
+<h4><div class="subsection">3. Dynamic Interactive Exercises </div></h4>
 <ul>
 <li>Adaptive Challenges:
 <ul>
 <li>Exercises auto-adjust difficulty based on user performance.</li>
-<li>&quot;Fix-the-Bug&quot; tasks: Debug pre-written flawed code.</li>
+<li>“Fix-the-Bug” tasks: Debug pre-written flawed code.</li>
 </ul>
 </li>
 <li>Deep-Dive Analysis:
@@ -2257,11 +2035,11 @@ code {
 </ul>
 </li>
 </ul>
-<h4 id="4-advanced-gamification-system"><div class="subsection">4. Advanced Gamification System </div></h4>
+<h4><div class="subsection">4. Advanced Gamification System </div></h4>
 <ul>
 <li>Engagement Mechanics:
 <ul>
-<li>Daily streaks, skill-specific badges (e.g., &quot;Algorithm Ace&quot;), and XP bonuses for consistency.</li>
+<li>Daily streaks, skill-specific badges (e.g., “Algorithm Ace”), and XP bonuses for consistency.</li>
 <li>Unlockable content: Secret lessons or tools for high achievers.</li>
 </ul>
 </li>
@@ -2271,22 +2049,22 @@ code {
 </ul>
 </li>
 </ul>
-<h4 id="5-personalized-progress-ecosystem"><div class="subsection">5. Personalized Progress Ecosystem </div></h4>
+<h4><div class="subsection">5. Personalized Progress Ecosystem </div></h4>
 <ul>
 <li>Learning Analytics:
 <ul>
-<li>Mastery dashboards showing skill proficiency (e.g., &quot;Data Structures: 85%&quot;).</li>
+<li>Mastery dashboards showing skill proficiency (e.g., “Data Structures: 85%”).</li>
 <li>Time-tracking: Session duration, concepts revisited.</li>
 </ul>
 </li>
 </ul>
-<h4 id="6-accessibility--scalability"><div class="subsection">6. Accessibility &amp; Scalability </div></h4>
+<h4><div class="subsection">6. Accessibility &amp; Scalability </div></h4>
 <ul>
 <li>Mobile-responsive design: Seamless tablet/phone access.</li>
 <li>Offline mode: Download lessons/exercises for practice without internet.</li>
 </ul>
 <hr>
-<h3 id="13-problem-statement"><div id="problem-statement" class="section">1.3 Problem Statement</div></h3>
+<h3><div id="problem-statement" class="section">1.3 Problem Statement</div></h3>
 <p>Learning programming remains a daunting barrier for beginners, exacerbated by <em>four core gaps</em> in existing solutions:</p>
 <ol>
 <li>
@@ -2311,9 +2089,9 @@ code {
 </ul>
 </li>
 </ol>
-<h3 id="14-solution-approach"><div id="solution-approach" class="section">1.4 Solution Approach</div></h3>
+<h3><div id="solution-approach" class="section">1.4 Solution Approach</div></h3>
 <p>To bridge these gaps, the platform leverages Duolingo’s engagement model fused with developer-centric depth:</p>
-<h4 id="a-structured-yet-adaptive-onboarding"><div class="subsection">A. Structured Yet Adaptive Onboarding </div></h4>
+<h4><div class="subsection">A. Structured Yet Adaptive Onboarding </div></h4>
 <div class="highlight-box">
   <ul>
     <li>Skill Tree Curriculum:</li>  
@@ -2327,7 +2105,7 @@ code {
     </ul>
   </ul>
 </div>
-<h4 id="b-contextual-practice-engine"><div class="subsection">B. Contextual Practice Engine </div></h4>
+<h4><div class="subsection">B. Contextual Practice Engine </div></h4>
 <div class="highlight-box">
   <ul>
     <li>AI-Assisted Feedback:</li>
@@ -2343,7 +2121,7 @@ code {
     </ul>
   </ul>
 </div>
-<h4 id="c-gamification--depth"><div class="subsection">C. Gamification × Depth </div></h4>
+<h4><div class="subsection">C. Gamification × Depth </div></h4>
 <div class="highlight-box">
   <ul>
     <li>Progressive Unlock System:</li>
@@ -2360,7 +2138,7 @@ code {
     </ul>
   </ul>
 </div>
-<h4 id="d-personalized-reinforcement"><div class="subsection">D. Personalized Reinforcement </div></h4>
+<h4><div class="subsection">D. Personalized Reinforcement </div></h4>
 <div class="highlight-box">
   <ul>
     <li>Predictive Roadmaps:</li>
@@ -2374,18 +2152,18 @@ code {
   </ul>
 </div>
 <hr>
-<h3 id="15-project-objectives"><div id="project-objectives" class="section">1.5 Project Objectives</div></h3>
-<h4 id="1-deliver-a-progressive-mastery-based-curriculum"><div class="subsection">1. Deliver a Progressive, Mastery-Based Curriculum </div></h4>
+<h3><div id="project-objectives" class="section">1.5 Project Objectives</div></h3>
+<h4><div class="subsection">1. Deliver a Progressive, Mastery-Based Curriculum </div></h4>
 <ul>
 <li>Modular Skill Tiers: Implement 10+ competency levels (Novice → Architect) with checkpoint assessments for each tier.</li>
 <li>Cross-Language Tracks: Offer specialized paths for Python (Data Science/Backend), JavaScript (Frontend/Full-Stack), and Algorithms.</li>
 <li>Real-World Alignment: Integrate industry frameworks (e.g., React, Flask) and tools (Git, APIs) into advanced modules.</li>
 </ul>
-<h4 id="2-build-an-intelligent-adaptive-practice-ecosystem"><div class="subsection">2. Build an Intelligent, Adaptive Practice Ecosystem </div></h4>
+<h4><div class="subsection">2. Build an Intelligent, Adaptive Practice Ecosystem </div></h4>
 <ul>
 <li>AI-Driven Exercise Engine:
 <ul>
-<li>Generate personalized problem sets targeting weak areas (e.g., &quot;80% accuracy on recursion? Try these 5 challenges!&quot;).</li>
+<li>Generate personalized problem sets targeting weak areas (e.g., “80% accuracy on recursion? Try these 5 challenges!”).</li>
 <li>Auto-graded projects with rubrics for code quality, efficiency, and creativity.</li>
 </ul>
 </li>
@@ -2395,12 +2173,12 @@ code {
 </ul>
 </li>
 </ul>
-<h4 id="3-gamify-learning-with-depth--nuance"><div class="subsection">3. Gamify Learning with Depth &amp; Nuance </div></h4>
+<h4><div class="subsection">3. Gamify Learning with Depth &amp; Nuance </div></h4>
 <ul>
 <li>Tiered Reward System:
 <ul>
-<li>Award skill-specific badges (e.g., &quot;Memory Optimizer&quot;) + rarity tiers (Bronze → Platinum).</li>
-<li>&quot;Double-or-Quit&quot; streaks: Bonus XP for consecutive days, reset on skip.</li>
+<li>Award skill-specific badges (e.g., “Memory Optimizer”) + rarity tiers (Bronze → Platinum).</li>
+<li>“Double-or-Quit” streaks: Bonus XP for consecutive days, reset on skip.</li>
 </ul>
 </li>
 <li>Competitive Arenas:
@@ -2409,21 +2187,21 @@ code {
 </ul>
 </li>
 </ul>
-<h4 id="4-enable-hyper-personalized-tracking"><div class="subsection">4. Enable Hyper-Personalized Tracking </div></h4>
+<h4><div class="subsection">4. Enable Hyper-Personalized Tracking </div></h4>
 <ul>
 <li>Predictive Analytics Dashboard:
 <ul>
-<li>Visualize skill decay (e.g., &quot;Arrays mastery ↓15% in 2 weeks&quot;) and recommend refreshers.</li>
-<li>Track efficiency gains (e.g., &quot;Reduced solution time by 40% this month&quot;).</li>
+<li>Visualize skill decay (e.g., “Arrays mastery ↓15% in 2 weeks”) and recommend refreshers.</li>
+<li>Track efficiency gains (e.g., “Reduced solution time by 40% this month”).</li>
 </ul>
 </li>
 <li>Custom Roadmapping:
 <ul>
-<li>Let users build goal-oriented playlists (&quot;Prep for FAANG Interviews&quot; → auto-adds relevant exercises).</li>
+<li>Let users build goal-oriented playlists (“Prep for FAANG Interviews” → auto-adds relevant exercises).</li>
 </ul>
 </li>
 </ul>
-<h4 id="5-ensure-accessibility--scalability"><div class="subsection">5. Ensure Accessibility &amp; Scalability </div></h4>
+<h4><div class="subsection">5. Ensure Accessibility &amp; Scalability </div></h4>
 <ul>
 <li>
 <p>Inclusive Design:</p>
@@ -2474,55 +2252,48 @@ code {
         <div class="ch-dot"></div>
     </div>
 </div>
-<h3 id="21-project-background"><div id="project-background" class="section">2.1 Project Background</div></h3>
+<h3><div id="project-background" class="section">2.1 Project Background</div></h3>
 <div class="highlight-box">
   <p>
     <strong>Figma</strong> is a versatile, cloud‑based design platform widely used for crafting user interfaces, wireframes, and interactive prototypes. It enables designers and stakeholders to collaborate in real time, streamlining the design process from ideation to final output. Figma’s rich feature set — including vector editing, component‑based design, version history, and a robust plugin ecosystem — makes it central to modern UI/UX workflows. As a browser‑based tool, it removes installation barriers and ensures cross‑device accessibility.</p>
-    <p>For more detailed imformation. you can refer to <a href="https://www.figma.com/">Figma</a>.</p>
+    <p>For more detailed information, you can refer to <a href="https://www.figma.com/">Figma</a>.</p>
 </div>
 <div class="highlight-box">
   <p>
     <strong>Nuxt.js</strong> is a high-level framework built on Vue.js, optimized for developing server-rendered applications and static websites. It offers features like automatic routing, server-side rendering (SSR), static site generation, and a modular architecture. With built-in support for SEO, performance optimizations, and a rich community-driven ecosystem, Nuxt simplifies the development of scalable, high‑performance web apps.</p>
-    <p>For more detailed imformation. you can refer to <a href="https://nuxt.com/">Nuxt.js</a>.</p>
+    <p>For more detailed information, you can refer to <a href="https://nuxt.com/">Nuxt.js</a>.</p>
 </div>
 <div class="highlight-box">
   <p>
-    <strong>.NET</strong> is a powerful, open-source development platform created by Microsoft for building modern, scalable, and high-performance applications. It supports multiple languages such as C#, F#, and VB.NET, and enables developers to create applications across web, desktop, mobile, cloud, and IoT environments. Known for its strong type system, robust security features, and extensive class libraries, .NET streamlines development while ensuring reliability and maintainability. With the introduction of .NET Core and now .NET 8, it offers cross-platform support and exceptional performance.
-  </p>
-  <p>
-    For more detailed information, you can refer to <a href="https://dotnet.microsoft.com/">.NET</a>.
-  </p>
+    <strong>Flutter</strong>  is Google's open-source UI software development kit (SDK) for creating natively compiled applications across mobile, web, and desktop platforms from a single codebase. Built with the Dart programming language, Flutter uses a reactive framework and provides a rich set of pre-designed widgets that follow platform-specific design guidelines (Material Design for Android and Cupertino for iOS). Flutter's "hot reload" feature enables rapid development cycles by allowing developers to see changes instantly without restarting the application. With its high-performance rendering engine and ability to access native device features, Flutter delivers smooth, responsive user experiences while significantly reducing development time and maintenance costs for cross-platform applications.</p>
+    <p>For more detailed information, you can refer to <a href="https://flutter.dev/">Flutter</a>.</p>
 </div>
 <div class="highlight-box">
   <p>
-    <strong>Microsoft SQL Server</strong> is a robust, enterprise-grade relational database management system (RDBMS) developed by Microsoft. It is designed to store, manage, and retrieve data efficiently while ensuring high performance, security, and reliability. SQL Server supports both structured query language (SQL) for relational data and JSON for semi-structured data, making it suitable for diverse modern applications. It offers advanced features such as ACID compliance, indexing, views, triggers, stored procedures, and built-in analytics through SQL Server Analysis Services (SSAS). With strong support for scalability, data integrity, and transaction management, SQL Server is widely used in enterprise environments for web applications, business intelligence, and large-scale data solutions.
+    <strong>PostgreSQL</strong> is a powerful, open‑source relational database management system (RDBMS) known for its robustness, extensibility, and standards compliance. It supports advanced data types, complex queries, and ACID transactions, making it suitable for a wide range of applications from small projects to large enterprise systems. PostgreSQL’s rich feature set includes support for JSON, geospatial data, full-text search, and custom functions, allowing developers to build sophisticated data-driven applications with ease.
   </p>
   <p>
-      For more detailed information, you can refer to <a href="https://www.microsoft.com/en-us/sql-server">Microsoft SQL Server</a>.
+      For more detailed information, you can refer to <a href="https://www.postgresql.org/">PostgreSQL</a>.
   </p>
-</div>
-<div class="highlight-box">
-  <p>
-    <strong>OpenRouter</strong> is an open‑source API platform that offers a unified interface to multiple large language models (LLMs). It enables developers to seamlessly integrate AI features—such as natural language processing, chat interfaces, and content generation—while managing authentication, fallback strategies, and cost efficiency. OpenRouter simplifies switching between or combining models from different providers.</p>
-    <p>For more detailed imformation. you can refer to <a href="https://openrouter.ai/">OpenRouter</a>.</p>
 </div>
 <div class="highlight-box">
   <p>
     <strong>Gemini API</strong> is a developer-friendly interface provided by Google to access the capabilities of its Gemini family of large language models (LLMs). It allows developers to integrate advanced AI features into their applications, including natural language understanding, code generation, content summarization, and multi-modal reasoning (text, image, and more). The Gemini API is accessible through Google AI Studio and is designed to support rapid prototyping and scalable deployment of generative AI solutions. With robust security, comprehensive documentation, and seamless integration with Google Cloud, the Gemini API enables powerful, flexible AI experiences across a wide range of use cases.</p>
-    <p>For more detailed imformation. you can refer to <a href="https://ai.google.dev/gemini-api/docs">Gemini API documentation</a>.</p>
+    <p>For more detailed information, you can refer to <a href="https://ai.google.dev/gemini-api/docs">Gemini API documentation</a>.</p>
 </div>
 <div class="highlight-box">
   <p>
     <strong>Monaco Editor</strong> is the highly customizable, in‑browser code editor that powers Visual Studio Code. It supports syntax highlighting, IntelliSense, code folding, and more. Lightweight yet powerful, Monaco is perfect for embedding code editing experiences within web applications such as educational platforms, developer tools, or live coding playgrounds.</p>
-    <p>For more detailed imformation. you can refer to <a href="https://microsoft.github.io/monaco-editor/">Monaco Editor</a>.</p>
+    <p>For more detailed information, you can refer to <a href="https://microsoft.github.io/monaco-editor/">Monaco Editor</a>.</p>
 </div>
 <div class="highlight-box">
   <p>
-    <strong>Cloudflare</strong> is a leading web performance and security platform that provides a wide range of services to protect and accelerate websites, APIs, and applications. It acts as a reverse proxy between users and web servers, offering features such as DDoS protection, content delivery network (CDN), SSL/TLS encryption, firewall rules, and performance optimization. By caching content at global edge locations and filtering malicious traffic, Cloudflare helps improve loading speeds, reduce server load, and enhance overall security. It also offers developer tools like Cloudflare Pages and Workers for deploying scalable, serverless applications.</p>
-    <p>For more detailed imformation. you can refer to: <a href="https://www.cloudflare.com/">CloudFlare</a>.</p>
+    <strong>Google Cloud</strong> is a comprehensive suite of cloud computing services offered by Google, providing infrastructure, platform, and software solutions for businesses of all sizes. It includes services for computing, storage, databases, machine learning, and more. Google Cloud’s global network, robust security features, and integration with Google’s AI capabilities make it a popular choice for deploying scalable applications and leveraging advanced technologies in the cloud.
+    </p>
+    <p>For more detailed information, you can refer to <a href="https://cloud.google.com/">Google Cloud</a>.</p>
 </div>
-<h3 id="22-related-work"><div id="related-work" class="section">2.2 Related Work</div></h3>
-<h4 id="elzero-web-school"><div class="subsection">Elzero Web School</div></h4>
+<h3><div id="related-work" class="section">2.2 Related Work</div></h3>
+<h4><div class="subsection">Elzero Web School</div></h4>
 <div id="table1">
 <table>
 <thead>
@@ -2543,8 +2314,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://elzero.org</p>
-<h4 id="codeforces"><div class="subsection">Codeforces</div></h4>
+<p><strong>Reference:</strong> <a href="https://elzero.org">https://elzero.org</a></p>
+<h4><div class="subsection">Codeforces</div></h4>
 <div id="table2">
 <table>
 <thead>
@@ -2565,8 +2336,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://codeforces.com</p>
-<h4 id="codechef"><div class="subsection">CodeChef</div></h4>
+<p><strong>Reference:</strong> <a href="https://codeforces.com">https://codeforces.com</a></p>
+<h4><div class="subsection">CodeChef</div></h4>
 <div id="table3">
 <table>
 <thead>
@@ -2587,8 +2358,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://www.codechef.com</p>
-<h4 id="hackerrank"><div class="subsection">HackerRank</div></h4>
+<p><strong>Reference:</strong> <a href="https://www.codechef.com">https://www.codechef.com</a></p>
+<h4><div class="subsection">HackerRank</div></h4>
 <div id="table4">
 <table>
 <thead>
@@ -2609,8 +2380,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://www.hackerrank.com</p>
-<h4 id="leetcode"><div class="subsection">LeetCode</div></h4>
+<p><strong>Reference:</strong> <a href="https://www.hackerrank.com">https://www.hackerrank.com</a></p>
+<h4><div class="subsection">LeetCode</div></h4>
 <div id="table5">
 <table>
 <thead>
@@ -2631,8 +2402,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://leetcode.com</p>
-<h4 id="topcoder"><div class="subsection">TopCoder</div></h4>
+<p><strong>Reference:</strong> <a href="https://leetcode.com">https://leetcode.com</a></p>
+<h4><div class="subsection">TopCoder</div></h4>
 <div id="table6">
 <table>
 <thead>
@@ -2653,8 +2424,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://www.topcoder.com</p>
-<h4 id="atcoder"><div class="subsection">AtCoder</div></h4>
+<p><strong>Reference:</strong> <a href="https://www.topcoder.com">https://www.topcoder.com</a></p>
+<h4><div class="subsection">AtCoder</div></h4>
 <div id="table7">
 <table>
 <thead>
@@ -2675,8 +2446,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://atcoder.jp</p>
-<h4 id="codingame"><div class="subsection">CodinGame</div></h4>
+<p><strong>Reference:</strong> <a href="https://atcoder.jp">https://atcoder.jp</a></p>
+<h4><div class="subsection">CodinGame</div></h4>
 <div id="table8">
 <table>
 <thead>
@@ -2697,8 +2468,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://www.codingame.com</p>
-<h4 id="codecombat"><div class="subsection">CodeCombat</div></h4>
+<p><strong>Reference:</strong> <a href="https://www.codingame.com">https://www.codingame.com</a></p>
+<h4><div class="subsection">CodeCombat</div></h4>
 <div id="table9">
 <table>
 <thead>
@@ -2719,8 +2490,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://codecombat.com</p>
-<h4 id="codewars"><div class="subsection">Codewars</div></h4>
+<p><strong>Reference:</strong> <a href="https://codecombat.com">https://codecombat.com</a></p>
+<h4><div class="subsection">Codewars</div></h4>
 <div id="table10">
 <table>
 <thead>
@@ -2733,7 +2504,7 @@ code {
 </thead>
 <tbody>
 <tr>
-<td>Uses &quot;Kata&quot; - short coding exercises - to improve coding progressively with ranking and community feedback.</td>
+<td>Uses “Kata” - short coding exercises - to improve coding progressively with ranking and community feedback.</td>
 <td>- Community challenge creation<br>- Rank-based progression<br>- Peer-reviewed solutions</td>
 <td>- Unique ranking and progression system<br>- Community-driven challenges and solutions<br>- Good for practicing idiomatic code</td>
 <td>- Lacks formal contest system<br>- Quality of community challenges can vary</td>
@@ -2741,8 +2512,8 @@ code {
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://www.codewars.com</p>
-<h4 id="checkio"><div class="subsection">CheckiO</div></h4>
+<p><strong>Reference:</strong> <a href="https://www.codewars.com">https://www.codewars.com</a></p>
+<h4><div class="subsection">CheckiO</div></h4>
 <div id="table11">
 <table>
 <thead>
@@ -2757,16 +2528,16 @@ code {
 <tr>
 <td>Offers gamified learning of Python and JavaScript through short, interactive problem-solving challenges.</td>
 <td>- Gamified challenges<br>- Code review mechanism<br>- Puzzle solving<br>- Interactive feedback</td>
-<td>- Fun and visual interface<br>- Encourages reviewing others' code<br>- Python-focused challenges are especially polished</td>
+<td>- Fun and visual interface<br>- Encourages reviewing others’ code<br>- Python-focused challenges are especially polished</td>
 <td>- Less suitable for advanced algorithm training<br>- Limited language support</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Reference:</strong> https://checkio.org</p>
-<h3 id="23-summary"><div id="summary" class="section">2.3 Summary</div></h3>
-<p>In this chapter, the tools that will be used in implementation like (Node.js, Nuxt.js, Figma, Gemini API, OpenRouter, Monaco Editor, and CloudFlare). were described.
-Then the related work was described, (Which is listed in the previous table), and the advantages, disadvantages, and benefits of each one, then compared with the project.</p>
+<p><strong>Reference:</strong> <a href="https://checkio.org">https://checkio.org</a></p>
+<h3><div id="summary" class="section">2.3 Summary</div></h3>
+<p>In this chapter, the implementation tools such as Node.js, Nuxt.js, Figma, Gemini API, OpenRouter, Monaco Editor, and Cloudflare were described.
+Then, the related work listed in the previous tables was described, and the advantages, disadvantages, and benefits of each platform were compared with the project.</p>
 <hr>
 <div class="chapter-page">
     <!-- Decorative Elements -->
@@ -2800,13 +2571,13 @@ Then the related work was described, (Which is listed in the previous table), an
         <div class="ch-dot"></div>
     </div>
 </div>
-<h3 id="31-feasibility-study"><div id="feasibility-study" class="section">3.1 Feasibility Study</div></h3>
-<h4 id="311-technical-feasibility"><div class="subsection">3.1.1 Technical Feasibility</div></h4>
+<h3><div id="feasibility-study" class="section">3.1 Feasibility Study</div></h3>
+<h4><div class="subsection">3.1.1 Technical Feasibility</div></h4>
 <ul>
 <li>
 <p><strong>Familiarity with Applications:</strong></p>
 <ul>
-<li>The target learners and educators in our region are already familiar with mobile educational apps and interactive tutorials (e.g. Duolingo, Code.org) in Arabic. Using a gamified, Arabic-language interface makes the platform intuitive; users require no extra training to log in, practice coding, or track progress.</li>
+<li>The target learners and educators in our region are already familiar with mobile educational apps and interactive tutorials (e.g. Duolingo, <a href="http://Code.org">Code.org</a>) in Arabic. Using a gamified, Arabic-language interface makes the platform intuitive; users require no extra training to log in, practice coding, or track progress.</li>
 <li>Core team members have experience building web/mobile learning tools, so we understand typical user workflows (account setup, interactive lessons).</li>
 <li>Because the UI and content are in Arabic, language barriers are eliminated, further smoothing the learning curve for beginners.</li>
 </ul>
@@ -2814,7 +2585,7 @@ Then the related work was described, (Which is listed in the previous table), an
 <li>
 <p><strong>Familiarity with Technology:</strong></p>
 <ul>
-<li>Our team has strong expertise in the chosen tech stack: we have built Vue/Nuxt.js and .NET applications before and are proficient with SQL Server databases. This means we can efficiently develop the front-end UI and the back-end server.</li>
+<li>Our team has strong expertise in the chosen tech stack: we have built Vue/Nuxt.js applications before and are proficient with PostgreSQL. This means we can efficiently develop the front-end UI and the back-end server.</li>
 <li>We have experience with embedding real-time code editors (the platform will use Microsoft’s Monaco Editor, the same engine as VS Code) and handling Python and JavaScript code execution on the server.</li>
 <li>We are comfortable working with AI APIs; in past projects we have integrated services (e.g. OpenAI APIs) and we can similarly use OpenRouter to connect to the Gemini API for intelligent hints. Overall, <strong>our familiarity is high</strong> and we have confidence that we have the coding, design, and integration skills needed to implement all planned features.</li>
 </ul>
@@ -2828,7 +2599,7 @@ Then the related work was described, (Which is listed in the previous table), an
 </ul>
 </li>
 </ul>
-<h4 id="312-organizational-feasibility"><div class="section">3.1.2 Organizational Feasibility</div></h4>
+<h4><div class="section">3.1.2 Organizational Feasibility</div></h4>
 <ul>
 <li>
 <p><strong>Project Advisor:</strong> Dr. Rehab Emad El-Dein</p>
@@ -2849,10 +2620,10 @@ Then the related work was described, (Which is listed in the previous table), an
 <ul>
 <li>
 <p><strong>Back-end Developers (2):</strong><br>
-Build and maintain the server-side logic in .NET, manage the SQL Server database, and implement APIs. One of the back-end developers will also take on DevOps responsibilities, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs.</p>
+Build and maintain the server-side logic in Nuxt server routes(node.js), manage the PostgreSQL database, and implement APIs. One of the back-end developers will also take on DevOps responsibilities, handling cloud infrastructure, CI/CD pipelines, and security. Together, they will also implement real-time code execution and integration with AI APIs.</p>
 </li>
 <li>
-<p><strong>Front-end Developers (2):</strong><br>
+<p><strong>Front-end Developers (1):</strong><br>
 Develop the user interface using Nuxt.js, ensuring a responsive and intuitive design across desktop and mobile browsers. They will integrate the Monaco editor, implement gamification features (XP, badges, leaderboards), and collaborate closely with the mobile developer to keep design consistent.</p>
 </li>
 <li>
@@ -2874,7 +2645,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
   <img src="../public/assets/CH03/Figure_3.1_Development_Team_Roles.svg" alt = "Figure 3.1: Development Team Roles">
   <figcaption>Figure 3.1: Development Team Roles</figcaption>
 </figure>
-<h4 id="313-economic-feasibility"><div class="section">3.1.3 Economic Feasibility</div></h4>
+<h4><div class="section">3.1.3 Economic Feasibility</div></h4>
 <ul>
 <li>
 <p><strong>Tangible Benefits:</strong></p>
@@ -3034,9 +2805,9 @@ Instead of dedicated content creators, <strong>all team members will collaborate
   <img src="../public/assets/CH03/Figure_3.3_Cumulative_Revenue_vs_Cumulative_Cost.svg" alt="Figure 3.3: Cumulative Revenue vs Cumulative Cost - Chart showing break-even point analysis over a 3-year period">
   <figcaption>Figure 3.3: Cumulative Revenue vs Cumulative Cost</figcaption>
 </figure>
-<h3 id="32-risk-management"><div id="risk-management" class="section">3.2 Risk Management</div></h3>
+<h3><div id="risk-management" class="section">3.2 Risk Management</div></h3>
 <p>This section identifies key risks for the coding education platform across technical, operational, and legal domains. Each risk is assessed with a likelihood (Low/Medium/High), impact (Low/Medium/High), and mitigation strategies. Where appropriate, a qualitative risk matrix is used to emphasize prioritization.</p>
-<h4 id="321-technical-risks"><div class="subsection">3.2.1 Technical Risks</div></h4>
+<h4><div class="subsection">3.2.1 Technical Risks</div></h4>
 <div id="table14">
 <table>
 <thead>
@@ -3073,7 +2844,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 </tbody>
 </table>
 </div>
-<h4 id="322-operational-risks"><div class="subsection">3.2.2 Operational Risks</div></h4>
+<h4><div class="subsection">3.2.2 Operational Risks</div></h4>
 <div id="table15">
 <table>
 <thead>
@@ -3110,7 +2881,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 </tbody>
 </table>
 </div>
-<h4 id="323-legal--compliance-risks"><div class="subsection">3.2.3 Legal &amp; Compliance Risks</div></h4>
+<h4><div class="subsection">3.2.3 Legal &amp; Compliance Risks</div></h4>
 <div id="table16">
 <table>
 <thead>
@@ -3128,7 +2899,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <td>Collecting data on children raises strict legal requirements (e.g., COPPA, GDPR). Failure to comply can cause severe penalties.</td>
 <td>Medium</td>
 <td>High</td>
-<td>Apply &quot;privacy by design&quot;: minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits.</td>
+<td>Apply “privacy by design”: minimize data collection, encrypt sensitive data, obtain parental consent, maintain clear privacy policies, and conduct regular audits.</td>
 </tr>
 <tr>
 <td><strong>Copyright &amp; Licensing</strong></td>
@@ -3139,7 +2910,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 </tr>
 <tr>
 <td><strong>Terms-of-Service Violations</strong></td>
-<td>Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform's ToS.</td>
+<td>Users may post disallowed content (hate speech, copyrighted code, malicious submissions) or cheat, violating the platform’s ToS.</td>
 <td>Medium</td>
 <td>Medium</td>
 <td>Publish comprehensive ToS; implement moderation and reporting tools; enforce rules via filters and manual review; respond promptly and revise policies regularly.</td>
@@ -3180,8 +2951,8 @@ Instead of dedicated content creators, <strong>all team members will collaborate
         <div class="ch-dot"></div>
     </div>
 </div>
-<h3 id="41-function-requirements"><div id="function-requireements" class="section">4.1 Function Requirements</div></h3>
-<h4 id="411-user-management-system"><div class="subsection">4.1.1 User Management System</div></h4>
+<h3><div id="function-requireements" class="section">4.1 Function Requirements</div></h3>
+<h4><div class="subsection">4.1.1 User Management System</div></h4>
 <p><strong>User Registration and Authentication</strong></p>
 <ul>
 <li><strong>FR-1.1:</strong> System shall allow users to create accounts using email, username, and password.</li>
@@ -3204,7 +2975,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li><strong>FR-1.11:</strong> System shall implement role-based access control for different platform features.</li>
 </ul>
 <hr>
-<h4 id="412-learning-management-system"><div class="subsection">4.1.2 Learning Management System</div></h4>
+<h4><div class="subsection">4.1.2 Learning Management System</div></h4>
 <p><strong>Course Structure and Navigation</strong></p>
 <ul>
 <li><strong>FR-2.1:</strong> System shall organize content into structured learning paths from fundamentals to advanced topics.</li>
@@ -3229,7 +3000,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li><strong>FR-2.11:</strong> System shall provide spaced repetition reminders for previously learned concepts.</li>
 </ul>
 <hr>
-<h4 id="413-code-editor-and-execution-environment"><div class="subsection">4.1.3 Code Editor and Execution Environment</div></h4>
+<h4><div class="subsection">4.1.3 Code Editor and Execution Environment</div></h4>
 <p><strong>In-Browser Code Editor</strong></p>
 <ul>
 <li><strong>FR-3.1:</strong> System shall embed Monaco Editor for in-browser code editing.</li>
@@ -3268,7 +3039,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
   <strong>Optional Feature:</strong> Custom block expansion.
 </div>
 <hr>
-<h4 id="414-interactive-exercise-system"><div class="subsection">4.1.4 Interactive Exercise System</div></h4>
+<h4><div class="subsection">4.1.4 Interactive Exercise System</div></h4>
 <p><strong>Exercise Types and Structure</strong></p>
 <ul>
 <li><strong>FR-4.1:</strong> System shall support coding challenges, bug fixing, code completion, and multiple-choice exercises.</li>
@@ -3287,14 +3058,14 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 </div>
 <p><strong>Solution Management</strong></p>
 <ul>
-<li><strong>FR-4.8:</strong> System shall provide &quot;section of solutions&quot; after successful completion.</li>
+<li><strong>FR-4.8:</strong> System shall provide “section of solutions” after successful completion.</li>
 <li><strong>FR-4.9:</strong> System shall allow users to submit multiple approaches to the same problem.</li>
 </ul>
 <div class="highlight-box">
   <strong>Optional Feature:</strong> Save and version solutions.
 </div>
 <hr>
-<h4 id="415-gamification-system"><div class="subsection">4.1.5 Gamification System</div></h4>
+<h4><div class="subsection">4.1.5 Gamification System</div></h4>
 <p><strong>Points and Experience (XP)</strong></p>
 <ul>
 <li><strong>FR-5.1:</strong> System shall award XP for completed lessons, exercises, and achievements.</li>
@@ -3335,7 +3106,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li><strong>FR-5.18:</strong> System shall create a certification dashboard showing progress and deadlines.</li>
 </ul>
 <hr>
-<h4 id="416-progress-tracking-and-analytics"><div class="subsection">4.1.6 Progress Tracking and Analytics</div></h4>
+<h4><div class="subsection">4.1.6 Progress Tracking and Analytics</div></h4>
 <p><strong>Individual Progress Monitoring</strong></p>
 <ul>
 <li><strong>FR-6.1:</strong> System shall maintain comprehensive learning history per user.</li>
@@ -3358,7 +3129,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
   <strong>Optional Feature:</strong> Charts and graphs for analytics.
 </div>
 <hr>
-<h4 id="417-ai-powered-features"><div class="subsection">4.1.7 AI-Powered Features</div></h4>
+<h4><div class="subsection">4.1.7 AI-Powered Features</div></h4>
 <p><strong>Intelligent Hints and Assistance</strong></p>
 <ul>
 <li><strong>FR-7.1:</strong> System shall integrate AI APIs (Gemini via OpenRouter) for contextual hints.</li>
@@ -3380,7 +3151,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li><strong>FR-7.8:</strong> System shall generate code examples for abstract concepts.</li>
 </ul>
 <hr>
-<h4 id="418-content-management-system"><div class="subsection">4.1.8 Content Management System</div></h4>
+<h4><div class="subsection">4.1.8 Content Management System</div></h4>
 <p><strong>Course and Lesson Administration</strong></p>
 <ul>
 <li><strong>FR-8.1:</strong> System shall provide a content creation interface for authorized users.</li>
@@ -3406,7 +3177,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
   <strong>Optional Feature:</strong> Image embedding and interactive content creation.
 </div>
 <hr>
-<h4 id="419-system-administration"><div class="subsection">4.1.9 System Administration</div></h4>
+<h4><div class="subsection">4.1.9 System Administration</div></h4>
 <p><strong>User Management</strong></p>
 <ul>
 <li><strong>FR-9.1:</strong> System shall provide an administrative dashboard for managing user accounts.</li>
@@ -3423,7 +3194,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li><strong>FR-9.6:</strong> System shall maintain content removal and user warning systems.</li>
 </ul>
 <hr>
-<h4 id="4110-integration-and-api-features"><div class="subsection">4.1.10 Integration and API Features</div></h4>
+<h4><div class="subsection">4.1.10 Integration and API Features</div></h4>
 <p><strong>Third-Party Integrations</strong></p>
 <ul>
 <li><strong>FR-10.1:</strong> System shall integrate with external authentication providers (OAuth or BetterAuth).</li>
@@ -3444,7 +3215,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
   <strong>Optional Feature:</strong> Offline content caching.
 </div>
 <hr>
-<h4 id="4111-security-and-privacy"><div class="subsection">4.1.11 Security and Privacy</div></h4>
+<h4><div class="subsection">4.1.11 Security and Privacy</div></h4>
 <p><strong>Data Protection</strong></p>
 <ul>
 <li><strong>FR-11.1:</strong> System shall encrypt sensitive user data at rest and in transit.</li>
@@ -3459,8 +3230,8 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li><strong>FR-11.7:</strong> System shall secure API endpoints with authentication and authorization.</li>
 <li><strong>FR-11.8:</strong> System shall implement rate limiting and DDoS protection.</li>
 </ul>
-<h3 id="42-non-function-requirements"><div id="non-function-requirements" class="section">4.2 Non-Function Requirements</div></h3>
-<h4 id="421-performance"><div class="subsection">4.2.1 Performance</div></h4>
+<h3><div id="non-function-requirements" class="section">4.2 Non-Function Requirements</div></h3>
+<h4><div class="subsection">4.2.1 Performance</div></h4>
 <p><strong>NFR-1.1:</strong> Response Time</p>
 <ul>
 <li>Landing page load: <strong>2 seconds</strong> (3G or better)</li>
@@ -3491,7 +3262,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>Animation frame rate: <strong>60 FPS</strong></li>
 <li>Roadmap rendering (100 nodes): <strong>1.5 seconds</strong></li>
 </ul>
-<h4 id="422-availability"><div class="subsection">4.2.2 Availability</div></h4>
+<h4><div class="subsection">4.2.2 Availability</div></h4>
 <p><strong>NFR-2.1:</strong> System Uptime</p>
 <ul>
 <li>Annual uptime: <strong>99.5%</strong> (~43.8 hours downtime)</li>
@@ -3515,7 +3286,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>AI unavailable → pre-generated hints available</li>
 <li>Execution service down → lessons &amp; content accessible</li>
 </ul>
-<h4 id="423-scalability"><div class="subsection">4.2.3 Scalability</div></h4>
+<h4><div class="subsection">4.2.3 Scalability</div></h4>
 <p><strong>NFR-3.1:</strong> Horizontal Scalability</p>
 <ul>
 <li>Stateless architecture for seamless load balancing</li>
@@ -3540,7 +3311,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>PostgreSQL with read replicas</li>
 <li>Quarterly query plan reviews</li>
 </ul>
-<h4 id="424-reliability"><div class="subsection">4.2.4 Reliability</div></h4>
+<h4><div class="subsection">4.2.4 Reliability</div></h4>
 <p><strong>NFR-4.1:</strong> Error Rate</p>
 <ul>
 <li>System error rate: <strong>&amp;lt0.5%</strong></li>
@@ -3565,7 +3336,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>User profiles: immediate consistency</li>
 <li>Cache invalidation: <strong>30 seconds</strong></li>
 </ul>
-<h4 id="425-interoperability"><div class="subsection">4.2.5 Interoperability</div></h4>
+<h4><div class="subsection">4.2.5 Interoperability</div></h4>
 <p><strong>NFR-5.1:</strong> API Standards</p>
 <ul>
 <li>RESTful design with standard HTTP methods</li>
@@ -3596,7 +3367,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>Responsive: <strong>320px–2560px</strong></li>
 <li>Native notifications (FCM/APNs)</li>
 </ul>
-<h4 id="426-usability"><div class="subsection">4.2.6 Usability</div></h4>
+<h4><div class="subsection">4.2.6 Usability</div></h4>
 <p><strong>NFR-6.1:</strong> Learnability</p>
 <ul>
 <li>Account setup → first lesson: <strong>5 minutes</strong></li>
@@ -3636,7 +3407,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>Immediate visual feedback</li>
 <li>Progress indicators for operations &gt; <strong>1 second</strong></li>
 </ul>
-<h4 id="427-maintainability"><div class="subsection">4.2.7 Maintainability</div></h4>
+<h4><div class="subsection">4.2.7 Maintainability</div></h4>
 <p><strong>NFR-7.1:</strong> Code Quality</p>
 <ul>
 <li>Test coverage: <strong>≥ 80%</strong> (critical components)</li>
@@ -3667,7 +3438,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>Automated CI/CD pipelines</li>
 <li>Rollback capability: <strong>10 minutes</strong></li>
 </ul>
-<h4 id="428-recovery"><div class="subsection">4.2.8 Recovery</div></h4>
+<h4><div class="subsection">4.2.8 Recovery</div></h4>
 <p><strong>NFR-8.1:</strong> Backup &amp; Restore</p>
 <ul>
 <li>Daily full + 6-hour incremental backups</li>
@@ -3706,7 +3477,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 <li>Transaction log maintenance</li>
 </ul>
 <hr>
-<h3 id="43-functional-decomposition"><div id="functional-decomposition" class="section">4.3 Functional Decomposition</div></h3>
+<h3><div id="functional-decomposition" class="section">4.3 Functional Decomposition</div></h3>
 <p><strong>Decomposition Diagram - Part 1</strong></p>
 <figure id="Figure41">
   <img src="../public/assets/CH04/Figure_4.1_decomposition_diagram.svg" alt="Figure 4.1: Decomposition Diagram Part 1 - User Learning">
@@ -3755,7 +3526,7 @@ Instead of dedicated content creators, <strong>all team members will collaborate
         <div class="ch-dot"></div>
     </div>
 </div>
-<h3 id="51-actor-goal-list"><div id="actor-goal-list" class="section">5.1 Actor-goal List</div></h3>
+<h3><div id="actor-goal-list" class="section">5.1 Actor-goal List</div></h3>
 <div id="table17">
 <table>
 <thead>
@@ -3775,24 +3546,24 @@ Instead of dedicated content creators, <strong>all team members will collaborate
 </tr>
 <tr>
 <td><strong>Administrator</strong></td>
-<td>1. Manage user accounts and assign roles/permissions.<br>2. Monitor platform analytics and logs.<br>3. Moderate content and enforce warnings or removals.<br>4. Oversee data security, backups, and system performance. <strong>&quot;<em>-</em>&quot;</strong><br>5. Configure integrations and APIs for external services. <strong>&quot;<em>-</em>&quot;</strong></td>
+<td>1. Manage user accounts and assign roles/permissions.<br>2. Monitor platform analytics and logs.<br>3. Moderate content and enforce warnings or removals.<br>4. Oversee data security, backups, and system performance. <strong>“<em>-</em>”</strong><br>5. Configure integrations and APIs for external services. <strong>“<em>-</em>”</strong></td>
 </tr>
 <tr>
 <td><strong>AI System<br>(Gemini / OpenRouter)</strong></td>
-<td>1. Provide contextual hints and adaptive learning recommendations.<br>2. Analyze learner code to detect errors and suggest improvements.<br>3. Generate additional exercises and code examples. <strong>&quot;<em>-</em>&quot;</strong><br>4. Adjust hint complexity based on user skill level. <strong>&quot;<em>-</em>&quot;</strong></td>
+<td>1. Provide contextual hints and adaptive learning recommendations.<br>2. Analyze learner code to detect errors and suggest improvements.<br>3. Generate additional exercises and code examples. <strong>“<em>-</em>”</strong><br>4. Adjust hint complexity based on user skill level. <strong>“<em>-</em>”</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="52-use-cases-diagram"><div id="use-cases-diagram" class="section">5.2 Use Cases Diagram</div></h3>
+<h3><div id="use-cases-diagram" class="section">5.2 Use Cases Diagram</div></h3>
 <figure id="Figure51">
   <img src="../public/assets/CH05/Figure_5.1_use_case_diagram.svg" alt="Figure 5.1: Use Cases Diagram">
   <figcaption>Figure 5.1: Use Cases Diagram</figcaption>
 </figure>
 <hr>
-<h3 id="53-use-case-formats"><div id="use-cases-format" class="section">5.3 Use Case Formats</div></h3>
-<p>This section presents use cases for the DuoCodo platform organized by user role. The cases progress from administrative functions through content creation to learner interactions, using three format levels: Brief (one-line), Casual (structured scenarios), and Fully Dressed (comprehensive specifications).</p>
-<h4 id="531-administrator-use-cases"><div class="subsection">5.3.1 Administrator Use Cases</div></h4>
+<h3><div id="use-cases-format" class="section">5.3 Use Case Formats</div></h3>
+<p>This section presents use cases for the DuoCode platform organized by user role. The cases progress from administrative functions through content creation to learner interactions, using three format levels: Brief (one-line), Casual (structured scenarios), and Fully Dressed (comprehensive specifications).</p>
+<h4><div class="subsection">5.3.1 Administrator Use Cases</div></h4>
 <p><strong>Brief Format Use Cases</strong></p>
 <div class="brief-usecase">
 <div class="usecase-title">1. Check Platform Statistics</div>
@@ -3869,7 +3640,7 @@ The administrator displays a searchable list of all registered users with basic 
 </div>
 </div>
 <hr class="usecase-separator">
-<h4 id="532-content-creator-use-cases"><div class="subsection">5.3.2 Content Creator Use Cases</div></h4>
+<h4><div class="subsection">5.3.2 Content Creator Use Cases</div></h4>
 <hr>
 <p><strong>Brief Format Use Cases</strong></p>
 <div class="brief-usecase">
@@ -3911,7 +3682,7 @@ The content creator removes unpublished course materials or exercises from their
 <div class="sub-step">Path title</div>
 <div class="sub-step">Path description</div>
 <div class="sub-step">Difficulty level (Beginner/Intermediate/Advanced)</div>
-<div class="sub-step">Path category (e.g., Programming, Data analysis)</div>
+<div class="sub-step">Path category (e.g., Programming, Data Analysis)</div>
 <div class="sub-step">Path thumbnail image</div>
 <div class="sub-step">Estimated duration</div>
 </div>
@@ -4189,7 +3960,7 @@ High frequency during initial course development. Moderate ongoing use as creato
 </div>
 </div>
 <hr class="usecase-separator">
-<h4 id="533-learner-use-cases"><div class="subsection">5.3.3 Learner Use Cases</div></h4>
+<h4><div class="subsection">5.3.3 Learner Use Cases</div></h4>
 <hr>
 <p><strong>Brief Format Use Cases</strong></p>
 <div class="brief-usecase">
@@ -4309,83 +4080,54 @@ The learner views global, weekly, or friend-based leaderboards showing XP rankin
 </div>
 </div>
 </div>
-<h3 id="54-sequence-diagram"><div id="sequence-diagram" class="section">5.4 Sequence Diagram</div></h3>
+<h3><div id="sequence-diagram" class="section">5.4 Sequence Diagram</div></h3>
 <p>Sequence diagrams were created only for casual and fully-dressed use cases, as these provide sufficient interaction detail to model system behavior. Brief use cases were excluded since they describe high-level functionality without internal system collaboration.</p>
+<figure id="Figure52">
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.3_Assign_User_Role.svg" alt="Figure 5.2: Assign User Role">
+  <figcaption>Figure 5.2: Assign User Role</figcaption>
+</figure>
+<hr>
 <figure id="Figure53">
-  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.3_Assign_User_Role.svg" alt="Figure 5.3: Assign User Role">
-  <figcaption>Figure 5.3: Assign User Role</figcaption>
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.19_Create_Coding_Exercise.svg" alt="Figure 5.3: Create Coding Exercise">
+  <figcaption>Figure 5.3: Create Coding Exercise</figcaption>
 </figure>
 <hr>
-<figure id="Figure519">
-  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.19_Create_Coding_Exercise.svg" alt="Figure 5.19: Create Coding Exercise">
-  <figcaption>Figure 5.19: Create Coding Exercise</figcaption>
+<figure id="Figure54">
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.28_Track_Progress.svg" alt="Figure 5.4: Track Progress">
+  <figcaption>Figure 5.4: Track Progress</figcaption>
 </figure>
 <hr>
-<figure id="Figure528">
-  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.28_Track_Progress.svg" alt="Figure 5.28: Track Progress">
-  <figcaption>Figure 5.28: Track Progress</figcaption>
+<figure id="Figure55">
+  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.29_Learn_XP_and_Level_Up.svg" alt="Figure 5.5: Learn XP and Level Up">
+  <figcaption>Figure 5.5: Learn XP and Level Up</figcaption>
 </figure>
 <hr>
-<figure id="Figure529">
-  <img src="../public/assets/CH05/Sequence-Diagram/Figure_5.29_Learn_XP_and_Level_Up.svg" alt="Figure 5.29: Learn XP and Level Up">
-  <figcaption>Figure 5.29: Learn XP and Level Up</figcaption>
+<h3><div id="class-diagram" class="section">5.5 Class Diagram</div></h3>
+<p>Class diagrams are structural diagrams that show the static structure of the system, including its classes, attributes, operations, and the relationships among objects. They provide a detailed view of the system’s architecture and design.</p>
+<hr>
+<p><strong>Part 1:</strong> Learning Paths, User Roles, and Enrollment</p>
+<p>This section presents the classes that model user roles, learning path structures, and enrollment. It includes the User, Role, and UserRole classes for access control, the LearningPath, PathSection, PathNode, and UserNodeProgress classes that define the curriculum hierarchy and track learner advancement, and the Enrollment class that connects users to their selected paths.</p>
+<figure id="Figure56">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.6_Class-part1.svg" alt="Figure 5.6: Class Diagram - Learning Paths, User Roles, and Enrollment">
+    <figcaption>Figure 5.6: Class Diagram - Learning Paths, User Roles, and Enrollment</figcaption>
 </figure>
 <hr>
-<h3 id="55-class-diagram"><div id="class-diagram" class="section">5.5 Class Diagram</div></h3>
-<p>Class diagrams are structural diagrams that show the static structure of the system, including its classes, attributes, operations, and the relationships among objects. They provide a detailed view of the system's architecture and design.</p>
-<hr>
-<p><strong>Part 1:</strong> Core User and Authentication System</p>
-<p>This section presents the foundational classes for user management, authentication, and authorization within the DuoCodo platform. It includes user roles, profile management, and security features.</p>
-<figure id="Figure538">
-    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.38_Class-part1.svg" alt="Figure 5.38: Core User and Authentication System">
-    <figcaption>Figure 5.38: Class Diagram - Core User and Authentication System</figcaption>
+<p><strong>Part 2:</strong> Submissions, Code Exercises, and XP Events</p>
+<p>This section illustrates the classes that handle code submission, evaluation, and gamification. It includes the Submission and TestCase classes for code execution and validation, the CodingChallenge and Question classes for defining exercises, and the XpEvent class for recording experience points and motivating learner progress.</p>
+<figure id="Figure57">
+    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.7_Class-part2.svg" alt="Figure 5.7: Class Diagram - Submissions, Code Exercises, and XP Events">
+    <figcaption>Figure 5.7: Class Diagram - Submissions, Code Exercises, and XP Events</figcaption>
 </figure>
-<hr>
-<p><strong>Part 2:</strong> Learning Content Management</p>
-<p>This section illustrates the classes responsible for managing educational content, including courses, lessons, exercises, and learning paths. It shows how content is structured and organized within the platform.</p>
-<figure id="Figure539">
-    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.39_Class-part2.svg" alt="Figure 5.39: Learning Content Management">
-    <figcaption>Figure 5.39: Class Diagram - Learning Content Management</figcaption>
-</figure>
-<hr>
-<p><strong>Part 3:</strong> Submissions and Code Execution</p>
-<p>This section demonstrates the classes that handle submission and code execution. It shows how the platform motivates and engages learners.</p>
-<figure id="Figure540">
-    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.40_Class-part3.svg" alt="Figure 5.40: Progress Tracking and Gamification">
-    <figcaption>Figure 5.40: Class Diagram - Submissions and Code Execution</figcaption>
-</figure>
-<hr>
-<p><strong>Part 4:</strong> Exercises, Attempts and Code Analysis</p>
-<p>This section presents the classes that enable exercises, attempts and code analysis, including comments, discussions, friend connections, sharing capabilities, and community engagement features.</p>
-<figure id="Figure541">
-    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.41_Class-part4.svg" alt="Figure 5.41: Social and Community Features">
-    <figcaption>Figure 5.41: Class Diagram - Exercises, Attempts and Code Analysis</figcaption>
-</figure>
-<hr>
-<p><strong>Part 5:</strong> Certification and Gamification</p>
-<p>This section shows the classes related to certification and gamification, and validation mechanisms. It demonstrates how the platform evaluates learner competency and awards credentials.</p>
-<figure id="Figure542">
-    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.42_Class-part5.svg" alt="Figure 5.42: Assessment and Certification">
-    <figcaption>Figure 5.42: Class Diagram - Certification and Gamification</figcaption>
-</figure>
-<hr>
-<p><strong>Part 6:</strong> Administration and Platform Management</p>
-<p>This section illustrates the classes responsible for platform administration, including system monitoring, analytics, content moderation, user management, and reporting capabilities.</p>
-<figure id="Figure543">
-    <img src="../public/assets/CH05/Class-Diagrams/Figure_5.43_Class-part6.svg" alt="Figure 5.43: Administration and Platform Management">
-    <figcaption>Figure 5.43: Class Diagram - Administration and Platform Management</figcaption>
-</figure>
-<hr>
 <p><strong>Key Design Patterns and Relationships</strong></p>
 <p>The class diagrams above illustrate several important design patterns and relationships:</p>
 <ul>
 <li><strong>Inheritance</strong>: User roles (Administrator, Content Creator, Learner) inherit from a base User class</li>
-<li><strong>Composition</strong>: Courses are composed of Lessons, which contain Exercises</li>
-<li><strong>Association</strong>: Many-to-many relationships between Learners and Courses through enrollment</li>
-<li><strong>Aggregation</strong>: Learning Paths aggregate multiple Courses</li>
-<li><strong>Dependency</strong>: Classes depend on authentication and authorization services</li>
+<li><strong>Composition</strong>: Learning Paths are composed of PathSections, which contain PathNodes</li>
+<li><strong>Association</strong>: Many-to-many relationships between Users and Roles through UserRole</li>
+<li><strong>Aggregation</strong>: Learning Paths aggregate multiple PathSections and PathNodes</li>
+<li><strong>Dependency</strong>: Submissions depend on CodingChallenges and TestCases for evaluation</li>
 </ul>
-<p>These diagrams provide a comprehensive view of the DuoCodo platform's architecture, showing how different components interact to deliver a complete learning experience.</p>
+<p>These diagrams provide a comprehensive view of the DuoCode platform’s architecture, showing how different components interact to deliver a complete learning experience.</p>
 <hr>
 <div class="chapter-page">
     <!-- Decorative Elements -->
@@ -4419,49 +4161,14 @@ The learner views global, weekly, or friend-based leaderboards showing XP rankin
         <div class="ch-dot"></div>
     </div>
 </div>
-<h3 id="61-entity-relationship-diagram"><div id="entity-relationship-diagram" class="section">6.1 Entity Relationship Diagram</div></h3>
-<p>Entity Relationship Diagrams (ERD) represent the data model of the DuoCodo platform, showing the entities, their attributes, and the relationships between them. This comprehensive database design ensures data integrity, efficient querying, and scalability.</p>
+<h3><div id="entity-relationship-diagram" class="section">6.1 Entity Relationship Diagram</div></h3>
+<p>Entity Relationship Diagrams (ERD) represent the data model of the DuoCode platform, showing the entities, their attributes, and the relationships between them. This comprehensive database design ensures data integrity, efficient querying, and scalability.</p>
 <hr>
-<p><strong>Part 1: User Management and Authentication</strong></p>
-<p>This section presents the core entities for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control.</p>
+<p><strong>Part 1: Learning Paths, User Roles, and Submissions</strong></p>
+<p>This section presents the comprehensive ERD covering learning paths, user roles and enrollment, submissions and code challenges, questions and XP events. It establishes the complete data model for the DuoCode platform, including User, Role, LearningPath, PathSection, PathNode, UserNodeProgress, Enrollment, Submission, CodingChallenge, TestCase, Question, QuestionOption, XpEvent, and LessonContent entities with their relationships.</p>
 <figure id="Figure61">
-    <img src="../public/assets/CH06/ERD/Figure_6.1_ERD-Part1.svg" alt="Figure 6.1: User Management and Authentication ERD">
-    <figcaption>Figure 6.1: Entity Relationship Diagram - User Management and Authentication</figcaption>
-</figure>
-<hr>
-<p><strong>Part 2: Learning Content and Course Structure</strong></p>
-<p>This section illustrates the entities related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and interconnected within the platform.</p>
-<figure id="Figure62">
-    <img src="../public/assets/CH06/ERD/Figure_6.2_ERD-Part2.svg" alt="Figure 6.2: Learning Content and Course Structure ERD">
-    <figcaption>Figure 6.2: Entity Relationship Diagram - Learning Content and Course Structure</figcaption>
-</figure>
-<hr>
-<p><strong>Part 3: Submissions and Code Execution</strong></p>
-<p>This section demonstrates the entities that track submission and code execution. It shows how the platform motivates learners through gamification elements.</p>
-<figure id="Figure63">
-    <img src="../public/assets/CH06/ERD/Figure_6.3_ERD-part3.svg" alt="Figure 6.3: Progress Tracking and Gamification ERD">
-    <figcaption>Figure 6.3: Entity Relationship Diagram - Submissions and Code Execution</figcaption>
-</figure>
-<hr>
-<p><strong>Part 4: Exercises, Attempts and Code Analysis</strong></p>
-<p>This section shows the entities for exercises, attempts and code analysis. It demonstrates how the platform evaluates learner competency and issues credentials.</p>
-<figure id="Figure64">
-    <img src="../public/assets/CH06/ERD/Figure_6.4_ERD-part4.svg" alt="Figure 6.4: Assessment and Certification ERD">
-    <figcaption>Figure 6.4: Entity Relationship Diagram - Exercises, Attempts and Code Analysis</figcaption>
-</figure>
-<hr>
-<p><strong>Part 5: Certification and Gamification</strong></p>
-<p>This section presents the entities that enable certification and gamification, including comments, discussions, friend connections, notifications, sharing, and community engagement features.</p>
-<figure id="Figure65">
-    <img src="../public/assets/CH06/ERD/Figure_6.5_ERD-part5.svg" alt="Figure 6.5: Social Features and Community ERD">
-    <figcaption>Figure 6.5: Entity Relationship Diagram - Certification and Gamification</figcaption>
-</figure>
-<hr>
-<p><strong>Part 6: Administration and System Management</strong></p>
-<p>This section illustrates the entities for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities.</p>
-<figure id="Figure66">
-    <img src="../public/assets/CH06/ERD/Figure_6.6_ERD-part6.svg" alt="Figure 6.6: Administration and System Management ERD">
-    <figcaption>Figure 6.6: Entity Relationship Diagram - Administration and System Management</figcaption>
+    <img src="../public/assets/CH06/ERD/Figure_6.1_ERD-Part1.svg" alt="Figure 6.1: Learning Paths, User Roles, and Submissions ERD">
+    <figcaption>Figure 6.1: Entity Relationship Diagram - Learning Paths, User Roles, and Submissions</figcaption>
 </figure>
 <hr>
 <p><strong>Database Design Principles</strong></p>
@@ -4474,51 +4181,23 @@ The learner views global, weekly, or friend-based leaderboards showing XP rankin
 <li><strong>Flexibility</strong>: Schema allows for future extensions and feature additions</li>
 <li><strong>Security</strong>: Sensitive data fields include encryption and access control mechanisms</li>
 </ul>
-<p>These diagrams provide a comprehensive view of the DuoCodo platform's data architecture, showing how information is stored, organized, and related to support all system functionalities.</p>
+<p>These diagrams provide a comprehensive view of the DuoCode platform’s data architecture, showing how information is stored, organized, and related to support all system functionalities.</p>
 <hr>
-<h3 id="62-database-schema"><div id="database-schema" class="section">6.2 Database Schema</div></h3>
-<p>Database Schema represents the logical structure of the DuoCodo platform database, showing tables, columns, data types, constraints, and relationships. This detailed schema design ensures optimal performance, data integrity, and supports all platform functionalities.</p>
+<h3><div id="database-schema" class="section">6.2 Database Schema</div></h3>
+<p>Database Schema represents the logical structure of the DuoCode platform database, showing tables, columns, data types, constraints, and relationships. This detailed schema design ensures optimal performance, data integrity, and supports all platform functionalities.</p>
 <hr>
-<p><strong>Part 1: User Management and Authentication</strong></p>
-<p>This section presents the database tables for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control with detailed field specifications.</p>
+<p><strong>Part 1:</strong> Learning Paths and Progress Schema</p>
+<p>This section presents the database tables for learning paths, path sections, path nodes, and user node progress. It defines the curriculum structure with detailed field specifications including primary keys, foreign keys, data types, and constraints.</p>
 <figure id="Figure67">
-    <img src="../public/assets/CH06/Schema/Figure_6.7_schema-part1.svg" alt="Figure 6.7: User Management and Authentication Schema">
-    <figcaption>Figure 6.7: Database Schema - User Management and Authentication</figcaption>
+    <img src="../public/assets/CH06/Schema/Figure_6.2_schema-part1.svg" alt="Figure 6.7: Learning Paths and Progress Schema">
+    <figcaption>Figure 6.7: Database Schema - Learning Paths and Progress</figcaption>
 </figure>
 <hr>
-<p><strong>Part 2: Learning Content and Course Structure</strong></p>
-<p>This section illustrates the database tables related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and stored within the database with proper data types and constraints.</p>
+<p><strong>Part 2:</strong> Submissions and Code Exercises Schema</p>
+<p>This section illustrates the database tables for submissions, coding challenges, questions, question options, and test cases. It shows how code submissions, evaluations, and exercise definitions are structured within the database with proper data types and constraints.</p>
 <figure id="Figure68">
-    <img src="../public/assets/CH06/Schema/Figure_6.8_schema-part2.svg" alt="Figure 6.8: Learning Content and Course Structure Schema">
-    <figcaption>Figure 6.8: Database Schema - Learning Content and Course Structure</figcaption>
-</figure>
-<hr>
-<p><strong>Part 3: Submissions and Code Execution</strong></p>
-<p>This section demonstrates the database tables that track learner progress, achievements, experience points (XP), badges, streaks, and leaderboard rankings. It shows how the platform stores and manages gamification elements with appropriate indexing.</p>
-<figure id="Figure69">
-    <img src="../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Progress Tracking and Gamification Schema">
-    <figcaption>Figure 6.9: Database Schema - Submissions and Code Execution</figcaption>
-</figure>
-<hr>
-<p><strong>Part 4: Exercises, Attempts and Code Analysis</strong></p>
-<p>This section shows the database tables for quizzes, assessments, test cases, submissions, grading, and certifications. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.</p>
-<figure id="Figure610">
-    <img src="../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Assessment and Certification Schema">
-    <figcaption>Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis</figcaption>
-</figure>
-<hr>
-<p><strong>Part 5: Certification and Gamification</strong></p>
-<p>This section presents the database tables that enable social interactions, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.</p>
-<figure id="Figure611">
-    <img src="../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Social Features and Community Schema">
-    <figcaption>Figure 6.11: Database Schema - Certification and Gamification</figcaption>
-</figure>
-<hr>
-<p><strong>Part 6: Administration and System Management</strong></p>
-<p>This section illustrates the database tables for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities with appropriate data retention policies.</p>
-<figure id="Figure612">
-    <img src="../public/assets/CH06/Schema/Figure_6.12_schema-part6.svg" alt="Figure 6.12: Administration and System Management Schema">
-    <figcaption>Figure 6.12: Database Schema - Administration and System Management</figcaption>
+    <img src="../public/assets/CH06/Schema/Figure_6.3_schema-part2.svg" alt="Figure 6.8: Submissions and Code Exercises Schema">
+    <figcaption>Figure 6.8: Database Schema - Submissions and Code Exercises</figcaption>
 </figure>
 <hr>
 <p><strong>Database Schema Specifications</strong></p>
@@ -4533,7 +4212,7 @@ The learner views global, weekly, or friend-based leaderboards showing XP rankin
 <li><strong>Scalability</strong>: Schema design supports partitioning and sharding for future growth</li>
 <li><strong>Backup Strategy</strong>: Tables include timestamp fields for incremental backup operations</li>
 </ul>
-<p>This detailed schema provides the implementation blueprint for the DuoCodo platform's database, ensuring robust data management and optimal query performance across all system components.</p>
+<p>This detailed schema provides the implementation blueprint for the DuoCode platform’s database, ensuring robust data management and optimal query performance across all system components.</p>
 <hr>
 <div class="chapter-page">
     <!-- Decorative Elements -->
@@ -4567,7 +4246,7 @@ The learner views global, weekly, or friend-based leaderboards showing XP rankin
         <div class="ch-dot"></div>
     </div>
 </div>
-<h3 id="71-authentication-screens"><div id="Authentication-Screens" class="section">7.1 Authentication Screens</div></h3>
+<h3><div id="Authentication-Screens" class="section">7.1 Authentication Screens</div></h3>
 <div class="ui-container">
 <figure id="Figure71">
     <img src="../public/assets/CH07/Figure_7.1_Desktop-login.png" alt="Login Screen">
@@ -4594,7 +4273,7 @@ The learner views global, weekly, or friend-based leaderboards showing XP rankin
     <figcaption>Figure 7.6: Set Username</figcaption>
 </figure>
 </div>
-<h3 id="72-main-dashboard"><div id="Main-Dashboard" class="section">7.2 Main Dashboard</div></h3>
+<h3><div id="Main-Dashboard" class="section">7.2 Main Dashboard</div></h3>
 <div class="ui-container">
 <figure id="Figure77">
     <img src="../public/assets/CH07/Figure_7.7_Desktop-Learning-Path.png" alt="Learning Path">
@@ -4664,10 +4343,262 @@ The learner views global, weekly, or friend-based leaderboards showing XP rankin
     <div class="content-wrapper">
         <!-- Chapter Badge -->
         <div class="chapter-badge">
-            <div id="Chapter-8-References" class="chapter-number">08</div>
+            <div id="Chapter-8-Implementation" class="chapter-number">08</div>
         </div>
         <!-- Chapter Label -->
         <div class="chapter-label">CHAPTER EIGHT</div>
+        <!-- Decorative Line -->
+        <div class="ch-decorative-line"></div>
+        <!-- Main Title -->
+        <h1 class="chapter-title" style="font-size: 3.5rem;">Implementation</h1>
+        <!-- Subtitle -->
+        <p class="chapter-subtitle">
+            A comprehensive look at the implemented platform screens, modules, and code architecture
+        </p>
+    </div>
+    <!-- Bottom Pattern -->
+    <div class="ch-pattern-ch-dots">
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+        <div class="ch-dot"></div>
+    </div>
+</div>
+<p>
+This chapter presents the complete implementation of the DuoCode platform, organized into six sections: the desktop user interface, mobile interface, administration panel, creator dashboard, mobile architecture layers, and the platform code structure. Each section showcases the key screens and components that together form the fully functional gamified learning ecosystem.
+</p>
+<h3><div id="Desktop-Screens" class="section">8.1 Desktop Screens</div></h3>
+<p>
+The desktop implementation provides a rich, responsive learning environment with seamless navigation between learning paths, interactive content, and progress tracking features.
+</p>
+<div class="ui-container">
+<figure id="Figure81">
+    <img src="../public/assets/CH08/Figure_8.1_desktop-landing_page.png" alt="Desktop Landing Page">
+    <figcaption>Figure 8.1: Desktop Landing Page</figcaption>
+</figure>
+<figure id="Figure82">
+    <img src="../public/assets/CH08/Figure_8.2_desktop-login.png" alt="Desktop Login">
+    <figcaption>Figure 8.2: Desktop Login Screen</figcaption>
+</figure>
+<figure id="Figure83">
+    <img src="../public/assets/CH08/Figure_8.3_desktop-register.png" alt="Desktop Registration">
+    <figcaption>Figure 8.3: Desktop Registration Screen</figcaption>
+</figure>
+<figure id="Figure84">
+    <img src="../public/assets/CH08/Figure_8.4_desktop-dashboard.png" alt="Desktop Dashboard">
+    <figcaption>Figure 8.4: Desktop Dashboard</figcaption>
+</figure>
+<figure id="Figure86">
+    <img src="../public/assets/CH08/Figure_8.6_desktop-dashboard_video.png" alt="Desktop Video Player">
+    <figcaption>Figure 8.6: Desktop Dashboard Video Player</figcaption>
+</figure>
+<figure id="Figure813">
+    <img src="../public/assets/CH08/Figure_8.13_desktop-dashboard_chat.png" alt="Desktop Chat Interface">
+    <figcaption>Figure 8.13: Desktop Dashboard Chat</figcaption>
+</figure>
+<figure id="Figure814">
+    <img src="../public/assets/CH08/Figure_8.14_desktop-dashboard_article.png" alt="Desktop Article View">
+    <figcaption>Figure 8.14: Desktop Dashboard Article</figcaption>
+</figure>
+<figure id="Figure812">
+    <img src="../public/assets/CH08/Figure_8.12_desktop-learing_paths.png" alt="Desktop Learning Paths">
+    <figcaption>Figure 8.12: Desktop Learning Paths</figcaption>
+</figure>
+<figure id="Figure815">
+    <img src="../public/assets/CH08/Figure_8.15_desktop-leaderboard.png" alt="Desktop Leaderboard">
+    <figcaption>Figure 8.15: Desktop Leaderboard</figcaption>
+</figure>
+<figure id="Figure816">
+    <img src="../public/assets/CH08/Figure_8.16_desktop-analysis.png" alt="Desktop Analysis">
+    <figcaption>Figure 8.16: Desktop Analysis Dashboard</figcaption>
+</figure>
+<figure id="Figure817">
+    <img src="../public/assets/CH08/Figure_8.17_desktop-profile.png" alt="Desktop Profile">
+    <figcaption>Figure 8.17: Desktop Profile</figcaption>
+</figure>
+</div>
+<h3><div id="Mobile-Screens" class="section">8.2 Mobile Screens</div></h3>
+<p>
+The mobile implementation delivers a fully optimized experience with touch-friendly navigation, ensuring learners can access content, track progress, and engage with gamification features on any device.
+</p>
+<div class="ui-container">
+<figure id="Figure85">
+    <img src="../public/assets/CH08/Figure_8.5_mobile-dashboard.png" alt="Mobile Dashboard">
+    <figcaption>Figure 8.5: Mobile Dashboard</figcaption>
+</figure>
+<figure id="Figure87">
+    <img src="../public/assets/CH08/Figure_8.7_mobile-dashboard_video.png" alt="Mobile Video">
+    <figcaption>Figure 8.7: Mobile Dashboard Video Player</figcaption>
+</figure>
+<figure id="Figure88">
+    <img src="../public/assets/CH08/Figure_8.8_mobile-dashboard_chat.png" alt="Mobile Chat">
+    <figcaption>Figure 8.8: Mobile Dashboard Chat Interface</figcaption>
+</figure>
+<figure id="Figure89">
+    <img src="../public/assets/CH08/Figure_8.9_mobile-dashboard_article.png" alt="Mobile Article">
+    <figcaption>Figure 8.9: Mobile Dashboard Article View</figcaption>
+</figure>
+<figure id="Figure810">
+    <img src="../public/assets/CH08/Figure_8.10_mobile-leaderboard.png" alt="Mobile Leaderboard">
+    <figcaption>Figure 8.10: Mobile Leaderboard</figcaption>
+</figure>
+<figure id="Figure811">
+    <img src="../public/assets/CH08/Figure_8.11_mobile-learning_paths.png" alt="Mobile Learning Paths">
+    <figcaption>Figure 8.11: Mobile Learning Paths</figcaption>
+</figure>
+</div>
+<h3><div id="Admin-Panel" class="section">8.3 Admin Panel</div></h3>
+<p>
+The administration panel provides comprehensive platform management capabilities, including user administration, content oversight, AI configuration, and system analytics.
+</p>
+<div class="ui-container">
+<figure id="Figure818">
+    <img src="../public/assets/CH08/Figure_8.18_Admin-AI-Key-Management.png" alt="Admin AI Key Management">
+    <figcaption>Figure 8.18: Admin AI Key Management</figcaption>
+</figure>
+<figure id="Figure819">
+    <img src="../public/assets/CH08/Figure_8.19_Admin-Creator-Applications.png" alt="Admin Creator Applications">
+    <figcaption>Figure 8.19: Admin Creator Applications</figcaption>
+</figure>
+<figure id="Figure820">
+    <img src="../public/assets/CH08/Figure_8.20_Admin-Path-Management.png" alt="Admin Path Management">
+    <figcaption>Figure 8.20: Admin Path Management</figcaption>
+</figure>
+<figure id="Figure821">
+    <img src="../public/assets/CH08/Figure_8.21_Admin-Platform-Analytics.png" alt="Admin Platform Analytics">
+    <figcaption>Figure 8.21: Admin Platform Analytics</figcaption>
+</figure>
+<figure id="Figure822">
+    <img src="../public/assets/CH08/Figure_8.22_Admin-User-Management.png" alt="Admin User Management">
+    <figcaption>Figure 8.22: Admin User Management</figcaption>
+</figure>
+</div>
+<h3><div id="Creator-Dashboard" class="section">8.4 Creator Dashboard</div></h3>
+<p>
+The creator dashboard empowers content creators with a full suite of tools to design, build, and manage educational content — including learning paths, articles, challenges, quizzes, videos, and AI-powered chat scripts.
+</p>
+<div class="ui-container">
+<figure id="Figure823">
+    <img src="../public/assets/CH08/Figure_8.23_Creator-Analytics.png" alt="Creator Analytics">
+    <figcaption>Figure 8.23: Creator Analytics</figcaption>
+</figure>
+<figure id="Figure824">
+    <img src="../public/assets/CH08/Figure_8.24_Creator-Article-Editor.png" alt="Creator Article Editor">
+    <figcaption>Figure 8.24: Creator Article Editor</figcaption>
+</figure>
+<figure id="Figure825">
+    <img src="../public/assets/CH08/Figure_8.25_Creator-Challenge-Editor.png" alt="Creator Challenge Editor">
+    <figcaption>Figure 8.25: Creator Challenge Editor</figcaption>
+</figure>
+<figure id="Figure826">
+    <img src="../public/assets/CH08/Figure_8.26_Creator-Chat-Editor.png" alt="Creator Chat Editor">
+    <figcaption>Figure 8.26: Creator Chat Editor</figcaption>
+</figure>
+<figure id="Figure827">
+    <img src="../public/assets/CH08/Figure_8.27_Creator-Dashboard.png" alt="Creator Dashboard">
+    <figcaption>Figure 8.27: Creator Dashboard</figcaption>
+</figure>
+<figure id="Figure828">
+    <img src="../public/assets/CH08/Figure_8.28_Creator-Path-Architect.png" alt="Creator Path Architect">
+    <figcaption>Figure 8.28: Creator Path Architect</figcaption>
+</figure>
+<figure id="Figure829">
+    <img src="../public/assets/CH08/Figure_8.29_Creator-Quiz-Editor.png" alt="Creator Quiz Editor">
+    <figcaption>Figure 8.29: Creator Quiz Editor</figcaption>
+</figure>
+<figure id="Figure830">
+    <img src="../public/assets/CH08/Figure_8.30_Creator-Video-Editor.png" alt="Creator Video Editor">
+    <figcaption>Figure 8.30: Creator Video Editor</figcaption>
+</figure>
+</div>
+<h3><div id="Mobile-Architecture" class="section">8.5 Mobile Architecture</div></h3>
+<p>
+The mobile application follows a clean architecture pattern with well-defined repository and service layers for authentication, user profiles, and learning path management.
+</p>
+<div class="ui-container">
+<figure id="Figure831">
+    <img src="../public/assets/CH08/Figure_8.31_mobile-auth_repo_1.png" alt="Mobile Auth Repository 1">
+    <figcaption>Figure 8.31: Mobile Auth Repository 1</figcaption>
+</figure>
+<figure id="Figure832">
+    <img src="../public/assets/CH08/Figure_8.32_mobile-auth_repo_2.png" alt="Mobile Auth Repository 2">
+    <figcaption>Figure 8.32: Mobile Auth Repository 2</figcaption>
+</figure>
+<figure id="Figure833">
+    <img src="../public/assets/CH08/Figure_8.33_mobile-auth_service_1.png" alt="Mobile Auth Service 1">
+    <figcaption>Figure 8.33: Mobile Auth Service 1</figcaption>
+</figure>
+<figure id="Figure834">
+    <img src="../public/assets/CH08/Figure_8.34_mobile-auth_service_2.png" alt="Mobile Auth Service 2">
+    <figcaption>Figure 8.34: Mobile Auth Service 2</figcaption>
+</figure>
+<figure id="Figure835">
+    <img src="../public/assets/CH08/Figure_8.35_mobile-user_model.png" alt="Mobile User Model">
+    <figcaption>Figure 8.35: Mobile User Model</figcaption>
+</figure>
+<figure id="Figure836">
+    <img src="../public/assets/CH08/Figure_8.36_mobile-profile_repo.png" alt="Mobile Profile Repository">
+    <figcaption>Figure 8.36: Mobile Profile Repository</figcaption>
+</figure>
+<figure id="Figure837">
+    <img src="../public/assets/CH08/Figure_8.37_mobile-learning_path_repo_1.png" alt="Mobile Learning Path Repository 1">
+    <figcaption>Figure 8.37: Mobile Learning Path Repository 1</figcaption>
+</figure>
+<figure id="Figure838">
+    <img src="../public/assets/CH08/Figure_8.38_mobile-learning_path_repo_2.png" alt="Mobile Learning Path Repository 2">
+    <figcaption>Figure 8.38: Mobile Learning Path Repository 2</figcaption>
+</figure>
+</div>
+<h3><div id="Platform-Code-Structure" class="section">8.6 Platform Code Structure</div></h3>
+<p>
+The platform codebase is organized into modular frontend dashboards for each user role and a comprehensive set of backend API endpoints that power the core functionality of the learning ecosystem.
+</p>
+<div class="ui-container">
+<figure id="Figure839">
+    <img src="../public/assets/CH08/Figure_8.39_Platform-Code-Frontend-Student_Dashboard.png" alt="Frontend Student Dashboard Code">
+    <figcaption>Figure 8.39: Frontend Student Dashboard Code</figcaption>
+</figure>
+<figure id="Figure840">
+    <img src="../public/assets/CH08/Figure_8.40_Platform-Code-Frontend-Creator_Dashboard.png" alt="Frontend Creator Dashboard Code">
+    <figcaption>Figure 8.40: Frontend Creator Dashboard Code</figcaption>
+</figure>
+<figure id="Figure841">
+    <img src="../public/assets/CH08/Figure_8.41_Platform-Code-Frontend-Admin_Dashboard.png" alt="Frontend Admin Dashboard Code">
+    <figcaption>Figure 8.41: Frontend Admin Dashboard Code</figcaption>
+</figure>
+<figure id="Figure842">
+    <img src="../public/assets/CH08/Figure_8.42_Platform-Code-Backend_API-Skill_Tree.png" alt="Backend API Skill Tree">
+    <figcaption>Figure 8.42: Backend API - Skill Tree</figcaption>
+</figure>
+<figure id="Figure843">
+    <img src="../public/assets/CH08/Figure_8.43_Platform-Code-Backend_API-Code_Submission.png" alt="Backend API Code Submission">
+    <figcaption>Figure 8.43: Backend API - Code Submission</figcaption>
+</figure>
+<figure id="Figure844">
+    <img src="../public/assets/CH08/Figure_8.44_Platform-Code-Backend_API-Generate_Chat_Script_By_AI.png" alt="Backend API Generate Chat Script">
+    <figcaption>Figure 8.44: Backend API - Generate Chat Script By AI</figcaption>
+</figure>
+<figure id="Figure845">
+    <img src="../public/assets/CH08/Figure_8.45_Platform-Code-Backend_API-Manage_Creators_Applications_By_Admin.png" alt="Backend API Manage Creator Applications">
+    <figcaption>Figure 8.45: Backend API - Manage Creator Applications By Admin</figcaption>
+</figure>
+</div>
+<hr>
+<div class="chapter-page">
+    <!-- Decorative Elements -->
+    <div class="ch-decoration-top"></div>
+    <div class="ch-decoration-bottom"></div>
+    <div class="ch-circle-decoration"></div>
+    <div class="ch-square-decoration"></div>
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Chapter Badge -->
+        <div class="chapter-badge">
+            <div id="Chapter-9-References" class="chapter-number">09</div>
+        </div>
+        <!-- Chapter Label -->
+        <div class="chapter-label">CHAPTER NINE</div>
         <!-- Decorative Line -->
         <div class="ch-decorative-line"></div>
         <!-- Main Title -->

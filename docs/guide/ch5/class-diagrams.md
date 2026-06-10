@@ -16,7 +16,7 @@ Class diagrams are structural diagrams that show the static structure of the sys
 
 ## Part 1: Core User and Authentication System
 
-This section presents the foundational classes for user management, authentication, and authorization within the DuoCodo platform. It includes user roles, profile management, and security features.
+This section presents the foundational classes for user management, authentication, and authorization within the DuoCode platform. It includes user roles, profile management, and security features.
 
 <figure>
     <img src="../../public/assets/CH05/Class-Diagrams/Figure_5.38_Class-part1.svg" alt="Figure 5.38: Core User and Authentication System">
@@ -90,4 +90,4 @@ The class diagrams above illustrate several important design patterns and relati
 - **Aggregation**: Learning Paths aggregate multiple Courses
 - **Dependency**: Classes depend on authentication and authorization services
 
-These diagrams provide a comprehensive view of the DuoCodo platform's architecture, showing how different components interact to deliver a complete learning experience.
+These diagrams provide a comprehensive view of the DuoCode platform's architecture, showing how different components interact to deliver a complete learning experience.

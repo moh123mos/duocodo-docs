@@ -1,22 +1,22 @@
 ---
 layout: home
 hero:
-  name: "DuoCodo"
+  name: "DuoCode"
   text: "Graduation Project Documentation"
   tagline: "Brief description of what your project does"
   image:
     src: /hero.jpg
-    alt: DuoCodo Project
+    alt: DuoCode Project
   actions:
     - theme: brand
       text: Get Started
       link: /guide/ch1/
     - theme: alt
       text: View on GitHub
-      link: https://github.com/moh123mos/duocodo-docs
+      link: https://github.com/moh123mos/duocode-docs
     - theme: alt
       text: 📄 Download PDF
-      link: /duocodo.pdf
+      link: /duocode.pdf
 
 features:
   - icon: 🎯

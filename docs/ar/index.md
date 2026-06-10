@@ -13,10 +13,10 @@ hero:
       link: /ar/guide/ch1/
     - theme: alt
       text: عرض على GitHub
-      link: https://github.com/moh123mos/duocodo-docs
+      link: https://github.com/moh123mos/duocode-docs
     - theme: alt
       text: 📄 تحميل PDF
-      link: /duocodo.pdf
+      link: /duocode.pdf
 
 features:
   - icon: 🎯
