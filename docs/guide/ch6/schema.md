@@ -19,7 +19,7 @@ Database Schema represents the logical structure of the DuoCode platform databas
 This section presents the database tables for user management, including user accounts, roles, authentication mechanisms, and profile information. It establishes the foundation for user identity and access control with detailed field specifications.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.7_schema-part1.svg" alt="Figure 6.7: User Management and Authentication Schema">
+    <img src="../../public/assets/CH06/Schema/Figure_6.2_schema-part1.svg" alt="Figure 6.7: User Management and Authentication Schema">
     <figcaption>Figure 6.7: Database Schema - User Management and Authentication</figcaption>
 </figure>
 
@@ -30,52 +30,8 @@ This section presents the database tables for user management, including user ac
 This section illustrates the database tables related to educational content organization, including courses, lessons, modules, exercises, and learning paths. It shows how content is structured and stored within the database with proper data types and constraints.
 
 <figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.8_schema-part2.svg" alt="Figure 6.8: Learning Content and Course Structure Schema">
+    <img src="../../public/assets/CH06/Schema/Figure_6.3_schema-part2.svg" alt="Figure 6.8: Learning Content and Course Structure Schema">
     <figcaption>Figure 6.8: Database Schema - Learning Content and Course Structure</figcaption>
-</figure>
-
----
-
-## Part 3: Submission and Code Execution
-
-This section demonstrates the database tables that track submission and code execution. It shows how the platform stores and manages gamification elements with appropriate indexing.
-
-<figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.9_schema-part3.svg" alt="Figure 6.9: Submission and Code Execution Schema">
-    <figcaption>Figure 6.9: Database Schema - Submission and Code Execution</figcaption>
-</figure>
-
----
-
-## Part 4: Exercises, Attempts and Code Analysis
-
-This section shows the database tables for exercises, attempts and code analysis. It demonstrates how the platform stores evaluation data and manages credentials with proper validation constraints.
-
-<figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.10_schema-part4.svg" alt="Figure 6.10: Exercises, Attempts and Code Analysis Schema">
-    <figcaption>Figure 6.10: Database Schema - Exercises, Attempts and Code Analysis</figcaption>
-</figure>
-
----
-
-## Part 5: Certification and Gamification
-
-This section presents the database tables that enable certification and gamification, including comments, discussions, friend connections, notifications, sharing, and community engagement features with optimized query structures.
-
-<figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.11_schema-part5.svg" alt="Figure 6.11: Certification and Gamification Schema">
-    <figcaption>Figure 6.11: Database Schema - Certification and Gamification</figcaption>
-</figure>
-
----
-
-## Part 6: Administration and System Management
-
-This section illustrates the database tables for platform administration, including system logs, analytics, content moderation, reports, backups, and monitoring capabilities with appropriate data retention policies.
-
-<figure>
-    <img src="../../public/assets/CH06/Schema/Figure_6.12_schema-part6.svg" alt="Figure 6.12: Administration and System Management Schema">
-    <figcaption>Figure 6.12: Database Schema - Administration and System Management</figcaption>
 </figure>
 
 ---
