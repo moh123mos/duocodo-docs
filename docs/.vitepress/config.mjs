@@ -129,6 +129,19 @@ export default withMermaid({
           ],
         },
         {
+          text: "CH8: Implementation",
+          collapsed: true,
+          items: [
+            { text: "Overview", link: "/guide/ch8/implementation" },
+            { text: "Desktop Screens", link: "/guide/ch8/desktop-screens" },
+            { text: "Mobile Screens", link: "/guide/ch8/mobile-screens" },
+            { text: "Admin Panel", link: "/guide/ch8/admin-panel" },
+            { text: "Creator Dashboard", link: "/guide/ch8/creator-dashboard" },
+            { text: "Mobile Architecture", link: "/guide/ch8/mobile-architecture" },
+            { text: "Platform Code Structure", link: "/guide/ch8/platform-code-structure" },
+          ],
+        },
+        {
           text: "All Chapters",
           link: "/guide/one-for-all",
         },
